@@ -1,14 +1,29 @@
 package com.symja.app;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import org.matheclipse.core.eval.ExprEvaluator;
+import org.matheclipse.core.expression.F;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            LoggerFix.fix();
+            F.initSymbols();
+            ExprEvaluator exprEvaluator = new ExprEvaluator();
+            Log.d(TAG, String.valueOf(exprEvaluator.eval("Sin(x)+Cos(x)")));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
