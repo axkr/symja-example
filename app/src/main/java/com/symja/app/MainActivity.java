@@ -12,13 +12,16 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+    static {
+        LoggerFix.fix();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         try {
-            LoggerFix.fix();
             F.initSymbols();
             ExprEvaluator exprEvaluator = new ExprEvaluator();
             Log.d(TAG, String.valueOf(exprEvaluator.eval("Sin(x)+Cos(x)")));

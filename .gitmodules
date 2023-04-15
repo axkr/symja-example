@@ -1,0 +1,3 @@
+[submodule "symja_android_library"]
+	path = symja_android_library
+	url = https://github.com/axkr/symja_android_library.git
