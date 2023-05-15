@@ -11,6 +11,4 @@ chmod +x graldew
 
 # Screenshots
 
-![img_1.png](docs/img_1.png)
-
-![img_2.png](docs/img_2.png)
+<img src="docs/img_1.png" width="200" height="auto"> <img src="docs/img_2.png" width="200" height="auto">
