@@ -8,15 +8,18 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputEditText.OutlinedBox"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
+        android:layout_margin="4dp"
         android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_field"
+            android:padding="4dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lines="2"
+            android:gravity="top|start"
+            android:lines="3"
             android:typeface="monospace" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,17 +55,22 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Result" />
+            android:text="@string/result_plaintext" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stdout" />
+            android:text="@string/latex" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stderr" />
+            android:text="@string/stdout" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stderr" />
     </com.google.android.material.tabs.TabLayout>
 
     <ViewFlipper
@@ -75,6 +83,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:typeface="monospace" />
+
+        <FrameLayout
+            android:id="@+id/latex_tab"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ru.noties.jlatexmath.JLatexMathView
+                android:id="@+id/latex_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:padding="16dip"
+                app:jlmv_alignHorizontal="center"
+                app:jlmv_alignVertical="center"
+                app:jlmv_textSize="16sp" />
+        </FrameLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/stdout_label"

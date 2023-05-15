@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">Symja</string>
     <string name="button_calculate">Calculate</string>
+    <string name="result_plaintext">Result</string>
+    <string name="stdout">Stdout</string>
+    <string name="stderr">Stderr</string>
+    <string name="latex">Latex</string>
 </resources>

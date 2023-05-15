@@ -47,7 +47,7 @@ android {
 dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     testImplementation 'junit:junit:4.13.2'
@@ -58,4 +58,10 @@ dependencies {
 
     implementation 'org.matheclipse:matheclipse-core:3.0.0-SNAPSHOT'
     implementation 'org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT'
+
+    implementation 'ru.noties:jlatexmath-android:0.2.0'
+    // for Cyrillic symbols
+    implementation 'ru.noties:jlatexmath-android-font-cyrillic:0.2.0'
+    // for Greek symbols
+    implementation 'ru.noties:jlatexmath-android-font-greek:0.2.0'
 }
