@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Symja</string>
+    <string name="button_calculate">Calculate</string>
 </resources>
