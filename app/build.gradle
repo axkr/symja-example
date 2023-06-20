@@ -27,13 +27,14 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    sourceSets {
-        androidTest {
-            java {
-                srcDir '../symja_android_library/symja_android_library/matheclipse-core/src/test/java'
-            }
-        }
-    }
+    // sourceSets {
+    //     androidTest {
+    //         java {
+    //             srcDir '../symja_android_library/symja_android_library/matheclipse-core/src/test/java'
+    //         }
+    //     }
+    // }
+
     packagingOptions {
         resources {
             excludes += ['META-INF/DEPENDENCIES']
@@ -41,6 +42,9 @@ android {
         }
     }
 
+    testOptions {
+        animationsDisabled = true
+    }
 }
 
 dependencies {
@@ -54,6 +58,8 @@ dependencies {
     androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test:runner:1.4.0'
+    androidTestImplementation 'androidx.test:rules:1.4.0'
 
     implementation 'com.google.guava:guava:32.0.1-android'
     implementation ('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
