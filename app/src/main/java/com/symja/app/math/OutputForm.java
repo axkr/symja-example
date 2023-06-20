@@ -1,4 +1,4 @@
-package com.symja.app;
+package com.symja.app.math;
 
 import org.matheclipse.core.form.output.OutputFormFactory;
 import org.matheclipse.core.form.tex.TeXFormFactory;

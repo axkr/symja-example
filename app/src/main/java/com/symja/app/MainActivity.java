@@ -16,6 +16,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.tabs.TabLayout;
+import com.symja.app.math.OutputForm;
+import com.symja.app.math.Symja;
+import com.symja.app.math.SymjaResult;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

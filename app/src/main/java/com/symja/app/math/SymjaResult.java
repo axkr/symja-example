@@ -1,4 +1,4 @@
-package com.symja.app;
+package com.symja.app.math;
 
 import org.jetbrains.annotations.Nullable;
 import org.matheclipse.core.interfaces.IExpr;

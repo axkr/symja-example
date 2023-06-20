@@ -1,4 +1,4 @@
-package com.symja.app;
+package com.symja.app.math;
 
 import android.util.Log;
 
@@ -11,7 +11,6 @@ import org.matheclipse.core.expression.F;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.core.eval.util.WriterOutputStream;
 
-import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.io.StringWriter;
 import java.util.concurrent.Semaphore;
