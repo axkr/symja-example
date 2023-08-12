@@ -93,14 +93,15 @@ public class MainActivity extends AppCompatActivity {
                 SymjaResult result = symja.eval(input);
                 mainThreadHandler.post(() -> onCalculationComplete(result));
                 //Background work here
-            } catch (Throwable throwable) {
-                mainThreadHandler.post(() -> onCalculationError(throwable));
+            } catch (Throwable error) {
+                error.printStackTrace();
+                mainThreadHandler.post(() -> onCalculationError(error));
             }
         });
     }
 
     @SuppressLint("RestrictedApi")
-    private void onCalculationComplete(SymjaResult result) {
+    private void onCalculationComplete(@NonNull SymjaResult result) {
         onCalculationDone();
 
         switchTab(RESULT_TAB);
@@ -117,10 +118,11 @@ public class MainActivity extends AppCompatActivity {
         viewFlipper.setDisplayedChild(index);
     }
 
-    private void onCalculationError(@NonNull Throwable throwable) {
+    private void onCalculationError(@NonNull Throwable error) {
+
         onCalculationDone();
         switchTab(STDERR_TAB);
-        setErrorMessage(throwable.getMessage());
+        setErrorMessage(error.getMessage());
     }
 
     private void onCalculationStart() {
