@@ -11,7 +11,11 @@ chmod +x gradlew
 
 # Screenshots
 
-<img src="docs/img_1.png" width="200" height="auto"> <img src="docs/img_2.png" width="200" height="auto">
+<img src="docs/img_1.png" width="200" height="auto">
+
+<img src="docs/img_2.png" width="200" height="auto">
+
+<img src="docs/img_3.png" width="200" height="auto">
 
 # Gradle Configuration
 
