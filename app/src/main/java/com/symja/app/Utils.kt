@@ -9,19 +9,18 @@ import io.github.rosemoe.sora.widget.schemes.EditorColorScheme
 import io.github.rosemoe.sora.widget.schemes.SchemeDarcula
 
 fun switchThemeIfRequired(context: Context, editor: CodeEditor) {
-//    if ((context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES) {
-//        if (editor.colorScheme is TextMateColorScheme) {
-//            ThemeRegistry.getInstance().setTheme("darcula")
-//        } else {
-//            editor.colorScheme = SchemeDarcula()
-//        }
-//    } else {
-//        if (editor.colorScheme is TextMateColorScheme) {
-//            ThemeRegistry.getInstance().setTheme("quietlight")
-//        } else {
-//            editor.colorScheme = EditorColorScheme()
-//        }
-//    }
-    ThemeRegistry.getInstance().setTheme("darcula")
+    if ((context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES) {
+        if (editor.colorScheme is TextMateColorScheme) {
+            ThemeRegistry.getInstance().setTheme("darcula")
+        } else {
+            editor.colorScheme = SchemeDarcula()
+        }
+    } else {
+        if (editor.colorScheme is TextMateColorScheme) {
+            ThemeRegistry.getInstance().setTheme("quietlight")
+        } else {
+            editor.colorScheme = EditorColorScheme()
+        }
+    }
     editor.invalidate()
 }

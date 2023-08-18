@@ -24,15 +24,12 @@ import io.github.rosemoe.sora.langs.textmate.registry.ThemeRegistry
 import io.github.rosemoe.sora.langs.textmate.registry.model.ThemeModel
 import io.github.rosemoe.sora.langs.textmate.registry.provider.AssetsFileResolver
 import io.github.rosemoe.sora.widget.CodeEditor
-import org.apache.pdfbox.io.IOUtils
 import org.eclipse.tm4e.core.registry.IThemeSource
+import org.matheclipse.core.convert.AST2Expr
 import ru.noties.jlatexmath.JLatexMathView
-import java.io.IOException
-import java.nio.charset.StandardCharsets
-import java.util.Objects
+import java.lang.reflect.Type
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
-import java.util.function.Consumer
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,7 +53,10 @@ class MainActivity : AppCompatActivity() {
         tabLayout = findViewById(R.id.tab_layout)
         editor = findViewById(R.id.input_field)
         configInputField()
+
         resultLabel = findViewById(R.id.result_label)
+        resultLabel?.typeface = Typeface.createFromAsset(assets, "JetBrainsMono-Regular.ttf")
+
         latexLabel = findViewById(R.id.latex_view)
         errorMessageLabel = findViewById(R.id.stderr_label)
         standardMessageLabel = findViewById(R.id.stdout_label)
@@ -71,11 +71,7 @@ class MainActivity : AppCompatActivity() {
         })
         btnCalc = findViewById(R.id.btn_calc)
         btnCalc?.setOnClickListener { calculate() }
-        try {
-            editor.setText(String(IOUtils.toByteArray(assets.open("EliminateRules.m"))))
-        } catch (e: IOException) {
-            throw RuntimeException(e)
-        }
+
     }
 
     private fun configInputField() {
@@ -88,11 +84,15 @@ class MainActivity : AppCompatActivity() {
         editor.typefaceLineNumber = font
         editor.isWordwrap = true
 
-        val language = TextMateLanguage.create("source.mathematica", true)
+        val language: TextMateLanguage = TextMateLanguage.create("source.mathematica", true)
+        AST2Expr.initialize()
+        // $ is used for code snippet
+        language.setCompleterKeywords(
+            AST2Expr.PREDEFINED_SYMBOLS_MAP.map { x -> x.value.replace("$", "") }
+            .toSet().toTypedArray())
         editor.setEditorLanguage(language)
 
         ensureTextmateTheme()
-
         switchThemeIfRequired(this, editor)
     }
 
