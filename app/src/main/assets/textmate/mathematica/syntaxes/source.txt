@@ -1,0 +1,3 @@
+https://github.com/shadanan/mathematica-tmbundle/tree/master/Syntaxes
+
+Check all <pattern></pattern> to make sure it works on Android

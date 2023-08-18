@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="3"
+    android:weightSum="4"
     tools:context=".MainActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1.5">
 
         <io.github.rosemoe.sora.widget.CodeEditor
             android:id="@+id/input_field"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="top|start"
-            android:lines="3"
-            android:padding="4dp"
-            android:typeface="monospace"
+            android:scrollbarThumbHorizontal="@drawable/scrollbar_thumb"
+            android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
+            android:scrollbarTrackHorizontal="@drawable/scrollbar_track"
+            android:scrollbarTrackVertical="@drawable/scrollbar_track"
             tools:text="io.github.rosemoe.sora.widget.CodeEditor" />
     </FrameLayout>
 

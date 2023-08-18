@@ -1,0 +1,3 @@
+https://github.com/shadanan/mathematica-tmbundle/tree/master/Syntaxes
+
+https://marketplace.visualstudio.com/items?itemName=Togusa09.tmlanguage

@@ -1,7 +1,6 @@
 {
   "comments": {
-    "lineComment": "//",
-    "blockComment": ["/*", "*/"]
+    "blockComment": ["(*", "*)"]
   },
   "brackets": [
     ["{", "}"],
@@ -31,12 +30,5 @@
     ["(", ")"],
     ["\"", "\""],
     ["'", "'"]
-  ],
-  "folding": {
-    "offSide": false,
-    "markers": {
-      "start": "^\\s*//\\s*#region",
-      "end": "^\\s*//\\s*#endregion"
-    }
-  }
+  ]
 }

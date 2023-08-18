@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'kotlin-android'
 }
 
 android {
@@ -23,10 +24,12 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
-
+    kotlinOptions {
+        jvmTarget = "11"
+    }
     // sourceSets {
     //     androidTest {
     //         java {
@@ -58,10 +61,6 @@ dependencies {
         }
     }
 
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
     testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
@@ -69,6 +68,10 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'androidx.test:rules:1.5.0'
+
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
     implementation 'com.google.guava:guava:32.1.2-android'
     implementation('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
@@ -79,14 +82,10 @@ dependencies {
     }
 
     implementation 'ru.noties:jlatexmath-android:0.2.0'
-    // for Cyrillic symbols
     implementation 'ru.noties:jlatexmath-android-font-cyrillic:0.2.0'
-    // for Greek symbols
     implementation 'ru.noties:jlatexmath-android-font-greek:0.2.0'
 
     implementation platform("io.github.Rosemoe.sora-editor:bom:0.22.0")
-    implementation group: 'io.github.Rosemoe.sora-editor', name: 'language-treesitter', version: '0.22.0'
-    implementation group: 'io.github.Rosemoe.sora-editor', name: 'editor', version: '0.22.0'
-    implementation group: 'io.github.Rosemoe.sora-editor', name: 'language-textmate', version: '0.22.0'
-
+    implementation("io.github.Rosemoe.sora-editor:editor")
+    implementation("io.github.Rosemoe.sora-editor:language-textmate")
 }
