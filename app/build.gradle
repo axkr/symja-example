@@ -64,17 +64,17 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
 
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'androidx.test:rules:1.5.0'
 
     implementation 'com.google.guava:guava:32.1.2-android'
-    implementation ('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
+    implementation('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
         exclude group: 'com.google.guava', module: 'guava'
     }
-    implementation ('org.matheclipse:matheclipse-core:3.0.0-SNAPSHOT') {
+    implementation('org.matheclipse:matheclipse-core:3.0.0-SNAPSHOT') {
         exclude group: 'com.google.guava', module: 'guava'
     }
 
@@ -83,5 +83,10 @@ dependencies {
     implementation 'ru.noties:jlatexmath-android-font-cyrillic:0.2.0'
     // for Greek symbols
     implementation 'ru.noties:jlatexmath-android-font-greek:0.2.0'
+
+    implementation platform("io.github.Rosemoe.sora-editor:bom:0.22.0")
+    implementation group: 'io.github.Rosemoe.sora-editor', name: 'language-treesitter', version: '0.22.0'
+    implementation group: 'io.github.Rosemoe.sora-editor', name: 'editor', version: '0.22.0'
+    implementation group: 'io.github.Rosemoe.sora-editor', name: 'language-textmate', version: '0.22.0'
 
 }

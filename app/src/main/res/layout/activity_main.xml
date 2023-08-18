@@ -5,113 +5,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="3"
     tools:context=".MainActivity">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.Dense"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_margin="4dp"
-        android:layout_height="wrap_content">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <io.github.rosemoe.sora.widget.CodeEditor
             android:id="@+id/input_field"
-            android:padding="4dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="top|start"
             android:lines="3"
-            android:typeface="monospace" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:padding="4dp"
+            android:typeface="monospace"
+            tools:text="io.github.rosemoe.sora.widget.CodeEditor" />
+    </FrameLayout>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_calc"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_calculate"
-            app:icon="@drawable/baseline_play_arrow_24" />
-
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/loading_view"
-            style="@style/Widget.Material3.CircularProgressIndicator"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:indeterminate="true"
-            android:visibility="gone" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/result_plaintext" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/latex" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stdout" />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/stderr" />
-    </com.google.android.material.tabs.TabLayout>
-
-    <ViewFlipper
-        android:id="@+id/view_flipper"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/result_label"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:typeface="monospace" />
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
-        <FrameLayout
-            android:id="@+id/latex_tab"
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_calc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/button_calculate"
+                app:icon="@drawable/baseline_play_arrow_24" />
+
+            <com.google.android.material.progressindicator.CircularProgressIndicator
+                android:id="@+id/loading_view"
+                style="@style/Widget.Material3.CircularProgressIndicator"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:indeterminate="true"
+                android:visibility="gone" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/result_plaintext" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/latex" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stdout" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/stderr" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <ViewFlipper
+            android:id="@+id/view_flipper"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ru.noties.jlatexmath.JLatexMathView
-                android:id="@+id/latex_view"
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/result_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:padding="16dip"
-                app:jlmv_alignHorizontal="center"
-                app:jlmv_alignVertical="center"
-                app:jlmv_textSize="16sp" />
-        </FrameLayout>
+                android:typeface="monospace" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/stdout_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:typeface="monospace" />
+            <FrameLayout
+                android:id="@+id/latex_tab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/stderr_label"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:typeface="monospace" />
+                <ru.noties.jlatexmath.JLatexMathView
+                    android:id="@+id/latex_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="16dip"
+                    app:jlmv_alignHorizontal="center"
+                    app:jlmv_alignVertical="center"
+                    app:jlmv_textSize="16sp" />
+            </FrameLayout>
 
-    </ViewFlipper>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/stdout_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:typeface="monospace" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/stderr_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:typeface="monospace" />
+
+        </ViewFlipper>
+    </LinearLayout>
 
 </LinearLayout>

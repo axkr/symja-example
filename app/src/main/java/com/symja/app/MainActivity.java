@@ -3,16 +3,17 @@ package com.symja.app;
 import static com.symja.app.ViewUtils.hideKeyboard;
 
 import android.annotation.SuppressLint;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.tabs.TabLayout;
@@ -20,9 +21,22 @@ import com.symja.app.math.OutputForm;
 import com.symja.app.math.Symja;
 import com.symja.app.math.SymjaResult;
 
+import org.eclipse.tm4e.core.registry.IThemeSource;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme;
+import io.github.rosemoe.sora.langs.textmate.registry.FileProviderRegistry;
+import io.github.rosemoe.sora.langs.textmate.registry.GrammarRegistry;
+import io.github.rosemoe.sora.langs.textmate.registry.ThemeRegistry;
+import io.github.rosemoe.sora.langs.textmate.registry.model.ThemeModel;
+import io.github.rosemoe.sora.langs.textmate.registry.provider.AssetsFileResolver;
+import io.github.rosemoe.sora.widget.CodeEditor;
+import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
 import ru.noties.jlatexmath.JLatexMathView;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,7 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ExecutorService executor;
     private View btnCalc;
-    private EditText inputField;
+
+    private CodeEditor inputField;
+
     private TabLayout tabLayout;
     private ViewFlipper viewFlipper;
     private TextView resultLabel;
@@ -56,7 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
         viewFlipper = findViewById(R.id.view_flipper);
         tabLayout = findViewById(R.id.tab_layout);
+
         inputField = findViewById(R.id.input_field);
+        configInputField();
+
         resultLabel = findViewById(R.id.result_label);
         latexLabel = findViewById(R.id.latex_view);
         errorMessageLabel = findViewById(R.id.stderr_label);
@@ -81,6 +100,57 @@ public class MainActivity extends AppCompatActivity {
         });
         btnCalc = findViewById(R.id.btn_calc);
         btnCalc.setOnClickListener(v -> calculate());
+    }
+
+    private void configInputField() {
+        Typeface font = Typeface.createFromAsset(getAssets(), "JetBrainsMono-Regular.ttf");
+        inputField.setTextSize(14);
+        inputField.setTypefaceText(font);
+        inputField.setTypefaceLineNumber(font);
+        inputField.setWordwrap(true);
+
+        // theme
+        //add assets file provider
+        FileProviderRegistry.getInstance().addFileProvider(
+                new AssetsFileResolver(
+                        getApplicationContext().getAssets()
+                )
+        );
+
+        List<String> themes = Arrays.asList("darcula", "abyss", "quietlight", "solarized_drak");
+        ThemeRegistry themeRegistry = ThemeRegistry.getInstance();
+        themes.forEach(name -> {
+            String path = "textmate/" + name + ".json";
+            IThemeSource themeSource = IThemeSource.fromInputStream(Objects.requireNonNull(FileProviderRegistry.getInstance().tryGetInputStream(path)), path, null);
+            ThemeModel themeModel = new ThemeModel(themeSource, name);
+
+            if (!Objects.equals(name, "quietlight")) {
+                themeModel.setDark(true);
+            }
+            try {
+                themeRegistry.loadTheme(themeModel);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+
+        themeRegistry.setTheme("quietlight");
+
+        EditorColorScheme editorColorScheme = inputField.getColorScheme();
+        if (!(editorColorScheme instanceof TextMateColorScheme)) {
+            try {
+                editorColorScheme = TextMateColorScheme.create(ThemeRegistry.getInstance());
+                inputField.setColorScheme(editorColorScheme);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        // language
+        GrammarRegistry.getInstance().loadGrammars("textmate/languages.json");
+
+        inputField.setText("Solve(Xor(a, b, c, d) && (a || b) && ! (c || d), {a, b, c, d}, Booleans)\n" +
+                "{{a->False,b->True,c->False,d->False},{a->True,b->False,c->False,d->False}}");
     }
 
     private void calculate() {
