@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import com.symja.app.editor.TextMateLanguageProxy
 import com.symja.app.math.OutputForm
 import com.symja.app.math.Symja
 import com.symja.app.math.SymjaResult
@@ -24,6 +25,7 @@ import io.github.rosemoe.sora.langs.textmate.registry.ThemeRegistry
 import io.github.rosemoe.sora.langs.textmate.registry.model.ThemeModel
 import io.github.rosemoe.sora.langs.textmate.registry.provider.AssetsFileResolver
 import io.github.rosemoe.sora.widget.CodeEditor
+import io.github.rosemoe.sora.widget.component.EditorAutoCompletion
 import org.eclipse.tm4e.core.registry.IThemeSource
 import org.matheclipse.core.convert.AST2Expr
 import ru.noties.jlatexmath.JLatexMathView
@@ -84,13 +86,14 @@ class MainActivity : AppCompatActivity() {
         editor.typefaceLineNumber = font
         editor.isWordwrap = true
 
-        val language: TextMateLanguage = TextMateLanguage.create("source.mathematica", true)
         AST2Expr.initialize()
+        val language: TextMateLanguage = TextMateLanguage.create("source.mathematica", true)
+        val textMateLanguageProxy = TextMateLanguageProxy(language)
         // $ is used for code snippet
-        language.setCompleterKeywords(
+        textMateLanguageProxy.setCompleterKeywords(
             AST2Expr.PREDEFINED_SYMBOLS_MAP.map { x -> x.value.replace("$", "") }
             .toSet().toTypedArray())
-        editor.setEditorLanguage(language)
+        editor.setEditorLanguage(textMateLanguageProxy)
 
         ensureTextmateTheme()
         switchThemeIfRequired(this, editor)
