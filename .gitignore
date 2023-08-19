@@ -16,3 +16,6 @@ local.properties
 /.idea/misc.xml
 /.idea/gradle.xml
 /.idea/compiler.xml
+/.idea/other.xml
+/.idea/markdown-navigator.xml
+/.idea/markdown-navigator-enh.xml
