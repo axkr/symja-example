@@ -5,23 +5,31 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.reflect.Field;
+
 import io.github.rosemoe.sora.lang.Language;
 import io.github.rosemoe.sora.lang.QuickQuoteHandler;
 import io.github.rosemoe.sora.lang.analysis.AnalyzeManager;
+import io.github.rosemoe.sora.lang.completion.CompletionHelper;
 import io.github.rosemoe.sora.lang.completion.CompletionPublisher;
 import io.github.rosemoe.sora.lang.completion.IdentifierAutoComplete;
 import io.github.rosemoe.sora.lang.format.Formatter;
 import io.github.rosemoe.sora.lang.smartEnter.NewlineHandler;
+import io.github.rosemoe.sora.langs.textmate.TextMateAnalyzer;
 import io.github.rosemoe.sora.langs.textmate.TextMateLanguage;
 import io.github.rosemoe.sora.text.CharPosition;
 import io.github.rosemoe.sora.text.ContentReference;
+import io.github.rosemoe.sora.util.MyCharacter;
 import io.github.rosemoe.sora.widget.SymbolPairMatch;
 
-public class TextMateLanguageProxy implements Language {
+public class SymjaLanguageProxy implements Language {
     private final TextMateLanguage textMateLanguage;
+    private final SymjaAutoCompleteProvider autoCompleteProvider;
+    private boolean autoCompleteEnable = true;
 
-    public TextMateLanguageProxy(TextMateLanguage textMateLanguage) {
-        this.textMateLanguage = textMateLanguage;
+    public SymjaLanguageProxy(TextMateLanguage mathematicaLanguage) {
+        this.textMateLanguage = mathematicaLanguage;
+        this.autoCompleteProvider = new SymjaAutoCompleteProvider();
     }
 
 
@@ -70,7 +78,11 @@ public class TextMateLanguageProxy implements Language {
     }
 
     public boolean isAutoCompleteEnabled() {
-        return textMateLanguage.isAutoCompleteEnabled();
+        return autoCompleteEnable;
+    }
+
+    public void setAutoCompleteEnable(boolean autoCompleteEnable) {
+        this.autoCompleteEnable = autoCompleteEnable;
     }
 
     @Override
@@ -78,13 +90,17 @@ public class TextMateLanguageProxy implements Language {
         if (!isAutoCompleteEnabled()) {
             return;
         }
-        textMateLanguage.requireAutoComplete(content, position, publisher, extraArguments);
-        publisher.setComparator((o1, o2) -> {
-            if (o1.label.length() != o2.label.length()) {
-                return Integer.compare(o1.label.length(), o2.label.length());
-            }
-            return o1.label.toString().compareTo(o2.label.toString());
-        });
+        var prefix = CompletionHelper.computePrefix(content, position, MyCharacter::isJavaIdentifierPart);
+        TextMateAnalyzer textMateAnalyzer = (TextMateAnalyzer) textMateLanguage.getAnalyzeManager();
+        IdentifierAutoComplete.SyncIdentifiers idt;
+        try {
+            Field field = TextMateAnalyzer.class.getDeclaredField("syncIdentifiers");
+            field.setAccessible(true);
+            idt = (IdentifierAutoComplete.SyncIdentifiers) field.get(textMateAnalyzer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        autoCompleteProvider.requireAutoComplete(content, position, prefix, publisher, idt);
     }
 
     @Override
