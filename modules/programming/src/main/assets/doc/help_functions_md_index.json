@@ -1,0 +1,3149 @@
+{"children": [{
+  "children": [
+    {"name": "05-lists.md"},
+    {"name": "09-scoping.md"},
+    {"name": "07-functions-and-patterns.md"},
+    {"name": "99-function-reference.md"},
+    {"name": "01-getting-started.md"},
+    {"name": "03-comparisons-and-boolean-logic.md"},
+    {"name": "11-curve-sketching.md"},
+    {
+      "name": "20-semantic-import.md",
+      "desc": "30000 && Slot(\"Longitude\") > 80000 &))"
+    },
+    {"name": "98-function-by-category.md"},
+    {"name": "index.md"},
+    {"name": "04-strings.md"},
+    {
+      "children": [
+        {
+          "name": "ChineseRemainder.md",
+          "desc": "the chinese remainder function."
+        },
+        {"name": "PolynomialQuotientRemainder.md"},
+        {"name": "PadRight.md"},
+        {
+          "name": "Eliminate.md",
+          "desc": "attempts to eliminate the variables from the `list-of-variables` in the `list-of-equations`."
+        },
+        {"name": "Head.md"},
+        {
+          "name": "Definition.md",
+          "desc": "prints user-defined values and rules associated with `symbol`."
+        },
+        {"name": "Subsets.md"},
+        {"name": "PolynomialQ.md"},
+        {
+          "name": "Sinc.md",
+          "desc": "the sinc function `Sin(expr)/expr` for `expr != 0`. `Sinc(0)` returns `1`."
+        },
+        {"name": "RotateRight.md"},
+        {
+          "name": "MatchingDissimilarity.md",
+          "desc": "returns the Matching dissimilarity between the two boolean 1-D lists `u` and `v`, which is defined as `(c_tf + c_ft) / n`, where `n` is `len(u)` and `c_ij` is the number of occurrences of `u(k)=i` and `v(k)=j` for `k<n`."
+        },
+        {
+          "name": "NMaximize.md",
+          "desc": "the `NMaximize` function provides an implementation of [George Dantzig's simplex algorithm](http://en.wikipedia.org/wiki/Simplex_algorithm) for solving linear optimization problems with linear equality and inequality constraints and implicit non-negative variables."
+        },
+        {
+          "name": "Exponent.md",
+          "desc": "gives the maximum power with which `x` appears in the expanded form of `polynomial`."
+        },
+        {
+          "name": "SemanticImportString.md",
+          "desc": "import the data from a content string in CSV format and do a semantic interpretation of the columns."
+        },
+        {
+          "name": "EllipticK.md",
+          "desc": "returns the complete elliptic integral of the first kind."
+        },
+        {
+          "name": "Insert.md",
+          "desc": "inserts `elem` at position `n` in `list`. When `n` is negative, the position is counted from the end."
+        },
+        {"name": "Median.md"},
+        {
+          "name": "BesselJZero.md",
+          "desc": "is the `k`th zero of the `BesselJ(n,z)` function."
+        },
+        {
+          "name": "PermutationCycles.md",
+          "desc": "generate a `Cycles({{...},{...}, ...})` expression from the `permutation-list`."
+        },
+        {
+          "name": "InverseFunction.md",
+          "desc": "returns the inverse function for the symbol `head`."
+        },
+        {
+          "name": "DivisorSigma.md",
+          "desc": "returns the sum of the `k`-th powers of the divisors of `n`."
+        },
+        {
+          "name": "FractionalPart.md",
+          "desc": "get the fractional part of a `number`."
+        },
+        {
+          "name": "SameQ.md",
+          "desc": "returns `True` if `x` and `y` are structurally identical."
+        },
+        {
+          "name": "NHoldFirst.md",
+          "desc": "is an attribute that protects the first argument of a function from numeric evaluation."
+        },
+        {
+          "name": "HermitianMatrixQ.md",
+          "desc": "returns `True` if `m` is a hermitian matrix."
+        },
+        {"name": "Quartiles.md"},
+        {
+          "name": "IsomorphicGraphQ.md",
+          "desc": "returns `True` if an isomorphism exists between `graph1` and `graph2`. Return `False`in all other cases."
+        },
+        {
+          "name": "Divisors.md",
+          "desc": "returns all integers that divide the integer `n`."
+        },
+        {
+          "name": "ChebyshevU.md",
+          "desc": "returns the Chebyshev polynomial of the second kind `U_n(x)`."
+        },
+        {
+          "name": "Defer.md",
+          "desc": "`Defer` doesn't evaluate `expr` and didn't appear in the output"
+        },
+        {
+          "name": "Undefined.md",
+          "desc": "represents an undefined result for example in the `ConditionalExpression` function."
+        },
+        {"name": "MapIndexed.md"},
+        {
+          "name": "Depth.md",
+          "desc": "gives the depth of `expr`."
+        },
+        {"name": "Input.md"},
+        {"name": "IntegerLength.md"},
+        {"name": "PolynomialLCM.md"},
+        {"name": "HilbertMatrix.md"},
+        {
+          "name": "Compile.md",
+          "desc": "compile the `expression` into a Java function, which has the arguments defined in `list-of-arguments` and return the compiled result in an `CompiledFunction` expression."
+        },
+        {
+          "name": "Cot.md",
+          "desc": "the cotangent function."
+        },
+        {"name": "Stack.md"},
+        {"name": "KolmogorovSmirnovTest.md"},
+        {
+          "name": "Tr.md",
+          "desc": "computes the trace of the `matrix`."
+        },
+        {
+          "name": "StringCases.md",
+          "desc": "gives all occurences of `pattern` in `string`."
+        },
+        {
+          "name": "NumberQ.md",
+          "desc": "returns `True` if `expr` is an explicit number, and `False` otherwise."
+        },
+        {
+          "name": "ClosenessCentrality.md",
+          "desc": "Computes the closeness centrality of each vertex of a `graph`."
+        },
+        {"name": "Do.md"},
+        {"name": "Throw.md"},
+        {
+          "name": "LegendreP.md",
+          "desc": "returns the Legendre polynomial `P_n(x)`."
+        },
+        {"name": "FindMinimum.md"},
+        {
+          "name": "Take.md",
+          "desc": "returns `expr` with all but the first `n` leaves removed."
+        },
+        {
+          "name": "Last.md",
+          "desc": "returns the last element in `expr`."
+        },
+        {"name": "Position.md"},
+        {
+          "name": "FunctionExpand.md",
+          "desc": "expands the special function `expression`. `FunctionExpand` expands simple nested radicals."
+        },
+        {"name": "Level.md"},
+        {
+          "name": "AiryBi.md",
+          "desc": "returns the Airy function of the second kind of `z`."
+        },
+        {"name": "Share.md"},
+        {
+          "name": "Pause.md",
+          "desc": "pause the thread for the number of `seconds`."
+        },
+        {
+          "name": "ListPlot3D.md",
+          "desc": "generate a JavaScript list plot 3D control for the `list-of-polygons`."
+        },
+        {
+          "name": "Print.md",
+          "desc": "print the `expr` to the default output stream and return `Null`."
+        },
+        {
+          "name": "BaseEncode.md",
+          "desc": "encodes the specified `byte-array` into a string using the Base64 encoding scheme."
+        },
+        {
+          "name": "SquaredEuclideanDistance.md",
+          "desc": "returns squared the euclidean distance between `u$` and `v`."
+        },
+        {"name": "SparseArray.md"},
+        {
+          "name": "PseudoInverse.md",
+          "desc": "computes the Moore-Penrose pseudoinverse of the `matrix`. If `matrix` is invertible, the pseudoinverse equals the inverse."
+        },
+        {"name": "Cuboid.md"},
+        {
+          "name": "BesselK.md",
+          "desc": "modified Bessel function of the second kind."
+        },
+        {"name": "Product.md"},
+        {
+          "name": "FactorSquareFreeList.md",
+          "desc": "get the square free factors of the polynomial expression `polynomial`."
+        },
+        {
+          "name": "DesignMatrix.md",
+          "desc": "returns the design matrix."
+        },
+        {
+          "name": "LetterCharacter.md",
+          "desc": "represents letters.."
+        },
+        {
+          "name": "AntihermitianMatrixQ.md",
+          "desc": "returns `True` if `m` is a anti hermitian matrix."
+        },
+        {
+          "name": "Diff.md",
+          "desc": "the `Diff` command is an alias for the partial derivative function `D(f, x)`."
+        },
+        {"name": "DifferenceDelta.md"},
+        {
+          "name": "PlanarGraphQ.md",
+          "desc": "Returns `True` if `g` is a planar graph and `False` otherwise."
+        },
+        {
+          "name": "FindFit.md",
+          "desc": "solve a least squares problem using the Levenberg-Marquardt algorithm."
+        },
+        {"name": "StringFreeQ.md"},
+        {
+          "name": "Probability.md",
+          "desc": "returns the probability of the `pure-function` for the given `data-set`."
+        },
+        {"name": "EdgeQ.md"},
+        {"name": "Scan.md"},
+        {
+          "name": "TakeSmallest.md",
+          "desc": "returns the `n` smallest real values from the list `{e_1, e_2, ..., e_i}`."
+        },
+        {
+          "name": "OptimizeExpression.md",
+          "desc": "common subexpressions elimination for a complicated `function` by generating \"dummy\" variables for these subexpressions."
+        },
+        {"name": "FindMaximum.md"},
+        {"name": "IntegerPartitions.md"},
+        {
+          "name": "Xor.md",
+          "desc": "Logical XOR (exclusive OR) function. Returns `True` if an odd number of the arguments are `True` and the rest are `False`. Returns `False` if an even number of the arguments are `True` and the rest are `False`."
+        },
+        {
+          "name": "HarmonicMean.md",
+          "desc": "returns the harmonic mean of `{a, b, c,...}`."
+        },
+        {
+          "name": "Kurtosis.md",
+          "desc": "gives the Pearson measure of kurtosis for `list` (a measure of existing outliers)."
+        },
+        {
+          "name": "ErlangDistribution.md",
+          "desc": "returns a Erlang distribution."
+        },
+        {"name": "VertexQ.md"},
+        {
+          "name": "Hypergeometric2F1.md",
+          "desc": "return the `Hypergeometric2F1` function"
+        },
+        {
+          "name": "ArcSin.md",
+          "desc": "returns the arc sine (inverse sine) of `expr` (measured in radians)."
+        },
+        {
+          "name": "LogisticSigmoid.md",
+          "desc": "returns the logistic sigmoid of `z`."
+        },
+        {
+          "name": "DownValues.md",
+          "desc": "prints the down-value rules associated with `symbol`."
+        },
+        {
+          "name": "ExtendedGCD.md",
+          "desc": "computes the extended greatest common divisor of the given integers."
+        },
+        {
+          "name": "DiagonalMatrix.md",
+          "desc": "gives a matrix with the values in `list` on its diagonal and zeroes elsewhere."
+        },
+        {
+          "name": "UpperTriangularMatrixQ.md",
+          "desc": "returns `True` if `matrix` is upper triangular."
+        },
+        {
+          "name": "TimeValue.md",
+          "desc": "returns a time value calculation."
+        },
+        {
+          "name": "ToUnicode.md",
+          "desc": "converts `string` into a string of corresponding unicode character codes."
+        },
+        {"name": "Ordering.md"},
+        {
+          "name": "RussellRaoDissimilarity.md",
+          "desc": "returns the Russell-Rao dissimilarity between the two boolean 1-D lists `u` and `v`, which is defined as `(n - c_tt) / c_tt` where `n` is `len(u)` and `c_ij` is the number of occurrences of `u(k)=i` and `v(k)=j` for `k<n`."
+        },
+        {
+          "name": "Conjugate.md",
+          "desc": "returns the complex conjugate of the complex number `z`."
+        },
+        {
+          "name": "HoldAll.md",
+          "desc": "is an attribute specifying that all arguments of a function should be left unevaluated."
+        },
+        {
+          "name": "SASTriangle.md",
+          "desc": "returns a triangle from 2 sides `a`, `b` and angle `gamma` (which is between the sides)."
+        },
+        {"name": "Factor.md"},
+        {
+          "name": "HoldFirst.md",
+          "desc": "is an attribute specifying that the first argument of a function should be left unevaluated."
+        },
+        {"name": "LessEqual.md"},
+        {
+          "name": "AddSides.md",
+          "desc": "add `value` to all elements of the `compare-expr`. `compare-expr` can be `True`, `False` or an comparison expression with head `Equal, Unequal, Less, LessEqual, Greater, GreaterEqual`."
+        },
+        {
+          "name": "GraphDiameter.md",
+          "desc": "return the diameter of the `graph`."
+        },
+        {"name": "AssociationQ.md"},
+        {
+          "name": "NonNegative.md",
+          "desc": "returns `True` if `x` is a positive real number or zero."
+        },
+        {
+          "name": "Sec.md",
+          "desc": "returns the secant of `z`."
+        },
+        {
+          "name": "StarGraph.md",
+          "desc": "create a new star graph with `order` number of total vertices including the center vertex."
+        },
+        {
+          "name": "AiryAi.md",
+          "desc": "returns the Airy function of the first kind of `z`."
+        },
+        {
+          "name": "BrayCurtisDistance.md",
+          "desc": "returns the Bray Curtis distance between `u` and `v`."
+        },
+        {
+          "name": "NRoots.md",
+          "desc": "gives the numerical roots of a univariate polynomial `polynomial`."
+        },
+        {
+          "name": "SemanticImport.md",
+          "desc": "if the file system is enabled, import the data from CSV files and do a semantic interpretation of the columns."
+        },
+        {
+          "name": "Messages.md",
+          "desc": "return all messages which are asociated to `symbol`."
+        },
+        {
+          "name": "Factorial.md",
+          "desc": "returns the factorial number of the integer `n`"
+        },
+        {"name": "PolygonalNumber.md"},
+        {"name": "Association.md"},
+        {
+          "name": "FittedModel.md",
+          "desc": "`FittedModel`holds the model generated with `LinearModelFit`"
+        },
+        {
+          "name": "RomanNumeral.md",
+          "desc": "converts the given `positive-int-value` to a roman numeral string."
+        },
+        {
+          "name": "QuadraticIrrationalQ.md",
+          "desc": "returns `True`, if the `expr` is of the form `(p + s * Sqrt(d)) / q` for integers `p,q,d,s`."
+        },
+        {
+          "name": "BesselJ.md",
+          "desc": "Bessel function of the first kind."
+        },
+        {
+          "name": "BinaryDeserialize.md",
+          "desc": "deserialize the `byte-array` from WXF format into a Symja expression."
+        },
+        {"name": "Pick.md"},
+        {"name": "Default.md"},
+        {
+          "name": "FiveNum.md",
+          "desc": "the Tuckey five-number summary is a set of descriptive statistics that provide information about a `dataset`. It consists of the five most important sample percentiles:"
+        },
+        {
+          "name": "TrueQ.md",
+          "desc": "returns `True` if and only if `expr` is `True`."
+        },
+        {
+          "name": "SymmetricMatrixQ.md",
+          "desc": "returns `True` if `m` is a symmetric matrix."
+        },
+        {"name": "Operate.md"},
+        {"name": "UndirectedEdge.md"},
+        {"name": "FourierDCTMatrix.md"},
+        {"name": "Manipulate.md"},
+        {
+          "name": "Log10.md",
+          "desc": "returns the base-`10` logarithm of `z`. `Log10(z)` will be converted to `Log(z)/Log(10)` in symbolic mode."
+        },
+        {
+          "name": "FactorTermsList.md",
+          "desc": "pulls out any overall numerical factor in `poly` and returns the result in a list."
+        },
+        {
+          "name": "SyntaxQ.md",
+          "desc": "is `True` if the given `str` is a string which has the correct syntax."
+        },
+        {
+          "name": "ListPointPlot3D.md",
+          "desc": "generate a JavaScript list plot 3D control for the `list-of-points`."
+        },
+        {
+          "name": "LCM.md",
+          "desc": "computes the least common multiple of the given integers."
+        },
+        {
+          "name": "NullSpace.md",
+          "desc": "returns a list of vectors that span the nullspace of the `matrix`."
+        },
+        {
+          "name": "ToUpperCase.md",
+          "desc": "converts `string` into a string of corresponding uppercase character codes."
+        },
+        {
+          "name": "FindGraphIsomorphism.md",
+          "desc": "returns an isomorphism between `graph1` and `graph2` if it exists. Return an empty list if no isomorphism exists."
+        },
+        {
+          "name": "LaguerreL.md",
+          "desc": "returns the Laguerre polynomial `L_n(x)`."
+        },
+        {
+          "name": "BooleanTable.md",
+          "desc": "generate [truth values](https://en.wikipedia.org/wiki/Truth_table) from the `logical-expr`"
+        },
+        {"name": "StringReplace.md"},
+        {
+          "name": "Im.md",
+          "desc": "returns the imaginary component of the complex number `z`."
+        },
+        {
+          "name": "VertexEccentricity.md",
+          "desc": "compute the eccentricity of `vertex` in the `graph`. It's the length of the longest shortest path from the `vertex` to every other vertex in the `graph`."
+        },
+        {"name": "RandomPrime.md"},
+        {
+          "name": "Khinchin.md",
+          "desc": "Khinchin's constant"
+        },
+        {
+          "name": "Not.md",
+          "desc": "Logical Not function (negation). Returns `True` if the statement is `False`. Returns `False` if the `expr` is `True`"
+        },
+        {
+          "name": "ExpIntegralEi.md",
+          "desc": "returns the exponential integral `Ei(expr)` of `expr`."
+        },
+        {
+          "name": "TrigReduce.md",
+          "desc": "rewrites products and powers of trigonometric functions in `expr` in terms of trigonometric functions with combined arguments."
+        },
+        {"name": "PadLeft.md"},
+        {
+          "name": "ComposeList.md",
+          "desc": "creates a list of compositions of the symbols applied at the argument `x`."
+        },
+        {
+          "name": "Glaisher.md",
+          "desc": "Glaisher constant."
+        },
+        {
+          "name": "IntervalMemberQ.md",
+          "desc": "returns `True`, if `interval-or-real-number` is completly sourrounded by `interval`"
+        },
+        {
+          "name": "CompoundExpression.md",
+          "desc": "evaluates its arguments in turn, returning the last result."
+        },
+        {
+          "name": "PermutationCyclesQ.md",
+          "desc": "if `cycles-expression` is a valid `Cycles({{...},{...}, ...})` expression return `True`."
+        },
+        {"name": "Mean.md"},
+        {
+          "name": "BooleanQ.md",
+          "desc": "returns `True` if `expr` is either `True` or `False`."
+        },
+        {"name": "Total.md"},
+        {"name": "PrincipleComponents.md"},
+        {
+          "name": "EulerianGraphQ.md",
+          "desc": "returns `True` if `graph` is an eulerian graph, and `False` otherwise."
+        },
+        {"name": "Dataset.md"},
+        {"name": "Point.md"},
+        {"name": "Map.md"},
+        {
+          "name": "Min.md",
+          "desc": "returns the expression with the lowest value among the `e_i`."
+        },
+        {
+          "name": "Cycles.md",
+          "desc": "expression for defining canonical cycles of a permutation."
+        },
+        {"name": "HamiltonianGraphQ.md"},
+        {
+          "name": "Through.md",
+          "desc": "gives `p(f(x))`."
+        },
+        {
+          "name": "InverseLaplaceTransform.md",
+          "desc": "returns the inverse laplace transform."
+        },
+        {
+          "name": "MatrixPlot.md",
+          "desc": "create a matrix plot."
+        },
+        {
+          "name": "CoshIntegral.md",
+          "desc": "returns the hyperbolic cosine integral of `expr`."
+        },
+        {
+          "name": "IntervalUnion.md",
+          "desc": "compute the union of the intervals `interval_1, interval_2, ...`"
+        },
+        {
+          "name": "Outer.md",
+          "desc": "computes a generalised outer product of `x` and `y`, using the function `f` in place of multiplication."
+        },
+        {
+          "name": "GraphIntersection.md",
+          "desc": "returns the graph intersection of `graph1`, `graph2`, `graph3`,..."
+        },
+        {"name": "While.md"},
+        {
+          "name": "Coefficient.md",
+          "desc": "get the coefficient of `variable^exponent` in `polynomial`."
+        },
+        {
+          "name": "Catenate.md",
+          "desc": "concatenates the lists `l1, l2, ...`"
+        },
+        {
+          "name": "Integer.md",
+          "desc": "is the head of integers."
+        },
+        {
+          "name": "StirlingS1.md",
+          "desc": "returns the Stirling numbers of the first kind."
+        },
+        {"name": "SlotSequence.md"},
+        {
+          "name": "TensorProduct.md",
+          "desc": "product of the tensors `t1, t2, ...`."
+        },
+        {
+          "name": "GegenbauerC.md",
+          "desc": "returns the GegenbauerC polynomial."
+        },
+        {
+          "name": "Denominator.md",
+          "desc": "gives the denominator in `expr`. Denominator collects expressions with negative exponents."
+        },
+        {
+          "name": "Names.md",
+          "desc": "return the symbols from the context path matching the `string` or `pattern`."
+        },
+        {
+          "name": "PolyLog.md",
+          "desc": "returns the polylogarithm function."
+        },
+        {
+          "name": "False.md",
+          "desc": "the constant `False` represents the boolean value **false**"
+        },
+        {"name": "Standardize.md"},
+        {
+          "name": "EuclideanDistance.md",
+          "desc": "returns the euclidean distance between `u` and `v`."
+        },
+        {"name": "RuleDelayed.md"},
+        {
+          "name": "Maximize.md",
+          "desc": "returns the maximum of the unary function for the given `variable`."
+        },
+        {"name": "NSolve.md"},
+        {"name": "InputString.md"},
+        {
+          "name": "ExpIntegralE.md",
+          "desc": "returns the exponential integral `E_n(expr)` of `expr`."
+        },
+        {
+          "name": "MultiplicativeOrder.md",
+          "desc": "gives the multiplicative order `a` modulo `n`."
+        },
+        {"name": "Split.md"},
+        {"name": "InverseCDF.md"},
+        {"name": "JSForm.md"},
+        {
+          "name": "IntegerQ.md",
+          "desc": "returns `True` if `expr` is an integer, and `False` otherwise."
+        },
+        {
+          "name": "BarChart.md",
+          "desc": "plot a bar chart for a `list-of-values` with option `BarOrigin->Bottom` or `BarOrigin->Bottom`"
+        },
+        {
+          "name": "First.md",
+          "desc": "returns the first element in `expr`."
+        },
+        {
+          "name": "SeriesData.md",
+          "desc": "internal structure of a power series at the point `x = x0` the `coeff_i` are coefficients of the power series."
+        },
+        {
+          "name": "Prepend.md",
+          "desc": "returns `expr` with `item` prepended to its leaves."
+        },
+        {
+          "name": "ExactNumberQ.md",
+          "desc": "returns `True` if `expr` is an exact number, and `False` otherwise."
+        },
+        {"name": "FixedPoint.md"},
+        {
+          "name": "RotationMatrix.md",
+          "desc": "yields a rotation matrix for the angle `theta`."
+        },
+        {
+          "name": "BernoulliDistribution.md",
+          "desc": "returns the Bernoulli distribution."
+        },
+        {"name": "LowerTriangularize.md"},
+        {
+          "name": "PermutationListQ.md",
+          "desc": "if `permutation-list` is a valid permutation list return `True`."
+        },
+        {
+          "name": "C.md",
+          "desc": "represents the `n`-th constant in a solution to a differential equation."
+        },
+        {
+          "name": "PermutationReplace.md",
+          "desc": "replace the arguments of the first expression with the corresponding element from the `Cycles({{...},{...}, ...})` expression."
+        },
+        {
+          "name": "Continue.md",
+          "desc": "continues with the next iteration in a `For`, `While`, or `Do` loop."
+        },
+        {"name": "StringPart.md"},
+        {
+          "name": "MessageName.md",
+          "desc": "`symbol::msg` identifies a message. `MessageName` is the head of message IDs of the form `symbol::tag`."
+        },
+        {"name": "IntegerName.md"},
+        {
+          "name": "Riffle.md",
+          "desc": "insert elements of `list2` between the elements of `list1`."
+        },
+        {"name": "DirectedEdge.md"},
+        {
+          "name": "MoebiusMu.md",
+          "desc": "calculate the Möbius function."
+        },
+        {
+          "name": "SinhIntegral.md",
+          "desc": "returns the sine integral of `expr`."
+        },
+        {"name": "Rule.md"},
+        {
+          "name": "ChebyshevT.md",
+          "desc": "returns the Chebyshev polynomial of the first kind `T_n(x)`."
+        },
+        {"name": "Transpose.md"},
+        {"name": "FindHamiltonianCycle.md"},
+        {"name": "Context.md"},
+        {
+          "name": "AntisymmetricMatrixQ.md",
+          "desc": "returns `True` if `m` is a anti symmetric matrix."
+        },
+        {"name": "OptionValue.md"},
+        {
+          "name": "Divergence.md",
+          "desc": "compute the divergence (alias for `Div`)."
+        },
+        {
+          "name": "Timing.md",
+          "desc": "returns a list with the first entry containing the evaluation CPU time of `x` and the second entry is the evaluation result of `x`."
+        },
+        {
+          "name": "CharacterRange.md",
+          "desc": "computes a list of character strings from `min-character` to `max-character`"
+        },
+        {
+          "name": "InterpolatingFunction.md",
+          "desc": "get the representation for the given `data-list` as piecewise `InterpolatingPolynomial`s."
+        },
+        {
+          "name": "LeviCivitaTensor.md",
+          "desc": "returns the `n`-dimensional Levi-Civita tensor as sparse array. The Levi-Civita symbol represents a collection of numbers; defined from the sign of a permutation of the natural numbers `1, 2, \u2026, n`, for some positive integer `n`."
+        },
+        {"name": "Round.md"},
+        {
+          "name": "LoadJavaClass.md",
+          "desc": "loads the class with the specified `class-name` and return a `JavaClass` expression. All static method names are assigned to a context which will be created by the last part of the class name."
+        },
+        {
+          "name": "ConstantArray.md",
+          "desc": "returns a list of `n` copies of `expr`."
+        },
+        {
+          "name": "GroebnerBasis.md",
+          "desc": "returns a Gröbner basis for the `polynomial-list` and `variable-list`."
+        },
+        {"name": "JavaForm.md"},
+        {
+          "name": "Quiet.md",
+          "desc": "evaluates `expr` in \"quiet\" mode (i.e. no warning messages are shown during evaluation)."
+        },
+        {
+          "name": "LegendreQ.md",
+          "desc": "returns the Legendre functions of the second kind `Q_n(x)`."
+        },
+        {"name": "SystemDialogInput.md"},
+        {
+          "name": "SphericalBesselY.md",
+          "desc": "spherical Bessel function `Y(n, x)`."
+        },
+        {
+          "name": "JacobiSC.md",
+          "desc": "returns the Jacobian elliptic function `sc(x, m)`."
+        },
+        {
+          "name": "IntegerPart.md",
+          "desc": "for real `expr` return the integer part of `expr`."
+        },
+        {"name": "Condition.md"},
+        {
+          "name": "PowerMod.md",
+          "desc": "computes `x^y` modulo `m`."
+        },
+        {
+          "name": "$IterationLimit.md",
+          "desc": "specifies the maximum number of times a reevaluation of an expression may happen."
+        },
+        {
+          "name": "NDSolve.md",
+          "desc": "attempts to solve the linear differential `equation-list` for the `functions` and the time-dependent-variable `t`. Returns an `InterpolatingFunction` function object."
+        },
+        {"name": "AssociationMap.md"},
+        {
+          "name": "MeanFilter.md",
+          "desc": "filter which evaluates the `Mean` of `list` for the radius `r`."
+        },
+        {"name": "RankedMin.md"},
+        {
+          "name": "HoldForm.md",
+          "desc": "`HoldForm` doesn't evaluate `expr` and didn't appear in the output."
+        },
+        {
+          "name": "CanberraDistance.md",
+          "desc": "returns the canberra distance between `u` and `v`, which is a weighted version of the Manhattan distance."
+        },
+        {"name": "RandomChoice.md"},
+        {
+          "name": "Eigenvectors.md",
+          "desc": "get the numerical eigenvectors of the `matrix`."
+        },
+        {
+          "name": "StartOfLine.md",
+          "desc": "begine a new stack and evaluate `èxpr`. Use `Stack(_)` as a subexpression in `expr` to return the stack elements."
+        },
+        {"name": "Sphere.md"},
+        {
+          "name": "ConjugateTranspose.md",
+          "desc": "get the transposed `matrix` with conjugated matrix elements."
+        },
+        {
+          "name": "Roots.md",
+          "desc": "determine the roots of a univariate polynomial equation with respect to the variable `var`."
+        },
+        {"name": "HornerForm.md"},
+        {"name": "Expand.md"},
+        {"name": "NoneTrue.md"},
+        {"name": "Cylinder.md"},
+        {
+          "name": "Re.md",
+          "desc": "returns the real component of the complex number `z`."
+        },
+        {"name": "FromLetterNumber.md"},
+        {"name": "Except.md"},
+        {
+          "name": "Cyclotomic.md",
+          "desc": "returns the Cyclotomic polynomial `C_n(x)`."
+        },
+        {
+          "name": "ToLowerCase.md",
+          "desc": "converts `string` into a string of corresponding lowercase character codes."
+        },
+        {"name": "LinearRecurrence.md"},
+        {
+          "name": "SphericalBesselJ.md",
+          "desc": "spherical Bessel function `J(n, x)`."
+        },
+        {
+          "name": "RealSign.md",
+          "desc": "gives `-1`, `0` or `1` depending on whether `x` is negative, zero or positive. For complex number arguments the function will be left unevaluated."
+        },
+        {"name": "BooleanConvert.md"},
+        {
+          "name": "UnitStep.md",
+          "desc": "returns `0`, if `expr` is less than `0` and returns `1`, if `expr` is greater equal than `0`."
+        },
+        {"name": "Entropy.md"},
+        {
+          "name": "SquareFreeQ.md",
+          "desc": "returns `True` if `n` is a square free integer number or a square free univariate polynomial."
+        },
+        {
+          "name": "BellB.md",
+          "desc": "the Bell number function counts the number of different ways to partition a set that has exactly `n` elements"
+        },
+        {"name": "Power.md"},
+        {
+          "name": "SplitBy.md",
+          "desc": "splits `list` into collections of consecutive elements that give the same result when `f` is applied."
+        },
+        {
+          "name": "ProductLog.md",
+          "desc": "returns the value of the Lambert W function at `z`."
+        },
+        {
+          "name": "PartitionsP.md",
+          "desc": "gives the number of unrestricted partitions of the integer `n`."
+        },
+        {
+          "name": "Complement.md",
+          "desc": "get the complement set from `set1` and `set2`."
+        },
+        {
+          "name": "Sow.md",
+          "desc": "sends the value `expr` to the innermost `Reap`."
+        },
+        {
+          "name": "SatisfiableQ.md",
+          "desc": "test whether the `boolean-expr` is satisfiable by a combination of boolean `False` and `True` values for the `list-of-variables`."
+        },
+        {
+          "name": "PerfectNumber.md",
+          "desc": "returns the `n`th perfect number. In number theory, a perfect number is a positive integer that is equal to the sum of its proper"
+        },
+        {"name": "Extract.md"},
+        {
+          "name": "Get.md",
+          "desc": "load the package defined in `path-to-package-file-name`."
+        },
+        {
+          "name": "ArcCosh.md",
+          "desc": "returns the inverse hyperbolic cosine of `z`."
+        },
+        {"name": "FindEulerianCycle.md"},
+        {
+          "name": "EffectiveInterest.md",
+          "desc": "returns an effective interest rate object."
+        },
+        {
+          "name": "MemberQ.md",
+          "desc": "returns `True` if pattern matches any element of `list`, or `False` otherwise."
+        },
+        {"name": "Fibonacci.md"},
+        {
+          "name": "WeierstrassP.md",
+          "desc": "Weierstrass elliptic function."
+        },
+        {
+          "name": "PrependTo.md",
+          "desc": "prepend `item` to value of `s` and sets `s` to the result."
+        },
+        {"name": "Int.md"},
+        {"name": "Complex.md"},
+        {"name": "FactorInteger.md"},
+        {
+          "name": "Indeterminate.md",
+          "desc": "represents an indeterminate result."
+        },
+        {"name": "Alphabet.md"},
+        {"name": "LucasL.md"},
+        {"name": "Return.md"},
+        {"name": "SatisfiabilityInstances.md"},
+        {
+          "name": "ArcSinh.md",
+          "desc": "returns the inverse hyperbolic sine of `z`."
+        },
+        {"name": "StringRiffle.md"},
+        {"name": "StringTake.md"},
+        {
+          "name": "EulerPhi.md",
+          "desc": "compute Euler's totient function."
+        },
+        {
+          "name": "UpValues.md",
+          "desc": "prints the up-value rules associated with `symbol`."
+        },
+        {
+          "name": "Span.md",
+          "desc": "is the head of span ranges like `1;;3`."
+        },
+        {
+          "name": "Alternatives.md",
+          "desc": "is a pattern that matches any of the patterns `p1, p2,...., p_i`."
+        },
+        {
+          "name": "Exp.md",
+          "desc": "the exponential function `E^z`."
+        },
+        {"name": "ContinuedFraction.md"},
+        {
+          "name": "HoldPattern.md",
+          "desc": "`HoldPattern` doesn't evaluate `expr` for pattern-matching."
+        },
+        {
+          "name": "ArcCot.md",
+          "desc": "returns the inverse cotangent of `z`."
+        },
+        {
+          "name": "CoefficientRules.md",
+          "desc": "get the list of coefficient rules of a  `polynomial`."
+        },
+        {
+          "name": "Identity.md",
+          "desc": "is the identity function, which returns `x` unchanged."
+        },
+        {
+          "name": "GraphComplement.md",
+          "desc": "returns the graph complement of `graph`."
+        },
+        {
+          "name": "InverseFourier.md",
+          "desc": "Inverse discrete Fourier transform of a `vector-of-complex-numbers`. Fourier transform is restricted to vectors with length of power of 2."
+        },
+        {
+          "name": "EndPackage.md",
+          "desc": "end a package definition"
+        },
+        {
+          "name": "ConditionalExpression.md",
+          "desc": "if `condition` evaluates to `True` return `expr`, if `condition` evaluates to `False` return `Undefined`. Otherwise return the `ConditionalExpression` unevaluated."
+        },
+        {
+          "name": "TranslationTransform.md",
+          "desc": "gives a `TransformationFunction` that translates points by vector `v`."
+        },
+        {"name": "FilterRules.md"},
+        {"name": "GroupBy.md"},
+        {"name": "RotateLeft.md"},
+        {
+          "name": "ApplySides.md",
+          "desc": "divides all elements of the `compare-expr` by `value`. `compare-expr` can be `True`, `False` or a comparison expression with head `Equal, Unequal, Less, LessEqual, Greater, GreaterEqual`."
+        },
+        {
+          "name": "HeavisideTheta.md",
+          "desc": "returns `1` if all `expr1, expr2, ... exprN` are positive and `0` if one of the `expr1, expr2, ... exprN` is negative. `HeavisideTheta(0)` returns unevaluated as `HeavisideTheta(0)`."
+        },
+        {
+          "name": "Mod.md",
+          "desc": "returns `x` modulo `m`."
+        },
+        {
+          "name": "Area.md",
+          "desc": "returns the area of the `geometric-form`."
+        },
+        {"name": "Echo.md"},
+        {
+          "name": "CoprimeQ.md",
+          "desc": "tests whether `x` and `y` are coprime by computing their greatest common divisor."
+        },
+        {
+          "name": "FindVertexCover.md",
+          "desc": "algorithm to find a vertex cover for a `graph`. A vertex cover is a set of vertices that touches all the edges in the graph."
+        },
+        {"name": "If.md"},
+        {
+          "name": "StartOfString.md",
+          "desc": "represents the start of a string."
+        },
+        {"name": "Replace.md"},
+        {
+          "name": "Break.md",
+          "desc": "exits a `For`, `While`, or `Do` loop."
+        },
+        {
+          "name": "And.md",
+          "desc": "`expr1 && expr2 && ...` evaluates each expression in turn, returning `False` as soon as an expression evaluates to `False`. If all expressions evaluate to `True`, `And` returns `True`."
+        },
+        {
+          "name": "Counts.md",
+          "desc": "count the number of each distinct element in the list `{elem1, elem2, elem3, ...}` and return the result as an association `<|elem1->counter1, ...|>`."
+        },
+        {
+          "name": "Whitespace.md",
+          "desc": "represents a sequence of whitespace characters."
+        },
+        {
+          "name": "Parenthesis.md",
+          "desc": "print `expr` with parenthesis surrounded in output forms."
+        },
+        {
+          "name": "TensorDimensions.md",
+          "desc": "return the dimensions of the tensor `t`."
+        },
+        {
+          "name": "InverseSeries.md",
+          "desc": "return the inverse series."
+        },
+        {"name": "RotationTransform.md"},
+        {
+          "name": "ArgMin.md",
+          "desc": "returns a minimizer point for a univariate `function`."
+        },
+        {
+          "name": "LetterCounts.md",
+          "desc": "count the number of each distinct character in the `string` and return the result as an association `<|char->counter1, ...|>`."
+        },
+        {
+          "name": "ComplexPlot3D.md",
+          "desc": "create a 3D plot of `expr` for the complex variable `z` in the range `{ Re(min),Re(max) }` to `{ Im(min),Im(max) }`"
+        },
+        {
+          "name": "Binomial.md",
+          "desc": "returns the binomial coefficient of the 2 integers `n` and `k`"
+        },
+        {
+          "name": "FromCharacterCode.md",
+          "desc": "converts the `ch1, ch2,...` character codes into a string of corresponding characters."
+        },
+        {
+          "name": "Transliterate.md",
+          "desc": "try converting the given string to a similar ASCII string"
+        },
+        {"name": "MatrixQ.md"},
+        {
+          "name": "Coth.md",
+          "desc": "returns the hyperbolic cotangent of `z`."
+        },
+        {
+          "name": "FindLinearRecurrence.md",
+          "desc": "compute a minimal linear recurrence which returns list."
+        },
+        {
+          "name": "Gudermannian.md",
+          "desc": "computes the gudermannian function."
+        },
+        {
+          "name": "CompleteGraph.md",
+          "desc": "returns the complete graph with `order` vertices."
+        },
+        {
+          "name": "EllipticE.md",
+          "desc": "returns the complete elliptic integral of the second kind."
+        },
+        {"name": "Read.md"},
+        {
+          "name": "MersennePrimeExponent.md",
+          "desc": "returns the  `n`th mersenne prime exponent. `2^n - 1` must be a prime number."
+        },
+        {
+          "name": "InverseHaversine.md",
+          "desc": "returns the inverse haversine function of `z`."
+        },
+        {
+          "name": "Sin.md",
+          "desc": "returns the sine of `expr` (measured in radians)."
+        },
+        {
+          "name": "BaseForm.md",
+          "desc": "prints the `integer` number in base `radix` form."
+        },
+        {"name": "Gamma.md"},
+        {
+          "name": "BesselY.md",
+          "desc": "Bessel function of the second kind."
+        },
+        {
+          "name": "Union.md",
+          "desc": "get the union set from `set1` and `set2`."
+        },
+        {
+          "name": "GraphUnion.md",
+          "desc": "returns the graph union of `graph1`, `graph2`, `graph3`,..."
+        },
+        {
+          "name": "TrigToExp.md",
+          "desc": "converts trigonometric functions in `expr` to exponentials."
+        },
+        {
+          "name": "RightComposition.md",
+          "desc": "creates a composition of the symbols applied in reversed order at the arguments."
+        },
+        {"name": "CollinearPoints.md"},
+        {"name": "PolynomialExtendedGCD.md"},
+        {
+          "name": "ValueQ.md",
+          "desc": "returns `True` if and only if `expr` is defined."
+        },
+        {
+          "name": "Nand.md",
+          "desc": "Logical NAND function. It evaluates its arguments in order, giving `True` immediately if any of them are `False`, and `False` if they are all `True`."
+        },
+        {
+          "name": "GraphCenter.md",
+          "desc": "compute the `graph` center. The center of a `graph` is the set of vertices of graph eccentricity equal to the `graph` radius."
+        },
+        {
+          "name": "BooleanVariables.md",
+          "desc": "gives a list of the boolean variables that appear in the `logical-expr`."
+        },
+        {
+          "name": "JavaObjectQ.md",
+          "desc": "return `True` if `java-object` is a `JavaObject` expression."
+        },
+        {
+          "name": "KroneckerProduct.md",
+          "desc": "Kronecker product of the tensors `t1, t2, ...`."
+        },
+        {
+          "name": "BooleanMinterms.md",
+          "desc": "create the disjunction of the variables `{v1,v2,...}`."
+        },
+        {
+          "name": "Drop.md",
+          "desc": "returns `expr` with the first `n` leaves removed."
+        },
+        {"name": "OpenWrite.md"},
+        {
+          "name": "ASATriangle.md",
+          "desc": "returns a triangle from 2 angles `alpha`, `beta` and side `c` (which is between the angles)."
+        },
+        {
+          "name": "CheckAbort.md",
+          "desc": "evaluates `expr`, and returns the result, unless `Abort` was called during the evaluation, in which case `failure-expr` will be returned."
+        },
+        {"name": "Apply.md"},
+        {
+          "name": "TensorRank.md",
+          "desc": "return the rank of the tensor `t`."
+        },
+        {
+          "name": "FoldList.md",
+          "desc": "returns `{x, f[x, a], f[f[x, a], b]}`"
+        },
+        {
+          "name": "PossibleZeroQ.md",
+          "desc": "returns `True` if basic symbolic and numerical methods suggests that `expr` has value zero, and `False` otherwise."
+        },
+        {
+          "name": "$RecursionLimit.md",
+          "desc": "holds the current input line number"
+        },
+        {
+          "name": "ArcSec.md",
+          "desc": "returns the inverse secant of `z`."
+        },
+        {"name": "Count.md"},
+        {
+          "name": "ListQ.md",
+          "desc": "tests whether `expr` is a `List`."
+        },
+        {
+          "name": "NumberString.md",
+          "desc": "represents the characters in a number."
+        },
+        {
+          "name": "GeoDistance.md",
+          "desc": "returns the geodesic distance between `{latitude1,longitude1}` and `{latitude2,longitude2}`."
+        },
+        {
+          "name": "CarlsonRF.md",
+          "desc": "returns the Carlson RF function."
+        },
+        {
+          "name": "IntervalData.md",
+          "desc": "represents the open/closed ends interval from `a` to `b`. `left-end` and `right-end` must have the value `Less` for representing an open ended interval or `LessEqual` for representing a closed ended interval."
+        },
+        {"name": "ByteArrayQ.md"},
+        {"name": "DiscretePlot.md"},
+        {"name": "ArrayDepth.md"},
+        {
+          "name": "RandomReal.md",
+          "desc": "create a random number between `0.0` and `1.0`."
+        },
+        {
+          "name": "Orthogonalize.md",
+          "desc": "returns a basis for the orthogonalized set of vectors defined by `matrix`."
+        },
+        {"name": "Function.md"},
+        {"name": "Orderless.md"},
+        {
+          "name": "Fold.md",
+          "desc": "returns `f[f[x, a], b]`, and this nesting continues for lists of arbitrary length."
+        },
+        {"name": "Less.md"},
+        {"name": "Piecewise.md"},
+        {
+          "name": "PowerExpand.md",
+          "desc": "expands out powers of the form `(x^y)^z` and `(x*y)^z` in `expr`."
+        },
+        {
+          "name": "NumericalOrder.md",
+          "desc": "is `0` if `a` equals `b`. Is `-1` or `1` according to numerical order of `a` and `b`."
+        },
+        {
+          "name": "Fourier.md",
+          "desc": "Discrete Fourier transform of a `vector-of-complex-numbers`. Fourier transform is restricted to vectors with length of power of 2."
+        },
+        {
+          "name": "LinearProgramming.md",
+          "desc": "the `LinearProgramming` function provides an implementation of [George Dantzig's simplex algorithm](http://en.wikipedia.org/wiki/Simplex_algorithm) for solving linear optimization problems with linear equality and inequality constraints  and implicit non-negative variables."
+        },
+        {
+          "name": "Quantity.md",
+          "desc": "returns the quantity for `value` and `unit`"
+        },
+        {"name": "NestWhile.md"},
+        {"name": "Block.md"},
+        {"name": "Greater.md"},
+        {
+          "name": "Log2.md",
+          "desc": "returns the base-`2` logarithm of `z`. `Log2(z)` will be converted to `Log(z)/Log(2)` in symbolic mode."
+        },
+        {
+          "name": "FactorSquareFree.md",
+          "desc": "factor the polynomial expression `polynomial` square free."
+        },
+        {
+          "name": "Select.md",
+          "desc": "returns a list of the elements `ei` for which `head(ei)` returns `True`."
+        },
+        {"name": "Catch.md"},
+        {
+          "name": "EulerGamma.md",
+          "desc": "Euler-Mascheroni constant"
+        },
+        {
+          "name": "FullForm.md",
+          "desc": "shows the internal representation of the given `expression`."
+        },
+        {
+          "name": "CycleGraph.md",
+          "desc": "returns the cycle graph with `order` vertices."
+        },
+        {
+          "name": "NonPositive.md",
+          "desc": "returns `True` if `x` is a negative real number or zero."
+        },
+        {"name": "Derivative.md"},
+        {
+          "name": "ToCharacterCode.md",
+          "desc": "converts `string` into a list of corresponding integer character codes."
+        },
+        {
+          "name": "Verbatim.md",
+          "desc": "prevents pattern constructs in `expr` from taking effect, allowing them to match themselves."
+        },
+        {
+          "name": "ArcLength.md",
+          "desc": "returns the length of the `geometric-form`."
+        },
+        {"name": "AbsoluteTiming.md"},
+        {
+          "name": "Dot.md",
+          "desc": "`x . y` computes the vector dot product or matrix product `x . y`."
+        },
+        {
+          "name": "PrintableASCIIQ.md",
+          "desc": "returns `True` if all characters in `str` are ASCII characters."
+        },
+        {"name": "ToPolarCoordinates.md"},
+        {"name": "Sum.md"},
+        {
+          "name": "PrimePi.md",
+          "desc": "gives the number of primes less than or equal to `x`."
+        },
+        {
+          "name": "ListLinePlot3D.md",
+          "desc": "generate a JavaScript list plot 3D control for the `list-of-lines`."
+        },
+        {
+          "name": "HypergeometricPFQ.md",
+          "desc": "return the `HypergeometricPFQ` function"
+        },
+        {
+          "name": "MedianFilter.md",
+          "desc": "filter which evaluates the `Median` of `list` for the radius `r`."
+        },
+        {
+          "name": "String.md",
+          "desc": "is the head of strings.."
+        },
+        {
+          "name": "AddTo.md",
+          "desc": "is equivalent to `x = x + dx`."
+        },
+        {"name": "ArrayPad.md"},
+        {
+          "name": "Implies.md",
+          "desc": "Logical implication."
+        },
+        {
+          "name": "WeibullDistribution.md",
+          "desc": "returns a Weibull distribution."
+        },
+        {
+          "name": "RandomGraph.md",
+          "desc": "create a random graph with `number-of-vertices` vertices and `number-of-edges` edges."
+        },
+        {"name": "FromPolarCoordinates.md"},
+        {
+          "name": "Constant.md",
+          "desc": "is an attribute that indicates that a symbol is a constant."
+        },
+        {
+          "name": "Module.md",
+          "desc": "evaluates `expr` for the `list_of_local_variables` by renaming local variables."
+        },
+        {
+          "name": "ArcCoth.md",
+          "desc": "returns the inverse hyperbolic cotangent of `z`."
+        },
+        {"name": "UniformDistribution.md"},
+        {
+          "name": "ListPlot.md",
+          "desc": "generate a JavaScript list plot control for the `list-of-points`."
+        },
+        {"name": "For.md"},
+        {
+          "name": "InexactNumberQ.md",
+          "desc": "returns `True` if `expr` is not an exact number, and `False` otherwise."
+        },
+        {
+          "name": "DiscreteDelta.md",
+          "desc": "`DiscreteDelta` function returns `1` if all the `ni` are `0`. Returns `0` otherwise."
+        },
+        {
+          "name": "Composition.md",
+          "desc": "creates a composition of the symbols applied at the arguments."
+        },
+        {
+          "name": "LeastSquares.md",
+          "desc": "solves the linear least-squares problem 'matrix . x = right'."
+        },
+        {
+          "name": "InverseErfc.md",
+          "desc": "returns the inverse complementary error function of `z`."
+        },
+        {"name": "EdgeList.md"},
+        {
+          "name": "OwnValues.md",
+          "desc": "prints the own-value rule associated with `symbol`."
+        },
+        {
+          "name": "SingularValueDecomposition.md",
+          "desc": "calculates the singular value decomposition for the `matrix`."
+        },
+        {"name": "Nothing.md"},
+        {
+          "name": "Factorial2.md",
+          "desc": "returns the double factorial number of the integer `n` as `n*(n-2)*(n-4)...`."
+        },
+        {
+          "name": "CarlsonRG.md",
+          "desc": "returns the Carlson RG function."
+        },
+        {"name": "VerificationTest.md"},
+        {
+          "name": "Evaluate.md",
+          "desc": "the `Evaluate` function will be executed even if the function attributes `HoldFirst, HoldRest, HoldAll` are set for the function head."
+        },
+        {
+          "name": "InverseErf.md",
+          "desc": "returns the inverse error function of `z`."
+        },
+        {
+          "name": "Rationalize.md",
+          "desc": "convert numerical real or imaginary parts in (sub-)expressions into rational numbers."
+        },
+        {
+          "name": "Together.md",
+          "desc": "writes sums of fractions in `expr` together."
+        },
+        {"name": "Solve.md"},
+        {"name": "AngleVector.md"},
+        {"name": "Table.md"},
+        {
+          "name": "Arg.md",
+          "desc": "returns the argument of the complex number `expr`."
+        },
+        {
+          "name": "Unevaluated.md",
+          "desc": "temporarily leaves `expr` in an unevaluated form when it appears as a function argument."
+        },
+        {"name": "NormalDistribution.md"},
+        {
+          "name": "I.md",
+          "desc": "Imaginary unit - internally converted to the complex number `0+1*i`. `I` represents the imaginary number `Sqrt(-1)`. `I^2` will be evaluated to `-1`."
+        },
+        {
+          "name": "Part.md",
+          "desc": "returns part `i` of `expr`."
+        },
+        {
+          "name": "Correlation.md",
+          "desc": "computes Pearson's correlation of two equal-sized vectors `a` and `b`."
+        },
+        {"name": "ArrayQ.md"},
+        {
+          "name": "DigitCharacter.md",
+          "desc": "represents the digits 0-9."
+        },
+        {"name": "AllTrue.md"},
+        {"name": "FixedPointList.md"},
+        {
+          "name": "LogIntegral.md",
+          "desc": "returns the integral logarithm of `expr`."
+        },
+        {
+          "name": "AASTriangle.md",
+          "desc": "returns a triangle from 2 angles `alpha`, `beta` and side `a` (which is not between the angles)."
+        },
+        {
+          "name": "LowerCaseQ.md",
+          "desc": "is `True` if the given `str` is a string which only contains lower case characters."
+        },
+        {
+          "name": "Inverse.md",
+          "desc": "computes the inverse of the `matrix`."
+        },
+        {
+          "name": "DSolve.md",
+          "desc": "attempts to solve a linear differential `equation` for the function `f(var)` and variable `var`."
+        },
+        {"name": "PrimeQ.md"},
+        {
+          "name": "OutputStream.md",
+          "desc": "opens a file and returns an OutputStream."
+        },
+        {
+          "name": "Sinh.md",
+          "desc": "returns the hyperbolic sine of `z`."
+        },
+        {
+          "name": "PartitionsQ.md",
+          "desc": "gives the number of partitions of the integer `n` into distinct parts"
+        },
+        {"name": "DialogInput.md"},
+        {
+          "name": "PauliMatrix.md",
+          "desc": "returns `n`th Pauli spin `2x2` matrix for `n` between `0` and `4`."
+        },
+        {"name": "Grad.md"},
+        {"name": "FromDigits.md"},
+        {"name": "VectorQ.md"},
+        {"name": "BooleanFunction.md"},
+        {
+          "name": "LowerTriangularMatrixQ.md",
+          "desc": "returns `True` if `matrix` is lower triangular."
+        },
+        {"name": "Set.md"},
+        {"name": "Array.md"},
+        {
+          "name": "Signature.md",
+          "desc": "determine if the `permutation-list` has odd (`-1`) or even (`1`) parity. Returns `0` if two elements in the `permutation-list` are equal."
+        },
+        {
+          "name": "AppendTo.md",
+          "desc": "append `item` to value of `s` and sets `s` to the result."
+        },
+        {
+          "name": "PoissonDistribution.md",
+          "desc": "returns a Poisson distribution."
+        },
+        {
+          "name": "Sign.md",
+          "desc": "gives `-1`, `0` or `1` depending on whether `x` is negative, zero or positive. For complex numbers `Sign` is defined as `x/Abs(x)`, if x is nonzero."
+        },
+        {"name": "ReplacePart.md"},
+        {"name": "Projection.md"},
+        {"name": "DigitCount.md"},
+        {"name": "Clip.md"},
+        {
+          "name": "CompilePrint.md",
+          "desc": "compile the `expression` into a Java function and return the corresponding Java source code function, which has the arguments defined in `list-of-arguments`n. You have to run Symja from a Java Development Kit (JDK) to compile to Java binary code."
+        },
+        {
+          "name": "Intersection.md",
+          "desc": "get the intersection set from `set1` and `set2` ...."
+        },
+        {
+          "name": "ToExpression.md",
+          "desc": "converts the `string` given in `form` into an expression."
+        },
+        {
+          "name": "LetterQ.md",
+          "desc": "tests whether `expr` is a string, which only contains letters."
+        },
+        {
+          "name": "NHoldAll.md",
+          "desc": "is an attribute that protects all arguments of a function from numeric evaluation."
+        },
+        {
+          "name": "DiceDissimilarity.md",
+          "desc": "returns the Dice dissimilarity between the two boolean 1-D lists `u` and `v`, which is defined as `(c_tf + c_ft) / (2 * c_tt + c_ft + c_tf)`, where n is `len(u)` and `c_ij` is the number of occurrences of `u(k)=i` and `v(k)=j` for `k<n`."
+        },
+        {
+          "name": "TakeSmallestBy.md",
+          "desc": "returns the `n` values from the list `{e_1, e_2, ..., e_i}`, where `function(e_i)` is smallest."
+        },
+        {
+          "name": "ListLogLogPlot.md",
+          "desc": "generate an image of a logarithmic X and logarithmic Y plot for the `list-of-points`."
+        },
+        {"name": "BernoulliB.md"},
+        {"name": "SortBy.md"},
+        {"name": "UpperTriangularize.md"},
+        {
+          "name": "StringToByteArray.md",
+          "desc": "encodes the `string` into a sequence of bytes using the default character set `UTF-8`, storing the result into into a `ByteArray`."
+        },
+        {"name": "Which.md"},
+        {
+          "name": "Cosh.md",
+          "desc": "returns the hyperbolic cosine of `z`."
+        },
+        {
+          "name": "DeleteDuplicates.md",
+          "desc": "deletes duplicates from `list`."
+        },
+        {
+          "name": "CompositeQ.md",
+          "desc": "returns `True` if `n` is a composite integer number."
+        },
+        {
+          "name": "EvalF.md",
+          "desc": "the `EvalF` command is an alias for the numerical evaluation function `N(...)`"
+        },
+        {
+          "name": "MangoldtLambda.md",
+          "desc": "the von Mangoldt function of `n`"
+        },
+        {
+          "name": "NumberLinePlot.md",
+          "desc": "generates a JavaScript control, which plots a list of values along a line. for the `list-of-numbers`."
+        },
+        {
+          "name": "KroneckerDelta.md",
+          "desc": "if all arguments `arg1` to `argN` are equal return `1`, otherwise return `0`."
+        },
+        {"name": "KeyTake.md"},
+        {
+          "name": "MultiplySides.md",
+          "desc": "multiplies `value` with all elements of the `compare-expr`. `compare-expr` can be `True`, `False` or a comparison expression with head `Equal, Unequal, Less, LessEqual, Greater, GreaterEqual`."
+        },
+        {
+          "name": "AiryAiPrime.md",
+          "desc": "returns the derivative of the `AiryAi` function."
+        },
+        {"name": "StringInsert.md"},
+        {
+          "name": "HarmonicNumber.md",
+          "desc": "returns the `n`th harmonic number."
+        },
+        {
+          "name": "Append.md",
+          "desc": "returns `expr` with `item` appended to its leaves."
+        },
+        {
+          "name": "LUDecomposition.md",
+          "desc": "calculate the LUP-decomposition of a square `matrix`."
+        },
+        {"name": "Unequal.md"},
+        {
+          "name": "CarlsonRC.md",
+          "desc": "returns the Carlson RC function.."
+        },
+        {"name": "ReplaceAll.md"},
+        {"name": "FirstPosition.md"},
+        {
+          "name": "Check.md",
+          "desc": "evaluates `expr`, and returns the result, unless messages were generated, in which case  `failure` will be returned."
+        },
+        {
+          "name": "MatrixExp.md",
+          "desc": "computes the matrix exponential of the square `matrix`."
+        },
+        {
+          "name": "TautologyQ.md",
+          "desc": "test whether the `boolean-expr` is satisfiable by all combinations of boolean `False` and `True` values for the `list-of-variables`."
+        },
+        {
+          "name": "BetweennessCentrality.md",
+          "desc": "Computes the betweenness centrality of each vertex of a `graph`."
+        },
+        {
+          "name": "LinearModelFit.md",
+          "desc": "In statistics, linear regression is a linear approach to modeling the relationship between a scalar response (or dependent variable) and one or more explanatory variables (or independent variables)."
+        },
+        {"name": "TreeForm.md"},
+        {"name": "OrderedQ.md"},
+        {"name": "PolyGamma.md"},
+        {
+          "name": "List.md",
+          "desc": "represents a list containing the elements `e1...ei`."
+        },
+        {"name": "Plus.md"},
+        {
+          "name": "Close.md",
+          "desc": "closes an input or output `stream`."
+        },
+        {"name": "N.md"},
+        {
+          "name": "FlattenAt.md",
+          "desc": "flattens out nested lists at the given `position` in `expr`."
+        },
+        {
+          "name": "YuleDissimilarity.md",
+          "desc": "returns the Yule dissimilarity between the two boolean 1-D lists `u` and `v`, which is defined as `R / (c_tt * c_ff + R / 2)` where `n` is `len(u)`, `c_ij` is the number of occurrences of `u(k)=i` and `v(k)=j` for `k<n`, and `R = 2 * c_tf * c_ft`."
+        },
+        {
+          "name": "Most.md",
+          "desc": "returns `expr` with the last element removed."
+        },
+        {"name": "Commonest.md"},
+        {
+          "name": "BinomialDistribution.md",
+          "desc": "returns the binomial distribution."
+        },
+        {"name": "Equal.md"},
+        {"name": "TTest.md"},
+        {
+          "name": "VectorAngle.md",
+          "desc": "gives the angles between vectors `u` and `v`"
+        },
+        {
+          "name": "TakeLargestBy.md",
+          "desc": "returns the `n` values from the list `{e_1, e_2, ..., e_i}`, where `function(e_i)` is largest."
+        },
+        {"name": "Flatten.md"},
+        {
+          "name": "KeysExistsQ.md",
+          "desc": "test if the `key` value is a key in the `association`."
+        },
+        {"name": "AnyTrue.md"},
+        {"name": "Tuples.md"},
+        {
+          "name": "Values.md",
+          "desc": "return a list of values of the `association`."
+        },
+        {
+          "name": "PolarPlot.md",
+          "desc": "generate a JavaScript control for the polar plot expressions `function` in the `t` range `{t, tMin, tMax}`."
+        },
+        {
+          "name": "MatrixMinimalPolynomial.md",
+          "desc": "computes the matrix minimal polynomial of a `matrix` for the variable `var`."
+        },
+        {
+          "name": "$Line.md",
+          "desc": "holds the current input line number."
+        },
+        {
+          "name": "Fit.md",
+          "desc": "solve a least squares problem using the Levenberg-Marquardt algorithm."
+        },
+        {"name": "ShearingTransform.md"},
+        {
+          "name": "Discriminant.md",
+          "desc": "computes the discriminant of the polynomial `poly` with respect to the variable `var`."
+        },
+        {
+          "name": "Tanh.md",
+          "desc": "returns the hyperbolic tangent of `z`."
+        },
+        {
+          "name": "SSSTriangle.md",
+          "desc": "returns a triangle from 3 sides `a`, `b` and `c`."
+        },
+        {"name": "ReplaceList.md"},
+        {
+          "name": "JacobiSN.md",
+          "desc": "returns the Jacobian elliptic function `sn(x, m)`."
+        },
+        {
+          "name": "CosIntegral.md",
+          "desc": "returns the cosine integral of `expr`."
+        },
+        {"name": "IntegerDigits.md"},
+        {
+          "name": "SubtractFrom.md",
+          "desc": "is equivalent to `x = x - dx`."
+        },
+        {
+          "name": "JacobiDN.md",
+          "desc": "returns the Jacobian elliptic function `dn(x, m)`."
+        },
+        {"name": "Thread.md"},
+        {
+          "name": "Expectation.md",
+          "desc": "returns the expected value of the `pure-function` for the given `data-set`."
+        },
+        {"name": "UnitVector.md"},
+        {
+          "name": "ManhattanDistance.md",
+          "desc": "returns the Manhattan distance between `u` and `v`, which is the number of horizontal or vertical moves in the grid like Manhattan city layout to get from `u` to `v`."
+        },
+        {"name": "Curl.md"},
+        {
+          "name": "ListLinePlot.md",
+          "desc": "generate a JavaScript list line plot control for the `list-of-points`."
+        },
+        {
+          "name": "CarlsonRD.md",
+          "desc": "returns the Carlson RD function."
+        },
+        {
+          "name": "Begin.md",
+          "desc": "start a new context definition"
+        },
+        {
+          "name": "MinFilter.md",
+          "desc": "filter which evaluates the `Min` of `list` for the radius `r`."
+        },
+        {
+          "name": "HessenbergDecomposition.md",
+          "desc": "calculate the Hessenberg-decomposition as a list `{p, h}` of a square `matrix`."
+        },
+        {
+          "name": "NumericQ.md",
+          "desc": "returns `True` if `expr` is an explicit numeric expression, and `False` otherwise."
+        },
+        {
+          "name": "LeafCount.md",
+          "desc": "returns the total number of indivisible subexpressions in `expr`."
+        },
+        {
+          "name": "Plot.md",
+          "desc": "generate a JavaScript control for the expression `function` in the `x` range `{x, xMin, xMax}` and `{yMin, yMax}` in the `y` range."
+        },
+        {"name": "Partition.md"},
+        {
+          "name": "ContainsOnly.md",
+          "desc": "yields True if `list1` contains only elements that appear in `list2`."
+        },
+        {
+          "name": "Nest.md",
+          "desc": "starting with `expr`, iteratively applies `f` `n` times and returns the final result."
+        },
+        {"name": "Rational.md"},
+        {"name": "WordBoundary.md"},
+        {
+          "name": "TakeLargest.md",
+          "desc": "returns the `n` largest real values from the list `{e_1, e_2, ..., e_i}`."
+        },
+        {
+          "name": "Optional.md",
+          "desc": "is a pattern which matches `patt`, which if omitted should be replaced by `default`."
+        },
+        {"name": "RandomComplex.md"},
+        {
+          "name": "StringQ.md",
+          "desc": "is `True` if `x` is a string object, or `False` otherwise."
+        },
+        {"name": "True.md"},
+        {
+          "name": "PieChart.md",
+          "desc": "plot a pie chart from a `list-of-values`."
+        },
+        {
+          "name": "Surd.md",
+          "desc": "returns the `n`-th root of `expr`. If the result is defined, it's a real value."
+        },
+        {
+          "name": "ClearAttributes.md",
+          "desc": "removes `attrib` from `symbol`'s attributes."
+        },
+        {
+          "name": "DiscreteUniformDistribution.md",
+          "desc": "returns a discrete uniform distribution."
+        },
+        {
+          "name": "WhitespaceCharacter.md",
+          "desc": "represents a single whitespace character."
+        },
+        {
+          "name": "HurwitzZeta.md",
+          "desc": "returns the Hurwitz zeta function."
+        },
+        {
+          "name": "$HistoryLength.md",
+          "desc": "specifies the maximum number of `In` and `Out` entries."
+        },
+        {
+          "name": "StringToStream.md",
+          "desc": "converts a `string` to an open input stream."
+        },
+        {
+          "name": "PrimeOmega.md",
+          "desc": "returns the sum of the exponents of the prime factorization of `n`."
+        },
+        {"name": "Log.md"},
+        {"name": "Off.md"},
+        {"name": "TemplateApply.md"},
+        {
+          "name": "Reduce.md",
+          "desc": "returns the reduced `logic-expression` for the variable `var`. Reduce works only for the `Reals` domain."
+        },
+        {
+          "name": "JaccardDissimilarity.md",
+          "desc": "returns the Jaccard-Needham dissimilarity between the two boolean 1-D lists `u` and `v`, which is defined as `(c_tf + c_ft) / (c_tt + c_ft + c_tf)`, where n is `len(u)` and `c_ij` is the number of occurrences of `u(k)=i` and `v(k)=j` for `k<n`."
+        },
+        {
+          "name": "BinCounts.md",
+          "desc": "count the number of elements, if `list`, is divided into successive bins with width `width-of-bin`."
+        },
+        {
+          "name": "CauchyDistribution.md",
+          "desc": "returns the Cauchy distribution."
+        },
+        {
+          "name": "StackBegin.md",
+          "desc": "begine a new stack and evaluate `èxpr`. Use `Stack(_)` as a subexpression in `expr` to return the stack elements."
+        },
+        {"name": "StringJoin.md"},
+        {
+          "name": "DeleteDuplicatesBy.md",
+          "desc": "deletes duplicates from `list`, for which the `predicate` returns `True`."
+        },
+        {
+          "name": "Cancel.md",
+          "desc": "cancels out common factors in numerators and denominators."
+        },
+        {
+          "name": "CatalanNumber.md",
+          "desc": "returns the catalan number for the argument `n`."
+        },
+        {"name": "QuantityMagnitude.md"},
+        {
+          "name": "Dimensions.md",
+          "desc": "returns a list of the dimensions of the expression `expr`."
+        },
+        {"name": "SelectFirst.md"},
+        {"name": "KeySort.md"},
+        {
+          "name": "EllipticPi.md",
+          "desc": "returns the complete elliptic integral of the third kind."
+        },
+        {
+          "name": "StringLength.md",
+          "desc": "gives the length of `string`."
+        },
+        {
+          "name": "HexidecimalCharacter.md",
+          "desc": "represents the characters `0-9`, `a-f` and `A-F`."
+        },
+        {
+          "name": "FindSpanningTree.md",
+          "desc": "find the minimum spanning tree in the `graph`."
+        },
+        {"name": "VertexList.md"},
+        {
+          "name": "Div.md",
+          "desc": "compute the divergence."
+        },
+        {
+          "name": "StringCount.md",
+          "desc": "counts all occurences of `pattern` in `string`."
+        },
+        {
+          "name": "Sqrt.md",
+          "desc": "returns the square root of `expr`."
+        },
+        {"name": "EvenQ.md"},
+        {
+          "name": "CorrelationDistance.md",
+          "desc": "returns the correlation distance between `u` and `v`."
+        },
+        {
+          "name": "Positive.md",
+          "desc": "returns `True` if `x` is a positive real number."
+        },
+        {
+          "name": "Clear.md",
+          "desc": "clears all values of the given symbols."
+        },
+        {
+          "name": "InverseZTransform.md",
+          "desc": "returns the inverse Z-Transform of `x`."
+        },
+        {"name": "NestWhileList.md"},
+        {
+          "name": "Infinity.md",
+          "desc": "represents an infinite real quantity."
+        },
+        {
+          "name": "Inner.md",
+          "desc": "computes a generalized inner product of `x` and `y`, using a multiplication function `f` and an addition function `g`."
+        },
+        {
+          "name": "Subtract.md",
+          "desc": "represents the subtraction of `b` from `a`."
+        },
+        {"name": "Ceiling.md"},
+        {"name": "Subdivide.md"},
+        {
+          "name": "Sech.md",
+          "desc": "returns the hyperbolic secant of `z`."
+        },
+        {
+          "name": "$Assumptions.md",
+          "desc": "contains the default assumptions for `Integrate`, `Refine` and `Simplify`."
+        },
+        {
+          "name": "NestList.md",
+          "desc": "starting with `expr`, iteratively applies `f` `n` times and returns a list of all intermediate results."
+        },
+        {"name": "FindClusters.md"},
+        {
+          "name": "Attributes.md",
+          "desc": "returns the list of attributes which are assigned to `symbol`"
+        },
+        {"name": "ComposeSeries.md"},
+        {
+          "name": "Minus.md",
+          "desc": "is the negation of `expr`."
+        },
+        {
+          "name": "RiccatiSolve.md",
+          "desc": "An algebraic Riccati equation is a type of nonlinear equation that arises in the context of infinite-horizon optimal control problems in continuous time or discrete time. The continuous time algebraic Riccati equation (CARE): `A^{T}·X+X·A-X·B·R^{-1}·B^{T}·X+Q==0`. And the respective linear controller is: `K = R^{-1}·B^{T}·P`. The solver receives `A`, `B`, `Q` and `R` and computes `P`."
+        },
+        {
+          "name": "FunctionURL.md",
+          "desc": "returns the GitHub URL of the `built-in-symbol` implementation in the [Symja GitHub repository](https://github.com/axkr/symja_android_library)."
+        },
+        {"name": "TemplateIf.md"},
+        {
+          "name": "CosineDistance.md",
+          "desc": "returns the cosine distance between `u` and `v`."
+        },
+        {
+          "name": "ByteArray.md",
+          "desc": "converts the `list-of-byte-values` into a byte array."
+        },
+        {
+          "name": "StringReverse.md",
+          "desc": "reverse the `string`."
+        },
+        {
+          "name": "GraphDifference.md",
+          "desc": "returns the graph difference of `graph1`, `graph2`."
+        },
+        {"name": "ArrayRules.md"},
+        {
+          "name": "Interval.md",
+          "desc": "represents the closed interval from `a` to `b`."
+        },
+        {
+          "name": "JacobiAmplitude.md",
+          "desc": "returns the amplitude `am(x, m)` for Jacobian elliptic function."
+        },
+        {
+          "name": "Boole.md",
+          "desc": "returns `1` if `expr` evaluates to `True`; returns `0` if `expr` evaluates to `False`; and gives no result otherwise."
+        },
+        {
+          "name": "BoxWhiskerChart.md",
+          "desc": "plot a box whisker chart."
+        },
+        {"name": "MatrixForm.md"},
+        {"name": "ScalingTransform.md"},
+        {"name": "StringTrim.md"},
+        {"name": "JavaObject.md"},
+        {
+          "name": "HypergeometricDistribution.md",
+          "desc": "returns a hypergeometric distribution."
+        },
+        {"name": "CDF.md"},
+        {
+          "name": "MatchQ.md",
+          "desc": "tests whether `expr` matches `form`."
+        },
+        {"name": "Quantile.md"},
+        {
+          "name": "FindPermutation.md",
+          "desc": "create a `Cycles({{...},{...}, ...})` permutation expression, for two lists whose arguments are the same but may be differently arranged."
+        },
+        {
+          "name": "PrimitiveRootList.md",
+          "desc": "returns the list of the primitive roots of `n`."
+        },
+        {
+          "name": "JacobiMatrix.md",
+          "desc": "creates a Jacobian matrix."
+        },
+        {
+          "name": "Skewness.md",
+          "desc": "gives Pearson's moment coefficient of skewness for `list` (a measure for estimating the symmetry of a distribution)."
+        },
+        {
+          "name": "BernsteinBasis.md",
+          "desc": "computes the Bernstein basis for the expression `expr`."
+        },
+        {
+          "name": "SquareMatrixQ.md",
+          "desc": "returns `True` if `m` is a square matrix."
+        },
+        {
+          "name": "CompiledFunction.md",
+          "desc": "represents a binary Java coded function."
+        },
+        {"name": "Simplify.md"},
+        {"name": "TestReport.md"},
+        {"name": "Plot3D.md"},
+        {
+          "name": "CubeRoot.md",
+          "desc": "finds the real-valued cube root of the given `n`."
+        },
+        {
+          "name": "Reals.md",
+          "desc": "is the set of real numbers."
+        },
+        {"name": "Import.md"},
+        {
+          "name": "JacobiCN.md",
+          "desc": "returns the Jacobian elliptic function `cn(x, m)`."
+        },
+        {"name": "Options.md"},
+        {
+          "name": "ExpandAll.md",
+          "desc": "expands out all positive integer powers and products of sums in `expr`."
+        },
+        {
+          "name": "ArithmeticGeometricMean.md",
+          "desc": "returns the arithmetic geometric mean of `{a, b, c,...}`."
+        },
+        {
+          "name": "DiagonalMatrixQ.md",
+          "desc": "returns `True` if all elements of the `matrix` are `0` except the elements on the `diagonal`."
+        },
+        {
+          "name": "ArcSech.md",
+          "desc": "returns the inverse hyperbolic secant of `z`."
+        },
+        {
+          "name": "StieltjesGamma.md",
+          "desc": "returns Stieltjes constant."
+        },
+        {
+          "name": "PermutationList.md",
+          "desc": "get the permutation list representation from the `Cycles({{...},{...}, ...})` expression."
+        },
+        {
+          "name": "SinIntegral.md",
+          "desc": "returns the hyperbolic sine integral of `expr`."
+        },
+        {
+          "name": "MersennePrimeExponentQ.md",
+          "desc": "returns `True` if `2^n - 1` is a prime number. Currently `0 <= n <= 47` can be computed in reasonable time."
+        },
+        {"name": "GraphQ.md"},
+        {
+          "name": "FromContinuedFraction.md",
+          "desc": "reconstructs a number from the list of its continued fraction terms `{n1, n2, ...}`."
+        },
+        {
+          "name": "BellY.md",
+          "desc": "the second kind of Bell polynomials (incomplete Bell polynomials)."
+        },
+        {"name": "RankedMax.md"},
+        {
+          "name": "GumbelDistribution.md",
+          "desc": "returns a Gumbel distribution."
+        },
+        {
+          "name": "CirclePoints.md",
+          "desc": "gives the `i` points on the unit circle for a positive integer `i`."
+        },
+        {
+          "name": "GoldenRatio.md",
+          "desc": "is the golden ratio `(1+Sqrt(5))/2`."
+        },
+        {
+          "name": "$MaxMachineNumber.md",
+          "desc": "return the largest positive finite Java `double` value (`Double.MAX_VALUE` approx. `1.7976931348623157*^308`)"
+        },
+        {
+          "name": "LaplaceTransform.md",
+          "desc": "returns the laplace transform."
+        },
+        {"name": "Rescale.md"},
+        {
+          "name": "Delete.md",
+          "desc": "returns `expr` with part `n` removed."
+        },
+        {
+          "name": "OrthogonalMatrixQ.md",
+          "desc": "returns `True`, if `matrix` is an orthogonal matrix. `False` otherwise."
+        },
+        {
+          "name": "GammaDistribution.md",
+          "desc": "returns a gamma distribution."
+        },
+        {
+          "name": "MachineNumberQ.md",
+          "desc": "returns `True` if `expr` is a machine-precision real or complex number."
+        },
+        {
+          "name": "LinearSolve.md",
+          "desc": "solves the linear equation system 'matrix . x = right' and returns one corresponding solution `x`."
+        },
+        {
+          "name": "$ScriptCommandLine.md",
+          "desc": "is a list of string arguments when running Symja in script mode. The list starts with the name of the script."
+        },
+        {"name": "ND.md"},
+        {
+          "name": "BooleanMaxterms.md",
+          "desc": "create the conjunction of the variables `{v1,v2,...}`."
+        },
+        {
+          "name": "CentralMoment.md",
+          "desc": "gives the the `r`th central moment (i.e. the `r`th moment about the mean) of `list`."
+        },
+        {
+          "name": "Quotient.md",
+          "desc": "computes the integer quotient of `m` and `n`."
+        },
+        {
+          "name": "Tally.md",
+          "desc": "return the elements and their number of occurrences in `list` in a new result list. The `binary-predicate` tests if two elements are equivalent. `SameQ` is used as the default `binary-predicate`."
+        },
+        {
+          "name": "Zeta.md",
+          "desc": "returns the Riemann zeta function of `z`."
+        },
+        {
+          "name": "JavaClass.md",
+          "desc": "a `JavaClass` expression can be created with the `LoadJavaClass` function and wraps a Java `java.lang.Class` object. All static method names are assigned to a context which will be created by the last part of the class name."
+        },
+        {
+          "name": "With.md",
+          "desc": "evaluates `expr` for the `list_of_local_variables` by replacing the local variables in `expr`."
+        },
+        {
+          "name": "Distribute.md",
+          "desc": "distributes `f` over `Plus` appearing in any of the `xi`."
+        },
+        {"name": "TimeConstrained.md"},
+        {
+          "name": "CountDistinct.md",
+          "desc": "returns the number of distinct entries in `list`."
+        },
+        {
+          "name": "Ramp.md",
+          "desc": "The `Ramp` function is a unary real function, whose graph is shaped like a ramp."
+        },
+        {
+          "name": "ParametricPlot.md",
+          "desc": "generate a JavaScript control for the parametric expressions `function1`, `function2` in the `t` range `{t, tMin, tMax}`."
+        },
+        {"name": "PolynomialRemainder.md"},
+        {
+          "name": "LevelQ.md",
+          "desc": "tests whether `expr` is a valid level specification."
+        },
+        {"name": "Permute.md"},
+        {
+          "name": "ExponentialDistribution.md",
+          "desc": "returns an exponential distribution."
+        },
+        {
+          "name": "Annuity.md",
+          "desc": "returns an annuity object."
+        },
+        {
+          "name": "EllipticF.md",
+          "desc": "returns the incomplete elliptic integral of the first kind."
+        },
+        {
+          "name": "MathMLForm.md",
+          "desc": "returns the MathML form of the evaluated `expr`."
+        },
+        {
+          "name": "InverseGudermannian.md",
+          "desc": "computes the inverse gudermannian function."
+        },
+        {
+          "name": "StringExpression.md",
+          "desc": "represents a sequence of strings and symbolic string objects `s_i`."
+        },
+        {
+          "name": "Erfc.md",
+          "desc": "returns the complementary error function of `z`."
+        },
+        {
+          "name": "ParetoDistribution.md",
+          "desc": "returns a Pareto distribution."
+        },
+        {
+          "name": "VandermondeMatrix.md",
+          "desc": "gives the Vandermonde matrix with `n` rows and columns."
+        },
+        {
+          "name": "AtomQ.md",
+          "desc": "is true if `x` is an atom (an object such as a number or string, which cannot be divided into subexpressions using 'Part')."
+        },
+        {"name": "AssociationThread.md"},
+        {
+          "name": "Det.md",
+          "desc": "computes the determinant of the `matrix`."
+        },
+        {
+          "name": "ComplexExpand.md",
+          "desc": "get the expanded `expr`. All variable symbols in `expr` are assumed to be non complex numbers."
+        },
+        {"name": "StandardDeviation.md"},
+        {
+          "name": "ArcTanh.md",
+          "desc": "returns the inverse hyperbolic tangent of `z`."
+        },
+        {
+          "name": "LogGamma.md",
+          "desc": "is the logarithmic gamma function on the complex number `z`."
+        },
+        {"name": "None.md"},
+        {
+          "name": "SchurDecomposition.md",
+          "desc": "calculate the Schur-decomposition as a list `{q, t}` of a square `matrix`."
+        },
+        {
+          "name": "Prime.md",
+          "desc": "returns the `n`th prime number."
+        },
+        {
+          "name": "Cross.md",
+          "desc": "computes the vector cross product of `a` and `b`."
+        },
+        {
+          "name": "ArcCos.md",
+          "desc": "returns the arc cosine (inverse cosine) of `expr` (measured in radians)."
+        },
+        {
+          "name": "Unset.md",
+          "desc": "removes any definitions belonging to the left-hand-side `expr`."
+        },
+        {
+          "name": "JavaNew.md",
+          "desc": "a `JavaObject` can be created with the `JavaNew` function."
+        },
+        {
+          "name": "MonomialList.md",
+          "desc": "get the list of monomials of a `polynomial` expression, with respect to the `list-of-variables`."
+        },
+        {"name": "Collect.md"},
+        {
+          "name": "CharacteristicPolynomial.md",
+          "desc": "computes the characteristic polynomial of a `matrix` for the variable `var`."
+        },
+        {"name": "ElementData.md"},
+        {
+          "name": "DigitQ.md",
+          "desc": "returns `True` if `str` is a string which contains only digits."
+        },
+        {
+          "name": "CoplanarPoints.md",
+          "desc": "returns true if the point `{a,b,c]` is on the plane defined by the first three points `{x1,y1,z1},{x2,y2,z2},{x3,y3,z3}`."
+        },
+        {
+          "name": "ArcTan.md",
+          "desc": "returns the arc tangent (inverse tangent) of `expr` (measured in radians)."
+        },
+        {
+          "name": "JavaShow.md",
+          "desc": "show the `JavaObject` which has to be an instance of `java.awt.Window`."
+        },
+        {"name": "ReplaceRepeated.md"},
+        {"name": "PolynomialQuotient.md"},
+        {
+          "name": "Trace.md",
+          "desc": "return the evaluation steps which are used to get the result."
+        },
+        {
+          "name": "ReleaseHold.md",
+          "desc": "removes any `Hold`, `HoldForm`, `HoldPattern` or `HoldComplete` head from `expr`."
+        },
+        {
+          "name": "SymbolName.md",
+          "desc": "returns the name of the symbol `s` (without any leading context name)."
+        },
+        {"name": "Gather.md"},
+        {
+          "name": "GraphRadius.md",
+          "desc": "return the radius of the `graph`."
+        },
+        {"name": "FindRoot.md"},
+        {
+          "name": "Csc.md",
+          "desc": "returns the cosecant  of `z`."
+        },
+        {
+          "name": "DeleteCases.md",
+          "desc": "returns the elements of `list` that do not match `pattern`."
+        },
+        {
+          "name": "Max.md",
+          "desc": "returns the expression with the greatest value among the `e_i`."
+        },
+        {
+          "name": "Hold.md",
+          "desc": "`Hold` doesn't evaluate `expr`. `Hold` evaluates `UpValues`for its arguments. `HoldComplete` doesn't evaluate `UpValues`."
+        },
+        {"name": "Apart.md"},
+        {
+          "name": "SokalSneathDissimilarity.md",
+          "desc": "returns the Sokal-Sneath dissimilarity between the two boolean 1-D lists `u` and `v`, which is defined as `R / (c_tt + R)` where n is `len(u)`, `c_ij` is the number of occurrences of `u(k)=i` and `v(k)=j` for `k<n`, and `R = 2 * (c_tf + c_ft)`."
+        },
+        {
+          "name": "ZTransform.md",
+          "desc": "returns the Z-Transform of `x`."
+        },
+        {
+          "name": "JacobiSymbol.md",
+          "desc": "calculates the Jacobi symbol."
+        },
+        {
+          "name": "Erf.md",
+          "desc": "returns the error function of `z`."
+        },
+        {
+          "name": "Keys.md",
+          "desc": "return a list of keys of the `association`."
+        },
+        {"name": "Permutations.md"},
+        {
+          "name": "BitLength.md",
+          "desc": "gives the number of bits needed to represent the integer `x`. The sign of `x` is ignored."
+        },
+        {"name": "Floor.md"},
+        {
+          "name": "BesselI.md",
+          "desc": "modified Bessel function of the first kind."
+        },
+        {
+          "name": "Real.md",
+          "desc": "is the head of real (floating point) numbers."
+        },
+        {
+          "name": "PreDecrement.md",
+          "desc": "decrements `x` by `1`, returning the new value of `x`."
+        },
+        {"name": "Cases.md"},
+        {
+          "name": "FilePrint.md",
+          "desc": "prints the raw contents of `file`."
+        },
+        {
+          "name": "Message.md",
+          "desc": "displays the specified message, replacing placeholders in the message text with the corresponding expressions."
+        },
+        {
+          "name": "Decrement.md",
+          "desc": "decrements `x` by `1`, returning the original value of `x`."
+        },
+        {
+          "name": "TagSet.md",
+          "desc": "assigns the evaluated `value` to `expr` and associates the corresponding rule with the symbol `f`."
+        },
+        {
+          "name": "DensityHistogram.md",
+          "desc": "plot a density histogram for a `list-of-pair-values`"
+        },
+        {
+          "name": "InterpolatingPolynomial.md",
+          "desc": "get the polynomial representation for the given `data-list`."
+        },
+        {"name": "IdentityMatrix.md"},
+        {
+          "name": "CoefficientList.md",
+          "desc": "get the coefficient list of a  `polynomial`."
+        },
+        {
+          "name": "BinaryDistance.md",
+          "desc": "returns the binary distance between `u` and `v`. `0` if  `u` and `v` are unequal. `1` if `u` and `v` are equal."
+        },
+        {"name": "PDF.md"},
+        {
+          "name": "FourierMatrix.md",
+          "desc": "gives a fourier matrix with the dimension `n`."
+        },
+        {
+          "name": "In.md",
+          "desc": "gives the `k`th line of input."
+        },
+        {
+          "name": "AbsArg.md",
+          "desc": "returns a list of 2 values of the complex number `Abs(expr), Arg(expr)`."
+        },
+        {
+          "name": "Degree.md",
+          "desc": "the constant `Degree` converts angles from degree to `Pi/180` radians."
+        },
+        {
+          "name": "Minimize.md",
+          "desc": "returns the minimum of the unary function for the given `variable`."
+        },
+        {"name": "Slot.md"},
+        {"name": "ArrayReshape.md"},
+        {
+          "name": "ListConvolve.md",
+          "desc": "create the convolution of the `kernel-list` with `tensor-list`."
+        },
+        {"name": "OddQ.md"},
+        {
+          "name": "Divide.md",
+          "desc": "represents the division of  `a` by `b`."
+        },
+        {"name": "D.md"},
+        {
+          "name": "FactorTerms.md",
+          "desc": "pulls out any overall numerical factor in `poly`."
+        },
+        {
+          "name": "ListLogPlot.md",
+          "desc": "generate an image of a logarithmic Y plot for the `list-of-points`."
+        },
+        {
+          "name": "Symbol.md",
+          "desc": "is the head of symbols."
+        },
+        {
+          "name": "TimesBy.md",
+          "desc": "is equivalent to `x = x * dx`."
+        },
+        {
+          "name": "Equivalent.md",
+          "desc": "Equivalence relation. `Equivalent(A, B)` is `True` iff `A` and `B` are both `True` or both `False`. Returns `True` if all of the arguments are logically equivalent. Returns `False` otherwise. `Equivalent(arg1, arg2, ...)` is equivalent to `(arg1 && arg2 && ...) || (!arg1 && !arg2 && ...)`."
+        },
+        {
+          "name": "SeriesCoefficient.md",
+          "desc": "get the coefficient of `(x- x0)^n` at the point `x = x0`"
+        },
+        {
+          "name": "Chop.md",
+          "desc": "replaces numerical values in the `numerical-expr` which are close to zero with symbolic value `0`."
+        },
+        {
+          "name": "ArgMax.md",
+          "desc": "returns a maximizer point for a univariate `function`."
+        },
+        {
+          "name": "UnitaryMatrixQ.md",
+          "desc": "returns `True` if a complex square matrix `U` is unitary, that is, if its conjugate transpose `U^(*)` is also its inverse, that is, if `U^(*).U = U.U^(*) = U.U^(-1) - 1 = I` where `I` is the identity matrix."
+        },
+        {"name": "SatisfiabilityCount.md"},
+        {
+          "name": "BesselYZero.md",
+          "desc": "is the `k`th zero of the `BesselY(n,z)` function."
+        },
+        {
+          "name": "Covariance.md",
+          "desc": "computes the covariance between the equal-sized vectors `a` and `b`."
+        },
+        {"name": "GreaterEqual.md"},
+        {"name": "Flat.md"},
+        {"name": "InterquartileRange.md"},
+        {"name": "HammingDistance.md"},
+        {
+          "name": "Abs.md",
+          "desc": "returns the absolute value of the real or complex number `expr`."
+        },
+        {
+          "name": "NHoldRest.md",
+          "desc": "is an attribute that protects all but the first argument of a function from numeric evaluation."
+        },
+        {
+          "name": "SubtractSides.md",
+          "desc": "subtracts `value` from all elements of the `compare-expr`. `compare-expr` can be `True`, `False` or a comparison expression with head `Equal, Unequal, Less, LessEqual, Greater, GreaterEqual`."
+        },
+        {
+          "name": "TakeWhile.md",
+          "desc": "returns the list of elements `ei` at the start of list for which `head(ei)` returns `True`."
+        },
+        {
+          "name": "IntervalIntersection.md",
+          "desc": "compute the intersection of the intervals `interval_1, interval_2, ...`"
+        },
+        {
+          "name": "TestResultObject.md",
+          "desc": "is an association wrapped in a `TestResultObject`returned from `VerificationTest` which stores the results from executing a single unit test."
+        },
+        {
+          "name": "ClearAll.md",
+          "desc": "clears all values and attributes associated with the given symbols."
+        },
+        {
+          "name": "AiryBiPrime.md",
+          "desc": "returns the derivative of the `AiryBi` function."
+        },
+        {
+          "name": "StirlingS2.md",
+          "desc": "returns the Stirling numbers of the second kind. `StirlingS2(n,k)` is the number of ways of partitioning an `n`-element set into `k` non-empty subsets."
+        },
+        {
+          "name": "Refine.md",
+          "desc": "evaluate the `expression` for the given `assumptions`."
+        },
+        {
+          "name": "CarmichaelLambda.md",
+          "desc": "the Carmichael function of `n`"
+        },
+        {
+          "name": "QRDecomposition.md",
+          "desc": "computes the QR decomposition of the matrix `A`. The QR decomposition is a decomposition of a matrix `A` into a product `A = Q.R` of an unitary matrix `Q` and an upper triangular matrix `R`."
+        },
+        {"name": "Arrow.md"},
+        {
+          "name": "ComplexInfinity.md",
+          "desc": "represents an infinite complex quantity of undetermined direction."
+        },
+        {
+          "name": "End.md",
+          "desc": "end a context definition started with `Begin`"
+        },
+        {
+          "name": "DivideSides.md",
+          "desc": "divides all elements of the `compare-expr` by `value`. `compare-expr` can be `True`, `False` or a comparison expression with head `Equal, Unequal, Less, LessEqual, Greater, GreaterEqual`."
+        },
+        {
+          "name": "NIntegrate.md",
+          "desc": "computes the numerical univariate real integral of `f` with respect to `x` from `a` to `b`."
+        },
+        {"name": "FourierDSTMatrix.md"},
+        {
+          "name": "JacobiSD.md",
+          "desc": "returns the Jacobian elliptic function `sd(x, m)`."
+        },
+        {
+          "name": "$MinMachineNumber.md",
+          "desc": "return the smallest positive normal Java `double` value (`Double.MIN_NORMAL` approx. 2.2250738585072014*^308)"
+        },
+        {
+          "name": "Series.md",
+          "desc": "create a power series of `expr` up to order `(x- x0)^n` at the point `x = x0`"
+        },
+        {
+          "name": "Convergents.md",
+          "desc": "return the list of convergents which represents the continued fraction list `{n1, n2, ...}`."
+        },
+        {
+          "name": "SubsetQ.md",
+          "desc": "returns `True` if `set2` is a subset of `set1`."
+        },
+        {
+          "name": "GeometricMean.md",
+          "desc": "returns the geometric mean of `{a, b, c,...}`."
+        },
+        {
+          "name": "ModularInverse.md",
+          "desc": "returns the modular inverse `k^(-1) mod n`."
+        },
+        {"name": "Times.md"},
+        {"name": "GatherBy.md"},
+        {
+          "name": "InstanceOf.md",
+          "desc": "return the result of the Java expression `java-object instanceof class`."
+        },
+        {
+          "name": "DivideBy.md",
+          "desc": "is equivalent to `x = x / dx`."
+        },
+        {"name": "PolynomialGCD.md"},
+        {"name": "RandomSample.md"},
+        {
+          "name": "MissingQ.md",
+          "desc": "returns `True` if `expr` is a `Missing()` expression."
+        },
+        {
+          "name": "Switch.md",
+          "desc": "yields the first `value` for which `expr` matches the corresponding pattern."
+        },
+        {
+          "name": "IntegerExponent.md",
+          "desc": "gives the highest exponent of `b` that divides `n`."
+        },
+        {"name": "PetersenGraph.md"},
+        {
+          "name": "LengthWhile.md",
+          "desc": "returns the number of elements `ei` at the start of list for which `head(ei)` returns `True`."
+        },
+        {
+          "name": "ArcCsch.md",
+          "desc": "returns the inverse hyperbolic cosecant of `z`."
+        },
+        {
+          "name": "Element.md",
+          "desc": "assume (or test) that the `symbol` is in the domain `domain`."
+        },
+        {"name": "PiecewiseExpand.md"},
+        {
+          "name": "Listable.md",
+          "desc": "is an attribute specifying that a function should be automatically applied to each element of a list."
+        },
+        {
+          "name": "Hypergeometric0F1.md",
+          "desc": "return the `Hypergeometric0F1` function"
+        },
+        {"name": "Join.md"},
+        {"name": "Integrate.md"},
+        {
+          "name": "GraphDisjointUnion.md",
+          "desc": "returns the disjoint graph union of `graph1`, `graph2`, `graph3`,..."
+        },
+        {
+          "name": "RowReduce.md",
+          "desc": "returns the reduced row-echelon form of `matrix`."
+        },
+        {
+          "name": "RogersTanimotoDissimilarity.md",
+          "desc": "returns the Rogers-Tanimoto dissimilarity between the two boolean 1-D lists `u` and `v`, which is defined as `R / (c_tt + c_ff + R)` where n is `len(u)`, `c_ij` is the number of occurrences of `u(k)=i` and `v(k)=j` for `k<n`, and `R = 2 * (c_tf + c_ft)`."
+        },
+        {"name": "DirectedInfinity.md"},
+        {"name": "ToString.md"},
+        {
+          "name": "Pi.md",
+          "desc": "is the constant `Pi`."
+        },
+        {"name": "Export.md"},
+        {
+          "name": "ArrayPlot.md",
+          "desc": "generate a rectangle image for the `matrix-of-values`."
+        },
+        {"name": "FindShortestPath.md"},
+        {"name": "Variance.md"},
+        {"name": "MapThread.md"},
+        {
+          "name": "Pochhammer.md",
+          "desc": "returns the pochhammer symbol for a rational number `a` and an integer number `n`."
+        },
+        {"name": "Diagonal.md"},
+        {"name": "RandomVariate.md"},
+        {
+          "name": "All.md",
+          "desc": "is a value for a number of functions indicating to include everything. For example it is a possible value for `Span`, `Part`  and `Quiet`."
+        },
+        {
+          "name": "CarlsonRJ.md",
+          "desc": "returns the Carlson RJ function."
+        },
+        {
+          "name": "RemoveDiacritics.md",
+          "desc": "returns a version of `string` with all diacritics removed."
+        },
+        {
+          "name": "FindInstance.md",
+          "desc": "attempts to find one solution which solves the `equations` for the variables `vars`."
+        },
+        {
+          "name": "GeometricDistribution.md",
+          "desc": "returns a geometric distribution."
+        },
+        {
+          "name": "Underflow.md",
+          "desc": "represents a number too small to be represented by Symja."
+        },
+        {
+          "name": "ListCorrelate.md",
+          "desc": "create the correlation of the `kernel-list` with `tensor-list`."
+        },
+        {
+          "name": "Subfactorial.md",
+          "desc": "returns the subfactorial number of the integer `n`"
+        },
+        {"name": "RandomPermutation.md"},
+        {
+          "name": "FrobeniusSolve.md",
+          "desc": "get a list of solutions for the Frobenius equation given by the list of integers `{a1, ... ,aN}` and the non-negative integer `M`."
+        },
+        {"name": "Limit.md"},
+        {
+          "name": "FrechetDistribution.md",
+          "desc": "returns a Frechet distribution."
+        },
+        {
+          "name": "Multinomial.md",
+          "desc": "gives the multinomial coefficient `(n1+n2+...)!/(n1! n2! ...)`."
+        },
+        {
+          "name": "FreeQ.md",
+          "desc": "returns 'True' if `expr` does not contain the expression `x`."
+        },
+        {"name": "ToeplitzMatrix.md"},
+        {"name": "WeightedGraphQ.md"},
+        {
+          "name": "Reap.md",
+          "desc": "gives the result of evaluating `expr`, together with all values sown during this evaluation. Values sown with different tags are given in different lists."
+        },
+        {
+          "name": "SetAttributes.md",
+          "desc": "adds `attrib` to `symbol`'s attributes."
+        },
+        {
+          "name": "EulerE.md",
+          "desc": "gives the euler number `En`."
+        },
+        {
+          "name": "Owerflow.md",
+          "desc": "represents a number too large to be represented by Symja."
+        },
+        {"name": "OneIdentity.md"},
+        {
+          "name": "JacobiCD.md",
+          "desc": "returns the Jacobian elliptic function `cd(x, m)`."
+        },
+        {"name": "Key.md"},
+        {
+          "name": "Null.md",
+          "desc": "is the implicit result of expressions that do not yield a result."
+        },
+        {
+          "name": "ChessboardDistance.md",
+          "desc": "returns the chessboard distance (also known as Chebyshev distance) between `u` and `v`, which is the number of moves a king on a chessboard needs to get from square `u` to square `v`."
+        },
+        {"name": "FullSimplify.md"},
+        {
+          "name": "FrobeniusNumber.md",
+          "desc": "returns the Frobenius number of the nonnegative integers `{a1, ... ,aN}`"
+        },
+        {
+          "name": "Sequence.md",
+          "desc": "represents a sequence of arguments to a function."
+        },
+        {
+          "name": "StruveH.md",
+          "desc": "returns the Struve function `H_n(z)`."
+        },
+        {
+          "name": "Interrupt.md",
+          "desc": "Interrupt an evaluation and returns `$Aborted`."
+        },
+        {"name": "EditDistance.md"},
+        {
+          "name": "EdgeRules.md",
+          "desc": "convert the `graph` into a list of rules. All edge types (undirected, directed) are represented by a rule `lhs->rhs`."
+        },
+        {
+          "name": "StringContainsQ.md",
+          "desc": "return a list of matches for `\"p1\", \"p2\",...` list of strings in the string `str`."
+        },
+        {
+          "name": "$OperatingSystem.md",
+          "desc": "gives the type of operating system (\"Windows\", \"MacOSX\", or \"Unix\") running Symja."
+        },
+        {
+          "name": "PrimePowerQ.md",
+          "desc": "returns `True` if `n` is a power of a prime number."
+        },
+        {
+          "name": "BinarySerialize.md",
+          "desc": "serialize the Symja `expr` into a byte array expression in WXF format."
+        },
+        {"name": "FileNames.md"},
+        {
+          "name": "StringMatchQ.md",
+          "desc": "check if the regular expression `regex-pattern` matches the `string`."
+        },
+        {"name": "Integers.md"},
+        {
+          "name": "Nor.md",
+          "desc": "Logical NOR function. It evaluates its arguments in order, giving `False` immediately if any of them are `True`, and `True` if they are all `False`."
+        },
+        {
+          "name": "BaseDecode.md",
+          "desc": "decodes a Base64 encoded `string` into a `ByteArray` using the Base64 encoding scheme."
+        },
+        {
+          "name": "Catalan.md",
+          "desc": "Catalan's constant"
+        },
+        {
+          "name": "MaxFilter.md",
+          "desc": "filter which evaluates the `Max` of `list` for the radius `r`."
+        },
+        {"name": "Dispatch.md"},
+        {"name": "On.md"},
+        {
+          "name": "HurwitzLerchPhi.md",
+          "desc": "returns the Lerch transcendent function."
+        },
+        {"name": "CoordinateBoundingBox.md"},
+        {
+          "name": "Numerator.md",
+          "desc": "gives the numerator in `expr`. Numerator collects expressions with non negative exponents."
+        },
+        {
+          "name": "RandomInteger.md",
+          "desc": "create a random integer number between `0` and `n`."
+        },
+        {"name": "StringTemplate.md"},
+        {"name": "Sort.md"},
+        {
+          "name": "PerfectNumberQ.md",
+          "desc": "returns `True` if `n` is a perfect number. In number theory, a perfect number is a positive integer that is equal to the sum of its proper"
+        },
+        {
+          "name": "RegularExpression.md",
+          "desc": "represents the regular expression specified by the string `\u201cregex\u201d`."
+        },
+        {"name": "UnitConvert.md"},
+        {
+          "name": "Out.md",
+          "desc": "gives the result of the `k`th input line."
+        },
+        {"name": "Beta.md"},
+        {
+          "name": "QuotientRemainder.md",
+          "desc": "computes a list of the quotient and remainder from division of `m` and `n`."
+        },
+        {
+          "name": "NakagamiDistribution.md",
+          "desc": "returns a Nakagami distribution."
+        },
+        {
+          "name": "Variables.md",
+          "desc": "gives a list of the variables that appear in the polynomial `expr`."
+        },
+        {
+          "name": "Reverse.md",
+          "desc": "reverse the elements of the `list`."
+        },
+        {
+          "name": "TeXForm.md",
+          "desc": "returns the TeX form of the evaluated `expr`."
+        },
+        {
+          "name": "MatrixRank.md",
+          "desc": "returns the rank of `matrix`."
+        },
+        {
+          "name": "Length.md",
+          "desc": "returns the number of leaves in `expr`."
+        },
+        {
+          "name": "PatternTest.md",
+          "desc": "constrains `pattern` to match `expr` only if the evaluation of `test(expr)` yields `True`."
+        },
+        {
+          "name": "Hypergeometric1F1.md",
+          "desc": "return the `Hypergeometric1F1` function"
+        },
+        {
+          "name": "Csch.md",
+          "desc": "returns the hyperbolic cosecant of `z`."
+        },
+        {
+          "name": "HermiteH.md",
+          "desc": "returns the Hermite polynomial `H_n(x)`."
+        },
+        {
+          "name": "Graphics3D.md",
+          "desc": "represents a three-dimensional graphic."
+        },
+        {
+          "name": "Divisible.md",
+          "desc": "returns `True` if `n` could be divide by `m`."
+        },
+        {
+          "name": "StudentTDistribution.md",
+          "desc": "returns a Student's t-distribution."
+        },
+        {"name": "FirstCase.md"},
+        {
+          "name": "InputForm.md",
+          "desc": "print the `expr` as if it should be inserted by the user for evaluation."
+        },
+        {
+          "name": "Haversine.md",
+          "desc": "returns the haversine function of `z`."
+        },
+        {"name": "NextPrime.md"},
+        {
+          "name": "ByteArrayToString.md",
+          "desc": "decoding the specified `byte-array` using the default character set `UTF-8`."
+        },
+        {
+          "name": "BeginPackage.md",
+          "desc": "start a new package definition"
+        },
+        {
+          "name": "PreIncrement.md",
+          "desc": "increments `x` by `1`, returning the new value of `x`."
+        },
+        {
+          "name": "SetDelayed.md",
+          "desc": "assigns `value` to `expr`, without evaluating `value`."
+        },
+        {
+          "name": "Negative.md",
+          "desc": "returns `True` if `x` is a negative real number."
+        },
+        {"name": "TransformationFunction.md"},
+        {"name": "KeySelect.md"},
+        {"name": "EchoFunction.md"},
+        {"name": "Normal.md"},
+        {
+          "name": "MatrixD.md",
+          "desc": "gives the matrix derivative of `f` with respect to the matrix `X`."
+        },
+        {
+          "name": "Histogram.md",
+          "desc": "plots a histogram for a `list-of-values`"
+        },
+        {
+          "name": "SymbolQ.md",
+          "desc": "is `True` if `x` is a symbol, or `False` otherwise."
+        },
+        {
+          "name": "FindShortestTour.md",
+          "desc": "find a shortest tour in the `graph` with minimum `EuclideanDistance`."
+        },
+        {
+          "name": "Increment.md",
+          "desc": "increments `x` by `1`, returning the original value of `x`."
+        },
+        {
+          "name": "BooleanMinimize.md",
+          "desc": "minimizes a boolean function with the [Quine McCluskey algorithm](https://en.wikipedia.org/wiki/Quine%E2%80%93McCluskey_algorithm)"
+        },
+        {
+          "name": "AnnuityDue.md",
+          "desc": "returns an annuity due object."
+        },
+        {"name": "StringPosition.md"},
+        {
+          "name": "Erfi.md",
+          "desc": "returns the imaginary error function of `z`."
+        },
+        {
+          "name": "Order.md",
+          "desc": "is `0` if `a` equals `b`. Is `-1` or `1` according to canonical order of `a` and `b`."
+        },
+        {
+          "name": "StruveL.md",
+          "desc": "returns the modified Struve function `L_n(z)`."
+        },
+        {"name": "Lookup.md"},
+        {
+          "name": "Eigenvalues.md",
+          "desc": "get the numerical eigenvalues of the `matrix`."
+        },
+        {"name": "AssociateTo.md"},
+        {"name": "WeightedAdjacencyMatrix.md"},
+        {
+          "name": "GraphPeriphery.md",
+          "desc": "compute the `graph` periphery. The periphery of a `graph` is the set of vertices of graph eccentricity equal to the graph diameter."
+        },
+        {
+          "name": "HoldComplete.md",
+          "desc": "`HoldComplete` doesn't evaluate `expr`. `Hold` evaluates `UpValues`for its arguments. `HoldComplete` doesn't evaluate `UpValues`."
+        },
+        {
+          "name": "Abort.md",
+          "desc": "aborts an evaluation completely and returns `$Aborted`."
+        },
+        {"name": "DivisorSum.md"},
+        {
+          "name": "TemplateSlot.md",
+          "desc": "gives a `TemplateSlot` expression with name `string`."
+        },
+        {"name": "Unique.md"},
+        {
+          "name": "TrigExpand.md",
+          "desc": "expands out trigonometric expressions in `expr`."
+        },
+        {"name": "Polygon.md"},
+        {
+          "name": "TagSetDelayed.md",
+          "desc": "assigns `value` to `expr`, without evaluating `value` and associates the corresponding rule with the symbol `f`."
+        },
+        {
+          "name": "Ln.md",
+          "desc": "returns the base-`E` logarithm of `z`. `Ln(z)` will be converted to `Log(z)` in symbolic mode."
+        },
+        {
+          "name": "IntervalComplement.md",
+          "desc": "compute the complement of the intervals `interval_1 \\ interval_2`. The intervals must be of structure `IntervalData` (closed/opened ends of interval) and not of structure `Interval` (only closed ends)"
+        },
+        {
+          "name": "Accumulate.md",
+          "desc": "accumulate the values of `list` returning a new list."
+        },
+        {
+          "name": "OpenAppend.md",
+          "desc": "opens a file and returns an OutputStream to which writes are appended."
+        },
+        {
+          "name": "Perimeter.md",
+          "desc": "returns the perimeter of the `geometric-form`."
+        },
+        {
+          "name": "E.md",
+          "desc": "Euler's constant E"
+        },
+        {
+          "name": "UpperCaseQ.md",
+          "desc": "is `True` if the given `str` is a string which only contains upper case characters."
+        },
+        {
+          "name": "NMinimize.md",
+          "desc": "the `NMinimize` function provides an implementation of [George Dantzig's simplex algorithm](http://en.wikipedia.org/wiki/Simplex_algorithm) for solving linear optimization problems with linear equality and inequality constraints and implicit non-negative variables."
+        },
+        {
+          "name": "DiracDelta.md",
+          "desc": "`DiracDelta` function returns `0` for all real numbers `x` where `x != 0`."
+        },
+        {"name": "AdjacencyMatrix.md"},
+        {
+          "name": "RealAbs.md",
+          "desc": "returns the absolute value of the real number `x`. For complex number arguments the function will be left unevaluated."
+        },
+        {
+          "name": "HoldRest.md",
+          "desc": "is an attribute specifying that all but the first argument of a function should be left unevaluated."
+        },
+        {
+          "name": "Complexes.md",
+          "desc": "is the set of complex numbers."
+        },
+        {
+          "name": "Tan.md",
+          "desc": "returns the tangent of `expr` (measured in radians)."
+        },
+        {
+          "name": "RealNumberQ.md",
+          "desc": "returns `True` if `expr` is an explicit number with no imaginary component."
+        },
+        {
+          "name": "Booleans.md",
+          "desc": "is the set of boolean values."
+        },
+        {
+          "name": "Assuming.md",
+          "desc": "evaluate the `expression` with the assumptions appended to the default `$Assumptions` assumptions."
+        },
+        {
+          "name": "RepeatedTiming.md",
+          "desc": "returns a list with the first entry containing the average evaluation time of `x` and the second entry containing the evaluation result of `x`."
+        },
+        {"name": "Graph.md"},
+        {
+          "name": "CartesianProduct.md",
+          "desc": "returns the cartesian product for multiple lists."
+        },
+        {
+          "name": "LogNormalDistribution.md",
+          "desc": "returns a log-normal distribution."
+        },
+        {
+          "name": "Cos.md",
+          "desc": "returns the cosine of `expr` (measured in radians). `Cos(expr)` will evaluate automatically in the case `expr` is a multiple of `Pi, Pi/2, Pi/3, Pi/4` and `Pi/6`."
+        },
+        {
+          "name": "Or.md",
+          "desc": "`expr1 || expr2 || ...` evaluates each expression in turn, returning `True` as soon as an expression evaluates to `True`. If all expressions evaluate to `False`, `Or` returns `False`."
+        },
+        {"name": "Range.md"},
+        {"name": "StringSplit.md"},
+        {
+          "name": "CholeskyDecomposition.md",
+          "desc": "calculate the Cholesky decomposition of a hermitian, positive definite square `matrix`."
+        },
+        {"name": "SurvivalFunction.md"},
+        {"name": "Norm.md"},
+        {
+          "name": "Resultant.md",
+          "desc": "computes the resultant of the polynomials `polynomial1` and `polynomial2` with respect to the variable `var`."
+        },
+        {
+          "name": "Rest.md",
+          "desc": "returns `expr` with the first element removed."
+        },
+        {
+          "name": "Unitize.md",
+          "desc": "maps a non-zero `expr` to `1`, and a zero `expr` to `0`."
+        },
+        {
+          "name": "GCD.md",
+          "desc": "computes the greatest common divisor of the given integers."
+        },
+        {"name": "LetterNumber.md"},
+        {
+          "name": "MatrixPower.md",
+          "desc": "computes the `n`th power of a `matrix`"
+        },
+        {
+          "name": "UnsameQ.md",
+          "desc": "returns `True` if `x` and `y` are not structurally identical."
+        },
+        {"name": "Normalize.md"},
+        {
+          "name": "ArcCsc.md",
+          "desc": "returns the inverse cosecant of `z`."
+        },
+        {
+          "name": "SameObjectQ.md",
+          "desc": "gives `True` if the Java `==` operator for the Java objects gives true. `False` otherwise."
+        }
+      ],
+      "name": "functions"
+    },
+    {"name": "02-symbols-and-assignments.md"},
+    {"name": "12-linear-algebra.md"},
+    {"name": "06-the-structure-of-things.md"},
+    {"name": "08-control-statements.md"},
+    {"name": "10-plotting.md"},
+    {
+      "name": "97-expression-types.md",
+      "desc": "1, {2, 2} -> 2, {3, 3} -> 3, {1, 3} -> 4})`|"
+    }
+  ],
+  "name": "doc"
+}]}
