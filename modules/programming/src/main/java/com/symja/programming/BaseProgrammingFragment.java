@@ -34,6 +34,7 @@ import com.google.android.material.button.MaterialButton;
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.common.android.ClipboardCompat;
+import com.symja.editor.SymjaEditor;
 import com.symja.programming.autocomplete.FunctionSuggestionAdapter;
 import com.symja.programming.autocomplete.SuggestionItem;
 import com.symja.programming.console.OnProgrammingItemClickListener;
@@ -75,7 +76,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     protected MaterialButton btnRun;
     protected View progressBar;
 
-    protected CodeEditor inputView;
+    protected SymjaEditor inputView;
     protected RecyclerView listResultView;
 
     protected IProgrammingSettings settings;
@@ -144,7 +145,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             final Context context = getContext();
             CharSequence clipboard = ClipboardCompat.getClipboard(context);
             if (clipboard != null) {
-                inputView.insert(clipboard);
+                inputView.insert(clipboard.toString());
             }
             inputView.requestFocus();
             if (context != null) {

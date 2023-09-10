@@ -110,7 +110,7 @@ class SymjaEditor : CodeEditor {
         switchThemeIfRequired(context, this)
     }
 
-    fun switchThemeIfRequired(context: Context, editor: CodeEditor) {
+    private fun switchThemeIfRequired(context: Context, editor: CodeEditor) {
         if ((context.resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK) == Configuration.UI_MODE_NIGHT_YES) {
             if (editor.colorScheme is TextMateColorScheme) {
                 ThemeRegistry.getInstance().setTheme("darcula")
@@ -125,5 +125,13 @@ class SymjaEditor : CodeEditor {
             }
         }
         editor.invalidate()
+    }
+
+    fun insert(text: String) {
+        this.insertText(text, this.text.length)
+    }
+
+    fun setSelection(index: Int) {
+        //TODO Implement
     }
 }

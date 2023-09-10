@@ -23,7 +23,7 @@
             android:animateLayoutChanges="true"
             android:orientation="vertical">
 
-            <com.duy.ide.editor.view.CodeEditor
+            <com.symja.editor.SymjaEditor
                 android:id="@+id/edit_input"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -35,6 +35,7 @@
                 android:padding="8dp"
                 android:scrollbars="vertical"
                 android:typeface="monospace"
+                app:textSize="15sp"
                 tools:text="a:=2;\nb:=\nc:=4\nd:=5\ne:=6\n"
                 tools:textSize="14sp" />
 
@@ -150,6 +151,7 @@
                 android:layout_marginRight="0dp"
                 android:clickable="true"
                 android:focusable="true"
+                tools:alpha="0.3"
                 tools:showIn="@layout/fragment_programming_console">
 
             </com.symja.programming.view.dragbutton.DragButton>

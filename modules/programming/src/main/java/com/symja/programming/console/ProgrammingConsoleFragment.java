@@ -266,7 +266,7 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
             textContent.setSpan(new TypefaceSpan("monospace"),
                     0, textContent.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
             inputView.requestFocus();
-            inputView.setError(textContent);
+            // TODO: handle error inputView.setError(textContent);
 
             if (BuildConfig.DEBUG) {
                 error.printStackTrace();
