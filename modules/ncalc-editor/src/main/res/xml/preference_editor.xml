@@ -1,0 +1,84 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/editor">
+        <Preference
+            android:key="change_theme"
+            android:title="@string/theme" />
+
+        <FontSizePreference
+            android:key="@string/pref_font_size"
+            android:summary="@string/default_value"
+            android:title="@string/font_size" />
+
+        <CheckBoxPreference
+            android:key="@string/pref_touch_to_adjust_text_size"
+            android:summary="Change font size (Zoom) with two finger"
+            android:title="@string/touch_to_adjust_text_size" />
+
+        <CheckBoxPreference
+            android:key="@string/pref_word_wrap"
+            android:summary="Use soft wrap in editor"
+            android:title="@string/word_wrap_in_editor" />
+
+        <CheckBoxPreference
+            android:key="@string/pref_show_linenumber"
+            android:title="@string/show_linenumber" />
+
+        <CheckBoxPreference
+            android:key="@string/pref_show_whitespace"
+            android:title="@string/show_whitespace" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/pref_auto_indent"
+            android:title="@string/auto_indent"
+            android:visibility="gone" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="@string/pref_auto_pair"
+            android:summary="@string/pref_desc_auto_pair"
+            android:title="@string/auto_pair"
+            android:visibility="gone" />
+
+        <CheckBoxPreference
+            android:key="@string/pref_insert_space_for_tab"
+            android:title="@string/insert_space_for_tab" />
+
+        <EditTextPreference
+            android:inputType="number"
+            android:key="@string/pref_tab_size"
+            android:maxLength="1"
+            android:singleLine="true"
+            android:summary="4"
+            android:title="@string/tab_size" />
+
+        <CheckBoxPreference
+            android:key="@string/pref_auto_capitalize"
+            android:summary="Not recommend"
+            android:title="@string/auto_capitalize"
+            android:visibility="gone" />
+
+        <EditTextPreference
+            android:key="@string/pref_symbol"
+            android:maxLines="7"
+            android:negativeButtonText="@string/reset"
+            android:scrollbars="vertical"
+            android:title="@string/custom_symbol_list"
+            android:visibility="gone" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_show_symbol_bar"
+            android:summary="Show list of symbols above soft keyboard."
+            android:title="Symbol bar" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="@string/pref_volume_move"
+            android:summary="Press volume up (+) to move cursor to right, press volume down (-) to move cursor to left"
+            android:title="Volume moving" />
+    </PreferenceCategory>
+
+
+</PreferenceScreen>

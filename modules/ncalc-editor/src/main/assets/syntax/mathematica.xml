@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!DOCTYPE MODE SYSTEM "xmode.dtd">
+
+<MODE>
+	<PROPS>
+		<PROPERTY NAME="commentStart" VALUE="(*" />
+		<PROPERTY NAME="commentEnd" VALUE="*)" />
+
+		<!-- Auto indent -->
+		<PROPERTY NAME="indentOpenBrackets" VALUE="[" />
+		<PROPERTY NAME="indentCloseBrackets" VALUE="]" />
+		<PROPERTY NAME="indentNextLines" VALUE=".*=\s*" /> <!-- indent after hanging ='s -->
+		<PROPERTY NAME="doubleBracketIndent" VALUE="FALSE" />
+		<PROPERTY NAME="lineUpClosingBracket" VALUE="true" />
+	</PROPS>
+	<RULES ESCAPE="\" IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE">
+		<SEQ TYPE="OPERATOR">+</SEQ>
+		<SEQ TYPE="OPERATOR">-</SEQ>
+		<SEQ TYPE="OPERATOR">*</SEQ>
+		<SEQ TYPE="OPERATOR">/</SEQ>
+		<SEQ TYPE="OPERATOR">^</SEQ>
+		<SEQ TYPE="OPERATOR">=</SEQ>
+		<SEQ TYPE="OPERATOR">&gt;</SEQ>
+		<SEQ TYPE="OPERATOR">&lt;</SEQ>
+		<SEQ TYPE="OPERATOR">&amp;</SEQ>
+		<SEQ TYPE="OPERATOR">|</SEQ>
+		<SEQ TYPE="OPERATOR">!</SEQ>
+		<SEQ TYPE="OPERATOR">:=</SEQ>
+		<SEQ TYPE="OPERATOR">/.</SEQ>
+		<SEQ TYPE="OPERATOR">,</SEQ>
+		<SEQ TYPE="OPERATOR">`</SEQ>
+		<SEQ TYPE="KEYWORD2">%</SEQ>
+
+		<!--
+			These built-ins are listed as sequences because I couldn't find a way to
+			use other rules to distinguish them from $var$'s.
+			They are listed in section A.10.3 of the mathematica book.
+			They are listed alphabetically, except in cases where the more general term must be listed last.
+			This list is based on Mathematica 5.0
+		-->
+		<SEQ TYPE="KEYWORD2">$Aborted</SEQ>
+		<SEQ TYPE="KEYWORD2">$Assumptions</SEQ>
+		<SEQ TYPE="KEYWORD2">$BaseDirectory</SEQ>
+		<SEQ TYPE="KEYWORD2">$BatchInput</SEQ>
+		<SEQ TYPE="KEYWORD2">$BatchOutput</SEQ>
+		<SEQ TYPE="KEYWORD2">$ByteOrdering</SEQ>
+		<SEQ TYPE="KEYWORD2">$CharacterEncoding</SEQ>
+		<SEQ TYPE="KEYWORD2">$CommandLine</SEQ>
+		<SEQ TYPE="KEYWORD2">$ContextPath</SEQ>
+		<SEQ TYPE="KEYWORD2">$Context</SEQ>
+		<SEQ TYPE="KEYWORD2">$CreationDate</SEQ>
+		<SEQ TYPE="KEYWORD2">$CurrentLink</SEQ>
+		<SEQ TYPE="KEYWORD2">$DisplayFunction</SEQ>
+		<SEQ TYPE="KEYWORD2">$Display</SEQ>
+		<SEQ TYPE="KEYWORD2">$Echo</SEQ>
+		<SEQ TYPE="KEYWORD2">$Epilog</SEQ>
+		<SEQ TYPE="KEYWORD2">$ExportFormats</SEQ>
+		<SEQ TYPE="KEYWORD2">$Failed</SEQ>
+		<SEQ TYPE="KEYWORD2">$FormatType</SEQ>
+		<SEQ TYPE="KEYWORD2">$FrontEnd</SEQ>
+		<SEQ TYPE="KEYWORD2">$HistoryLength</SEQ>
+		<SEQ TYPE="KEYWORD2">$HomeDirectory</SEQ>
+		<SEQ TYPE="KEYWORD2">$IgnoreEOF</SEQ>
+		<SEQ TYPE="KEYWORD2">$ImportFormats</SEQ>
+		<SEQ TYPE="KEYWORD2">$InitialDirectory</SEQ>
+		<SEQ TYPE="KEYWORD2">$Input</SEQ>
+		<SEQ TYPE="KEYWORD2">$Inspector</SEQ>
+		<SEQ TYPE="KEYWORD2">$InstallationDate</SEQ>
+		<SEQ TYPE="KEYWORD2">$InstallationDirectory</SEQ>
+		<SEQ TYPE="KEYWORD2">$IterationLimit</SEQ>
+		<SEQ TYPE="KEYWORD2">$Language</SEQ>
+		<SEQ TYPE="KEYWORD2">$Line</SEQ>
+		<SEQ TYPE="KEYWORD2">$Linked</SEQ>
+		<SEQ TYPE="KEYWORD2">$MachineDomain</SEQ>
+		<SEQ TYPE="KEYWORD2">$MachineEpsilon</SEQ>
+		<SEQ TYPE="KEYWORD2">$MachineID</SEQ>
+		<SEQ TYPE="KEYWORD2">$MachineName</SEQ>
+		<SEQ TYPE="KEYWORD2">$MachinePrecision</SEQ>
+		<SEQ TYPE="KEYWORD2">$MachineType</SEQ>
+		<SEQ TYPE="KEYWORD2">$MaxExtraPrecision</SEQ>
+		<SEQ TYPE="KEYWORD2">$MaxMachineNumber</SEQ>
+		<SEQ TYPE="KEYWORD2">$MaxNumber</SEQ>
+		<SEQ TYPE="KEYWORD2">$MaxPrecision</SEQ>
+		<SEQ TYPE="KEYWORD2">$MessageList</SEQ>
+		<SEQ TYPE="KEYWORD2">$MessagePrePrint</SEQ>
+		<SEQ TYPE="KEYWORD2">$Messages</SEQ>
+		<SEQ TYPE="KEYWORD2">$MinMachineNumber</SEQ>
+		<SEQ TYPE="KEYWORD2">$MinNumber</SEQ>
+		<SEQ TYPE="KEYWORD2">$MinPrecision</SEQ>
+		<SEQ TYPE="KEYWORD2">$ModuleNumber</SEQ>
+		<SEQ TYPE="KEYWORD2">$NewMessage</SEQ>
+		<SEQ TYPE="KEYWORD2">$NewSymbol</SEQ>
+		<SEQ TYPE="KEYWORD2">$Notebooks</SEQ>
+		<SEQ TYPE="KEYWORD2">$NumberMarks</SEQ>
+		<SEQ TYPE="KEYWORD2">$OperatingSystem</SEQ>
+		<SEQ TYPE="KEYWORD2">$Output</SEQ>
+		<SEQ TYPE="KEYWORD2">$Packages</SEQ>
+		<SEQ TYPE="KEYWORD2">$ParentLink</SEQ>
+		<SEQ TYPE="KEYWORD2">$ParentProcessID</SEQ>
+		<SEQ TYPE="KEYWORD2">$Path</SEQ>
+		<SEQ TYPE="KEYWORD2">$Post</SEQ>
+		<SEQ TYPE="KEYWORD2">$Pre</SEQ>
+		<SEQ TYPE="KEYWORD2">$PrePrint</SEQ>
+		<SEQ TYPE="KEYWORD2">$PreRead</SEQ>
+		<SEQ TYPE="KEYWORD2">$ProcessID</SEQ>
+		<SEQ TYPE="KEYWORD2">$ProcessorType</SEQ>
+		<SEQ TYPE="KEYWORD2">$ProductInformation</SEQ>
+		<SEQ TYPE="KEYWORD2">$RandomState</SEQ>
+		<SEQ TYPE="KEYWORD2">$RecursionLimit</SEQ>
+		<SEQ TYPE="KEYWORD2">$ReleaseNumber</SEQ>
+		<SEQ TYPE="KEYWORD2">$SessionID</SEQ>
+		<SEQ TYPE="KEYWORD2">$SoundDisplayFunction</SEQ>
+		<SEQ TYPE="KEYWORD2">$SyntaxHandler</SEQ>
+		<SEQ TYPE="KEYWORD2">$System</SEQ>
+		<SEQ TYPE="KEYWORD2">$SystemCharacterEncoding</SEQ>
+		<SEQ TYPE="KEYWORD2">$SystemID</SEQ>
+		<SEQ TYPE="KEYWORD2">$TextStyle</SEQ>
+		<SEQ TYPE="KEYWORD2">$TimeUnit</SEQ>
+		<SEQ TYPE="KEYWORD2">$TopDirectory</SEQ>
+		<SEQ TYPE="KEYWORD2">$Urgent</SEQ>
+		<SEQ TYPE="KEYWORD2">$UserBaseDirectory</SEQ>
+		<SEQ TYPE="KEYWORD2">$UserName</SEQ>
+		<SEQ TYPE="KEYWORD2">$Version</SEQ>
+		<SEQ TYPE="KEYWORD2">$VersionNumber</SEQ>
+
+		<!-- General rules -->
+
+		<SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE">
+			<BEGIN>"</BEGIN>
+			<END>"</END>
+		</SPAN>
+		<SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE">
+			<BEGIN>'</BEGIN>
+			<END>'</END>
+		</SPAN>
+
+		<SPAN TYPE="COMMENT1">
+			<BEGIN>(*</BEGIN>
+			<END>*)</END>
+		</SPAN>
+
+		<SPAN TYPE="LABEL" NO_WORD_BREAK="TRUE" EXCLUDE_MATCH="FALSE">
+			<BEGIN>$</BEGIN>
+			<END>$</END>
+		</SPAN>
+		<MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="TRUE">`</MARK_PREVIOUS>
+
+		<MARK_PREVIOUS TYPE="FUNCTION" EXCLUDE_MATCH="TRUE">[</MARK_PREVIOUS>
+
+		<!-- Highlights Symbol::usage="description" -->
+		<MARK_FOLLOWING TYPE="KEYWORD2">:usage</MARK_FOLLOWING>
+		<MARK_PREVIOUS TYPE="FUNCTION" EXCLUDE_MATCH="TRUE">:</MARK_PREVIOUS>
+
+		<MARK_FOLLOWING TYPE="KEYWORD3">_</MARK_FOLLOWING>
+
+		<KEYWORDS>
+			<KEYWORD2>Null</KEYWORD2>
+
+			<!-- Constants found in Help browser->Built-in functions->Mathematical Functions->Mathematical Constants -->
+			<KEYWORD1>Catalan</KEYWORD1>
+			<KEYWORD1>Degree</KEYWORD1>
+			<KEYWORD1>E</KEYWORD1>
+			<KEYWORD1>EulerGamma</KEYWORD1>
+			<KEYWORD1>Glaisher</KEYWORD1>
+			<KEYWORD1>GoldenRatio</KEYWORD1>
+			<KEYWORD1>I</KEYWORD1>
+			<KEYWORD1>Indeterminate</KEYWORD1>
+			<KEYWORD1>Infinity</KEYWORD1>
+			<KEYWORD1>Khinchin</KEYWORD1>
+			<KEYWORD1>Pi</KEYWORD1>
+		</KEYWORDS>
+	</RULES>
+</MODE>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_key_last_edited_document" translatable="false">pref_key_last_edited_document</string>
+    <string name="pref_key_show_symbol_bar" translatable="false">pref_key_show_symbol_bar</string>
+
+    <string name="pref_key_dominant_implicit_times">pref_key_DOMINANT_IMPLICIT_TIMES</string>
+    <string name="pref_key_explicit_times_operator">pref_key_EXPLICIT_TIMES_OPERATOR</string>
+    <string name="pref_key_integrate_recursion_limit">pref_key_integrate_recursion_limit</string>
+    <string name="pref_key_lhospital_limit">pref_key_lhospital_limit</string>
+    <string name="pref_key_recursion_limit">pref_key_recursion_limit</string>
+    <string name="pref_key_iteration_limit">pref_key_iteration_limit</string>
+    <string name="pref_key_programming_relaxed_syntax" translatable="false">pref_key_programming_relaxed_syntax</string>
+    <string name="pref_key_max_ast_size" translatable="false">pref_key_max_ast_size</string>
+    <string name="pref_key_max_output_size" translatable="false">pref_key_max_output_size</string>
+
+    <string name="pref_key_symjatalk_server" translatable="false">pref_key_symjatalk_server2</string>
+    <string name="pref_key_symjatalk_offline_mode" translatable="false">pref_key_symjatalk_offline_mode</string>
+
+</resources>

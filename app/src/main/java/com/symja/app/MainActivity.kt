@@ -14,9 +14,9 @@ import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.symja.app.editor.SymjaLanguageProxy
-import com.symja.app.math.OutputForm
-import com.symja.app.math.Symja
-import com.symja.app.math.SymjaResult
+import com.symja.evaluator.OutputForm
+import com.symja.evaluator.Symja
+import com.symja.evaluator.SymjaResult
 import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme
 import io.github.rosemoe.sora.langs.textmate.TextMateLanguage
 import io.github.rosemoe.sora.langs.textmate.registry.FileProviderRegistry

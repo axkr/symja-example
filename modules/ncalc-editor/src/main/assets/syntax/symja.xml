@@ -1,0 +1,720 @@
+<?xml version="1.0"?><!DOCTYPE MODE SYSTEM "xmode.dtd"><!--  Symja mode:
+      Comments: COMMENT1
+      Constants: LITERAL2 (true, false, Pi, E, ...)
+      Operators: OPERATOR (+ = * / := ...)
+      Domain: KEYWORD1 (Algebraics, Booleans, Complexes, Integers, Primes, Rationals, Reals)
+      Function: FUNCTION
+      ::usage: KEYWORD3-->
+<MODE>
+    <PROPS>
+        <PROPERTY NAME="commentStart" VALUE="(*" />
+        <PROPERTY NAME="commentEnd" VALUE="*)" />
+
+        <!-- Auto indent -->
+        <PROPERTY NAME="indentOpenBrackets" VALUE="[" />
+        <PROPERTY NAME="indentCloseBrackets" VALUE="]" />
+        <PROPERTY NAME="indentNextLines" VALUE=".*=\s*" /> <!-- indent after hanging ='s -->
+        <PROPERTY NAME="doubleBracketIndent" VALUE="FALSE" />
+        <PROPERTY NAME="lineUpClosingBracket" VALUE="true" />
+    </PROPS>
+    <RULES ESCAPE="\" IGNORE_CASE="FALSE" HIGHLIGHT_DIGITS="TRUE">
+        <SEQ TYPE="OPERATOR">&lt;&lt;</SEQ>
+        <SEQ TYPE="OPERATOR">?</SEQ>
+        <SEQ TYPE="OPERATOR">*=</SEQ>
+        <SEQ TYPE="OPERATOR">^=</SEQ>
+        <SEQ TYPE="OPERATOR">/@</SEQ>
+        <SEQ TYPE="OPERATOR">=.</SEQ>
+        <SEQ TYPE="OPERATOR">//.</SEQ>
+        <SEQ TYPE="OPERATOR">&amp;&amp;</SEQ>
+        <SEQ TYPE="OPERATOR">&lt;=</SEQ>
+        <SEQ TYPE="OPERATOR">++</SEQ>
+        <SEQ TYPE="OPERATOR">!!</SEQ>
+        <SEQ TYPE="OPERATOR">**</SEQ>
+        <SEQ TYPE="OPERATOR">===</SEQ>
+        <SEQ TYPE="OPERATOR">:></SEQ>
+        <SEQ TYPE="OPERATOR">&gt;=</SEQ>
+        <SEQ TYPE="OPERATOR">//</SEQ>
+        <SEQ TYPE="OPERATOR">/=</SEQ>
+        <SEQ TYPE="OPERATOR">!=</SEQ>
+        <SEQ TYPE="OPERATOR">...</SEQ>
+        <SEQ TYPE="OPERATOR">--</SEQ>
+        <SEQ TYPE="OPERATOR">=!=</SEQ>
+        <SEQ TYPE="OPERATOR">-&gt;</SEQ>
+        <SEQ TYPE="OPERATOR">^:=</SEQ>
+        <SEQ TYPE="OPERATOR">^:=</SEQ>
+        <SEQ TYPE="OPERATOR">++</SEQ>
+        <SEQ TYPE="OPERATOR">..</SEQ>
+        <SEQ TYPE="OPERATOR">+</SEQ>
+        <SEQ TYPE="OPERATOR">-</SEQ>
+        <SEQ TYPE="OPERATOR">*</SEQ>
+        <SEQ TYPE="OPERATOR">/</SEQ>
+        <SEQ TYPE="OPERATOR">^</SEQ>
+        <SEQ TYPE="OPERATOR">=</SEQ>
+        <SEQ TYPE="OPERATOR">&gt;</SEQ>
+        <SEQ TYPE="OPERATOR">&lt;</SEQ>
+        <SEQ TYPE="OPERATOR">&amp;</SEQ>
+        <SEQ TYPE="OPERATOR">||</SEQ>
+        <SEQ TYPE="OPERATOR">|</SEQ>
+        <SEQ TYPE="OPERATOR">!</SEQ>
+        <SEQ TYPE="OPERATOR">:=</SEQ>
+        <SEQ TYPE="OPERATOR">/.</SEQ>
+        <SEQ TYPE="OPERATOR">,</SEQ>
+        <SEQ TYPE="OPERATOR">`</SEQ>
+
+
+        <!-- General rules -->
+        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE">
+            <BEGIN>"</BEGIN>
+            <END>"</END>
+        </SPAN>
+        <SPAN TYPE="LITERAL1" NO_LINE_BREAK="FALSE">
+            <BEGIN>'</BEGIN>
+            <END>'</END>
+        </SPAN>
+        <SPAN TYPE="COMMENT1">
+            <BEGIN>(*</BEGIN>
+            <END>*)</END>
+        </SPAN>
+        <SPAN TYPE="LABEL" NO_WORD_BREAK="TRUE" EXCLUDE_MATCH="FALSE">
+            <BEGIN>$</BEGIN>
+            <END>$</END>
+        </SPAN>
+        <MARK_PREVIOUS TYPE="LABEL" EXCLUDE_MATCH="TRUE">`</MARK_PREVIOUS>
+        <MARK_PREVIOUS TYPE="FUNCTION" EXCLUDE_MATCH="TRUE">[</MARK_PREVIOUS>
+
+        <!-- Highlights Symbol::usage="description" -->
+        <MARK_FOLLOWING TYPE="KEYWORD3">::usage</MARK_FOLLOWING>
+        <MARK_PREVIOUS TYPE="FUNCTION" EXCLUDE_MATCH="TRUE">:</MARK_PREVIOUS>
+        <MARK_FOLLOWING TYPE="KEYWORD3">_</MARK_FOLLOWING>
+
+        <KEYWORDS>
+            <!--Constants-->
+            <LITERAL2>$Context</LITERAL2>
+            <LITERAL2>$ContextPath</LITERAL2>
+            <LITERAL2>$CreationDate</LITERAL2>
+            <LITERAL2>$HomeDirectory</LITERAL2>
+            <LITERAL2>$MachineEpsilon</LITERAL2>
+            <LITERAL2>$MachinePrecision</LITERAL2>
+            <LITERAL2>$UserName</LITERAL2>
+            <LITERAL2>$Version</LITERAL2>
+
+            <!--Constants-->
+            <LITERAL2>Catalan</LITERAL2>
+            <LITERAL2>Degree</LITERAL2>
+            <LITERAL2>E</LITERAL2>
+            <LITERAL2>EulerGamma</LITERAL2>
+            <LITERAL2>Glaisher</LITERAL2>
+            <LITERAL2>GoldenRatio</LITERAL2>
+            <LITERAL2>I</LITERAL2>
+            <LITERAL2>Indeterminate</LITERAL2>
+            <LITERAL2>Infinity</LITERAL2>
+            <LITERAL2>Khinchin</LITERAL2>
+            <LITERAL2>Pi</LITERAL2>
+            <LITERAL2>True</LITERAL2>
+            <LITERAL2>False</LITERAL2>
+            <LITERAL2>Null</LITERAL2>
+
+            <!--Domains-->
+            <KEYWORD1>Algebraics</KEYWORD1>
+            <KEYWORD1>Booleans</KEYWORD1>
+            <KEYWORD1>Complexes</KEYWORD1>
+            <KEYWORD1>Integers</KEYWORD1>
+            <KEYWORD1>Primes</KEYWORD1>
+            <KEYWORD1>Rationals</KEYWORD1>
+            <KEYWORD1>Reals</KEYWORD1>
+
+            <!--Builtin functions-->
+            <FUNCTION>Abort</FUNCTION>
+            <FUNCTION>Abs</FUNCTION>
+            <FUNCTION>AbsArg</FUNCTION>
+            <FUNCTION>Accumulate</FUNCTION>
+            <FUNCTION>AddTo</FUNCTION>
+            <FUNCTION>All</FUNCTION>
+            <FUNCTION>AllTrue</FUNCTION>
+            <FUNCTION>Alternatives</FUNCTION>
+            <FUNCTION>And</FUNCTION>
+            <FUNCTION>AngleVector</FUNCTION>
+            <FUNCTION>Annuity</FUNCTION>
+            <FUNCTION>AnnuityDue</FUNCTION>
+            <FUNCTION>AntihermitianMatrixQ</FUNCTION>
+            <FUNCTION>AntisymmetricMatrixQ</FUNCTION>
+            <FUNCTION>AnyTrue</FUNCTION>
+            <FUNCTION>Apart</FUNCTION>
+            <FUNCTION>Append</FUNCTION>
+            <FUNCTION>AppendTo</FUNCTION>
+            <FUNCTION>Apply</FUNCTION>
+            <FUNCTION>ArcCos</FUNCTION>
+            <FUNCTION>ArcCosh</FUNCTION>
+            <FUNCTION>ArcCot</FUNCTION>
+            <FUNCTION>ArcCoth</FUNCTION>
+            <FUNCTION>ArcCsc</FUNCTION>
+            <FUNCTION>ArcCsch</FUNCTION>
+            <FUNCTION>ArcSec</FUNCTION>
+            <FUNCTION>ArcSech</FUNCTION>
+            <FUNCTION>ArcSin</FUNCTION>
+            <FUNCTION>ArcSinh</FUNCTION>
+            <FUNCTION>ArcTan</FUNCTION>
+            <FUNCTION>ArcTanh</FUNCTION>
+            <FUNCTION>Arg</FUNCTION>
+            <FUNCTION>ArithmeticGeometricMean</FUNCTION>
+            <FUNCTION>Array</FUNCTION>
+            <FUNCTION>ArrayDepth</FUNCTION>
+            <FUNCTION>ArrayPad</FUNCTION>
+            <FUNCTION>ArrayQ</FUNCTION>
+            <FUNCTION>ArrayReshape</FUNCTION>
+            <FUNCTION>AtomQ</FUNCTION>
+            <FUNCTION>Attributes</FUNCTION>
+            <FUNCTION>Begin</FUNCTION>
+            <FUNCTION>BeginPackage</FUNCTION>
+            <FUNCTION>BellB</FUNCTION>
+            <FUNCTION>BellY</FUNCTION>
+            <FUNCTION>BernoulliB</FUNCTION>
+            <FUNCTION>BernoulliDistribution</FUNCTION>
+            <FUNCTION>BesselJ</FUNCTION>
+            <FUNCTION>Beta</FUNCTION>
+            <FUNCTION>BinaryDeserialize</FUNCTION>
+            <FUNCTION>BinarySerialize</FUNCTION>
+            <FUNCTION>BinCounts</FUNCTION>
+            <FUNCTION>Binomial</FUNCTION>
+            <FUNCTION>BinomialDistribution</FUNCTION>
+            <FUNCTION>BitLength</FUNCTION>
+            <FUNCTION>Block</FUNCTION>
+            <FUNCTION>Boole</FUNCTION>
+            <FUNCTION>Boole - Kopie</FUNCTION>
+            <FUNCTION>BooleanConvert</FUNCTION>
+            <FUNCTION>BooleanMinimize</FUNCTION>
+            <FUNCTION>BooleanQ</FUNCTION>
+            <FUNCTION>BooleanTable</FUNCTION>
+            <FUNCTION>BooleanVariables</FUNCTION>
+            <FUNCTION>BrayCurtisDistance</FUNCTION>
+            <FUNCTION>Break</FUNCTION>
+            <FUNCTION>ByteArray</FUNCTION>
+            <FUNCTION>ByteArrayQ</FUNCTION>
+            <FUNCTION>CanberraDistance</FUNCTION>
+            <FUNCTION>Cancel</FUNCTION>
+            <FUNCTION>CarmichaelLambda</FUNCTION>
+            <FUNCTION>CartesianProduct</FUNCTION>
+            <FUNCTION>Cases</FUNCTION>
+            <FUNCTION>CatalanNumber</FUNCTION>
+            <FUNCTION>Catenate</FUNCTION>
+            <FUNCTION>CDF</FUNCTION>
+            <FUNCTION>Ceiling</FUNCTION>
+            <FUNCTION>CentralMoment</FUNCTION>
+            <FUNCTION>CharacteristicPolynomial</FUNCTION>
+            <FUNCTION>ChebyshevT</FUNCTION>
+            <FUNCTION>ChebyshevU</FUNCTION>
+            <FUNCTION>ChessboardDistance</FUNCTION>
+            <FUNCTION>ChineseRemainder</FUNCTION>
+            <FUNCTION>CholeskyDecomposition</FUNCTION>
+            <FUNCTION>Chop</FUNCTION>
+            <FUNCTION>CirclePoints</FUNCTION>
+            <FUNCTION>Clear</FUNCTION>
+            <FUNCTION>ClearAll</FUNCTION>
+            <FUNCTION>ClearAttributes</FUNCTION>
+            <FUNCTION>Clip</FUNCTION>
+            <FUNCTION>Coefficient</FUNCTION>
+            <FUNCTION>CoefficientList</FUNCTION>
+            <FUNCTION>Collect</FUNCTION>
+            <FUNCTION>Complement</FUNCTION>
+            <FUNCTION>Complex</FUNCTION>
+            <FUNCTION>ComplexExpand</FUNCTION>
+            <FUNCTION>ComposeList</FUNCTION>
+            <FUNCTION>ComposeSeries</FUNCTION>
+            <FUNCTION>Composition</FUNCTION>
+            <FUNCTION>CompoundExpression</FUNCTION>
+            <FUNCTION>Condition</FUNCTION>
+            <FUNCTION>Conjugate</FUNCTION>
+            <FUNCTION>ConjugateTranspose</FUNCTION>
+            <FUNCTION>Constant</FUNCTION>
+            <FUNCTION>ConstantArray</FUNCTION>
+            <FUNCTION>ContainsOnly</FUNCTION>
+            <FUNCTION>Context</FUNCTION>
+            <FUNCTION>Continue</FUNCTION>
+            <FUNCTION>ContinuedFraction</FUNCTION>
+            <FUNCTION>Convergents</FUNCTION>
+            <FUNCTION>CoprimeQ</FUNCTION>
+            <FUNCTION>Correlation</FUNCTION>
+            <FUNCTION>Cos</FUNCTION>
+            <FUNCTION>Cosh</FUNCTION>
+            <FUNCTION>CosineDistance</FUNCTION>
+            <FUNCTION>Cot</FUNCTION>
+            <FUNCTION>Coth</FUNCTION>
+            <FUNCTION>Count</FUNCTION>
+            <FUNCTION>Covariance</FUNCTION>
+            <FUNCTION>Cross</FUNCTION>
+            <FUNCTION>Csc</FUNCTION>
+            <FUNCTION>Csch</FUNCTION>
+            <FUNCTION>CubeRoot</FUNCTION>
+            <FUNCTION>Curl</FUNCTION>
+            <FUNCTION>Cyclotomic</FUNCTION>
+            <FUNCTION>D</FUNCTION>
+            <FUNCTION>Decrement</FUNCTION>
+            <FUNCTION>Defer</FUNCTION>
+            <FUNCTION>Definition</FUNCTION>
+            <FUNCTION>DeleteCases</FUNCTION>
+            <FUNCTION>DeleteDuplicates</FUNCTION>
+            <FUNCTION>Denominator</FUNCTION>
+            <FUNCTION>Depth</FUNCTION>
+            <FUNCTION>Derivative</FUNCTION>
+            <FUNCTION>DesignMatrix</FUNCTION>
+            <FUNCTION>Det</FUNCTION>
+            <FUNCTION>Diagonal</FUNCTION>
+            <FUNCTION>DiagonalMatrix</FUNCTION>
+            <FUNCTION>DiceDissimilarity</FUNCTION>
+            <FUNCTION>Diff</FUNCTION>
+            <FUNCTION>DigitQ</FUNCTION>
+            <FUNCTION>Dimensions</FUNCTION>
+            <FUNCTION>DiracDelta</FUNCTION>
+            <FUNCTION>DirectedInfinity</FUNCTION>
+            <FUNCTION>DiscreteDelta</FUNCTION>
+            <FUNCTION>DiscreteUniformDistribution</FUNCTION>
+            <FUNCTION>Discriminant</FUNCTION>
+            <FUNCTION>Distribute</FUNCTION>
+            <FUNCTION>Div</FUNCTION>
+            <FUNCTION>Divergence</FUNCTION>
+            <FUNCTION>Divide</FUNCTION>
+            <FUNCTION>DivideBy</FUNCTION>
+            <FUNCTION>Divisible</FUNCTION>
+            <FUNCTION>Divisors</FUNCTION>
+            <FUNCTION>DivisorSigma</FUNCTION>
+            <FUNCTION>Do</FUNCTION>
+            <FUNCTION>Dot</FUNCTION>
+            <FUNCTION>Drop</FUNCTION>
+            <FUNCTION>DSolve</FUNCTION>
+            <FUNCTION>EffectiveInterest</FUNCTION>
+            <FUNCTION>Eigenvalues</FUNCTION>
+            <FUNCTION>Eigenvectors</FUNCTION>
+            <FUNCTION>Element</FUNCTION>
+            <FUNCTION>ElementData</FUNCTION>
+            <FUNCTION>Eliminate</FUNCTION>
+            <FUNCTION>EllipticE</FUNCTION>
+            <FUNCTION>EllipticF</FUNCTION>
+            <FUNCTION>EllipticK</FUNCTION>
+            <FUNCTION>EllipticPi</FUNCTION>
+            <FUNCTION>End</FUNCTION>
+            <FUNCTION>EndPackage</FUNCTION>
+            <FUNCTION>Equal</FUNCTION>
+            <FUNCTION>Equivalent</FUNCTION>
+            <FUNCTION>Erf</FUNCTION>
+            <FUNCTION>Erfc</FUNCTION>
+            <FUNCTION>ErlangDistribution</FUNCTION>
+            <FUNCTION>EuclideanDistance</FUNCTION>
+            <FUNCTION>EulerE</FUNCTION>
+            <FUNCTION>EulerPhi</FUNCTION>
+            <FUNCTION>EvalF</FUNCTION>
+            <FUNCTION>EvenQ</FUNCTION>
+            <FUNCTION>ExactNumberQ</FUNCTION>
+            <FUNCTION>Except</FUNCTION>
+            <FUNCTION>Exp</FUNCTION>
+            <FUNCTION>Expand</FUNCTION>
+            <FUNCTION>ExpandAll</FUNCTION>
+            <FUNCTION>Exponent</FUNCTION>
+            <FUNCTION>ExponentialDistribution</FUNCTION>
+            <FUNCTION>Export</FUNCTION>
+            <FUNCTION>ExtendedGCD</FUNCTION>
+            <FUNCTION>Extract</FUNCTION>
+            <FUNCTION>Factor</FUNCTION>
+            <FUNCTION>Factorial</FUNCTION>
+            <FUNCTION>Factorial2</FUNCTION>
+            <FUNCTION>FactorInteger</FUNCTION>
+            <FUNCTION>FactorSquareFree</FUNCTION>
+            <FUNCTION>FactorSquareFreeList</FUNCTION>
+            <FUNCTION>FactorTerms</FUNCTION>
+            <FUNCTION>Fibonacci</FUNCTION>
+            <FUNCTION>FindFit</FUNCTION>
+            <FUNCTION>FindInstance</FUNCTION>
+            <FUNCTION>FindRoot</FUNCTION>
+            <FUNCTION>First</FUNCTION>
+            <FUNCTION>Fit</FUNCTION>
+            <FUNCTION>FiveNum</FUNCTION>
+            <FUNCTION>FixedPoint</FUNCTION>
+            <FUNCTION>FixedPointList</FUNCTION>
+            <FUNCTION>Flat</FUNCTION>
+            <FUNCTION>Flatten</FUNCTION>
+            <FUNCTION>FlattenAt</FUNCTION>
+            <FUNCTION>Floor</FUNCTION>
+            <FUNCTION>Fold</FUNCTION>
+            <FUNCTION>FoldList</FUNCTION>
+            <FUNCTION>For</FUNCTION>
+            <FUNCTION>Fourier</FUNCTION>
+            <FUNCTION>FourierMatrix</FUNCTION>
+            <FUNCTION>FractionalPart</FUNCTION>
+            <FUNCTION>FrechetDistribution</FUNCTION>
+            <FUNCTION>FreeQ</FUNCTION>
+            <FUNCTION>FrobeniusNumber</FUNCTION>
+            <FUNCTION>FrobeniusSolve</FUNCTION>
+            <FUNCTION>FromContinuedFraction</FUNCTION>
+            <FUNCTION>FromDigits</FUNCTION>
+            <FUNCTION>FromPolarCoordinates</FUNCTION>
+            <FUNCTION>FullForm</FUNCTION>
+            <FUNCTION>FullSimplify</FUNCTION>
+            <FUNCTION>FunctionExpand</FUNCTION>
+            <FUNCTION>Gamma</FUNCTION>
+            <FUNCTION>GammaDistribution</FUNCTION>
+            <FUNCTION>Gather</FUNCTION>
+            <FUNCTION>GatherBy</FUNCTION>
+            <FUNCTION>GCD</FUNCTION>
+            <FUNCTION>GeometricDistribution</FUNCTION>
+            <FUNCTION>Get</FUNCTION>
+            <FUNCTION>Grad</FUNCTION>
+            <FUNCTION>Greater</FUNCTION>
+            <FUNCTION>GreaterEqual</FUNCTION>
+            <FUNCTION>GroebnerBasis</FUNCTION>
+            <FUNCTION>GumbelDistribution</FUNCTION>
+            <FUNCTION>HarmonicNumber</FUNCTION>
+            <FUNCTION>Haversine</FUNCTION>
+            <FUNCTION>Head</FUNCTION>
+            <FUNCTION>HermiteH</FUNCTION>
+            <FUNCTION>HermitianMatrixQ</FUNCTION>
+            <FUNCTION>HilbertMatrix</FUNCTION>
+            <FUNCTION>Hold</FUNCTION>
+            <FUNCTION>HoldAll</FUNCTION>
+            <FUNCTION>HoldFirst</FUNCTION>
+            <FUNCTION>HoldForm</FUNCTION>
+            <FUNCTION>HoldPattern</FUNCTION>
+            <FUNCTION>HoldRest</FUNCTION>
+            <FUNCTION>HornerForm</FUNCTION>
+            <FUNCTION>Hypergeometric0F1</FUNCTION>
+            <FUNCTION>Hypergeometric1F1</FUNCTION>
+            <FUNCTION>Hypergeometric2F1</FUNCTION>
+            <FUNCTION>HypergeometricDistribution</FUNCTION>
+            <FUNCTION>Identity</FUNCTION>
+            <FUNCTION>IdentityMatrix</FUNCTION>
+            <FUNCTION>If</FUNCTION>
+            <FUNCTION>Im</FUNCTION>
+            <FUNCTION>Implies</FUNCTION>
+            <FUNCTION>Import</FUNCTION>
+            <FUNCTION>Increment</FUNCTION>
+            <FUNCTION>Indeterminate</FUNCTION>
+            <FUNCTION>InexactNumberQ</FUNCTION>
+            <FUNCTION>Inner</FUNCTION>
+            <FUNCTION>Int</FUNCTION>
+            <FUNCTION>Integer</FUNCTION>
+            <FUNCTION>IntegerDigits</FUNCTION>
+            <FUNCTION>IntegerExponent</FUNCTION>
+            <FUNCTION>IntegerLength</FUNCTION>
+            <FUNCTION>IntegerPart</FUNCTION>
+            <FUNCTION>IntegerPartitions</FUNCTION>
+            <FUNCTION>IntegerQ</FUNCTION>
+            <FUNCTION>Integrate</FUNCTION>
+            <FUNCTION>InterpolatingFunction</FUNCTION>
+            <FUNCTION>InterpolatingPolynomial</FUNCTION>
+            <FUNCTION>Intersection</FUNCTION>
+            <FUNCTION>Inverse</FUNCTION>
+            <FUNCTION>InverseCDF</FUNCTION>
+            <FUNCTION>InverseErf</FUNCTION>
+            <FUNCTION>InverseErfc</FUNCTION>
+            <FUNCTION>InverseFourier</FUNCTION>
+            <FUNCTION>InverseFunction</FUNCTION>
+            <FUNCTION>InverseHaversine</FUNCTION>
+            <FUNCTION>InverseLaplaceTransform</FUNCTION>
+            <FUNCTION>InverseSeries</FUNCTION>
+            <FUNCTION>JaccardDissimilarity</FUNCTION>
+            <FUNCTION>JacobiMatrix</FUNCTION>
+            <FUNCTION>JacobiSymbol</FUNCTION>
+            <FUNCTION>JavaForm</FUNCTION>
+            <FUNCTION>Join</FUNCTION>
+            <FUNCTION>KolmogorovSmirnovTest</FUNCTION>
+            <FUNCTION>KroneckerDelta</FUNCTION>
+            <FUNCTION>Kurtosis</FUNCTION>
+            <FUNCTION>LaguerreL</FUNCTION>
+            <FUNCTION>LaplaceTransform</FUNCTION>
+            <FUNCTION>Last</FUNCTION>
+            <FUNCTION>LCM</FUNCTION>
+            <FUNCTION>LeastSquares</FUNCTION>
+            <FUNCTION>LegendreP</FUNCTION>
+            <FUNCTION>LegendreQ</FUNCTION>
+            <FUNCTION>Length</FUNCTION>
+            <FUNCTION>Less</FUNCTION>
+            <FUNCTION>LessEqual</FUNCTION>
+            <FUNCTION>LetterQ</FUNCTION>
+            <FUNCTION>Level</FUNCTION>
+            <FUNCTION>LevelQ</FUNCTION>
+            <FUNCTION>Limit</FUNCTION>
+            <FUNCTION>LinearProgramming</FUNCTION>
+            <FUNCTION>LinearRecurrence</FUNCTION>
+            <FUNCTION>LinearSolve</FUNCTION>
+            <FUNCTION>List</FUNCTION>
+            <FUNCTION>Listable</FUNCTION>
+            <FUNCTION>ListConvolve</FUNCTION>
+            <FUNCTION>ListCorrelate</FUNCTION>
+            <FUNCTION>ListQ</FUNCTION>
+            <FUNCTION>Ln</FUNCTION>
+            <FUNCTION>Log</FUNCTION>
+            <FUNCTION>Log2</FUNCTION>
+            <FUNCTION>Log10</FUNCTION>
+            <FUNCTION>LogisticSigmoid</FUNCTION>
+            <FUNCTION>LogNormalDistribution</FUNCTION>
+            <FUNCTION>LowerTriangularize</FUNCTION>
+            <FUNCTION>LucasL</FUNCTION>
+            <FUNCTION>LUDecomposition</FUNCTION>
+            <FUNCTION>MachineNumberQ</FUNCTION>
+            <FUNCTION>MangoldtLambda</FUNCTION>
+            <FUNCTION>ManhattanDistance</FUNCTION>
+            <FUNCTION>Map</FUNCTION>
+            <FUNCTION>MapIndexed</FUNCTION>
+            <FUNCTION>MapThread</FUNCTION>
+            <FUNCTION>MatchingDissimilarity</FUNCTION>
+            <FUNCTION>MatchQ</FUNCTION>
+            <FUNCTION>MathMLForm</FUNCTION>
+            <FUNCTION>MatrixMinimalPolynomial</FUNCTION>
+            <FUNCTION>MatrixPower</FUNCTION>
+            <FUNCTION>MatrixQ</FUNCTION>
+            <FUNCTION>MatrixRank</FUNCTION>
+            <FUNCTION>Max</FUNCTION>
+            <FUNCTION>Maximize</FUNCTION>
+            <FUNCTION>Mean</FUNCTION>
+            <FUNCTION>Median</FUNCTION>
+            <FUNCTION>MemberQ</FUNCTION>
+            <FUNCTION>MersennePrimeExponent</FUNCTION>
+            <FUNCTION>MersennePrimeExponentQ</FUNCTION>
+            <FUNCTION>Message</FUNCTION>
+            <FUNCTION>MessageName</FUNCTION>
+            <FUNCTION>Min</FUNCTION>
+            <FUNCTION>Minimize</FUNCTION>
+            <FUNCTION>Minus</FUNCTION>
+            <FUNCTION>MissingQ</FUNCTION>
+            <FUNCTION>Mod</FUNCTION>
+            <FUNCTION>Module</FUNCTION>
+            <FUNCTION>MoebiusMu</FUNCTION>
+            <FUNCTION>MonomialList</FUNCTION>
+            <FUNCTION>Most</FUNCTION>
+            <FUNCTION>Multinomial</FUNCTION>
+            <FUNCTION>MultiplicativeOrder</FUNCTION>
+            <FUNCTION>N</FUNCTION>
+            <FUNCTION>NakagamiDistribution</FUNCTION>
+            <FUNCTION>Nand</FUNCTION>
+            <FUNCTION>Negative</FUNCTION>
+            <FUNCTION>Nest</FUNCTION>
+            <FUNCTION>NestList</FUNCTION>
+            <FUNCTION>NestWhile</FUNCTION>
+            <FUNCTION>NestWhileList</FUNCTION>
+            <FUNCTION>NextPrime</FUNCTION>
+            <FUNCTION>NHoldAll</FUNCTION>
+            <FUNCTION>NHoldFirst</FUNCTION>
+            <FUNCTION>NHoldRest</FUNCTION>
+            <FUNCTION>NIntegrate</FUNCTION>
+            <FUNCTION>NMaximize</FUNCTION>
+            <FUNCTION>NMinimize</FUNCTION>
+            <FUNCTION>None</FUNCTION>
+            <FUNCTION>NoneTrue</FUNCTION>
+            <FUNCTION>NonNegative</FUNCTION>
+            <FUNCTION>NonPositive</FUNCTION>
+            <FUNCTION>Nor</FUNCTION>
+            <FUNCTION>Norm</FUNCTION>
+            <FUNCTION>Normal</FUNCTION>
+            <FUNCTION>NormalDistribution</FUNCTION>
+            <FUNCTION>Normalize</FUNCTION>
+            <FUNCTION>Not</FUNCTION>
+            <FUNCTION>NRoots</FUNCTION>
+            <FUNCTION>NullSpace</FUNCTION>
+            <FUNCTION>NumberQ</FUNCTION>
+            <FUNCTION>Numerator</FUNCTION>
+            <FUNCTION>NumericQ</FUNCTION>
+            <FUNCTION>OddQ</FUNCTION>
+            <FUNCTION>Off</FUNCTION>
+            <FUNCTION>On</FUNCTION>
+            <FUNCTION>OneIdentity</FUNCTION>
+            <FUNCTION>Operate</FUNCTION>
+            <FUNCTION>OptimizeExpression</FUNCTION>
+            <FUNCTION>Optional</FUNCTION>
+            <FUNCTION>Or</FUNCTION>
+            <FUNCTION>Order</FUNCTION>
+            <FUNCTION>OrderedQ</FUNCTION>
+            <FUNCTION>Ordering</FUNCTION>
+            <FUNCTION>Orderless</FUNCTION>
+            <FUNCTION>Orthogonalize</FUNCTION>
+            <FUNCTION>Outer</FUNCTION>
+            <FUNCTION>PadLeft</FUNCTION>
+            <FUNCTION>PadRight</FUNCTION>
+            <FUNCTION>Part</FUNCTION>
+            <FUNCTION>Partition</FUNCTION>
+            <FUNCTION>PartitionsP</FUNCTION>
+            <FUNCTION>PartitionsQ</FUNCTION>
+            <FUNCTION>PatternTest</FUNCTION>
+            <FUNCTION>PDF</FUNCTION>
+            <FUNCTION>PerfectNumber</FUNCTION>
+            <FUNCTION>PerfectNumberQ</FUNCTION>
+            <FUNCTION>Permutations</FUNCTION>
+            <FUNCTION>Piecewise</FUNCTION>
+            <FUNCTION>Plus</FUNCTION>
+            <FUNCTION>Pochhammer</FUNCTION>
+            <FUNCTION>PoissonDistribution</FUNCTION>
+            <FUNCTION>PolynomialExtendedGCD</FUNCTION>
+            <FUNCTION>PolynomialGCD</FUNCTION>
+            <FUNCTION>PolynomialLCM</FUNCTION>
+            <FUNCTION>PolynomialQ</FUNCTION>
+            <FUNCTION>PolynomialQuotient</FUNCTION>
+            <FUNCTION>PolynomialQuotientRemainder</FUNCTION>
+            <FUNCTION>PolynomialRemainder</FUNCTION>
+            <FUNCTION>Position</FUNCTION>
+            <FUNCTION>Positive</FUNCTION>
+            <FUNCTION>PossibleZeroQ</FUNCTION>
+            <FUNCTION>Power</FUNCTION>
+            <FUNCTION>PowerExpand</FUNCTION>
+            <FUNCTION>PowerMod</FUNCTION>
+            <FUNCTION>PreDecrement</FUNCTION>
+            <FUNCTION>PreIncrement</FUNCTION>
+            <FUNCTION>Prepend</FUNCTION>
+            <FUNCTION>PrependTo</FUNCTION>
+            <FUNCTION>Prime</FUNCTION>
+            <FUNCTION>PrimeOmega</FUNCTION>
+            <FUNCTION>PrimePi</FUNCTION>
+            <FUNCTION>PrimePowerQ</FUNCTION>
+            <FUNCTION>PrimeQ</FUNCTION>
+            <FUNCTION>PrimitiveRootList</FUNCTION>
+            <FUNCTION>Probability</FUNCTION>
+            <FUNCTION>Product</FUNCTION>
+            <FUNCTION>ProductLog</FUNCTION>
+            <FUNCTION>Projection</FUNCTION>
+            <FUNCTION>PseudoInverse</FUNCTION>
+            <FUNCTION>QRDecomposition</FUNCTION>
+            <FUNCTION>Quantile</FUNCTION>
+            <FUNCTION>Quantity</FUNCTION>
+            <FUNCTION>QuantityMagnitude</FUNCTION>
+            <FUNCTION>Quiet</FUNCTION>
+            <FUNCTION>Quotient</FUNCTION>
+            <FUNCTION>QuotientRemainder</FUNCTION>
+            <FUNCTION>RandomChoice</FUNCTION>
+            <FUNCTION>RandomInteger</FUNCTION>
+            <FUNCTION>RandomPrime</FUNCTION>
+            <FUNCTION>RandomReal</FUNCTION>
+            <FUNCTION>RandomSample</FUNCTION>
+            <FUNCTION>Range</FUNCTION>
+            <FUNCTION>Rational</FUNCTION>
+            <FUNCTION>Rationalize</FUNCTION>
+            <FUNCTION>Re</FUNCTION>
+            <FUNCTION>Real</FUNCTION>
+            <FUNCTION>RealNumberQ</FUNCTION>
+            <FUNCTION>Reap</FUNCTION>
+            <FUNCTION>Refine</FUNCTION>
+            <FUNCTION>Replace</FUNCTION>
+            <FUNCTION>ReplaceAll</FUNCTION>
+            <FUNCTION>ReplaceList</FUNCTION>
+            <FUNCTION>ReplacePart</FUNCTION>
+            <FUNCTION>ReplaceRepeated</FUNCTION>
+            <FUNCTION>Rescale</FUNCTION>
+            <FUNCTION>Rest</FUNCTION>
+            <FUNCTION>Resultant</FUNCTION>
+            <FUNCTION>Return</FUNCTION>
+            <FUNCTION>Reverse</FUNCTION>
+            <FUNCTION>Riffle</FUNCTION>
+            <FUNCTION>RogersTanimotoDissimilarity</FUNCTION>
+            <FUNCTION>Roots</FUNCTION>
+            <FUNCTION>RotateLeft</FUNCTION>
+            <FUNCTION>RotateRight</FUNCTION>
+            <FUNCTION>Round</FUNCTION>
+            <FUNCTION>RowReduce</FUNCTION>
+            <FUNCTION>Rule</FUNCTION>
+            <FUNCTION>RuleDelayed</FUNCTION>
+            <FUNCTION>RussellRaoDissimilarity</FUNCTION>
+            <FUNCTION>SameQ</FUNCTION>
+            <FUNCTION>SatisfiabilityCount</FUNCTION>
+            <FUNCTION>SatisfiabilityInstances</FUNCTION>
+            <FUNCTION>SatisfiableQ</FUNCTION>
+            <FUNCTION>Scan</FUNCTION>
+            <FUNCTION>Sec</FUNCTION>
+            <FUNCTION>Sech</FUNCTION>
+            <FUNCTION>Select</FUNCTION>
+            <FUNCTION>Series</FUNCTION>
+            <FUNCTION>SeriesCoefficient</FUNCTION>
+            <FUNCTION>SeriesData</FUNCTION>
+            <FUNCTION>Set</FUNCTION>
+            <FUNCTION>SetAttributes</FUNCTION>
+            <FUNCTION>SetDelayed</FUNCTION>
+            <FUNCTION>Sign</FUNCTION>
+            <FUNCTION>Simplify</FUNCTION>
+            <FUNCTION>Sin</FUNCTION>
+            <FUNCTION>Sinc</FUNCTION>
+            <FUNCTION>SingularValueDecomposition</FUNCTION>
+            <FUNCTION>Sinh</FUNCTION>
+            <FUNCTION>Skewness</FUNCTION>
+            <FUNCTION>Slot</FUNCTION>
+            <FUNCTION>SlotSequence</FUNCTION>
+            <FUNCTION>SokalSneathDissimilarity</FUNCTION>
+            <FUNCTION>Solve</FUNCTION>
+            <FUNCTION>Sort</FUNCTION>
+            <FUNCTION>SortBy</FUNCTION>
+            <FUNCTION>Sow</FUNCTION>
+            <FUNCTION>Span</FUNCTION>
+            <FUNCTION>Split</FUNCTION>
+            <FUNCTION>SplitBy</FUNCTION>
+            <FUNCTION>Sqrt</FUNCTION>
+            <FUNCTION>SquaredEuclideanDistance</FUNCTION>
+            <FUNCTION>SquareFreeQ</FUNCTION>
+            <FUNCTION>SquareMatrixQ</FUNCTION>
+            <FUNCTION>StandardDeviation</FUNCTION>
+            <FUNCTION>StirlingS1</FUNCTION>
+            <FUNCTION>StirlingS2</FUNCTION>
+            <FUNCTION>StruveH</FUNCTION>
+            <FUNCTION>StruveL</FUNCTION>
+            <FUNCTION>StudentTDistribution</FUNCTION>
+            <FUNCTION>Subdivide</FUNCTION>
+            <FUNCTION>Subfactorial</FUNCTION>
+            <FUNCTION>Subsets</FUNCTION>
+            <FUNCTION>Subtract</FUNCTION>
+            <FUNCTION>SubtractFrom</FUNCTION>
+            <FUNCTION>Sum</FUNCTION>
+            <FUNCTION>Surd</FUNCTION>
+            <FUNCTION>SurvivalFunction</FUNCTION>
+            <FUNCTION>Switch</FUNCTION>
+            <FUNCTION>Symbol</FUNCTION>
+            <FUNCTION>SymbolName</FUNCTION>
+            <FUNCTION>SymbolQ</FUNCTION>
+            <FUNCTION>SymmetricMatrixQ</FUNCTION>
+            <FUNCTION>SyntaxQ</FUNCTION>
+            <FUNCTION>Table</FUNCTION>
+            <FUNCTION>Take</FUNCTION>
+            <FUNCTION>Tan</FUNCTION>
+            <FUNCTION>Tanh</FUNCTION>
+            <FUNCTION>TautologyQ</FUNCTION>
+            <FUNCTION>TeXForm</FUNCTION>
+            <FUNCTION>Thread</FUNCTION>
+            <FUNCTION>Through</FUNCTION>
+            <FUNCTION>Times</FUNCTION>
+            <FUNCTION>TimesBy</FUNCTION>
+            <FUNCTION>TimeValue</FUNCTION>
+            <FUNCTION>Timing</FUNCTION>
+            <FUNCTION>ToCharacterCode</FUNCTION>
+            <FUNCTION>ToeplitzMatrix</FUNCTION>
+            <FUNCTION>Together</FUNCTION>
+            <FUNCTION>ToPolarCoordinates</FUNCTION>
+            <FUNCTION>ToString</FUNCTION>
+            <FUNCTION>Total</FUNCTION>
+            <FUNCTION>Tr</FUNCTION>
+            <FUNCTION>Trace</FUNCTION>
+            <FUNCTION>Transpose</FUNCTION>
+            <FUNCTION>TrigExpand</FUNCTION>
+            <FUNCTION>TrigReduce</FUNCTION>
+            <FUNCTION>TrigToExp</FUNCTION>
+            <FUNCTION>TrueQ</FUNCTION>
+            <FUNCTION>Tuples</FUNCTION>
+            <FUNCTION>Unequal</FUNCTION>
+            <FUNCTION>UniformDistribution</FUNCTION>
+            <FUNCTION>Union</FUNCTION>
+            <FUNCTION>Unique</FUNCTION>
+            <FUNCTION>UnitConvert</FUNCTION>
+            <FUNCTION>Unitize</FUNCTION>
+            <FUNCTION>UnitStep</FUNCTION>
+            <FUNCTION>UnitVector</FUNCTION>
+            <FUNCTION>UnsameQ</FUNCTION>
+            <FUNCTION>Unset</FUNCTION>
+            <FUNCTION>UpperCaseQ</FUNCTION>
+            <FUNCTION>UpperTriangularize</FUNCTION>
+            <FUNCTION>ValueQ</FUNCTION>
+            <FUNCTION>VandermondeMatrix</FUNCTION>
+            <FUNCTION>Variables</FUNCTION>
+            <FUNCTION>Variance</FUNCTION>
+            <FUNCTION>VectorAngle</FUNCTION>
+            <FUNCTION>VectorQ</FUNCTION>
+            <FUNCTION>WeibullDistribution</FUNCTION>
+            <FUNCTION>Which</FUNCTION>
+            <FUNCTION>While</FUNCTION>
+            <FUNCTION>With</FUNCTION>
+            <FUNCTION>Xor</FUNCTION>
+            <FUNCTION>YuleDissimilarity</FUNCTION>
+            <FUNCTION>Zeta</FUNCTION>
+        </KEYWORDS>
+    </RULES>
+</MODE>
+

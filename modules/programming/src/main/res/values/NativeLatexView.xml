@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="latex" format="string" />
+    <declare-styleable name="NativeLatexView">
+        <attr name="android:textColor" format="color|reference" />
+        <attr name="android:textSize" format="dimension|reference" />
+        <attr name="latex" />
+        <attr name="android:gravity" format="enum" />
+        <attr name="alignVertical" format="enum">
+            <enum name="start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="end" value="2" />
+        </attr>
+        <attr name="alignHorizontal" format="enum">
+            <enum name="start" value="0" />
+            <enum name="center" value="1" />
+            <enum name="end" value="2" />
+        </attr>
+    </declare-styleable>
+
+</resources>

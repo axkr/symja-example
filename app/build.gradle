@@ -81,11 +81,9 @@ dependencies {
         exclude group: 'com.google.guava', module: 'guava'
     }
 
-    implementation 'ru.noties:jlatexmath-android:0.2.0'
-    implementation 'ru.noties:jlatexmath-android-font-cyrillic:0.2.0'
-    implementation 'ru.noties:jlatexmath-android-font-greek:0.2.0'
-
     implementation platform("io.github.Rosemoe.sora-editor:bom:0.22.0")
     implementation("io.github.Rosemoe.sora-editor:editor")
     implementation("io.github.Rosemoe.sora-editor:language-textmate")
+
+    implementation project(':modules:programming')
 }

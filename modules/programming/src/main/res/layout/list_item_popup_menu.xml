@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="4dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/icon_view"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:padding="8dp"
+        android:tint="?android:textColorSecondary"
+        app:srcCompat="@drawable/baseline_content_copy_24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textColor="?android:textColorPrimary"
+            android:textStyle="bold"
+            tools:text="@string/menu_copy_as_latex" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:padding="4dp"
+            android:singleLine="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+            android:textColor="?android:textColorSecondary"
+            tools:text="1 sin(x) cos(x) frac{1,2}" />
+    </LinearLayout>
+
+</LinearLayout>

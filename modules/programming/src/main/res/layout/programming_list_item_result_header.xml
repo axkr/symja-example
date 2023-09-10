@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/programming_list_item_result_mathcell">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_title"
+            android:textStyle="bold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:textIsSelectable="true"
+            app:language="symja"
+            tools:text="Sin(x)+Cos(x)+Tan(x)+Sin(x)+Cos(x)+Tan(x)+Sin(x)+Cos(x)+Tan(x)+Sin(x)+Cos(x)+..." />
+
+        <com.duy.ncalc.view.CalcImageButton
+            android:id="@+id/btn_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:contentDescription="Remove"
+            android:focusable="true"
+            android:padding="8dp"
+            android:textColor="?android:textColorSecondary"
+            android:visibility="gone"
+            app:srcCompat="@drawable/baseline_zoom_out_map_24"
+            tools:ignore="HardcodedText"
+            tools:visibility="visible" />
+
+        <com.duy.ncalc.view.CalcImageButton
+            android:id="@+id/btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:textColor="?android:textColorSecondary"
+            android:visibility="gone"
+            app:srcCompat="@drawable/baseline_more_vert_24"
+            tools:ignore="HardcodedText"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</merge>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_exit" type="id" />
+    <item name="action_copy_input" type="id" />
+    <item name="action_copy_data" type="id" />
+    <item name="action_copy_result" type="id" />
+    <item name="action_remove" type="id" />
+</resources>
