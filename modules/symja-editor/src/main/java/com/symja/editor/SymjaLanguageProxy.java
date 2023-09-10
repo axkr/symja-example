@@ -1,4 +1,4 @@
-package com.symja.app.editor;
+package com.symja.editor;
 
 import android.os.Bundle;
 
@@ -90,7 +90,7 @@ public class SymjaLanguageProxy implements Language {
         if (!isAutoCompleteEnabled()) {
             return;
         }
-        var prefix = CompletionHelper.computePrefix(content, position, MyCharacter::isJavaIdentifierPart);
+        String prefix = CompletionHelper.computePrefix(content, position, MyCharacter::isJavaIdentifierPart);
         TextMateAnalyzer textMateAnalyzer = (TextMateAnalyzer) textMateLanguage.getAnalyzeManager();
         IdentifierAutoComplete.SyncIdentifiers idt;
         try {

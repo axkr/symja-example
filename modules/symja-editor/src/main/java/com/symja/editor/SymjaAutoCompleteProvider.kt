@@ -1,4 +1,4 @@
-package com.symja.app.editor
+package com.symja.editor
 
 import io.github.rosemoe.sora.lang.completion.CompletionItem
 import io.github.rosemoe.sora.lang.completion.CompletionItemKind

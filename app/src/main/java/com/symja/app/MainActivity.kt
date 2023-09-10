@@ -13,7 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
-import com.symja.app.editor.SymjaLanguageProxy
+import com.symja.editor.SymjaEditor
+import com.symja.editor.SymjaLanguageProxy
 import com.symja.evaluator.OutputForm
 import com.symja.evaluator.Symja
 import com.symja.evaluator.SymjaResult
@@ -37,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     private var executor: ExecutorService = Executors.newSingleThreadExecutor()
 
     private var btnCalc: View? = null
-    private lateinit var editor: CodeEditor
+    private lateinit var editor: SymjaEditor
     private var tabLayout: TabLayout? = null
     private var viewFlipper: ViewFlipper? = null
     private var resultLabel: TextView? = null
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity() {
         configInputField()
 
         resultLabel = findViewById(R.id.result_label)
-        resultLabel?.typeface = Typeface.createFromAsset(assets, "JetBrainsMono-Regular.ttf")
+        resultLabel?.typeface = Typeface.createFromAsset(assets, "fonts/JetBrainsMono-Regular.ttf")
 
         latexLabel = findViewById(R.id.latex_view)
         errorMessageLabel = findViewById(R.id.stderr_label)
@@ -75,69 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun configInputField() {
-        loadThemes()
-        loadGrammar()
-
-        val font = Typeface.createFromAsset(assets, "JetBrainsMono-Regular.ttf")
         editor.setTextSize(14f)
-        editor.typefaceText = font
-        editor.typefaceLineNumber = font
-        editor.isWordwrap = true
-
-        AST2Expr.initialize()
-        val symjaLanguageProxy = SymjaLanguageProxy(TextMateLanguage.create("source.mathematica", true))
-        editor.setEditorLanguage(symjaLanguageProxy)
-
-        ensureTextmateTheme()
-        switchThemeIfRequired(this, editor)
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        switchThemeIfRequired(this, editor)
-    }
-
-    private fun loadGrammar() {
-        // language
-        GrammarRegistry.getInstance().loadGrammars("textmate/languages.json")
-    }
-
-    private fun loadThemes() {
-        //add assets file provider
-        FileProviderRegistry.getInstance().addFileProvider(
-            AssetsFileResolver(
-                applicationContext.assets
-            )
-        )
-
-
-        val themes = arrayOf("darcula", "abyss", "quietlight", "solarized_drak")
-        val themeRegistry = ThemeRegistry.getInstance()
-        themes.forEach { name ->
-            val path = "textmate/$name.json"
-            themeRegistry.loadTheme(
-                ThemeModel(
-                    IThemeSource.fromInputStream(
-                        FileProviderRegistry.getInstance().tryGetInputStream(path), path, null
-                    ), name
-                ).apply {
-                    if (name != "quietlight") {
-                        isDark = true
-                    }
-                }
-            )
-        }
-
-        themeRegistry.setTheme("quietlight")
-    }
-
-    private fun ensureTextmateTheme() {
-        val editor = editor;
-        var editorColorScheme = editor.colorScheme
-        if (editorColorScheme !is TextMateColorScheme) {
-            editorColorScheme = TextMateColorScheme.create(ThemeRegistry.getInstance())
-            editor.colorScheme = editorColorScheme
-        }
     }
 
     private fun calculate() {

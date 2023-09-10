@@ -13,7 +13,7 @@
         android:layout_height="0dp"
         android:layout_weight="1.5">
 
-        <io.github.rosemoe.sora.widget.CodeEditor
+        <com.symja.editor.SymjaEditor
             android:id="@+id/input_field"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -21,7 +21,7 @@
             android:scrollbarThumbVertical="@drawable/scrollbar_thumb"
             android:scrollbarTrackHorizontal="@drawable/scrollbar_track"
             android:scrollbarTrackVertical="@drawable/scrollbar_track"
-            tools:text="io.github.rosemoe.sora.widget.CodeEditor" />
+            tools:text="SymjaEditor" />
     </FrameLayout>
 
     <LinearLayout
