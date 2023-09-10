@@ -6,7 +6,7 @@
     android:layout_marginBottom="4dp"
     android:orientation="horizontal">
 
-    <com.duy.ncalc.view.NativeLatexView
+    <com.symja.programming.view.NativeLatexView
         android:id="@+id/output_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

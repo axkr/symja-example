@@ -140,7 +140,7 @@
             android:visibility="gone"
             tools:visibility="visible">
 
-            <com.duy.ncalc.programming.view.dragbutton.DragButton
+            <com.symja.programming.view.dragbutton.DragButton
                 android:id="@+id/big_drag_button"
                 style="@style/Widget.AppCompat.Button"
                 android:layout_width="100dp"
@@ -152,7 +152,7 @@
                 android:focusable="true"
                 tools:showIn="@layout/fragment_programming_console">
 
-            </com.duy.ncalc.programming.view.dragbutton.DragButton>
+            </com.symja.programming.view.dragbutton.DragButton>
 
             <com.google.android.material.textview.MaterialTextView
                 style="@style/TextAppearance.MaterialComponents.Body1"

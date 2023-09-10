@@ -19,11 +19,11 @@ package com.jecelyin.editor.v2;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Environment;
-import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
 import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
+import androidx.preference.PreferenceManager;
 
 import com.duy.common.utils.DLog;
 import com.duy.editor.R;

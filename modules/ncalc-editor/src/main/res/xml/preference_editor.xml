@@ -5,7 +5,7 @@
             android:key="change_theme"
             android:title="@string/theme" />
 
-        <FontSizePreference
+        <com.jecelyin.editor.v2.preference.FontSizePreference
             android:key="@string/pref_font_size"
             android:summary="@string/default_value"
             android:title="@string/font_size" />
@@ -67,11 +67,11 @@
             android:title="@string/custom_symbol_list"
             android:visibility="gone" />
 
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="@string/pref_key_show_symbol_bar"
-            android:summary="Show list of symbols above soft keyboard."
-            android:title="Symbol bar" />
+<!--        <CheckBoxPreference-->
+<!--            android:defaultValue="true"-->
+<!--            android:key="@string/pref_key_show_symbol_bar"-->
+<!--            android:summary="Show list of symbols above soft keyboard."-->
+<!--            android:title="Symbol bar" />-->
 
         <CheckBoxPreference
             android:defaultValue="true"

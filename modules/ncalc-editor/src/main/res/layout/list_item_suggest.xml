@@ -63,18 +63,17 @@
 
         </LinearLayout>
 
-        <com.duy.ncalc.view.CalcImageButton
+        <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/img_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="?rippleBackground"
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
             android:scaleType="centerInside"
-            android:textColor="?android:textColorPrimary"
+            android:tint="?android:textColorPrimary"
             app:srcCompat="@drawable/outline_info_black_24" />
 
     </RelativeLayout>

@@ -6,7 +6,7 @@
     android:focusable="true"
     android:fillViewport="true">
 
-    <com.duy.ncalc.programming.document.view.NativeMarkdownView
+    <com.symja.programming.document.view.NativeMarkdownView
         android:id="@+id/markdown_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,5 +15,5 @@
         android:paddingRight="16dp"
         android:paddingBottom="8dp">
 
-    </com.duy.ncalc.programming.document.view.NativeMarkdownView>
+    </com.symja.programming.document.view.NativeMarkdownView>
 </ScrollView>
