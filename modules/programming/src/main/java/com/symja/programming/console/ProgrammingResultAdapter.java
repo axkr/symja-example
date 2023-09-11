@@ -51,7 +51,7 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
                 return new LatexViewHolder(inflater.inflate(R.layout.programming_list_item_result_latex, viewGroup, false));
 
             case ViewType.WEB:
-                return new WebViewHolder(inflater.inflate(R.layout.programming_list_item_result_web, viewGroup, false));
+                return new WebViewHolder(inflater.inflate(R.layout.symja_prgm_programming_list_item_result_web, viewGroup, false));
 
             case ViewType.TEXT:
                 return new TextViewHolder(inflater.inflate(R.layout.programming_list_item_result_text, viewGroup, false));

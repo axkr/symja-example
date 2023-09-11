@@ -11,13 +11,13 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/txt_title"
-            android:textStyle="bold"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="0dp"
             android:layout_weight="1"
             android:padding="8dp"
             android:textIsSelectable="true"
+            android:textStyle="bold"
             app:language="symja"
             tools:text="Sin(x)+Cos(x)+Tan(x)+Sin(x)+Cos(x)+Tan(x)+Sin(x)+Cos(x)+Tan(x)+Sin(x)+Cos(x)+..." />
 
@@ -31,7 +31,7 @@
             android:contentDescription="Remove"
             android:focusable="true"
             android:padding="8dp"
-            android:textColor="?android:textColorSecondary"
+            android:tint="?android:textColorPrimary"
             android:visibility="gone"
             app:srcCompat="@drawable/baseline_zoom_out_map_24"
             tools:ignore="HardcodedText"
@@ -47,6 +47,7 @@
             android:focusable="true"
             android:padding="8dp"
             android:textColor="?android:textColorSecondary"
+            android:tint="?android:textColorPrimary"
             android:visibility="gone"
             app:srcCompat="@drawable/baseline_more_vert_24"
             tools:ignore="HardcodedText"
