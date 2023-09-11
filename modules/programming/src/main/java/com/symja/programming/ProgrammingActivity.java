@@ -15,8 +15,12 @@ import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.programming.console.ProgrammingConsoleFragment;
 import com.symja.programming.document.MarkdownListDocumentFragment;
+import com.symja.programming.document.model.DocumentItem;
 import com.symja.programming.document.model.DocumentStructureLoader;
+import com.symja.programming.symjatalk.SymjaTalkFragment;
 import com.symja.programming.view.ActivityConstants;
+
+import java.util.ArrayList;
 
 
 public class ProgrammingActivity extends BaseActivity {
@@ -60,27 +64,34 @@ public class ProgrammingActivity extends BaseActivity {
                 .replace(R.id.container_programming_console, programmingConsoleFragment, ProgrammingConsoleFragment.TAG)
                 .commitAllowingStateLoss();
 
+
+        SymjaTalkFragment symjaTalkFragment = (SymjaTalkFragment) getSupportFragmentManager().findFragmentByTag("SymjaTalkFragment");
+        if (symjaTalkFragment == null) {
+            symjaTalkFragment = SymjaTalkFragment.newInstance(null);
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_programming_pods, symjaTalkFragment, "SymjaTalkFragment")
+                .commitAllowingStateLoss();
+
+
         MarkdownListDocumentFragment documentFragment = (MarkdownListDocumentFragment) getSupportFragmentManager().findFragmentByTag("DocumentFragment");
         if (documentFragment == null) {
-            documentFragment = MarkdownListDocumentFragment.newInstance(DocumentStructureLoader.getTutorialItems(this));
+            ArrayList<DocumentItem> tutorialItems = DocumentStructureLoader.getTutorialItems(this);
+            ArrayList<DocumentItem> functionCatalog = DocumentStructureLoader.getFunctionCatalog(this);
+            ArrayList<DocumentItem> combined = new ArrayList<>(tutorialItems.size() + functionCatalog.size());
+            combined.addAll(tutorialItems);
+            combined.addAll(functionCatalog);
+            documentFragment = MarkdownListDocumentFragment.newInstance(combined);
         }
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_programming_document, documentFragment, "DocumentFragment")
-                .commitAllowingStateLoss();
-
-        MarkdownListDocumentFragment catalogFragment = (MarkdownListDocumentFragment) getSupportFragmentManager().findFragmentByTag("CatalogFragment");
-        if (catalogFragment == null) {
-            catalogFragment = MarkdownListDocumentFragment.newInstance(DocumentStructureLoader.getFunctionCatalog(this));
-        }
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_programming_catalog, catalogFragment, "CatalogFragment")
                 .commitAllowingStateLoss();
 
         navigationView = findViewById(R.id.tab_layout);
         presenter = new ProgrammingPresenter(viewFlipper, navigationView);
         presenter.setConsoleView(programmingConsoleFragment);
         presenter.setDocumentView(documentFragment);
-        presenter.setCatalogView(catalogFragment);
+        // TODO presenter.setCatalogView(catalogFragment);
 
         navigationView.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override

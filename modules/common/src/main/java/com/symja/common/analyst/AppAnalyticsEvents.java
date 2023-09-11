@@ -13,4 +13,5 @@ public class AppAnalyticsEvents {
 
     public static final String SYMJATALK_CLICK_RUN = "symjatalk_click_run";
     public static final String consoleClickRun = "console_click_rubn";
+    public static final String symjaTalkClickSubmit = "symjaTalkClickSubmit";
 }

@@ -28,7 +28,6 @@ dependencyResolutionManagement {
 rootProject.name = "Symja"
 include ':app'
 include ':modules:programming'
-include ':modules:symja-editor'
 include ':modules:symja-evaluator'
 include ':modules:common'
 include ':modules:ncalc-editor'

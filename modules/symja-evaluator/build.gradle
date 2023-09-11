@@ -36,11 +36,25 @@ dependencies {
     api project(':modules:common')
 
     api 'com.google.guava:guava:32.1.2-android'
-    api('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
-        exclude group: 'com.google.guava', module: 'guava'
-    }
+//    api('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
+//        exclude group: 'com.google.guava', module: 'guava'
+//    }
     api('org.matheclipse:matheclipse-core:3.0.0-SNAPSHOT') {
         exclude group: 'com.google.guava', module: 'guava'
+    }
+    api('org.matheclipse:matheclipse-api:3.0.0-SNAPSHOT') {
+        exclude group: 'org.matheclipse', module: 'matheclipse-core'
+        exclude group: 'org.matheclipse', module: 'matheclipse-gpl'
+        exclude group: 'org.matheclipse', module: 'matheclipse-io'
+        exclude group: 'io.undertow', module: 'undertow-core'
+        exclude group: 'io.undertow', module: 'undertow-servlet'
+        exclude group: 'org.owasp.encoder', module: 'encoder'
+        exclude group: 'org.apache.lucene', module: 'lucene-analyzers-common'
+        exclude group: 'com.google.guava', module: 'guava'
+        exclude group: 'com.atlassian.commonmark', module: 'commonmark'
+        exclude group: 'org.commonmark', module: 'commonmark-ext-gfm-tables'
+        exclude group: 'org.apache.arrow', module: 'arrow-vector'
+        exclude group: 'org.apache.arrow', module: 'arrow-memory-netty'
     }
 
 }

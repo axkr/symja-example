@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/calculation_result_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:fadeScrollbars="false"
+            android:paddingBottom="100dp"
+            app:fastScrollEnabled="true"
+            app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
+            app:fastScrollHorizontalTrackDrawable="@drawable/track_drawable"
+            app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
+            app:fastScrollVerticalTrackDrawable="@drawable/track_drawable">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <include layout="@layout/programming_include_input" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_loading_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/programming_result_margin_left"
+            android:layout_marginLeft="@dimen/programming_result_margin_left"
+            android:layout_marginTop="@dimen/programming_input_height"
+            android:layout_marginEnd="@dimen/programming_result_margin_right"
+            android:layout_marginRight="@dimen/programming_result_margin_right"
+            android:background="?colorPrimary"
+            android:padding="8dp"
+            android:text="@string/symjatalk_loading_message"
+            android:textColor="?colorOnPrimary"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/container_symbol"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal">
+
+        <include
+            layout="@layout/direction_button"
+            android:layout_width="75dp"
+            android:layout_height="match_parent" />
+
+        <include
+            layout="@layout/direction_button"
+            android:layout_width="75dp"
+            android:layout_height="match_parent" />
+
+        <include
+            layout="@layout/direction_button"
+            android:layout_width="75dp"
+            android:layout_height="match_parent" />
+
+        <include
+            layout="@layout/direction_button"
+            android:layout_width="75dp"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -42,4 +42,8 @@
     <string name="settings">Settings</string>
     <string name="undo">Undo</string>
     <string name="redo">Redo</string>
+    <string name="expression_details">Expression details</string>
+    <string name="symjatalk_loading_message">Sending your request to server. Waiting for response.</string>
+    <string name="message_empty_result">There is no result for your input</string>
+
 </resources>

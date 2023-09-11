@@ -2,6 +2,7 @@ package com.symja.evaluator;
 
 import android.util.Log;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
 import com.symja.evaluator.config.EvaluationConfig;
@@ -9,9 +10,9 @@ import com.symja.evaluator.config.EvaluationConfig;
 import org.matheclipse.core.basic.OperationSystem;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
+import org.matheclipse.core.eval.util.WriterOutputStream;
 import org.matheclipse.core.expression.F;
 import org.matheclipse.core.interfaces.IExpr;
-import org.matheclipse.core.eval.util.WriterOutputStream;
 
 import java.io.PrintStream;
 import java.io.StringWriter;
@@ -122,7 +123,13 @@ public class Symja {
         return eval(expression);
     }
 
+    @NonNull
     public ExprEvaluator getExprEvaluator() {
         return exprEvaluator;
+    }
+
+    @NonNull
+    public IExpr parse(@NonNull String input) {
+        return exprEvaluator.parse(input);
     }
 }

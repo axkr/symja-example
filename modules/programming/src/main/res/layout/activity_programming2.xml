@@ -61,12 +61,12 @@
             android:layout_height="match_parent" />
 
         <FrameLayout
-            android:id="@+id/container_programming_document"
+            android:id="@+id/container_programming_pods"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
         <FrameLayout
-            android:id="@+id/container_programming_catalog"
+            android:id="@+id/container_programming_document"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 

@@ -1,7 +1,6 @@
 package com.symja.app
 
 import android.annotation.SuppressLint
-import android.content.res.Configuration
 import android.graphics.Typeface
 import android.os.Bundle
 import android.os.Handler
@@ -14,20 +13,9 @@ import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.symja.editor.SymjaEditor
-import com.symja.editor.SymjaLanguageProxy
 import com.symja.evaluator.OutputForm
 import com.symja.evaluator.Symja
 import com.symja.evaluator.SymjaResult
-import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme
-import io.github.rosemoe.sora.langs.textmate.TextMateLanguage
-import io.github.rosemoe.sora.langs.textmate.registry.FileProviderRegistry
-import io.github.rosemoe.sora.langs.textmate.registry.GrammarRegistry
-import io.github.rosemoe.sora.langs.textmate.registry.ThemeRegistry
-import io.github.rosemoe.sora.langs.textmate.registry.model.ThemeModel
-import io.github.rosemoe.sora.langs.textmate.registry.provider.AssetsFileResolver
-import io.github.rosemoe.sora.widget.CodeEditor
-import org.eclipse.tm4e.core.registry.IThemeSource
-import org.matheclipse.core.convert.AST2Expr
 import ru.noties.jlatexmath.JLatexMathView
 import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors

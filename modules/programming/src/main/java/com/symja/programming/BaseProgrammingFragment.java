@@ -66,8 +66,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import io.github.rosemoe.sora.event.ContentChangeEvent;
-import io.github.rosemoe.sora.event.EventReceiver;
-import io.github.rosemoe.sora.event.Unsubscribe;
 
 
 public abstract class BaseProgrammingFragment extends Fragment implements DragListener,

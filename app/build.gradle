@@ -41,7 +41,11 @@ android {
     packagingOptions {
         resources {
             excludes += ['META-INF/DEPENDENCIES']
-            pickFirsts += ['**/*.xsd', 'META-INF/*.md']
+            pickFirsts += ['**/*.xsd',
+                           'META-INF/*.md',
+                           '**/LICENSE.txt',
+                           '**/Messages.properties',
+                           '**/Log4j2Plugins.dat']
         }
     }
 
@@ -73,13 +77,13 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    implementation 'com.google.guava:guava:32.1.2-android'
-    implementation('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
-        exclude group: 'com.google.guava', module: 'guava'
-    }
-    implementation('org.matheclipse:matheclipse-core:3.0.0-SNAPSHOT') {
-        exclude group: 'com.google.guava', module: 'guava'
-    }
+//    implementation 'com.google.guava:guava:32.1.2-android'
+//    implementation('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
+//        exclude group: 'com.google.guava', module: 'guava'
+//    }
+//    implementation('org.matheclipse:matheclipse-core:3.0.0-SNAPSHOT') {
+//        exclude group: 'com.google.guava', module: 'guava'
+//    }
 
     implementation project(':modules:programming')
 }
