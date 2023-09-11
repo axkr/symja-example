@@ -28,7 +28,7 @@ public class ProgrammingActivity extends BaseActivity {
     private static final String EXTRA_PAGE_INDEX = "ProgrammingActivity.EXTRA_PAGE_INDEX";
 
     private ViewFlipper viewFlipper;
-    private TabLayout navigationView;
+    private TabLayout tabLayout;
     private ProgrammingPresenter presenter;
 
     /**
@@ -50,7 +50,7 @@ public class ProgrammingActivity extends BaseActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_programming2);
-        setupToolbar();
+        setSupportActionBar(findViewById(R.id.toolbar));
         setTitle(R.string.programming_title);
         changeSystemBarColor();
 
@@ -87,13 +87,33 @@ public class ProgrammingActivity extends BaseActivity {
                 .replace(R.id.container_programming_document, documentFragment, "DocumentFragment")
                 .commitAllowingStateLoss();
 
-        navigationView = findViewById(R.id.tab_layout);
-        presenter = new ProgrammingPresenter(viewFlipper, navigationView);
+        tabLayout = findViewById(R.id.tab_layout);
+        presenter = new ProgrammingPresenter(viewFlipper, tabLayout);
         presenter.setConsoleView(programmingConsoleFragment);
         presenter.setDocumentView(documentFragment);
         // TODO presenter.setCatalogView(catalogFragment);
 
-        navigationView.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+        setupTabView();
+
+        if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_PAGE_INDEX)) {
+            int selectedTabPosition = savedInstanceState.getInt(EXTRA_PAGE_INDEX);
+            if (selectedTabPosition >= 0 && selectedTabPosition < tabLayout.getTabCount()) {
+                tabLayout.selectTab(tabLayout.getTabAt(selectedTabPosition));
+            }
+        }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_exit) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void setupTabView() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int position = tab.getPosition();
@@ -133,28 +153,12 @@ public class ProgrammingActivity extends BaseActivity {
 
             }
         });
-
-        if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_PAGE_INDEX)) {
-            int selectedTabPosition = savedInstanceState.getInt(EXTRA_PAGE_INDEX);
-            if (selectedTabPosition >= 0 && selectedTabPosition < navigationView.getTabCount()) {
-                navigationView.selectTab(navigationView.getTabAt(selectedTabPosition));
-            }
-        }
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_exit) {
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(EXTRA_PAGE_INDEX, navigationView.getSelectedTabPosition());
+        outState.putInt(EXTRA_PAGE_INDEX, tabLayout.getSelectedTabPosition());
     }
 
     @Override
