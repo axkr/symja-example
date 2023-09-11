@@ -56,6 +56,7 @@ import org.matheclipse.parser.client.operator.ASTNodeFactory;
 import org.matheclipse.parser.client.operator.Operator;
 
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -335,7 +336,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                             return;
                         }
                     }
-                    String content = IOUtils.toString(in);
+                    String content = IOUtils.toString(in, StandardCharsets.UTF_8);
                     in.close();
                     inputView.setText(content);
                 } catch (Exception e) {

@@ -41,6 +41,7 @@ import com.symja.programming.utils.ViewUtils;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 
 
 public class ProgrammingConsoleFragment extends BaseProgrammingFragment implements FunctionSuggestionAdapter.OnSuggestionClickListener,
@@ -225,7 +226,7 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
         boolean firstLaunch = preferences.getBoolean("console_first_launch", true);
         if (firstLaunch && (BuildConfig.DEBUG && editingDocument.isEmpty())) {
             try {
-                String content = IOUtils.toString(getContext().getAssets().open("console/Document0.json"));
+                String content = IOUtils.toString(getContext().getAssets().open("console/Document0.json"), StandardCharsets.UTF_8);
                 JSONObject jsonObject = new JSONObject(content);
                 ProgrammingConsoleDocument examples = new ProgrammingConsoleDocument(jsonObject.toMap());
                 this.editingDocument.addAll(examples);

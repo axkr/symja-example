@@ -7,8 +7,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.symja.programming.R;
 import com.symja.common.logging.DLog;
+import com.symja.programming.R;
 import com.symja.programming.console.OnProgrammingItemClickListener;
 import com.symja.programming.console.models.CalculationItem;
 import com.symja.programming.utils.ViewUtils;
@@ -40,8 +40,7 @@ public class WebViewHolder extends BaseViewHolder {
         try {
             switch (item.getType()) {
                 case IFRAME: {
-                    String pageContent = IOUtils.toString(context.getAssets()
-                                    .open("iframe_template.html"))
+                    String pageContent = IOUtils.toString(context.getAssets().open("template/iframe_template.html"), StandardCharsets.UTF_8)
                             .replace("\r", "");
                     String html = pageContent.replaceAll("`1`", item.getData());
                     if (DLog.DEBUG) {
