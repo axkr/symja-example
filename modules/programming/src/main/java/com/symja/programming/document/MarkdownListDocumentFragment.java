@@ -67,7 +67,7 @@ public class MarkdownListDocumentFragment extends Fragment
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_programming_document, container, false);
+        return inflater.inflate(R.layout.symja_prgm_fragment_programming_document, container, false);
     }
 
     @Override

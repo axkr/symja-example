@@ -6,6 +6,6 @@
     android:layout_height="wrap_content"
     android:clickable="true"
     android:focusable="true"
-    tools:showIn="@layout/fragment_programming_console">
+    tools:showIn="@layout/symja_prgm_fragment_programming_console">
 
 </com.symja.programming.view.dragbutton.DragButton>

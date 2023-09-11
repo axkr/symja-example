@@ -1,7 +1,4 @@
 <resources>
-    <string name="copied">Copiado</string>
-
-    <string name="settings">Ajustes</string>
-
-
+    <string name="symja_prgm_message_copied">Copiado</string>
+    <string name="symja_prgm_title_settings">Ajustes</string>
 </resources>

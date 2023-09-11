@@ -71,7 +71,7 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
             //             0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             //     titleText.append(text);
             // }
-            titleText.append(itemView.getResources().getString(R.string.calculation_result));
+            titleText.append(itemView.getResources().getString(R.string.symja_prgm_label_calculation_result));
         }
         txtTitle.setText(titleText);
         txtTitle.setOnClickListener(v -> onProgrammingItemClickListener.onInputViewClicked(v, item));
@@ -170,7 +170,7 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
             Data data = calculationItem.getInput();
             itemIds.add(new Pair<>(itemId, data));
             MenuItem item = new MenuItem(itemId,
-                    context.getString(R.string.menu_copy_input_as, data.getFormat().getName()),
+                    context.getString(R.string.symja_prgm_menu_copy_input_as, data.getFormat().getName()),
                     data.getValue());
             item.setIcon(R.drawable.baseline_content_copy_24);
             popupMenu.addItem(item);
@@ -179,18 +179,18 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
         for (Data data : calculationItem.getDataList()) {
             int itemId = View.generateViewId();
             itemIds.add(new Pair<>(itemId, data));
-            MenuItem item = new MenuItem(itemId, context.getString(R.string.menu_copy_result_as, data.getFormat().getName()), data.getValue());
+            MenuItem item = new MenuItem(itemId, context.getString(R.string.symja_prgm_menu_copy_result_as, data.getFormat().getName()), data.getValue());
             item.setIcon(R.drawable.baseline_content_copy_24);
             popupMenu.addItem(item);
         }
 
-        MenuItem removeItem = new MenuItem(R.id.action_remove, context.getString(R.string.action_remove));
+        MenuItem removeItem = new MenuItem(R.id.symja_prgm_action_remove, context.getString(R.string.symja_prgm_button_remove));
         removeItem.setIcon(R.drawable.baseline_clear_24);
         popupMenu.addItem(removeItem);
 
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.action_remove) {
+            if (itemId == R.id.symja_prgm_action_remove) {
                 if (onProgrammingItemClickListener != null) {
                     onProgrammingItemClickListener.onRemoveClicked(BaseViewHolder.this);
                 }
@@ -199,7 +199,7 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
                 if (pair != null) {
                     Data data = pair.second;
                     ClipboardCompat.setText(context, data.getFormat().getName(), data.getValue());
-                    Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, R.string.symja_prgm_message_copied, Toast.LENGTH_SHORT).show();
                     return true;
                 }
             }

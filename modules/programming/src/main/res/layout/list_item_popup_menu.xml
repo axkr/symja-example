@@ -29,7 +29,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Small"
             android:textColor="?android:textColorPrimary"
             android:textStyle="bold"
-            tools:text="@string/menu_copy_as_latex" />
+            tools:text="@string/symja_prgm_menu_copy_as_latex" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/subtitle"

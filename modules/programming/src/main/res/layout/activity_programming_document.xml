@@ -16,7 +16,7 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:title="@string/programming_document">
+            tools:title="@string/symja_prgm_tab_title_document">
 
         </androidx.appcompat.widget.Toolbar>
     </com.google.android.material.appbar.AppBarLayout>
@@ -40,7 +40,7 @@
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/need_more_help_contact_us" />
+            android:text="@string/symja_prgm_label_need_more_help_contact_us" />
     </LinearLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

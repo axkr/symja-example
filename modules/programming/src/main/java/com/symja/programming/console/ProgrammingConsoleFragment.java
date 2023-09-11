@@ -71,7 +71,7 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_programming_console, container, false);
+        return inflater.inflate(R.layout.symja_prgm_fragment_programming_console, container, false);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
             return;
         }
         new AlertDialog.Builder(getActivity())
-                .setTitle(R.string.programming_clear_all_items)
+                .setTitle(R.string.symja_prgm_message_clear_all_items)
                 .setNegativeButton(android.R.string.no, (dialog, which) -> dialog.cancel())
                 .setPositiveButton(android.R.string.yes, (dialog, which) -> {
                     editingDocument.clear();

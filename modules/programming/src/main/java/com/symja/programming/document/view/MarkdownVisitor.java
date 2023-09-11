@@ -382,7 +382,7 @@ public class MarkdownVisitor extends AbstractVisitor {
                     @Override
                     public boolean onLongClick(View v) {
                         ClipboardCompat.setText(v.getContext(), text.toString(), url);
-                        ViewUtils.showToast(v.getContext(), R.string.copied, ViewUtils.LENGTH_SHORT);
+                        ViewUtils.showToast(v.getContext(), R.string.symja_prgm_message_copied, ViewUtils.LENGTH_SHORT);
                         return true;
                     }
                 });

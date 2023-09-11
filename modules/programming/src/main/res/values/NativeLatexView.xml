@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <attr name="latex" format="string" />
-    <declare-styleable name="NativeLatexView">
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <attr name="latex" format="string" tools:ignore="ResourceName" />
+    <declare-styleable name="NativeLatexView" tools:ignore="ResourceName">
         <attr name="android:textColor" format="color|reference" />
         <attr name="android:textSize" format="dimension|reference" />
         <attr name="latex" />

@@ -29,7 +29,7 @@ public class SymjaTalkActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_with_fragment_content);
         setupToolbar();
-        setTitle(R.string.expression_details);
+        setTitle(R.string.symja_prgm_title_expression_details);
 
         Data data = null;
         Intent intent = getIntent();

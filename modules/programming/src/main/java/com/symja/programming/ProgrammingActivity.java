@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -49,9 +48,9 @@ public class ProgrammingActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_programming2);
+        setContentView(R.layout.symja_prgm_activity_programming);
         setSupportActionBar(findViewById(R.id.toolbar));
-        setTitle(R.string.programming_title);
+        setTitle(R.string.symja_prgm_title_programming);
         changeSystemBarColor();
 
         viewFlipper = findViewById(R.id.view_flipper);
@@ -103,15 +102,6 @@ public class ProgrammingActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.action_exit) {
-            finish();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private void setupTabView() {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -120,7 +110,7 @@ public class ProgrammingActivity extends BaseActivity {
                 switch (position) {
                     case 0:
                         viewFlipper.setDisplayedChild(0);
-                        setTitle(R.string.programming_console);
+                        setTitle(R.string.symja_prgm_tab_title_console);
                         //noinspection ConstantConditions
                         getSupportActionBar().setSubtitle(null);
                         break;
@@ -128,7 +118,7 @@ public class ProgrammingActivity extends BaseActivity {
                         AppAnalytics.getInstance(ProgrammingActivity.this)
                                 .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_DOCUMENT, new Bundle());
                         viewFlipper.setDisplayedChild(1);
-                        setTitle(R.string.programming_document);
+                        setTitle(R.string.symja_prgm_tab_title_document);
                         //noinspection ConstantConditions
                         getSupportActionBar().setSubtitle(null);
                         break;
@@ -136,7 +126,7 @@ public class ProgrammingActivity extends BaseActivity {
                         AppAnalytics.getInstance(ProgrammingActivity.this)
                                 .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_CATALOG, new Bundle());
                         viewFlipper.setDisplayedChild(2);
-                        setTitle(R.string.programming_catalog);
+                        setTitle(R.string.symja_prgm_tab_title_catalog);
                         //noinspection ConstantConditions
                         getSupportActionBar().setSubtitle(null);
                         break;

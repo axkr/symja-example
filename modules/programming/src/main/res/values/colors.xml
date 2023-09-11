@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
-    <color name="programming_list_item_result_stroke_color">#66D6D6D6</color>
+    <color name="symja_prgm_color_list_item_result_stroke">#66D6D6D6</color>
 
-
-    <color name="colorSecondary">#EF5350</color>
-    <color name="colorOnSecondary">#FFF</color>
-    <color name="colorPrimary">#2196F3</color>
-    <color name="colorPrimaryDark">#1D7DCC</color>
-    <color name="colorSurface">#FFFFFF</color>
-
-    <color name="colorNightSecondary">#EF5350</color>
-    <color name="colorNightOnSecondary">#FFF</color>
-    <color name="colorNightPrimary">#1D7DCC</color>
-    <color name="colorNightPrimaryDark">#155E99</color>
-    <color name="colorNightOnPrimary">#FFF</color>
-    <color name="colorNightSurface">#000000</color>
-
-    <color name="transparent">#00000000</color>
-    <color name="white">#FFFFFF</color>
+    <color name="symja_prgm_color_transparent">#00000000</color>
+    <color name="symja_prgm_color_white">#FFFFFF</color>
 </resources>

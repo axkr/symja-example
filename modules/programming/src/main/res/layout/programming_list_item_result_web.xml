@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/programming_result_margin_left"
-    android:layout_marginEnd="@dimen/programming_result_margin_right"
+    android:layout_marginStart="@dimen/symja_prgm_result_margin_left"
+    android:layout_marginEnd="@dimen/symja_prgm_result_margin_right"
     app:cardCornerRadius="4dp"
     app:cardElevation="0dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true"
     app:contentPadding="1dp"
-    app:strokeColor="@color/programming_list_item_result_stroke_color"
+    app:strokeColor="@color/symja_prgm_color_list_item_result_stroke"
     app:strokeWidth="0.75dp">
 
     <com.symja.programming.view.viewgroup.BoundedLinearLayout
@@ -23,7 +23,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white">
+            android:background="@color/symja_prgm_color_white">
 
             <com.symja.programming.view.mathview.InterceptWebView
                 android:id="@+id/web_view"

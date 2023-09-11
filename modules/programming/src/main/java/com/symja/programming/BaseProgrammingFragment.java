@@ -24,14 +24,12 @@ import android.widget.Toast;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.duy.ide.editor.view.CodeEditor;
-import com.google.android.material.button.MaterialButton;
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.common.android.ClipboardCompat;
@@ -46,7 +44,6 @@ import com.symja.programming.document.model.DocumentItem;
 import com.symja.programming.document.model.DocumentStructureLoader;
 import com.symja.programming.settings.CalculatorSettings;
 import com.symja.programming.settings.IProgrammingSettings;
-import com.symja.programming.utils.ShareUtil;
 import com.symja.programming.utils.ViewUtils;
 import com.symja.programming.view.dragbutton.DragButton;
 import com.symja.programming.view.dragbutton.DragButtonUtils;
@@ -140,7 +137,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             String content = inputView.getText().toString();
             if (context != null && !content.trim().isEmpty()) {
                 ClipboardCompat.setText(context, "", content);
-                ViewUtils.showToast(context, R.string.copied, ViewUtils.LENGTH_SHORT);
+                ViewUtils.showToast(context, R.string.symja_prgm_message_copied, ViewUtils.LENGTH_SHORT);
             }
         });
         view.findViewById(R.id.btn_paste).setOnClickListener(v -> {
@@ -334,7 +331,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                         int oneKilobytes = 1024;
                         int oneMegabytes = 128 * oneKilobytes;
                         if (available > oneMegabytes) {
-                            Toast.makeText(context, context.getString(R.string.programming_message_file_too_large), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, context.getString(R.string.symja_prgm_message_file_too_large), Toast.LENGTH_SHORT).show();
                             return;
                         }
                     }
@@ -342,7 +339,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                     in.close();
                     inputView.setText(content);
                 } catch (Exception e) {
-                    Toast.makeText(context, context.getString(R.string.programming_message_cannot_import_file), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, context.getString(R.string.symja_prgm_message_cannot_import_file), Toast.LENGTH_SHORT).show();
                 }
             }
         } else if (requestCode == RC_CHANGE_EDITOR_THEME && resultCode == Activity.RESULT_OK) {
@@ -420,7 +417,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                     //containerInput.setCardElevation(elevation);
                 } else {
                     int elevation = ViewUtils.dpToPx(recyclerView.getContext(), 8);
-                   // containerInput.setCardElevation(elevation);
+                    // containerInput.setCardElevation(elevation);
                 }
             }
         });
@@ -438,17 +435,14 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
     @Override
     public void onCreateOptionsMenu(@NonNull Menu menu, @NotNull MenuInflater inflater) {
-        inflater.inflate(R.menu.menu_programming_console, menu);
+        inflater.inflate(R.menu.symja_prgm_menu_programming_console, menu);
         super.onCreateOptionsMenu(menu, inflater);
     }
 
     @Override
     public boolean onOptionsItemSelected(@NotNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.action_change_theme) {
-            openThemeActivity();
-            return true;
-        } else if (itemId == R.id.action_clear) {
+        if (itemId == R.id.action_clear) {
             clickClearAll();
             return true;
         } else if (itemId == R.id.action_setting) {
@@ -461,8 +455,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         } else if (itemId == R.id.action_import_text_file) {
             importTextFile();
             return true;
-        } else if (itemId == R.id.action_share_app) {
-            ShareUtil.shareThisApp(getActivity());
         }
         return super.onOptionsItemSelected(item);
     }

@@ -11,7 +11,7 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <include layout="@layout/programming_include_input" />
+        <include layout="@layout/symja_prgm_programming_include_input" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/calculation_result_recycler_view"

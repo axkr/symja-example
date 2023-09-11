@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
-import android.os.Build;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.FileProvider;
@@ -89,7 +88,7 @@ public class ShareUtil {
             intent.putExtra(Intent.EXTRA_TEXT, url);
             intent.setType("text/plain");
             context.startActivity(Intent.createChooser(intent,
-                    context.getString(R.string.share)));
+                    context.getString(R.string.symja_prgm_button_share)));
         } catch (Exception e) {
             e.printStackTrace();
         }

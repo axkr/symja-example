@@ -44,7 +44,7 @@
                 android:focusable="true"
                 android:minHeight="30dp"
                 android:padding="0dp"
-                android:text="@string/copy"
+                android:text="@string/symja_prgm_button_copy"
                 android:textSize="12sp"
                 app:icon="@drawable/round_content_copy_18"
                 app:iconPadding="0dp" />
@@ -59,7 +59,7 @@
                 android:focusable="true"
                 android:minHeight="30dp"
                 android:padding="0dp"
-                android:text="@string/run"
+                android:text="@string/symja_prgm_button_run"
                 android:textSize="12sp"
                 android:visibility="gone"
                 app:icon="@drawable/round_open_in_new_18"

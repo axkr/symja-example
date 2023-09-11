@@ -31,18 +31,18 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:icon="@drawable/round_label_important_24"
-                    android:text="@string/programming_console"
+                    android:text="@string/symja_prgm_tab_title_console"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:icon="@drawable/round_book_24"
-                    android:text="@string/programming_document"
+                    android:text="@string/symja_prgm_tab_title_document"
                     android:layout_height="wrap_content" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
-                    android:text="@string/programming_catalog"
+                    android:text="@string/symja_prgm_tab_title_catalog"
                     android:icon="@drawable/round_view_list_24"
                     android:layout_height="wrap_content" />
 

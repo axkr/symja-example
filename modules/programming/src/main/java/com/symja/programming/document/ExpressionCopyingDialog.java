@@ -27,16 +27,16 @@ public class ExpressionCopyingDialog {
             }
         }
         new MaterialAlertDialogBuilder(context)
-                .setTitle(context.getString(R.string.title_copy_code))
+                .setTitle(context.getString(R.string.symja_prgm_title_menu_copy_code))
                 .setItems(inputs.toArray(new CharSequence[0]),
                         (dialog, which) -> {
                             String input = inputs.get(which).toString();
                             ClipboardCompat.setText(context, "", input);
                             if (anchorView != null) {
-                                Snackbar.make(anchorView, R.string.copied, Snackbar.LENGTH_SHORT)
+                                Snackbar.make(anchorView, R.string.symja_prgm_message_copied, Snackbar.LENGTH_SHORT)
                                         .show();
                             } else {
-                                Toast.makeText(context, R.string.copied, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(context, R.string.symja_prgm_message_copied, Toast.LENGTH_SHORT).show();
                             }
                         })
                 .create()

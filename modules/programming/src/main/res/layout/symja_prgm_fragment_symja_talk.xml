@@ -12,7 +12,7 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <include layout="@layout/programming_include_input" />
+        <include layout="@layout/symja_prgm_programming_include_input" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:background="?colorPrimary"
                 android:padding="8dp"
-                android:text="@string/symjatalk_loading_message"
+                android:text="@string/symja_prgm_message_symjatalk_loading"
                 android:textColor="?colorOnPrimary"
                 android:visibility="gone"
                 tools:visibility="visible" />

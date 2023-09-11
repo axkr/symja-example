@@ -18,14 +18,14 @@
             android:layout_height="match_parent"
             app:titleTextAppearance="@style/TextAppearance.AppCompat.Small"
             tools:navigationIcon="@drawable/round_undo_24"
-            tools:title="@string/programming_title">
+            tools:title="@string/symja_prgm_title_programming">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
                 style="@style/Widget.MaterialComponents.TabLayout.Colored"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/transparent"
+                android:background="@color/symja_prgm_color_transparent"
                 app:tabIndicatorFullWidth="true"
                 app:tabIndicatorHeight="4dp"
                 app:tabInlineLabel="true"
@@ -37,17 +37,17 @@
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/programming_console" />
+                    android:text="@string/symja_prgm_tab_title_console" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/symjatalk" />
+                    android:text="@string/symja_prgm_title_symjatalk" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/programming_document" />
+                    android:text="@string/symja_prgm_tab_title_document" />
 
             </com.google.android.material.tabs.TabLayout>
 

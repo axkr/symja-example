@@ -100,7 +100,7 @@
                     android:id="@+id/latex_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:background="@color/symja_prgm_color_white"
                     android:padding="16dip"
                     app:jlmv_alignHorizontal="center"
                     app:jlmv_alignVertical="center"

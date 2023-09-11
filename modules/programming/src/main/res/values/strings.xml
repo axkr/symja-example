@@ -1,41 +1,40 @@
 <resources>
+    <string name="symja_prgm_button_copy">Copy</string>
+    <string name="symja_prgm_button_input">Input</string>
+    <string name="symja_prgm_button_paste">Paste</string>
+    <string name="symja_prgm_button_redo">Redo</string>
+    <string name="symja_prgm_button_remove">Remove</string>
+    <string name="symja_prgm_button_run">Run</string>
+    <string name="symja_prgm_button_share">Share</string>
+    <string name="symja_prgm_button_submit">Submit</string>
+    <string name="symja_prgm_button_undo">Undo</string>
 
-    <string name="programming_title">Programming</string>
-    <string name="programming_title_action_import_text_file">Import text file</string>
-    <string name="programming_editor_theme">Editor theme</string>
-    <string name="programming_console">Console</string>
-    <string name="programming_document">Document</string>
-    <string name="programming_message_cannot_import_file">Unable to import file</string>
-    <string name="programming_message_file_too_large">File too large.</string>
-    <string name="programming_catalog">Catalog</string>
-    <string name="programming_clear_all">Clear all</string>
-    <string name="programming_clear_all_items">Did you want to clear all items?</string>
-    <string name="programming_tutorials">Tutorials</string>
+    <string name="symja_prgm_label_calculation_result">Calculation result</string>
+    <string name="symja_prgm_label_need_more_help_contact_us">Need more help? Contact us.</string>
+    <string name="symja_prgm_label_search">Search</string>
+    <string name="symja_prgm_label_view_output_error">Output | Error Message</string>
 
-    <string name="title_copy_code">Select an item to copy</string>
-    <string name="copied">Copied</string>
-    <string name="share">Share</string>
-    <string name="menu_copy_result_as">Copy result as [%s]</string>
-    <string name="menu_copy_input_as">Copy input as [%s]</string>
-    <string name="menu_copy_as_latex">Copy as Latex</string>
-    <string name="button_submit">Submit</string>
-    <string name="calculation_result">Calculation result</string>
-    <string name="label_view_output_error">Output | Error Message</string>
-    <string name="action_remove">Remove</string>
-    <string name="need_more_help_contact_us">Need more help? Contact us.</string>
-    <string name="search">Search</string>
-    <string name="run">Run</string>
-    <string name="input">Input</string>
-    <string name="paste">Paste</string>
-    <string name="copy">Copy</string>
-    <string name="drag_to_select_symbol">Drag to select symbol</string>
-    <string name="share_this_app">Share this app</string>
-    <string name="settings">Settings</string>
-    <string name="undo">Undo</string>
-    <string name="redo">Redo</string>
-    <string name="expression_details">Expression details</string>
-    <string name="symjatalk_loading_message">Sending your request to server. Waiting for response.</string>
-    <string name="message_empty_result">There is no result for your input</string>
-    <string name="symjatalk">SymjaTalk</string>
+    <string name="symja_prgm_menu_clear_all">Clear all</string>
+    <string name="symja_prgm_menu_copy_as_latex">Copy as Latex</string>
+    <string name="symja_prgm_menu_copy_input_as">Copy input as [%s]</string>
+    <string name="symja_prgm_menu_copy_result_as">Copy result as [%s]</string>
+    <string name="symja_prgm_menu_import_text_file">Import text file</string>
 
+    <string name="symja_prgm_message_cannot_import_file">Unable to import file</string>
+    <string name="symja_prgm_message_clear_all_items">Did you want to clear all items?</string>
+    <string name="symja_prgm_message_copied">Copied</string>
+    <string name="symja_prgm_message_drag_to_select_symbol">Drag to select symbol</string>
+    <string name="symja_prgm_message_empty_result">There is no result for your input</string>
+    <string name="symja_prgm_message_file_too_large">File too large.</string>
+    <string name="symja_prgm_message_symjatalk_loading">Sending your request to server. Waiting for response.</string>
+
+    <string name="symja_prgm_tab_title_catalog">Catalog</string>
+    <string name="symja_prgm_tab_title_console">Console</string>
+    <string name="symja_prgm_tab_title_document">Document</string>
+    <string name="symja_prgm_tab_title_tutorials">Tutorials</string>
+    <string name="symja_prgm_title_settings">Settings</string>
+    <string name="symja_prgm_title_expression_details">Expression details</string>
+    <string name="symja_prgm_title_menu_copy_code">Select an item to copy</string>
+    <string name="symja_prgm_title_programming">Programming</string>
+    <string name="symja_prgm_title_symjatalk">SymjaTalk</string>
 </resources>

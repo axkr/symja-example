@@ -19,7 +19,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginRight="16dp"
             android:layout_marginBottom="8dp"
-            android:hint="@string/search">
+            android:hint="@string/symja_prgm_label_search">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_search_view"

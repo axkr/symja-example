@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="white">#FFFFFFFF</color>
+    <color name="symja_prgm_color_white">#FFFFFFFF</color>
+
+
+    <color name="colorSecondary">#EF5350</color>
+    <color name="colorOnSecondary">#FFF</color>
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorPrimaryDark">#1D7DCC</color>
+    <color name="colorSurface">#FFFFFF</color>
+
+    <color name="colorNightSecondary">#EF5350</color>
+    <color name="colorNightOnSecondary">#FFF</color>
+    <color name="colorNightPrimary">#1D7DCC</color>
+    <color name="colorNightPrimaryDark">#155E99</color>
+    <color name="colorNightOnPrimary">#FFF</color>
+    <color name="colorNightSurface">#000000</color>
+
 </resources>

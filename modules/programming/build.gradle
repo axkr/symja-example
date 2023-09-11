@@ -6,7 +6,6 @@ plugins {
 android {
     namespace 'com.symja.programming'
     compileSdk 33
-
     defaultConfig {
         minSdk 24
 
@@ -38,6 +37,14 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+
+
+    resourcePrefix 'symja_prgm'
+    lintOptions{
+        disable 'MissingTranslation'
+    }
+
 }
 
 dependencies {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <declare-styleable name="FactorDiagramView">
+    <declare-styleable name="FactorDiagramView" tools:ignore="ResourceName">
         <attr name="number" format="integer" />
         <attr name="color" format="color|reference" />
     </declare-styleable>

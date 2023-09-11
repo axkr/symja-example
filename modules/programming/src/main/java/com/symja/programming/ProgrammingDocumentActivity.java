@@ -1,7 +1,6 @@
 package com.symja.programming;
 
 import android.os.Bundle;
-import android.view.View;
 
 import androidx.annotation.Nullable;
 
@@ -21,11 +20,11 @@ public class ProgrammingDocumentActivity extends BaseActivity {
         //changeSystemBarColor();
         if (getIntent().hasExtra(EXTRA_OPEN_TUTORIALS)
                 && getIntent().getBooleanExtra(EXTRA_OPEN_TUTORIALS, false)) {
-            setTitle(R.string.programming_tutorials);
+            setTitle(R.string.symja_prgm_tab_title_tutorials);
             documentFragment = MarkdownListDocumentFragment.newInstance(
                     DocumentStructureLoader.getTutorialItems(this));
         } else {
-            setTitle(R.string.programming_catalog);
+            setTitle(R.string.symja_prgm_tab_title_catalog);
             documentFragment = MarkdownListDocumentFragment.newInstance(
                     DocumentStructureLoader.getFunctionCatalog(this));
 

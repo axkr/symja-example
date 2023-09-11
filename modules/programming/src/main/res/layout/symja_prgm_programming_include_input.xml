@@ -9,7 +9,7 @@
     <FrameLayout
         android:id="@+id/container_input"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/programming_input_height"
+        android:layout_height="@dimen/symja_prgm_input_height"
         android:layout_margin="0dp"
         android:background="?colorSurfaceContainerHigh"
         android:padding="0dp"
@@ -30,7 +30,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@null"
-                android:contentDescription="@string/input"
+                android:contentDescription="@string/symja_prgm_button_input"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
@@ -79,7 +79,7 @@
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
-                        android:contentDescription="@string/copy"
+                        android:contentDescription="@string/symja_prgm_button_copy"
                         android:focusable="true"
                         android:minWidth="48dp"
                         android:padding="14dp"
@@ -95,7 +95,7 @@
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
-                        android:contentDescription="@string/paste"
+                        android:contentDescription="@string/symja_prgm_button_paste"
                         android:focusable="true"
                         android:minWidth="48dp"
                         android:padding="14dp"
@@ -111,7 +111,7 @@
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
-                        android:contentDescription="@string/undo"
+                        android:contentDescription="@string/symja_prgm_button_undo"
                         android:focusable="true"
                         android:minWidth="48dp"
                         android:padding="14dp"
@@ -127,7 +127,7 @@
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
                         android:clickable="true"
-                        android:contentDescription="@string/redo"
+                        android:contentDescription="@string/symja_prgm_button_redo"
                         android:focusable="true"
                         android:minWidth="48dp"
                         android:padding="14dp"
@@ -148,7 +148,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:minWidth="48dp"
-                    android:text="@string/run"
+                    android:text="@string/symja_prgm_button_run"
                     android:textColor="?colorOnPrimary"
                     app:icon="@drawable/round_play_circle_outline_18" />
 
@@ -186,7 +186,7 @@
                 android:clickable="true"
                 android:focusable="true"
                 tools:alpha="0.3"
-                tools:showIn="@layout/fragment_programming_console">
+                tools:showIn="@layout/symja_prgm_fragment_programming_console">
 
             </com.symja.programming.view.dragbutton.DragButton>
 
@@ -194,7 +194,7 @@
                 style="@style/TextAppearance.MaterialComponents.Body1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/drag_to_select_symbol"
+                android:text="@string/symja_prgm_message_drag_to_select_symbol"
                 android:textColor="?colorSecondary" />
         </LinearLayout>
 
