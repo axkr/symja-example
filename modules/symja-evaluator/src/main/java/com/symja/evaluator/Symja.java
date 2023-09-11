@@ -7,6 +7,7 @@ import androidx.annotation.WorkerThread;
 
 import com.symja.evaluator.config.EvaluationConfig;
 
+import org.matheclipse.core.basic.Config;
 import org.matheclipse.core.basic.OperationSystem;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.ExprEvaluator;
@@ -55,9 +56,15 @@ public class Symja {
         if (!systemInited.get()) {
             try {
                 semaphore.acquire();
+
+                Config.DISPLAY_JSFIDDLE_BUTTON = false;
+                Config.JAVA_AWT_DESKTOP_AVAILABLE = false;
+
                 F.initSymbols();
                 ExprEvaluator exprEvaluator = new ExprEvaluator();
                 Log.d(TAG, String.valueOf(exprEvaluator.eval("Sin(x)+Cos(x)")));
+
+
                 semaphore.release();
                 systemInited.set(true);
             } catch (Exception e) { // Should not throw error

@@ -10,7 +10,8 @@
     android:drawableTint="?android:textColorSecondary"
     android:focusable="true"
     android:gravity="center"
-    android:padding="8dp"
+    android:paddingStart="4dp"
+    android:paddingEnd="4dp"
     tools:layout_height="40dp"
     tools:text="Solve">
 

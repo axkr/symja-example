@@ -31,8 +31,8 @@
                 app:tabInlineLabel="true"
                 app:tabMinWidth="20dp"
                 app:tabPadding="0dp"
-                app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
-                app:tabUnboundedRipple="true">
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Medium"
+              >
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"

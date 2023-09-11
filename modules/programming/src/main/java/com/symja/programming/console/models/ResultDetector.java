@@ -5,12 +5,13 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.symja.common.datastrcture.Data;
 import com.symja.common.logging.DLog;
 import com.symja.evaluator.OutputForm;
 import com.symja.evaluator.Symja;
 import com.symja.evaluator.SymjaResult;
-import com.symja.common.datastrcture.Data;
 
+import org.apache.commons.io.FileUtils;
 import org.matheclipse.core.eval.EvalEngine;
 import org.matheclipse.core.eval.TeXUtilities;
 import org.matheclipse.core.expression.F;
@@ -19,7 +20,10 @@ import org.matheclipse.core.expression.data.GraphExpr;
 import org.matheclipse.core.interfaces.IExpr;
 import org.matheclipse.core.interfaces.IStringX;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.StringWriter;
+import java.nio.charset.StandardCharsets;
 
 public class ResultDetector {
 
@@ -30,7 +34,7 @@ public class ResultDetector {
         return resolve(simpleResult, inputExpression);
     }
 
-    @Nullable
+    @NonNull
     public static CalculationItem resolve(SymjaResult res, String inputExpression) {
         if (DLog.DEBUG) {
             Log.d(TAG, "resolve: result = " + res);
@@ -69,15 +73,23 @@ public class ResultDetector {
             return item;
         } catch (Exception e) {
             e.printStackTrace();
+
+            String message = e.getMessage();
+            CalculationItem calculationItem = new CalculationItem(inputExpression,
+                    null,
+                    Data.Format.TEXT_PLAIN,
+                    message != null ? message : "Error");
+            calculationItem.setStdErr(message);
+            return calculationItem;
         }
-        return null;
     }
 
     @NonNull
-    private static CalculationItem makeGraphicsResult(String inputExpression, String symjaExpr, IExpr result) {
-        String html = F.showGraphic(result);
-        return new CalculationItem(inputExpression, symjaExpr, Data.Format.HTML, html);
+    private static CalculationItem makeGraphicsResult(String inputExpression, String symjaExpr, IExpr result) throws IOException {
+        String html = createGraphicsHtml(result);
+        return new CalculationItem(inputExpression, symjaExpr, Data.Format.HTML, html != null ? html : "");
     }
+
 
     /**
      * Using code editor to highlight text in specific mode
@@ -132,15 +144,31 @@ public class ResultDetector {
     @NonNull
     private static CalculationItem makeJsFormResult(String inputExpression,
                                                     String symjaExpr, IExpr result) {
-        String html = F.showGraphic(result);
-        return new CalculationItem(inputExpression, symjaExpr, Data.Format.HTML, html);
+        String html = createGraphicsHtml(result);
+        return new CalculationItem(inputExpression, symjaExpr, Data.Format.HTML, html != null ? html : "");
     }
 
     @NonNull
     private static CalculationItem makeGraphResult(String inputExpression,
                                                    String symjaExpr, GraphExpr<?> result) {
-        String html = F.showGraphic(result);
-        return new CalculationItem(inputExpression, symjaExpr, Data.Format.HTML, html);
+        String html = createGraphicsHtml(result);
+        return new CalculationItem(inputExpression, symjaExpr, Data.Format.HTML, html != null ? html : "");
     }
 
+    @Nullable
+    private static String createGraphicsHtml(IExpr result) {
+        @Nullable String content = F.showGraphic(result);
+        if (content == null) {
+            return null;
+        }
+        try {
+            if (new File(content).exists()) {
+                File file = new File(content);
+                content = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return content;
+    }
 }
