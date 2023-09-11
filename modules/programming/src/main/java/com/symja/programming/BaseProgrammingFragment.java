@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.CallSuper;
@@ -74,7 +75,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     private static final int RC_REQUEST_PERMISSION = 4444;
     private static final int RC_CHANGE_EDITOR_THEME = 101;
 
-    protected MaterialButton btnRun;
+    protected TextView btnRun;
     protected View progressBar;
 
     protected SymjaEditor inputView;
@@ -85,7 +86,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     private DragButton dragButtonPreview;
     @Nullable
     private View containerDragHint;
-    private CardView containerInput;
+    private View containerInput;
 
     private void setupViews(@NonNull View view) {
 
@@ -416,10 +417,10 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 //  Negative to check scrolling up, positive to check scrolling down.
                 if (!recyclerView.canScrollVertically(-1)) {
                     int elevation = ViewUtils.dpToPx(recyclerView.getContext(), 2);
-                    containerInput.setCardElevation(elevation);
+                    //containerInput.setCardElevation(elevation);
                 } else {
                     int elevation = ViewUtils.dpToPx(recyclerView.getContext(), 8);
-                    containerInput.setCardElevation(elevation);
+                   // containerInput.setCardElevation(elevation);
                 }
             }
         });

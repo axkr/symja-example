@@ -32,7 +32,7 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
     private List<CalculationItem> document;
     @NonNull
     private final LayoutInflater inflater;
-    private boolean useSpace = true;
+    private boolean useSpace = false;
     @Nullable
     private OnProgrammingItemClickListener programmingItemClickListener;
 

@@ -9,42 +9,44 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-
-        android:layout_height="wrap_content">
+        android:layout_height="48dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             app:titleTextAppearance="@style/TextAppearance.AppCompat.Small"
+            tools:navigationIcon="@drawable/round_undo_24"
             tools:title="@string/programming_title">
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tab_layout"
-                style="@style/Widget.MaterialComponents.TabLayout.PrimarySurface"
+                style="@style/Widget.MaterialComponents.TabLayout.Colored"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                app:tabIndicatorFullWidth="true"
+                app:tabIndicatorHeight="4dp"
                 app:tabInlineLabel="true"
+                app:tabMinWidth="20dp"
                 app:tabPadding="0dp"
-                app:tabTextAppearance="@style/TextAppearance.AppCompat.Small">
+                app:tabTextAppearance="@style/TextAppearance.AppCompat.Small"
+                app:tabUnboundedRipple="true">
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:icon="@drawable/round_label_important_24"
                     android:text="@string/programming_console" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:icon="@drawable/round_cloud_queue_24"
                     android:text="@string/symjatalk" />
 
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:icon="@drawable/round_view_list_24"
                     android:text="@string/programming_document" />
 
             </com.google.android.material.tabs.TabLayout>
