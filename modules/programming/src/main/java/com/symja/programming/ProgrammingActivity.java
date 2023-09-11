@@ -10,7 +10,6 @@ import android.widget.ViewFlipper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-
 import com.google.android.material.tabs.TabLayout;
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
@@ -20,7 +19,7 @@ import com.symja.programming.document.model.DocumentStructureLoader;
 import com.symja.programming.view.ActivityConstants;
 
 
-public class ProgrammingActivity extends BaseProgrammingActivity {
+public class ProgrammingActivity extends BaseActivity {
     public static final String EXTRA_INPUT = "com.duy.calc.casio.programming.ProgrammingActivity.EXTRA_INPUT";
     private static final String EXTRA_PAGE_INDEX = "ProgrammingActivity.EXTRA_PAGE_INDEX";
 
@@ -133,18 +132,25 @@ public class ProgrammingActivity extends BaseProgrammingActivity {
     }
 
     @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putInt(EXTRA_PAGE_INDEX, navigationView.getSelectedTabPosition());
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_exit) {
             finish();
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(EXTRA_PAGE_INDEX, navigationView.getSelectedTabPosition());
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (!presenter.onBackPressed()) {
+            super.onBackPressed();
+        }
     }
 
     @Nullable
@@ -164,12 +170,5 @@ public class ProgrammingActivity extends BaseProgrammingActivity {
             return;
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (!presenter.onBackPressed()) {
-            super.onBackPressed();
-        }
     }
 }

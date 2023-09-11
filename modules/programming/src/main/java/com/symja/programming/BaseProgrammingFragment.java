@@ -45,7 +45,6 @@ import com.symja.programming.document.model.DocumentItem;
 import com.symja.programming.document.model.DocumentStructureLoader;
 import com.symja.programming.settings.CalculatorSettings;
 import com.symja.programming.settings.IProgrammingSettings;
-import com.symja.programming.utils.ApplicationUtils;
 import com.symja.programming.utils.ShareUtil;
 import com.symja.programming.utils.ViewUtils;
 import com.symja.programming.view.dragbutton.DragButton;
@@ -65,6 +64,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
+
+import io.github.rosemoe.sora.event.ContentChangeEvent;
+import io.github.rosemoe.sora.event.EventReceiver;
+import io.github.rosemoe.sora.event.Unsubscribe;
 
 
 public abstract class BaseProgrammingFragment extends Fragment implements DragListener,
@@ -109,9 +112,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
         FunctionSuggestionAdapter suggestAdapter = new FunctionSuggestionAdapter(context, android.R.layout.simple_list_item_1, suggestionItems);
         suggestAdapter.setOnSuggestionListener(this);
-      // TODO: replace with symja editor inputView.setAdapter(suggestAdapter);
-      // TODO: replace with symja editor inputView.setThreshold(2);
-      // TODO: replace with symja editor inputView.getDocument().setMode("symja");
+        // TODO: replace with symja editor inputView.setAdapter(suggestAdapter);
+        // TODO: replace with symja editor inputView.setThreshold(2);
+        // TODO: replace with symja editor inputView.getDocument().setMode("symja");
 
         // apply theme
         // TODO: replace with symja editor  changeTheme(Preferences.getInstance(getContext()).getEditorTheme(), view);
@@ -119,20 +122,20 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
     private void addViewEvents(@NotNull View view) {
         btnRun.setOnClickListener(v -> clickRun());
-        view.findViewById(R.id.btn_clear).setOnClickListener(v -> {
-            final Context context = requireContext();
-            if (inputView.getText().length() == 0) {
-                return;
-            }
-            ViewUtils.showConfirmationDialog(context, getString(R.string.clear_all),
-                    aBoolean -> {
-                        if (aBoolean) {
-                            inputView.setText("");
-                            inputView.requestFocus();
-                            ViewUtils.showKeyboard(context, inputView);
-                        }
-                    });
-        });
+//        view.findViewById(R.id.btn_clear).setOnClickListener(v -> {
+//            final Context context = requireContext();
+//            if (inputView.getText().length() == 0) {
+//                return;
+//            }
+//            ViewUtils.showConfirmationDialog(context, getString(R.string.clear_all),
+//                    aBoolean -> {
+//                        if (aBoolean) {
+//                            inputView.setText("");
+//                            inputView.requestFocus();
+//                            ViewUtils.showKeyboard(context, inputView);
+//                        }
+//                    });
+//        });
         view.findViewById(R.id.btn_copy).setOnClickListener(v -> {
             final Context context = getContext();
             String content = inputView.getText().toString();
@@ -152,7 +155,24 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 ViewUtils.showKeyboard(context, inputView);
             }
         });
+        View btnUndo = view.findViewById(R.id.btn_undo);
+        btnUndo.setOnClickListener(v -> {
+            if (inputView.canUndo()) {
+                inputView.undo();
+            }
+        });
+        View btnRedo = view.findViewById(R.id.btn_redo);
+        btnRedo.setOnClickListener(v -> {
+            if (inputView.canRedo()) {
+                inputView.redo();
+            }
+        });
 
+
+        inputView.subscribeEvent(ContentChangeEvent.class, (event, unsubscribe) -> {
+            btnRedo.setEnabled(inputView.canRedo());
+            btnUndo.setEnabled(inputView.canUndo());
+        });
     }
 
     protected abstract ProgrammingResultAdapter getResultAdapter();

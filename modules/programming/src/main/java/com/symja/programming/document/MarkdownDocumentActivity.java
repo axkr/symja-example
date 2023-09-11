@@ -7,14 +7,14 @@ import android.os.Bundle;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.symja.programming.BaseProgrammingActivity;
+import com.symja.programming.BaseActivity;
 import com.symja.programming.R;
 import com.symja.programming.document.model.DocumentItem;
 
 import org.jetbrains.annotations.NotNull;
 
 
-public class MarkdownDocumentActivity extends BaseProgrammingActivity {
+public class MarkdownDocumentActivity extends BaseActivity {
 
     public static final String EXTRA_ASSET_PATH = "MarkdownDocumentActivity.EXTRA_ASSET_PATH";
     public static final String EXTRA_DOCUMENT_NAME = "MarkdownDocumentActivity.EXTRA_DOCUMENT_NAME";

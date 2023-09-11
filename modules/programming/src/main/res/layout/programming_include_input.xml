@@ -26,13 +26,13 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:background="@null"
+                android:contentDescription="@string/input"
                 android:gravity="start|top"
-                android:hint="@string/input"
                 android:inputType="textMultiLine"
-                android:padding="8dp"
                 android:scrollbars="vertical"
                 android:typeface="monospace"
                 app:textSize="14sp"
+                tools:ignore="HardcodedText,ClassNameCheck"
                 tools:text="a:=2;\nb:=\nc:=4\nd:=5\ne:=6\n"
                 tools:textSize="14sp" />
 
@@ -44,76 +44,94 @@
 
             <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:baselineAligned="true"
                     android:gravity="center_vertical"
                     android:orientation="horizontal">
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_copy"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_show_hide_input"
                         android:layout_width="wrap_content"
-                        android:layout_height="38dp"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minWidth="48dp"
+                        android:padding="12dp"
+                        android:textAllCaps="false"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="12sp"
+                        app:srcCompat="@drawable/round_expand_less_24"
+                        app:tint="?android:textColorPrimary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_copy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackground"
                         android:clickable="true"
                         android:contentDescription="@string/copy"
                         android:focusable="true"
                         android:minWidth="48dp"
+                        android:padding="12dp"
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:icon="@drawable/baseline_content_copy_24"
-                        app:iconTint="?android:textColorPrimary" />
+                        app:srcCompat="@drawable/baseline_content_copy_24"
+                        app:tint="?android:textColorPrimary" />
 
-                    <com.google.android.material.button.MaterialButton
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/btn_paste"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="38dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackground"
                         android:clickable="true"
                         android:contentDescription="@string/paste"
                         android:focusable="true"
                         android:minWidth="48dp"
+                        android:padding="12dp"
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:icon="@drawable/baseline_content_paste_24"
-                        app:iconTint="?android:textColorPrimary" />
+                        app:srcCompat="@drawable/baseline_content_paste_24"
+                        app:tint="?android:textColorPrimary" />
 
-                    <com.google.android.material.button.MaterialButton
-                        android:id="@+id/btn_clear"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="38dp"
-                        android:clickable="true"
-                        android:contentDescription="@string/clear"
-                        android:focusable="true"
-                        android:minWidth="48dp"
-                        android:textAllCaps="false"
-                        android:textColor="?android:textColorPrimary"
-                        android:textSize="12sp"
-                        app:icon="@drawable/baseline_clear_24"
-                        app:iconTint="?android:textColorPrimary"
-                        app:srcCompat="@drawable/round_close_24" />
-
-                    <com.google.android.material.button.MaterialButton
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/btn_undo"
-                        style="@style/Widget.MaterialComponents.Button.TextButton"
                         android:layout_width="wrap_content"
-                        android:layout_height="38dp"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackground"
                         android:clickable="true"
                         android:contentDescription="@string/undo"
                         android:focusable="true"
                         android:minWidth="48dp"
+                        android:padding="12dp"
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:icon="@drawable/round_undo_24"
-                        app:iconTint="?android:textColorPrimary" />
+                        app:srcCompat="@drawable/round_undo_24"
+                        app:tint="?android:textColorPrimary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_redo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:contentDescription="@string/redo"
+                        android:focusable="true"
+                        android:minWidth="48dp"
+                        android:padding="12dp"
+                        android:textAllCaps="false"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="12sp"
+                        app:srcCompat="@drawable/round_redo_24"
+                        app:tint="?android:textColorPrimary" />
 
                 </LinearLayout>
 
@@ -121,7 +139,7 @@
                     android:id="@+id/btn_run"
                     style="@style/Widget.Material3.Button"
                     android:layout_width="wrap_content"
-                    android:layout_height="38dp"
+                    android:layout_height="match_parent"
                     android:layout_gravity="end|center_vertical"
                     android:clickable="true"
                     android:focusable="true"
