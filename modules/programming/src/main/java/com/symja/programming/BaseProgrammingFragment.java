@@ -356,6 +356,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         @NonNull Context context = getActivity() != null ? getActivity() : getContext();
 
         inputView = view.findViewById(R.id.edit_input);
+        inputView.setTextSize(15);
         listResultView = view.findViewById(R.id.calculation_result_recycler_view);
         listResultView.setLayoutManager(new LinearLayoutManager(context));
 

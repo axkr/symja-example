@@ -10,9 +10,6 @@
         android:id="@+id/container_input"
         android:layout_width="match_parent"
         android:layout_height="@dimen/programming_input_height"
-        android:layout_marginStart="@dimen/programming_result_margin_left"
-        android:layout_marginTop="@dimen/programming_result_margin_top"
-        android:layout_marginEnd="@dimen/programming_result_margin_right"
         app:cardElevation="2dp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
@@ -35,7 +32,7 @@
                 android:padding="8dp"
                 android:scrollbars="vertical"
                 android:typeface="monospace"
-                app:textSize="15sp"
+                app:textSize="14sp"
                 tools:text="a:=2;\nb:=\nc:=4\nd:=5\ne:=6\n"
                 tools:textSize="14sp" />
 
@@ -63,9 +60,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="38dp"
                         android:clickable="true"
+                        android:contentDescription="@string/copy"
                         android:focusable="true"
-                        android:minWidth="65dp"
-                        android:text="@string/copy"
+                        android:minWidth="48dp"
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
@@ -78,9 +75,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="38dp"
                         android:clickable="true"
+                        android:contentDescription="@string/paste"
                         android:focusable="true"
-                        android:minWidth="65dp"
-                        android:text="@string/paste"
+                        android:minWidth="48dp"
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
@@ -93,15 +90,30 @@
                         android:layout_width="wrap_content"
                         android:layout_height="38dp"
                         android:clickable="true"
+                        android:contentDescription="@string/clear"
                         android:focusable="true"
-                        android:minWidth="65dp"
-                        android:text="@string/clear"
+                        android:minWidth="48dp"
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
                         app:icon="@drawable/baseline_clear_24"
                         app:iconTint="?android:textColorPrimary"
                         app:srcCompat="@drawable/round_close_24" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_undo"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="38dp"
+                        android:clickable="true"
+                        android:contentDescription="@string/undo"
+                        android:focusable="true"
+                        android:minWidth="48dp"
+                        android:textAllCaps="false"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="12sp"
+                        app:icon="@drawable/round_undo_24"
+                        app:iconTint="?android:textColorPrimary" />
 
                 </LinearLayout>
 
@@ -113,7 +125,7 @@
                     android:layout_gravity="end|center_vertical"
                     android:clickable="true"
                     android:focusable="true"
-                    android:minWidth="65dp"
+                    android:minWidth="48dp"
                     android:text="@string/run"
                     android:textColor="?colorOnPrimary"
                     app:icon="@drawable/round_play_circle_outline_black_18" />

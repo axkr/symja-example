@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.symja.common.logging.DLog;
+
 import java.lang.reflect.Field;
 
 import io.github.rosemoe.sora.lang.Language;
@@ -92,13 +94,16 @@ public class SymjaLanguageProxy implements Language {
         }
         String prefix = CompletionHelper.computePrefix(content, position, MyCharacter::isJavaIdentifierPart);
         TextMateAnalyzer textMateAnalyzer = (TextMateAnalyzer) textMateLanguage.getAnalyzeManager();
-        IdentifierAutoComplete.SyncIdentifiers idt;
+        IdentifierAutoComplete.SyncIdentifiers idt = null;
         try {
             Field field = TextMateAnalyzer.class.getDeclaredField("syncIdentifiers");
             field.setAccessible(true);
             idt = (IdentifierAutoComplete.SyncIdentifiers) field.get(textMateAnalyzer);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+           e.printStackTrace();
+           if (DLog.DEBUG) {
+               throw new RuntimeException(e);
+           }
         }
         autoCompleteProvider.requireAutoComplete(content, position, prefix, publisher, idt);
     }

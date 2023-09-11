@@ -13,7 +13,7 @@
     app:strokeColor="@color/programming_list_item_result_stroke_color"
     app:strokeWidth="0.75dp">
 
-    <com.duy.ncalc.programming.view.viewgroup.BoundedLinearLayout
+    <com.symja.programming.view.viewgroup.BoundedLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white">
 
-            <com.duy.ncalc.programming.view.mathview.InterceptWebView
+            <com.symja.programming.view.mathview.InterceptWebView
                 android:id="@+id/web_view"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -38,5 +38,5 @@
 
         <include layout="@layout/programming_list_item_result_footer" />
 
-    </com.duy.ncalc.programming.view.viewgroup.BoundedLinearLayout>
+    </com.symja.programming.view.viewgroup.BoundedLinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -36,18 +36,20 @@ class SymjaEditor : CodeEditor {
 
     private fun init(context: Context) {
 
-        loadThemes(context)
+        if (!isInEditMode) {
+            loadThemes(context)
 
-        loadGrammar()
-        setupSymjaLanguage()
-        ensureTextmateTheme()
-        switchThemeIfRequired(context, this)
+            loadGrammar()
+            setupSymjaLanguage()
+            ensureTextmateTheme()
+            switchThemeIfRequired(context, this)
 
-        val font = Typeface.createFromAsset(context.assets, "fonts/JetBrainsMono-Regular.ttf")
-        val editor = this;
-        editor.typefaceText = font
-        editor.typefaceLineNumber = font
-        editor.isWordwrap = true
+            val font = Typeface.createFromAsset(context.assets, "fonts/JetBrainsMono-Regular.ttf")
+            val editor = this;
+            editor.typefaceText = font
+            editor.typefaceLineNumber = font
+            editor.isWordwrap = true
+        }
     }
 
     private fun setupSymjaLanguage() {

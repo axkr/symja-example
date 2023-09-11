@@ -16,7 +16,7 @@
   -->
 
 <resources>
-    <dimen name="programming_input_height">130dp</dimen>
+    <dimen name="programming_input_height">200dp</dimen>
     <dimen name="programming_result_margin_left">6dp</dimen>
     <dimen name="programming_result_margin_right">6dp</dimen>
     <dimen name="programming_result_margin_top">8dp</dimen>
