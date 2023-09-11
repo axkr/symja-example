@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-
 import com.symja.common.utils.StoreUtil;
 import com.symja.programming.R;
 import com.symja.programming.document.view.MarkdownViewDelegate;
@@ -47,7 +46,9 @@ public class MarkdownDocumentFragment extends Fragment implements MarkdownViewDe
         if (arguments != null) {
             try {
                 String documentPath = arguments.getString(KEY_ASSET_PATHS);
-                documentView.loadMarkdownFromAssets(documentPath);
+                if (documentPath != null) {
+                    documentView.loadMarkdownFromAssets(documentPath);
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

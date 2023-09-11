@@ -133,7 +133,7 @@ class MarkdownListDocumentFragment : Fragment(), OnDocumentClickListener, IDocum
                 savedInstanceState.getSerializable(EXTRA_DISPLAYING_ITEM) as List<DocumentItem>?
             if (documentItems != null) {
                 for (documentItem in documentItems) {
-                    onDocumentClick(documentItem)
+                    pushStack(documentItem)
                 }
             }
         }
@@ -237,6 +237,9 @@ class MarkdownListDocumentFragment : Fragment(), OnDocumentClickListener, IDocum
     private fun pushStack(item: DocumentItem) {
         val viewFlipper = this.viewFlipper ?: return;
 
+        if (item == homeItem) {
+            return
+        }
 
         setPushAnimation(viewFlipper)
         try {

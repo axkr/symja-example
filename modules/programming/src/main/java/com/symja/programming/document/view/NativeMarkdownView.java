@@ -18,6 +18,7 @@ import org.commonmark.parser.Parser;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 
 public class NativeMarkdownView extends LinearLayout {
@@ -47,7 +48,7 @@ public class NativeMarkdownView extends LinearLayout {
         if (DLog.DEBUG) {
             DLog.d(TAG, "loadMarkdownFromAssets() called with: assetPath = [" + assetPath + "]");
         }
-        String markdown = IOUtils.toString(getContext().getAssets().open(assetPath));
+        String markdown = IOUtils.toString(getContext().getAssets().open(assetPath), StandardCharsets.UTF_8);
         loadMarkdown(markdown);
     }
 
