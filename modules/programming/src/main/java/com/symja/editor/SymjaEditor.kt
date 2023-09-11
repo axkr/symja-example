@@ -130,7 +130,7 @@ class SymjaEditor : CodeEditor {
     }
 
     fun insert(text: String) {
-        this.insertText(text, this.text.length)
+        this.insertText(text, text.length)
     }
 
     fun setSelection(index: Int) {

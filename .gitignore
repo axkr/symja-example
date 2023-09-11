@@ -19,3 +19,5 @@ local.properties
 /.idea/other.xml
 /.idea/markdown-navigator.xml
 /.idea/markdown-navigator-enh.xml
+
+build
