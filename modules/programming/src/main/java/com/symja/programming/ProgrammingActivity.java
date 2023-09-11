@@ -80,7 +80,7 @@ public class ProgrammingActivity extends BaseActivity {
             ArrayList<DocumentItem> combined = new ArrayList<>(tutorialItems.size() + functionCatalog.size());
             combined.addAll(tutorialItems);
             combined.addAll(functionCatalog);
-            documentFragment = MarkdownListDocumentFragment.newInstance(combined);
+            documentFragment = MarkdownListDocumentFragment.Companion.newInstance(combined);
         }
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_programming_document, documentFragment, "DocumentFragment")
@@ -89,8 +89,8 @@ public class ProgrammingActivity extends BaseActivity {
         tabLayout = findViewById(R.id.tab_layout);
         presenter = new ProgrammingPresenter(viewFlipper, tabLayout);
         presenter.setConsoleView(programmingConsoleFragment);
+        presenter.setSymjaTalkView(symjaTalkFragment);
         presenter.setDocumentView(documentFragment);
-        // TODO presenter.setCatalogView(catalogFragment);
 
         setupTabView();
 

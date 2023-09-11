@@ -13,6 +13,7 @@ import com.symja.evaluator.Symja;
 import com.symja.evaluator.SymjaResult;
 import com.symja.evaluator.config.EvaluationConfig;
 import com.symja.programming.document.model.DocumentItem;
+import com.symja.programming.symjatalk.SymjaTalkContract;
 
 import java.lang.ref.WeakReference;
 
@@ -24,9 +25,9 @@ public class ProgrammingPresenter implements ProgrammingContract.IPresenter {
     @Nullable
     private ProgrammingContract.IConsoleView consoleView;
     @Nullable
-    private ProgrammingContract.IDocumentView documentView;
+    private SymjaTalkContract.IConsoleView symjaTalkView;
     @Nullable
-    private ProgrammingContract.IDocumentView catalogView;
+    private ProgrammingContract.IDocumentView documentView;
 
     public ProgrammingPresenter() {
 
@@ -50,6 +51,10 @@ public class ProgrammingPresenter implements ProgrammingContract.IPresenter {
         }
     }
 
+    public void setSymjaTalkView(@Nullable SymjaTalkContract.IConsoleView symjaTalkView) {
+        this.symjaTalkView = symjaTalkView;
+    }
+
     @Nullable
     public ProgrammingContract.IDocumentView getDocumentView() {
         return documentView;
@@ -61,11 +66,6 @@ public class ProgrammingPresenter implements ProgrammingContract.IPresenter {
         if (documentView != null) {
             documentView.setPresenter(this);
         }
-    }
-
-    @Override
-    public void setCatalogView(@Nullable ProgrammingContract.IDocumentView catalogView) {
-        this.catalogView = catalogView;
     }
 
     @NonNull
@@ -80,8 +80,8 @@ public class ProgrammingPresenter implements ProgrammingContract.IPresenter {
             TabLayout.Tab tab = navigationView.getTabAt(2);
             navigationView.selectTab(tab);
         }
-        if (catalogView != null) {
-            catalogView.openDocument(documentItem);
+        if (documentView != null) {
+            documentView.openDocument(documentItem);
             return true;
         }
         return false;
@@ -93,14 +93,10 @@ public class ProgrammingPresenter implements ProgrammingContract.IPresenter {
                 case 0:
                     return consoleView != null && consoleView.onBackPressed();
                 case 1:
-                    if (documentView != null && documentView.onBackPressed()) {
-                        return true;
-                    } else {
-                        selectConsoleView();
-                        return true;
-                    }
+                    return symjaTalkView != null && symjaTalkView.onBackPressed();
+
                 case 2:
-                    if (catalogView != null && catalogView.onBackPressed()) {
+                    if (documentView != null && documentView.onBackPressed()) {
                         return true;
                     } else {
                         selectConsoleView();

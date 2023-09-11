@@ -24,6 +24,7 @@ public class SymjaTalkContract {
 
         void setPresenter(IPresenter presenter);
 
+        boolean onBackPressed();
     }
 
     public interface ResultCallback {

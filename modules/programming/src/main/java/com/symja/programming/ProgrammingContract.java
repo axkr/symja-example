@@ -17,8 +17,6 @@ public class ProgrammingContract {
 
         void setDocumentView(@Nullable IDocumentView documentView);
 
-        void setCatalogView(@Nullable IDocumentView catalogView);
-
         @NonNull
         AsyncTask<Void, Void, SymjaResult> createCalculateTask(ProgrammingPresenter.ResultCallback callback,
                                                                String input, EvaluationConfig config);

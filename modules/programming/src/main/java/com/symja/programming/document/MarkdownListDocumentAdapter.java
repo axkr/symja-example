@@ -48,15 +48,16 @@ import java.util.regex.Pattern;
 public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownListDocumentAdapter.ViewHolder>
         implements FastScrollRecyclerView.SectionedAdapter {
 
-    private ArrayList<DocumentItem> filteredItems;
-    private ArrayList<DocumentItem> originalItems;
-    private LayoutInflater inflater;
+    private final ArrayList<DocumentItem> filteredItems;
+    private final ArrayList<DocumentItem> originalItems;
+    private final LayoutInflater layoutInflater;
+
     private OnDocumentClickListener onDocumentClickListener;
     @Nullable
     private String query;
 
     MarkdownListDocumentAdapter(Context context, ArrayList<DocumentItem> documentItems) {
-        this.inflater = LayoutInflater.from(context);
+        this.layoutInflater = LayoutInflater.from(context);
         this.originalItems = documentItems;
         this.filteredItems = new ArrayList<>(documentItems);
     }
@@ -65,7 +66,7 @@ public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownLi
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.programming_list_item_document, parent, false);
+        View view = layoutInflater.inflate(R.layout.symja_prgm_programming_list_item_document, parent, false);
         return new ViewHolder(view);
     }
 
@@ -79,12 +80,9 @@ public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownLi
             holder.txtDescription.setText(highlightQuery(item.getDescription()));
             holder.txtDescription.setVisibility(View.VISIBLE);
         }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (onDocumentClickListener != null) {
-                    onDocumentClickListener.onDocumentClick(item);
-                }
+        holder.itemView.setOnClickListener(v -> {
+            if (onDocumentClickListener != null) {
+                onDocumentClickListener.onDocumentClick(item);
             }
         });
     }
@@ -137,7 +135,7 @@ public class MarkdownListDocumentAdapter extends RecyclerView.Adapter<MarkdownLi
 
         void onDocumentClick(DocumentItem item);
 
-        void onUrlClick(CharSequence title, String url);
+        void onUrlClick(@Nullable CharSequence title, String url);
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

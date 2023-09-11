@@ -23,6 +23,7 @@ import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.common.datastrcture.Data;
 import com.symja.programming.BaseProgrammingFragment;
+import com.symja.programming.ProgrammingContract;
 import com.symja.programming.R;
 import com.symja.programming.console.ProgrammingConsoleDocument;
 import com.symja.programming.console.ProgrammingDocumentManager;

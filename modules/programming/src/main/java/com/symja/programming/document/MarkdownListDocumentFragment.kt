@@ -1,333 +1,315 @@
-package com.symja.programming.document;
+package com.symja.programming.document
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.text.Editable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.inputmethod.InputMethodManager;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ScrollView;
-import android.widget.ViewFlipper;
+import android.app.Activity
+import android.os.Bundle
+import android.text.Editable
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.EditText
+import android.widget.ScrollView
+import android.widget.ViewFlipper
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.symja.common.logging.DLog
+import com.symja.programming.ProgrammingContract
+import com.symja.programming.ProgrammingContract.IDocumentView
+import com.symja.programming.R
+import com.symja.programming.document.MarkdownListDocumentAdapter.OnDocumentClickListener
+import com.symja.programming.document.model.DocumentItem
+import com.symja.programming.document.model.DocumentStructureLoader
+import com.symja.programming.document.view.MarkdownViewDelegate
+import com.symja.programming.document.view.NativeMarkdownView
+import com.symja.programming.utils.ApplicationUtils
+import com.symja.programming.view.text.SimpleTextWatcher
+import java.util.Locale
+import java.util.Stack
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.ContentLoadingProgressBar;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+class MarkdownListDocumentFragment : Fragment(), OnDocumentClickListener, IDocumentView,
+    MarkdownViewDelegate {
 
-import com.symja.common.logging.DLog;
-import com.symja.programming.ProgrammingContract;
-import com.symja.programming.R;
-import com.symja.programming.document.model.DocumentItem;
-import com.symja.programming.document.model.DocumentStructureLoader;
-import com.symja.programming.document.view.MarkdownViewDelegate;
-import com.symja.programming.document.view.NativeMarkdownView;
-import com.symja.programming.view.text.SimpleTextWatcher;
+    private val displayingItemStack = Stack<DocumentItem>()
+    private val homeItem = DocumentItem("", "Home", "")
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+    private var searchView: EditText? = null
+    private var viewFlipper: ViewFlipper? = null
+    private var documentNavigationView: RecyclerView? = null
+    private var documentNavigationContainer: View? = null
+    private var listDocumentAdapter: MarkdownListDocumentAdapter? = null
+    private var documentNavigationAdapter: DocumentNavigationAdapter = DocumentNavigationAdapter()
 
-public class MarkdownListDocumentFragment extends Fragment
-        implements MarkdownListDocumentAdapter.OnDocumentClickListener, ProgrammingContract.IDocumentView, MarkdownViewDelegate {
-
-    private static final String EXTRA_QUERY = "MarkdownListDocumentFragment.EXTRA_QUERY";
-    private static final String EXTRA_ITEMS = "MarkdownListDocumentFragment.EXTRA_ITEMS";
-    private static final String EXTRA_DISPLAYING_ITEM = "MarkdownListDocumentFragment.EXTRA_ITEM_STACK";
-
-    private static final String TAG = "MarkdownListDocumentFra";
-    @Nullable
-    private EditText searchView;
-    @Nullable
-    private ViewFlipper viewFlipper;
-    private MarkdownListDocumentAdapter adapter;
-
-    private Stack<DocumentItem> displayingItemStack = new Stack<>();
-
-    public static MarkdownListDocumentFragment newInstance(ArrayList<DocumentItem> items) {
-        Bundle args = new Bundle();
-        MarkdownListDocumentFragment fragment = new MarkdownListDocumentFragment();
-        args.putSerializable(EXTRA_ITEMS, items);
-        fragment.setArguments(args);
-        return fragment;
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.symja_prgm_fragment_programming_document, container, false)
     }
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.symja_prgm_fragment_programming_document, container, false);
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val documentItems = documentItems
+        val context = requireContext()
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        ArrayList<DocumentItem> documentItems = getDocumentItems();
+        // never pop homeItem
+        displayingItemStack.push(homeItem);
 
-        //noinspection ConstantConditions
-        @NonNull Context context = getContext();
+        listDocumentAdapter = MarkdownListDocumentAdapter(context, documentItems)
+        listDocumentAdapter?.setOnDocumentClickListener(this)
 
-        adapter = new MarkdownListDocumentAdapter(context, documentItems);
-        adapter.setOnDocumentClickListener(this);
-
-        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(false);
-        recyclerView.setNestedScrollingEnabled(false);
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-        recyclerView.setAdapter(adapter);
-
-        searchView = view.findViewById(R.id.edit_search_view);
-        searchView.addTextChangedListener(new SimpleTextWatcher() {
-            @Override
-            public void afterTextChanged(Editable s) {
-                onQueryTextChange(s.toString());
+        val documentListView = view.findViewById<RecyclerView>(R.id.document_list_view)
+        documentListView.setHasFixedSize(false)
+        documentListView.isNestedScrollingEnabled = false
+        documentListView.layoutManager = LinearLayoutManager(context)
+        documentListView.adapter = listDocumentAdapter
+        searchView = view.findViewById(R.id.edit_search_view)
+        searchView?.addTextChangedListener(object : SimpleTextWatcher() {
+            override fun afterTextChanged(s: Editable) {
+                onQueryTextChange(s.toString())
             }
-        });
-
+        })
         if (savedInstanceState != null) {
-            String query = savedInstanceState.getString(EXTRA_QUERY);
-            if (query != null && !query.isEmpty()) {
-                searchView.setText(query);
+            val query: String? = savedInstanceState.getString(EXTRA_QUERY)
+            if (!query.isNullOrEmpty()) {
+                searchView?.setText(query)
             }
         }
-        viewFlipper = view.findViewById(R.id.view_flipper2);
-        viewFlipper.setDisplayedChild(0);
-        viewFlipper.setInAnimation(getContext(), android.R.anim.slide_in_left);
-        viewFlipper.setOutAnimation(getContext(), android.R.anim.slide_out_right);
+        viewFlipper = view.findViewById(R.id.view_flipper2)
+        viewFlipper?.displayedChild = 0
+        viewFlipper?.setInAnimation(getContext(), android.R.anim.slide_in_left)
+        viewFlipper?.setOutAnimation(getContext(), android.R.anim.slide_out_right)
 
-        restoreState(savedInstanceState);
+        documentNavigationContainer = view.findViewById(R.id.document_navigation_container)
+        documentNavigationContainer?.isVisible = false;
+
+        documentNavigationView = view.findViewById(R.id.document_navigation_view)
+        documentNavigationAdapter.setOnItemClickListener { position: Int, documentItem: DocumentItem ->
+            switchToPosition(
+                position,
+                documentItem
+            )
+        }
+        documentNavigationAdapter.submitList(this.displayingItemStack.toMutableList())
+        documentNavigationView?.adapter = documentNavigationAdapter
+
+        restoreState(savedInstanceState)
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
         if (searchView != null) {
-            outState.putString(EXTRA_QUERY, searchView.getText().toString());
+            outState.putString(EXTRA_QUERY, searchView!!.text.toString())
         }
-        if (displayingItemStack != null) {
-            outState.putSerializable(EXTRA_DISPLAYING_ITEM, new ArrayList<>(displayingItemStack));
-        }
+        outState.putSerializable(EXTRA_DISPLAYING_ITEM, ArrayList(displayingItemStack))
     }
 
-    @NonNull
-    private ArrayList<DocumentItem> getDocumentItems() {
-        ArrayList<DocumentItem> documentItems = null;
-        Bundle arguments = getArguments();
-        if (arguments != null && arguments.containsKey(EXTRA_ITEMS)) {
-            try {
-                //noinspection unchecked
-                List<DocumentItem> serializable = (List<DocumentItem>) arguments.getSerializable(EXTRA_ITEMS);
-                if (serializable != null) {
-                    documentItems = new ArrayList<>(serializable);
+    private val documentItems: ArrayList<DocumentItem>
+        get() {
+            var documentItems: ArrayList<DocumentItem>? = null
+            val arguments = arguments
+            if (arguments != null && arguments.containsKey(EXTRA_ITEMS)) {
+                try {
+                    val serializable = arguments.getSerializable(EXTRA_ITEMS) as List<DocumentItem>?
+                    if (serializable != null) {
+                        documentItems = ArrayList(serializable)
+                    }
+                } catch (e: Exception) {
+                    e.printStackTrace()
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+            if (documentItems == null) {
+                documentItems = ArrayList()
+            }
+            return documentItems
         }
-        if (documentItems == null) {
-            documentItems = new ArrayList<>();
-        }
-        return documentItems;
-    }
 
-    private void restoreState(Bundle savedInstanceState) {
+    private fun restoreState(savedInstanceState: Bundle?) {
         if (savedInstanceState != null && savedInstanceState.containsKey(EXTRA_DISPLAYING_ITEM)) {
-            //noinspection unchecked
-            List<DocumentItem> documentItems = (List<DocumentItem>) savedInstanceState.getSerializable(EXTRA_DISPLAYING_ITEM);
+            val documentItems =
+                savedInstanceState.getSerializable(EXTRA_DISPLAYING_ITEM) as List<DocumentItem>?
             if (documentItems != null) {
-                for (DocumentItem documentItem : documentItems) {
-                    onDocumentClick(documentItem);
+                for (documentItem in documentItems) {
+                    onDocumentClick(documentItem)
                 }
             }
         }
     }
 
-    @Override
-    public void onDocumentClick(DocumentItem item) {
-        if (viewFlipper == null) {
-            return;
+    override fun onDocumentClick(item: DocumentItem) {
+        if (activity != null) {
+            hideKeyboard(requireActivity())
         }
-
-        setPushAnimation(viewFlipper);
-        if (getActivity() != null) {
-            hideKeyboard(getActivity());
-        }
-
-        try {
-            // stack markdown view
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.include_layout_markdown_view, viewFlipper, false);
-            viewFlipper.addView(view);
-            viewFlipper.setDisplayedChild(viewFlipper.getChildCount() - 1);
-
-            NativeMarkdownView markdownView = view.findViewById(R.id.markdown_view);
-            markdownView.setDelegate(this);
-            markdownView.loadMarkdownFromAssets(item.getAssetPath());
-
-            displayingItemStack.push(item);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (getActivity() instanceof AppCompatActivity) {
-            ActionBar actionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        pushStack(item);
+        if (activity is AppCompatActivity) {
+            val actionBar = (activity as AppCompatActivity?)?.supportActionBar
             if (actionBar != null) {
-                actionBar.setSubtitle(item.getName());
+                actionBar.subtitle = item.name
             }
         }
     }
 
-    @Override
-    public void onUrlClick(CharSequence title, String url) {
-        if (viewFlipper == null || getContext() == null) {
-            return;
+    override fun onUrlClick(title: CharSequence?, url: String) {
+        if (context == null || url.isBlank()) {
+            return
         }
-        if (getActivity() != null) {
-            hideKeyboard(getActivity());
-        }
-
-        setPushAnimation(viewFlipper);
-
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.include_layout_webview, viewFlipper, false);
-        viewFlipper.addView(view, new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-                ViewGroup.LayoutParams.MATCH_PARENT));
-
-        WebView webView = view.findViewById(R.id.web_view);
-        final ContentLoadingProgressBar progressBar = view.findViewById(R.id.progress_bar);
-        viewFlipper.setDisplayedChild(viewFlipper.getChildCount() - 1);
-
-        // avoid user goto other pages
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-                progressBar.show();
-            }
-
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
-                progressBar.hide();
-            }
-        });
-        webView.loadUrl(url);
-
+        ApplicationUtils.openUrl(requireContext(), url)
     }
 
-    private void hideKeyboard(Activity activity) {
-        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+    private fun hideKeyboard(activity: Activity) {
+        val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
         //Find the currently focused view, so we can grab the correct window token from it.
-        View view = activity.getCurrentFocus();
+        var view = activity.currentFocus
         //If no view currently has focus, create a new one, just so we can grab a window token from it
         if (view == null) {
-            view = new View(activity);
+            view = View(activity)
         }
-        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
-    private void setPushAnimation(ViewFlipper viewFlipper) {
-        viewFlipper.setInAnimation(getContext(), R.anim.slide_in_right);
-        viewFlipper.setOutAnimation(getContext(), R.anim.slide_out_left);
+    private fun setPushAnimation(viewFlipper: ViewFlipper) {
+        viewFlipper.setInAnimation(context, R.anim.slide_in_right)
+        viewFlipper.setOutAnimation(context, R.anim.slide_out_left)
     }
 
-    private void setPopAnimation(ViewFlipper viewFlipper) {
-        viewFlipper.setInAnimation(getContext(), R.anim.slide_in_left);
-        viewFlipper.setOutAnimation(getContext(), R.anim.slide_out_right);
+    private fun setPopAnimation(viewFlipper: ViewFlipper) {
+        viewFlipper.setInAnimation(context, R.anim.slide_in_left)
+        viewFlipper.setOutAnimation(context, R.anim.slide_out_right)
     }
 
-    private void onQueryTextChange(String newText) {
-        adapter.query(newText);
+    private fun onQueryTextChange(newText: String) {
+        listDocumentAdapter!!.query(newText)
     }
 
-    @Override
-    public void setPresenter(ProgrammingContract.IPresenter presenter) {
+    override fun setPresenter(presenter: ProgrammingContract.IPresenter) {
     }
 
-    @Override
-    public boolean onBackPressed() {
-        if (viewFlipper != null && viewFlipper.getDisplayedChild() > 0) {
-            int displayedChild = viewFlipper.getDisplayedChild();
-            View container = viewFlipper.getChildAt(displayedChild);
-            View markdownView = container.findViewById(R.id.markdown_view);
-            if (markdownView != null && !displayingItemStack.empty()) {
-                displayingItemStack.pop();
-            }
-            setPopAnimation(viewFlipper);
-            viewFlipper.getOutAnimation().setAnimationListener(new Animation.AnimationListener() {
-
-                @Override
-                public void onAnimationStart(Animation animation) {
-
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    if (viewFlipper.getChildCount() >= 2) {
-                        viewFlipper.removeViewAt(viewFlipper.getChildCount() - 1);
-                    }
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-
-                }
-            });
-            if (viewFlipper.getChildCount() >= 2) {
-                viewFlipper.setDisplayedChild(viewFlipper.getChildCount() - 2);
-            }
+    override fun onBackPressed(): Boolean {
+        if (popStack()) {
             return true;
         }
-        return false;
+        return false
     }
 
-    @Override
-    public void openDocument(DocumentItem documentItem) {
-        onDocumentClick(documentItem);
+    override fun openDocument(documentItem: DocumentItem) {
+        onDocumentClick(documentItem)
     }
 
-    @Override
-    public void onLinkClick(@Nullable CharSequence title, @NonNull String url) {
+    override fun onLinkClick(title: CharSequence?, url: String) {
         if (DLog.DEBUG) {
-            DLog.d(TAG, "onLinkClick() called with: title = [" + title + "], url = [" + url + "]");
+            DLog.d(TAG, "onLinkClick() called with: title = [$title], url = [$url]")
         }
-        if (getContext() == null) {
-            return;
+        if (context == null) {
+            return
         }
         if (url.startsWith("https://") || url.startsWith("http://")) {
-            onUrlClick(title, url);
-            return;
+            onUrlClick(title, url)
+            return
         } else if (url.startsWith("#")) { // page navigation
             if (viewFlipper != null) {
-                View pageView = viewFlipper.getChildAt(viewFlipper.getChildCount() - 1);
-                View sectionView = pageView.findViewWithTag("#" + url.toLowerCase().replaceAll("\\W", ""));
-                if (sectionView != null && pageView instanceof ScrollView) {
-                    ((ScrollView) pageView).smoothScrollTo(0, sectionView.getTop());
+                val pageView = viewFlipper!!.getChildAt(viewFlipper!!.childCount - 1)
+                val sectionView = pageView.findViewWithTag<View>(
+                    "#" + url.lowercase(Locale.getDefault()).replace("\\W".toRegex(), "")
+                )
+                if (sectionView != null && pageView is ScrollView) {
+                    pageView.smoothScrollTo(0, sectionView.top)
                 }
             }
-            return;
+            return
         }
-        ArrayList<DocumentItem> documentItems = DocumentStructureLoader.loadDocumentStructure(getContext());
-        for (DocumentItem documentItem : documentItems) {
-            String assetPath = documentItem.getAssetPath();
+        val documentItems = DocumentStructureLoader.loadDocumentStructure(requireContext())
+        for (documentItem in documentItems) {
+            val assetPath = documentItem.assetPath
             if (assetPath.contains(url) || url.contains(assetPath)) {
-                onDocumentClick(documentItem);
-                break;
+                onDocumentClick(documentItem)
+                break
             }
         }
     }
 
-    @Override
-    public void onCopyCodeButtonClicked(@Nullable View v, @NonNull final String code) {
-        ExpressionCopyingDialog.show(getContext(), v, code);
+    override fun onCopyCodeButtonClicked(v: View?, code: String) {
+        ExpressionCopyingDialog.show(context, v, code)
+    }
+
+    private fun pushStack(item: DocumentItem) {
+        val viewFlipper = this.viewFlipper ?: return;
+
+
+        setPushAnimation(viewFlipper)
+        try {
+            val view = LayoutInflater.from(context)
+                .inflate(R.layout.symja_prgm_document_layout_markdown_view, viewFlipper, false)
+            viewFlipper.addView(view)
+            viewFlipper.displayedChild = viewFlipper.childCount - 1
+            val markdownView = view.findViewById<NativeMarkdownView>(R.id.markdown_view)
+            markdownView.setDelegate(this)
+            markdownView.loadMarkdownFromAssets(item.assetPath)
+            displayingItemStack.push(item)
+            documentNavigationAdapter.submitList(ArrayList(displayingItemStack))
+        } catch (e: Exception) {
+            if (DLog.DEBUG) {
+                e.printStackTrace()
+                throw RuntimeException(e)
+            }
+        }
+
+        this.documentNavigationContainer?.isVisible = this.displayingItemStack.size > 1;
+
+    }
+
+    private fun popStack(): Boolean {
+        val viewFlipper = this.viewFlipper ?: return false;
+
+        if (displayingItemStack.size == 1 || displayingItemStack.isEmpty()) {
+            // Home item
+            return false;
+        }
+        displayingItemStack.pop();
+
+        setPopAnimation(viewFlipper)
+        viewFlipper.removeViewAt(viewFlipper.childCount - 1)
+
+
+        this.documentNavigationContainer?.isVisible = this.displayingItemStack.size > 1;
+
+        return true
+    }
+
+    private fun switchToPosition(position: Int, documentItem: DocumentItem) {
+        val viewFlipper = this.viewFlipper ?: return;
+
+        // remove items after "position"
+        // [0,1]
+        while (displayingItemStack.size > position + 1) {
+            displayingItemStack.pop()
+        }
+        documentNavigationAdapter.submitList(ArrayList(displayingItemStack))
+
+        setPopAnimation(viewFlipper)
+        // remove views after "position"
+        while (viewFlipper.childCount > position + 1) {
+            viewFlipper.removeViewAt(viewFlipper.childCount - 1)
+        }
+
+
+        this.documentNavigationContainer?.isVisible = this.displayingItemStack.size > 1;
+
+    }
+
+    companion object {
+        private const val EXTRA_QUERY = "MarkdownListDocumentFragment.EXTRA_QUERY"
+        private const val EXTRA_ITEMS = "MarkdownListDocumentFragment.EXTRA_ITEMS"
+        private const val EXTRA_DISPLAYING_ITEM = "MarkdownListDocumentFragment.EXTRA_ITEM_STACK"
+        private const val TAG = "MarkdownListDocumentFra"
+        fun newInstance(items: ArrayList<DocumentItem?>?): MarkdownListDocumentFragment {
+            val args = Bundle()
+            val fragment = MarkdownListDocumentFragment()
+            args.putSerializable(EXTRA_ITEMS, items)
+            fragment.arguments = args
+            return fragment
+        }
     }
 }

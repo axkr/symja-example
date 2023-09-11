@@ -1,46 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ViewFlipper xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/view_flipper2"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/document_navigation_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="40dp"
+        tools:visibility="visible">
 
-        android:orientation="vertical">
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/document_navigation_view"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginBottom="8dp"
-            android:hint="@string/symja_prgm_label_search">
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/symja_prgm_document_navigation_item" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edit_search_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:singleLine="true" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-        </com.google.android.material.textfield.TextInputLayout>
+    <ViewFlipper
+        android:id="@+id/view_flipper2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
-            android:id="@+id/recycler_view"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:fastScrollPopupBgColor="?colorPrimary"
-            app:fastScrollPopupTextColor="?colorOnPrimary"
-            app:fastScrollThumbColor="?colorSecondary"
-            app:fastScrollThumbInactiveColor="?colorSecondary">
-
-        </com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView>
-    </LinearLayout>
+            tools:ignore="UselessParent">
 
 
-</ViewFlipper>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edit_search_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:drawableStart="@drawable/round_search_24"
+                android:drawablePadding="12dp"
+                android:drawableTint="?android:textColorSecondary"
+                android:hint="@string/symja_prgm_label_search"
+                android:padding="14dp"
+                android:singleLine="true" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView
+                android:id="@+id/document_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:fastScrollPopupBgColor="?colorPrimary"
+                app:fastScrollPopupTextColor="?colorOnPrimary"
+                app:fastScrollThumbColor="?colorSecondary"
+                app:fastScrollThumbInactiveColor="?colorSecondary">
+
+            </com.simplecityapps.recyclerview_fastscroll.views.FastScrollRecyclerView>
+        </LinearLayout>
+
+
+    </ViewFlipper>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

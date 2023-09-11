@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class DocumentItem implements Serializable {
     @NonNull
@@ -42,5 +43,18 @@ public class DocumentItem implements Serializable {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DocumentItem that = (DocumentItem) o;
+        return assetPath.equals(that.assetPath) && name.equals(that.name) && Objects.equals(description, that.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(assetPath, name, description);
     }
 }

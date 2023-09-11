@@ -21,11 +21,11 @@ public class ProgrammingDocumentActivity extends BaseActivity {
         if (getIntent().hasExtra(EXTRA_OPEN_TUTORIALS)
                 && getIntent().getBooleanExtra(EXTRA_OPEN_TUTORIALS, false)) {
             setTitle(R.string.symja_prgm_tab_title_tutorials);
-            documentFragment = MarkdownListDocumentFragment.newInstance(
+            documentFragment = MarkdownListDocumentFragment.Companion.newInstance(
                     DocumentStructureLoader.getTutorialItems(this));
         } else {
             setTitle(R.string.symja_prgm_tab_title_catalog);
-            documentFragment = MarkdownListDocumentFragment.newInstance(
+            documentFragment = MarkdownListDocumentFragment.Companion.newInstance(
                     DocumentStructureLoader.getFunctionCatalog(this));
 
         }
