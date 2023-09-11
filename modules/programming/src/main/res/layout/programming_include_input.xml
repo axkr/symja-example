@@ -150,7 +150,7 @@
                     android:minWidth="48dp"
                     android:text="@string/run"
                     android:textColor="?colorOnPrimary"
-                    app:icon="@drawable/round_play_circle_outline_black_18" />
+                    app:icon="@drawable/round_play_circle_outline_18" />
 
                 <ProgressBar
                     android:id="@+id/progress_bar"

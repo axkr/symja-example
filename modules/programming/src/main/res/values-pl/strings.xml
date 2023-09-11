@@ -1,4 +1,4 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <!--
   ~ Copyright 2017 Tran Le Duy
   ~
@@ -16,11 +16,6 @@
   -->
 
 <resources>
-    <dimen name="programming_input_height">200dp</dimen>
-    <dimen name="programming_result_margin_left">6dp</dimen>
-    <dimen name="programming_result_margin_right">6dp</dimen>
-    <dimen name="programming_result_margin_top">8dp</dimen>
-
-    <dimen name="programming_web_result_max_height">300dp</dimen>
+    <string name="copied">Skopiowano</string>
+    <string name="settings">Ustawienia</string>
 </resources>
-

@@ -44,9 +44,9 @@
                 android:focusable="true"
                 android:minHeight="30dp"
                 android:padding="0dp"
-                android:text="Copy"
+                android:text="@string/copy"
                 android:textSize="12sp"
-                app:icon="@drawable/round_file_copy_black_18"
+                app:icon="@drawable/round_content_copy_18"
                 app:iconPadding="0dp" />
 
             <com.google.android.material.button.MaterialButton
@@ -59,10 +59,10 @@
                 android:focusable="true"
                 android:minHeight="30dp"
                 android:padding="0dp"
-                android:text="Run"
+                android:text="@string/run"
                 android:textSize="12sp"
                 android:visibility="gone"
-                app:icon="@drawable/round_open_in_new_black_18"
+                app:icon="@drawable/round_open_in_new_18"
                 app:iconPadding="0dp" />
 
         </LinearLayout>

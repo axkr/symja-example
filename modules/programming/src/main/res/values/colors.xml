@@ -3,13 +3,10 @@
     <color name="programming_list_item_result_stroke_color">#66D6D6D6</color>
 
 
-
-    <color name="colorAccent">#EF5350</color>
     <color name="colorSecondary">#EF5350</color>
     <color name="colorOnSecondary">#FFF</color>
     <color name="colorPrimary">#2196F3</color>
     <color name="colorPrimaryDark">#1D7DCC</color>
-    <color name="colorOnPrimary">#FFF</color>
     <color name="colorSurface">#FFFFFF</color>
 
     <color name="colorNightSecondary">#EF5350</color>

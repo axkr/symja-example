@@ -22,7 +22,6 @@
     <dimen name="programming_result_margin_right">16dp</dimen>
 
     <dimen name="programming_web_result_max_height">500dp</dimen>
-    <dimen name="programming_latex_result_max_height">120dp</dimen>
 
 </resources>
 
