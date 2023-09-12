@@ -2,7 +2,8 @@
 
 
 <resources>
-    <dimen name="symja_prgm_input_height">200dp</dimen>
+    <dimen name="symja_prgm_input_height_large">200dp</dimen>
+    <dimen name="symja_prgm_input_height_small">100dp</dimen>
     <dimen name="symja_prgm_result_margin_left">6dp</dimen>
     <dimen name="symja_prgm_result_margin_right">6dp</dimen>
     <dimen name="symja_prgm_result_margin_top">8dp</dimen>

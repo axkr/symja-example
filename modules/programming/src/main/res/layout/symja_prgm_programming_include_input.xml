@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:showIn="@layout/symja_prgm_fragment_programming_console"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:showIn="@layout/symja_prgm_fragment_programming_console">
 
     <FrameLayout
         android:id="@+id/container_input"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/symja_prgm_input_height"
+        android:layout_height="@dimen/symja_prgm_input_height_large"
         android:layout_margin="0dp"
-        android:background="?colorSurfaceContainerHigh"
+        android:animateLayoutChanges="true"
         android:padding="0dp"
         app:cardCornerRadius="8dp"
         app:cardElevation="4dp"
@@ -30,7 +30,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:background="@null"
                 android:contentDescription="@string/symja_prgm_button_input"
                 android:gravity="start|top"
                 android:inputType="textMultiLine"
@@ -41,11 +40,10 @@
                 tools:text="a:=2;\nb:=\nc:=4\nd:=5\ne:=6\n"
                 tools:textSize="14sp" />
 
-            <View
+            <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="?android:listDivider" />
+                android:layout_height="0.5dp" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -60,7 +58,7 @@
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btn_show_hide_input"
+                        android:id="@+id/btn_resize_input"
                         android:layout_width="48dp"
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
@@ -164,6 +162,11 @@
 
 
             </FrameLayout>
+
+            <com.google.android.material.divider.MaterialDivider
+                android:id="@+id/divider2"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp" />
 
         </LinearLayout>
 

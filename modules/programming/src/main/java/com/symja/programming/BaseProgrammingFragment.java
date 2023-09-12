@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +26,11 @@ import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -85,6 +90,8 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     @Nullable
     private View containerDragHint;
     private View containerInput;
+
+    private MutableLiveData<Boolean> inputExpanded = new MutableLiveData<>(true);
 
     private void setupViews(@NonNull View view) {
 
@@ -374,6 +381,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
         inputView = view.findViewById(R.id.edit_input);
         inputView.setTextSize(15);
+
         listResultView = view.findViewById(R.id.calculation_result_recycler_view);
         listResultView.setLayoutManager(new LinearLayoutManager(context));
 
@@ -431,6 +439,27 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         setupViews(view);
         addViewEvents(view);
         setupSymbolViews(view.findViewById(R.id.container_symbol), view);
+
+        ImageView resizeInputButton = view.findViewById(R.id.btn_resize_input);
+        resizeInputButton.setOnClickListener(v -> {
+            inputExpanded.postValue(Boolean.FALSE.equals(inputExpanded.getValue()));
+        });
+
+        inputExpanded.observe(this.getViewLifecycleOwner(), expanded -> {
+            ViewGroup.LayoutParams layoutParams = containerInput.getLayoutParams();
+            if (expanded) {
+                layoutParams.height = requireContext().getResources().getDimensionPixelSize(R.dimen.symja_prgm_input_height_large);
+            } else {
+                layoutParams.height = requireContext().getResources().getDimensionPixelSize(R.dimen.symja_prgm_input_height_small);
+            }
+            containerInput.requestLayout();
+            if (expanded) {
+                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.round_expand_less_24));
+            } else {
+                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.round_expand_more_24));
+            }
+        });
+        inputExpanded.postValue(true);
 
     }
 
