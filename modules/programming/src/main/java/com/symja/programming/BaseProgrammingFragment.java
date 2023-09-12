@@ -1,6 +1,5 @@
 package com.symja.programming;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -11,9 +10,6 @@ import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
@@ -25,15 +21,13 @@ import android.widget.Toast;
 import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.duy.common.utils.DLog;
 import com.duy.ide.editor.view.CodeEditor;
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
@@ -54,6 +48,7 @@ import com.symja.programming.view.dragbutton.DragButton;
 import com.symja.programming.view.dragbutton.DragButtonUtils;
 import com.symja.programming.view.dragbutton.DragDirection;
 import com.symja.programming.view.dragbutton.DragListener;
+import com.symja.programming.view.popupmenu.AutoCloseablePopupMenu;
 
 import org.apache.commons.io.IOUtils;
 import org.jetbrains.annotations.NotNull;
@@ -190,9 +185,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     @CallSuper
     protected void clickClearAll() {
         // reset position
-        // if (!DLog.isUITestingMode()) {
-        //     inputView.animate().translationY(0).start();
-        // }
     }
 
 //   // TODO: replace with symja editor  private void changeTheme(EditorTheme editorTheme, View view) {
@@ -339,7 +331,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                     if (in.available() > 0) {
                         int available = in.available();
                         int oneKilobytes = 1024;
-                        int oneMegabytes = 128 * oneKilobytes;
+                        int oneMegabytes = 1024 * oneKilobytes;
                         if (available > oneMegabytes) {
                             Toast.makeText(context, context.getString(R.string.symja_prgm_message_file_too_large), Toast.LENGTH_SHORT).show();
                             return;
@@ -349,12 +341,10 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                     in.close();
                     inputView.setText(content);
                 } catch (Exception e) {
+                    DLog.e(e);
                     Toast.makeText(context, context.getString(R.string.symja_prgm_message_cannot_import_file), Toast.LENGTH_SHORT).show();
                 }
             }
-        } else if (requestCode == RC_CHANGE_EDITOR_THEME && resultCode == Activity.RESULT_OK) {
-            // TODO: Remove this feature    EditorTheme editorTheme = Preferences.getInstance(getContext()).getEditorTheme();
-            // TODO: Remove this feature    changeTheme(editorTheme, getView());
         }
     }
 
@@ -372,7 +362,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         settings = CalculatorSettings.newInstance(getContext());
-        setHasOptionsMenu(true);
     }
 
     @Override
@@ -391,48 +380,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         adapter.setProgrammingItemClickListener(this);
         listResultView.setAdapter(adapter);
         listResultView.setHasFixedSize(true);
-        listResultView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                updateElevation(recyclerView);
-
-                // Over scroll
-                // if (newState == RecyclerView.SCROLL_STATE_SETTLING) {
-                //     LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
-                //     if (layoutManager != null) {
-                //         int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
-                //         if (firstVisibleItemPosition == 0 || firstVisibleItemPosition == RecyclerView.NO_POSITION) {
-                //             if (!DLog.isUITestingMode()) {
-                //                 containerInput.animate().translationY(0).start();
-                //             }
-                //         }
-                //     }
-                // }
-            }
-
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                updateElevation(recyclerView);
-                // if (!DLog.isUITestingMode()) {
-                //     float translationY = Math.min(0, containerInput.getTranslationY() - dy);
-                //     containerInput.setTranslationY(translationY);
-                // }
-            }
-
-            private void updateElevation(@NotNull RecyclerView recyclerView) {
-                //  Negative to check scrolling up, positive to check scrolling down.
-                if (!recyclerView.canScrollVertically(-1)) {
-                    int elevation = ViewUtils.dpToPx(recyclerView.getContext(), 2);
-                    //containerInput.setCardElevation(elevation);
-                } else {
-                    int elevation = ViewUtils.dpToPx(recyclerView.getContext(), 8);
-                    // containerInput.setCardElevation(elevation);
-                }
-            }
-        });
-
 
         btnRun = view.findViewById(R.id.btn_run);
         progressBar = view.findViewById(R.id.progress_bar);
@@ -463,65 +410,45 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         });
         inputExpanded.postValue(true);
 
+        view.findViewById(R.id.btn_open_menu).setOnClickListener(this::openMenu);
     }
 
-    @Override
-    public void onCreateOptionsMenu(@NonNull Menu menu, @NotNull MenuInflater inflater) {
-        inflater.inflate(R.menu.symja_prgm_menu_programming_console, menu);
-        super.onCreateOptionsMenu(menu, inflater);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NotNull MenuItem item) {
-        int itemId = item.getItemId();
-        if (itemId == R.id.action_clear) {
-            clickClearAll();
-            return true;
-        } else if (itemId == R.id.action_setting) {
-            // TODO if (getActivity() != null) {
-            // TODO     AppAnalytics.getInstance(getActivity()).logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_SETTINGS, new Bundle());
-            // TODO     Intent intent = new Intent(getContext(), SettingsActivity.class);
-            // TODO     getActivity().startActivityForResult(intent, 0);
-            // TODO }
-            return true;
-        } else if (itemId == R.id.action_import_text_file) {
-            importTextFile();
-            return true;
+    private void openMenu(View v) {
+        if (getActivity() == null) {
+            return;
         }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressLint("MissingPermission")
-    private void importTextFile() {
-        if (getContext() != null) {
-            AppAnalytics.getInstance(getContext()).logEvent(AppAnalyticsEvents.PROGRAMMING_IMPORT_TEXT_FILE, new Bundle());
-            if (!checkPermission()) {
-                return;
+        AutoCloseablePopupMenu popupMenu = new AutoCloseablePopupMenu(requireActivity());
+        popupMenu.inflate(R.menu.symja_prgm_menu_programming_console, v);
+        popupMenu.setOnMenuItemClickListener(item -> {
+            int itemId = item.getItemId();
+            if (itemId == R.id.action_clear_all_items) {
+                clickClearAll();
+                return true;
             }
-            Intent intent = new Intent();
-            intent.setType("*/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(intent, RC_OPEN_FILE);
-        }
-    }
-
-    private boolean checkPermission() {
-        int result = ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.READ_EXTERNAL_STORAGE);
-        if (result == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, RC_REQUEST_PERMISSION);
+            if (itemId == R.id.action_clear_input) {
+                inputView.setText("");
+                return true;
+            } else if (itemId == R.id.action_import_text_file) {
+                importTextFile();
+                return true;
+            }
             return false;
+        });
+        popupMenu.showAsDropDown(v);
+    }
+
+
+    private void importTextFile() {
+        if (getContext() == null) {
+            return;
         }
-    }
+        AppAnalytics.getInstance(getContext()).logEvent(AppAnalyticsEvents.PROGRAMMING_IMPORT_TEXT_FILE, new Bundle());
 
-    private void openThemeActivity() {
-        // TODO: Remove this feature  if (getContext() != null) {
-        // TODO: Remove this feature      AppAnalytics.getInstance(getContext()).logEvent(AppAnalyticsEvents.PROGRAMMING_CHANGE_EDITOR_THEME, new Bundle());
-        // TODO: Remove this feature      startActivityForResult(new Intent(getContext(), EditorThemeActivity.class), RC_CHANGE_EDITOR_THEME);
-        // TODO: Remove this feature  }
+        Intent intent = new Intent();
+        intent.setType("*/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, RC_OPEN_FILE);
     }
-
 
     @Override
     public void onRemoveClicked(RecyclerView.ViewHolder holder) {

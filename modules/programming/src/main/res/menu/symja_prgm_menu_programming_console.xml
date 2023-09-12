@@ -9,12 +9,13 @@
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_clear"
-        android:title="@string/symja_prgm_menu_clear_all" />
+        android:id="@+id/action_clear_input"
+        android:icon="@drawable/baseline_clear_24"
+        android:title="@string/symja_prgm_menu_clear_all_input" />
 
     <item
-        android:id="@+id/action_setting"
-        android:icon="@drawable/baseline_settings_24"
-        android:title="@string/symja_prgm_title_settings" />
+        android:id="@+id/action_clear_all_items"
+        android:icon="@drawable/round_playlist_remove_24"
+        android:title="@string/symja_prgm_menu_clear_all_items" />
 
 </menu>

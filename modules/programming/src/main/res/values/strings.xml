@@ -14,7 +14,8 @@
     <string name="symja_prgm_label_search">Search</string>
     <string name="symja_prgm_label_view_output_error">Output | Error Message</string>
 
-    <string name="symja_prgm_menu_clear_all">Clear all</string>
+    <string name="symja_prgm_menu_clear_all_items">Clear all items</string>
+    <string name="symja_prgm_menu_clear_all_input">Clear input</string>
     <string name="symja_prgm_menu_copy_as_latex">Copy as Latex</string>
     <string name="symja_prgm_menu_copy_input_as">Copy input as [%s]</string>
     <string name="symja_prgm_menu_copy_result_as">Copy result as [%s]</string>

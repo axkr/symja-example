@@ -73,6 +73,19 @@
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_open_menu"
+                        android:layout_width="40dp"
+                        android:layout_height="48dp"
+                        android:background="?selectableItemBackground"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:minWidth="48dp"
+                        android:padding="10dp"
+                        android:textSize="12sp"
+                        app:srcCompat="@drawable/baseline_more_vert_24"
+                        app:tint="?android:textColorPrimary" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/btn_copy"
                         android:layout_width="40dp"
                         android:layout_height="48dp"
