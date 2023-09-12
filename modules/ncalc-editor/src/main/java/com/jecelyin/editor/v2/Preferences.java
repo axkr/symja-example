@@ -30,6 +30,8 @@ import com.duy.editor.R;
 import com.duy.ide.editor.theme.ThemeLoader;
 import com.duy.ide.editor.theme.model.EditorTheme;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -319,6 +321,7 @@ public class Preferences implements SharedPreferences.OnSharedPreferenceChangeLi
 
 
     @IntDef({SCREEN_ORIENTATION_AUTO, SCREEN_ORIENTATION_LANDSCAPE, SCREEN_ORIENTATION_PORTRAIT})
+    @Retention(RetentionPolicy.SOURCE)
     public @interface ScreenOrientation {
     }
 }
