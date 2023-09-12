@@ -24,6 +24,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
+import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -413,8 +414,15 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
             // Disable auto complete in collapsed mode
             inputView.getComponent(EditorAutoCompletion.class).setEnabled(expanded);
+
+
+            PreferenceManager.getDefaultSharedPreferences(requireContext())
+                    .edit()
+                    .putBoolean(this.getTag() + ".inputExpanded", expanded)
+                    .apply();
         });
-        inputExpanded.postValue(true);
+        inputExpanded.postValue(PreferenceManager.getDefaultSharedPreferences(requireContext())
+                .getBoolean(this.getTag() + ".inputExpanded", true));
 
         view.findViewById(R.id.btn_open_menu).setOnClickListener(this::openMenu);
     }
