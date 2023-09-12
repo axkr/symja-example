@@ -33,6 +33,7 @@ import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.common.android.ClipboardCompat;
 import com.symja.editor.SymjaEditor;
+import com.symja.editor.SymjaEditorAutoCompletion;
 import com.symja.programming.autocomplete.FunctionSuggestionAdapter;
 import com.symja.programming.autocomplete.SuggestionItem;
 import com.symja.programming.console.OnProgrammingItemClickListener;
@@ -65,6 +66,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import io.github.rosemoe.sora.event.ContentChangeEvent;
+import io.github.rosemoe.sora.widget.component.EditorAutoCompletion;
 
 
 public abstract class BaseProgrammingFragment extends Fragment implements DragListener,
@@ -372,6 +374,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
         inputView = view.findViewById(R.id.edit_input);
         inputView.setTextSize(15);
+        inputView.replaceComponent(EditorAutoCompletion.class, new SymjaEditorAutoCompletion(inputView));
 
         listResultView = view.findViewById(R.id.calculation_result_recycler_view);
         listResultView.setLayoutManager(new LinearLayoutManager(context));
@@ -407,6 +410,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             } else {
                 resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.round_expand_more_24));
             }
+
+            // Disable auto complete in collapsed mode
+            inputView.getComponent(EditorAutoCompletion.class).setEnabled(expanded);
         });
         inputExpanded.postValue(true);
 
