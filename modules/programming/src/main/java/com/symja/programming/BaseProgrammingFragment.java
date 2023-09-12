@@ -140,7 +140,8 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 //                        }
 //                    });
 //        });
-        view.findViewById(R.id.btn_copy).setOnClickListener(v -> {
+        View btnCopy = view.findViewById(R.id.btn_copy);
+        btnCopy.setOnClickListener(v -> {
             final Context context = getContext();
             String content = inputView.getText().toString();
             if (context != null && !content.trim().isEmpty()) {
@@ -176,6 +177,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         inputView.subscribeEvent(ContentChangeEvent.class, (event, unsubscribe) -> {
             btnRedo.setEnabled(inputView.canRedo());
             btnUndo.setEnabled(inputView.canUndo());
+            btnCopy.setEnabled(inputView.getText().length() > 0);
         });
     }
 
