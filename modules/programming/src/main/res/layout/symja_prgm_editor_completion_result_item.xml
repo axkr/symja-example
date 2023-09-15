@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/result_item_image"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="12dp"
+        android:tint="?android:textColorSecondary"
+        app:srcCompat="@drawable/baseline_help_outline_24" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="false"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:paddingLeft="0dp"
+        android:paddingRight="8dp"
+        tools:ignore="RtlHardcoded">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/result_item_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textColor="?android:textColorPrimary"
+            android:textSize="15sp" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/result_item_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Small Text"
+            android:textColor="?android:textColorSecondary"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
+

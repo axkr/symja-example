@@ -1,5 +1,8 @@
 package com.symja.editor
 
+import android.content.Context
+import androidx.core.content.ContextCompat
+import com.symja.programming.R
 import io.github.rosemoe.sora.lang.completion.CompletionItem
 import io.github.rosemoe.sora.lang.completion.CompletionItemKind
 import io.github.rosemoe.sora.lang.completion.CompletionPublisher
@@ -12,7 +15,7 @@ import io.github.rosemoe.sora.text.ContentReference
 import org.matheclipse.core.convert.AST2Expr
 import org.matheclipse.core.expression.BuiltinUsage
 
-class SymjaAutoCompleteProvider {
+class SymjaAutoCompleteProvider(val context: Context) {
     private var keywords: Array<String>
     private var keywordMap: Map<String, Any>? = null
 
@@ -66,9 +69,17 @@ class SymjaAutoCompleteProvider {
             val score = fuzzyScore?.score ?: -100
             if (kw.lowercase().startsWith(match) || score >= -20) {
                 val summaryText = BuiltinUsage.summaryText(kw) ?: "Keyword"
-                val completionItemKind = if (kw.startsWith("$")) CompletionItemKind.Value else CompletionItemKind.Keyword
-                result.add(SimpleCompletionItem(kw, summaryText, prefixLength, kw)
-                    .kind(completionItemKind))
+                val completionItemKind =
+                    if (kw.startsWith("$")) CompletionItemKind.Value else CompletionItemKind.Keyword
+                val completionItem = SimpleCompletionItem(kw, summaryText, prefixLength, kw)
+                completionItem.kind(completionItemKind)
+                completionItem.icon(
+                    ContextCompat.getDrawable(
+                        context,
+                        R.drawable.baseline_help_outline_24
+                    )
+                );
+                result.add(completionItem)
             }
         }
         if (userIdentifiers != null) {

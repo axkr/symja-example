@@ -34,7 +34,6 @@ import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.common.android.ClipboardCompat;
 import com.symja.editor.SymjaEditor;
-import com.symja.editor.SymjaEditorAutoCompletion;
 import com.symja.programming.autocomplete.FunctionSuggestionAdapter;
 import com.symja.programming.autocomplete.SuggestionItem;
 import com.symja.programming.console.OnProgrammingItemClickListener;
@@ -57,6 +56,7 @@ import org.jetbrains.annotations.NotNull;
 import org.matheclipse.parser.client.operator.ASTNodeFactory;
 import org.matheclipse.parser.client.operator.Operator;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -71,7 +71,9 @@ import io.github.rosemoe.sora.widget.component.EditorAutoCompletion;
 
 
 public abstract class BaseProgrammingFragment extends Fragment implements DragListener,
-        FunctionSuggestionAdapter.OnSuggestionClickListener, OnProgrammingItemClickListener {
+        FunctionSuggestionAdapter.OnSuggestionClickListener,
+        OnProgrammingItemClickListener,
+        ProgrammingContract.IConsoleView {
     private static final int RC_OPEN_FILE = 1232;
     private static final int RC_REQUEST_PERMISSION = 4444;
     private static final int RC_CHANGE_EDITOR_THEME = 101;
@@ -83,13 +85,14 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     protected RecyclerView listResultView;
 
     protected IProgrammingSettings settings;
+    protected MutableLiveData<Boolean> inputExpanded = new MutableLiveData<>(true);
+    @Nullable
+    protected ProgrammingContract.IPresenter presenter;
     @Nullable
     private DragButton dragButtonPreview;
     @Nullable
     private View containerDragHint;
     private View containerInput;
-
-    private MutableLiveData<Boolean> inputExpanded = new MutableLiveData<>(true);
 
     private void setupViews(@NonNull View view) {
 
@@ -177,6 +180,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             btnUndo.setEnabled(inputView.canUndo());
             btnCopy.setEnabled(inputView.getText().length() > 0);
         });
+
     }
 
     protected abstract ProgrammingResultAdapter getResultAdapter();
@@ -305,10 +309,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         return false;
     }
 
-    public boolean onBackPressed() {
-        return false;
-    }
-
     @Override
     public void clickOpenDocument(SuggestionItem item) {
         if (item.getAssetPath() != null) {
@@ -375,7 +375,23 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
         inputView = view.findViewById(R.id.edit_input);
         inputView.setTextSize(15);
-        inputView.replaceComponent(EditorAutoCompletion.class, new SymjaEditorAutoCompletion(inputView));
+        inputView.setDelegate((position, completionItem) -> {
+            if (presenter != null) {
+                try {
+                    // TODO remove hard coded path
+                    String assetPath = "doc/functions/" + completionItem.label + ".md";
+                    requireContext().getAssets().open(assetPath);
+                    {
+                        presenter.openDocument(new DocumentItem(
+                                assetPath,
+                                completionItem.label.toString(),
+                                null));
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
 
         listResultView = view.findViewById(R.id.calculation_result_recycler_view);
         listResultView.setLayoutManager(new LinearLayoutManager(context));
@@ -451,7 +467,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         popupMenu.showAsDropDown(v);
     }
 
-
     private void importTextFile() {
         if (getContext() == null) {
             return;
@@ -480,4 +495,14 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     public void openWebView(@NonNull String html, @NonNull String baseUrl, @NonNull String mimeType) {
         InternalWebViewActivity.open(this, html, baseUrl, mimeType);
     }
+
+    @Override
+    public void setPresenter(@Nullable ProgrammingContract.IPresenter presenter) {
+        this.presenter = presenter;
+    }
+
+    public boolean onBackPressed() {
+        return false;
+    }
+
 }

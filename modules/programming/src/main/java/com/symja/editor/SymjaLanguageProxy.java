@@ -1,5 +1,6 @@
 package com.symja.editor;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,13 +26,15 @@ import io.github.rosemoe.sora.util.MyCharacter;
 import io.github.rosemoe.sora.widget.SymbolPairMatch;
 
 public class SymjaLanguageProxy implements Language {
+    private Context context;
     private final TextMateLanguage textMateLanguage;
     private final SymjaAutoCompleteProvider autoCompleteProvider;
     private boolean autoCompleteEnable = true;
 
-    public SymjaLanguageProxy(TextMateLanguage mathematicaLanguage) {
+    public SymjaLanguageProxy(Context context, TextMateLanguage mathematicaLanguage) {
+        this.context = context;
         this.textMateLanguage = mathematicaLanguage;
-        this.autoCompleteProvider = new SymjaAutoCompleteProvider();
+        this.autoCompleteProvider = new SymjaAutoCompleteProvider(context);
     }
 
 
