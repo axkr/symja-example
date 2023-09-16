@@ -6,23 +6,15 @@ This is an Android application for [Symja computer algebra language](https://git
 
 ## 1. Console
 
-<img src="docs/img.png" width="200" height="auto">
-<img src="docs/img_4.png" width="200" height="auto">
-<img src="docs/img_1.png" width="200" height="auto">
+<img src="docs/img.png" width="200" height="auto"> <img src="docs/img_4.png" width="200" height="auto"> <img src="docs/img_1.png" width="200" height="auto">
 
 ## 2. Symja Pods
 
-<img src="docs/img_2.png" width="200" height="auto">
-<img src="docs/img_3.png" width="200" height="auto">
-<img src="docs/img_9.png" width="200" height="auto">
+<img src="docs/img_2.png" width="200" height="auto"> <img src="docs/img_3.png" width="200" height="auto"> <img src="docs/img_9.png" width="200" height="auto">
 
 ## 3. Documentation
 
-
-<img src="docs/img_6.png" width="200" height="auto">
-<img src="docs/img_5.png" width="200" height="auto">
-<img src="docs/img_7.png" width="200" height="auto">
-<img src="docs/img_8.png" width="200" height="auto">
+<img src="docs/img_6.png" width="200" height="auto"> <img src="docs/img_5.png" width="200" height="auto"> <img src="docs/img_7.png" width="200" height="auto"> <img src="docs/img_8.png" width="200" height="auto">
 
 # Gradle Configuration
 
