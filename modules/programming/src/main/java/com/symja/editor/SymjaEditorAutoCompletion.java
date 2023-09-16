@@ -13,6 +13,9 @@ public class SymjaEditorAutoCompletion extends EditorAutoCompletion {
      */
     public SymjaEditorAutoCompletion(@NonNull CodeEditor editor) {
         super(editor);
+        SymjaCompletionLayout layout = new SymjaCompletionLayout();
+        setLayout(layout);
+        setAdapter(new SymjaCompletionAdapter());
     }
 
     @Override

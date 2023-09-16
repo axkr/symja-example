@@ -52,8 +52,6 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
     private static final String EXTRA_INPUT = "ProgrammingConsoleDocument.EXTRA_INPUT";
 
 
-    @Nullable
-    private ProgrammingContract.IPresenter presenter;
     private ProgrammingDocumentManager manager;
     private ProgrammingConsoleDocument editingDocument;
 
@@ -274,11 +272,6 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
             }
         }
         finishCalculating();
-    }
-
-    @Override
-    public void setPresenter(@Nullable ProgrammingContract.IPresenter presenter) {
-        this.presenter = presenter;
     }
 
 }
