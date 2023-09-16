@@ -19,3 +19,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*,!code/allocation/variable
+-dontwarn java.awt.**
+-dontwarn java.beans.**
+-dontwarn java.lang.management.**
+-dontwarn javax.lang.model.**
+-dontwarn javax.imageio.**
+-dontwarn org.osgi.framework.**
+-dontwarn org.owasp.encoder.**
+-dontwarn org.apache.lucene.**
+
+-dontwarn org.matheclipse.io.builtin.IntegerName
+-dontwarn org.matheclipse.io.builtin.RemoveDiacritics
+-dontwarn org.matheclipse.io.builtin.Transliterate
