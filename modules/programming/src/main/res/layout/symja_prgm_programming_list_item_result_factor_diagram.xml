@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/programming_list_item_result_header" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_header" />
 
         <com.symja.programming.view.FactorDiagramView
             android:id="@+id/factor_diagram_view"

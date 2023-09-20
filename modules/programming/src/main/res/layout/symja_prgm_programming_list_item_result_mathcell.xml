@@ -4,9 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/symja_prgm_result_margin_left"
-    android:layout_marginLeft="@dimen/symja_prgm_result_margin_left"
     android:layout_marginEnd="@dimen/symja_prgm_result_margin_right"
-    android:layout_marginRight="@dimen/symja_prgm_result_margin_right"
+    app:cardCornerRadius="4dp"
     app:cardElevation="0dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true"
@@ -14,22 +13,25 @@
     app:strokeColor="@color/symja_prgm_color_list_item_result_stroke"
     app:strokeWidth="0.75dp">
 
-    <LinearLayout
+    <com.symja.programming.view.viewgroup.BoundedLinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/programming_list_item_result_header" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_header" />
 
-        <com.symja.programming.document.view.NativeMarkdownView
-            android:id="@+id/markdown_view"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="16dp"
-            android:paddingTop="8dp"
-            android:paddingRight="16dp"
-            android:paddingBottom="8dp">
+            android:layout_height="@dimen/symja_prgm_web_result_max_height"
+            android:background="@color/symja_prgm_color_white">
 
-        </com.symja.programming.document.view.NativeMarkdownView>
-    </LinearLayout>
+            <com.symja.programming.view.mathview.InterceptWebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/symja_prgm_web_result_max_height" />
+        </FrameLayout>
+
+        <include layout="@layout/symja_prgm_programming_list_item_result_footer" />
+
+    </com.symja.programming.view.viewgroup.BoundedLinearLayout>
 </com.google.android.material.card.MaterialCardView>

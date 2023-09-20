@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/symja_prgm_result_margin_left"
@@ -18,20 +19,21 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/programming_list_item_result_header" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_header" />
 
-        <FrameLayout
+        <com.duy.ide.editor.view.CodeEditor
+            android:id="@+id/txt_result"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/symja_prgm_web_result_max_height"
-            android:background="@color/symja_prgm_color_white">
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:enabled="false"
+            android:inputType="textImeMultiLine|textMultiLine"
+            app:language="java"
+            tools:text="Sin(x)+Cos(x)">
 
-            <com.symja.programming.view.mathview.InterceptWebView
-                android:id="@+id/web_view"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/symja_prgm_web_result_max_height" />
-        </FrameLayout>
+        </com.duy.ide.editor.view.CodeEditor>
 
-        <include layout="@layout/programming_list_item_result_footer" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_footer" />
 
     </com.symja.programming.view.viewgroup.BoundedLinearLayout>
 </com.google.android.material.card.MaterialCardView>

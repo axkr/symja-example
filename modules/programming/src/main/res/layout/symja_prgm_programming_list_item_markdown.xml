@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="@dimen/symja_prgm_result_margin_left"
+    android:layout_marginLeft="@dimen/symja_prgm_result_margin_left"
     android:layout_marginEnd="@dimen/symja_prgm_result_margin_right"
-    app:cardCornerRadius="4dp"
+    android:layout_marginRight="@dimen/symja_prgm_result_margin_right"
     app:cardElevation="0dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true"
@@ -14,26 +14,22 @@
     app:strokeColor="@color/symja_prgm_color_list_item_result_stroke"
     app:strokeWidth="0.75dp">
 
-    <com.symja.programming.view.viewgroup.BoundedLinearLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/programming_list_item_result_header" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_header" />
 
-        <com.duy.ide.editor.view.CodeEditor
-            android:id="@+id/txt_result"
+        <com.symja.programming.document.view.NativeMarkdownView
+            android:id="@+id/markdown_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@null"
-            android:enabled="false"
-            android:inputType="textImeMultiLine|textMultiLine"
-            app:language="java"
-            tools:text="Sin(x)+Cos(x)">
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp">
 
-        </com.duy.ide.editor.view.CodeEditor>
-
-        <include layout="@layout/programming_list_item_result_footer" />
-
-    </com.symja.programming.view.viewgroup.BoundedLinearLayout>
+        </com.symja.programming.document.view.NativeMarkdownView>
+    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

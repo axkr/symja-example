@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/programming_list_item_result_header" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_header" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <include layout="@layout/programming_list_item_result_footer" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_footer" />
 
     </com.symja.programming.view.viewgroup.BoundedLinearLayout>
 </com.google.android.material.card.MaterialCardView>

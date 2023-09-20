@@ -38,22 +38,22 @@
         android:orientation="horizontal">
 
         <include
-            layout="@layout/direction_button"
+            layout="@layout/symja_prgm_direction_button"
             android:layout_width="75dp"
             android:layout_height="match_parent" />
 
         <include
-            layout="@layout/direction_button"
+            layout="@layout/symja_prgm_direction_button"
             android:layout_width="75dp"
             android:layout_height="match_parent" />
 
         <include
-            layout="@layout/direction_button"
+            layout="@layout/symja_prgm_direction_button"
             android:layout_width="75dp"
             android:layout_height="match_parent" />
 
         <include
-            layout="@layout/direction_button"
+            layout="@layout/symja_prgm_direction_button"
             android:layout_width="75dp"
             android:layout_height="match_parent" />
 

@@ -56,7 +56,7 @@ public class AutoCloseablePopupMenu extends AutoCloseablePopupWindow implements 
 
     @NonNull
     private View createView(Context context) {
-        @SuppressLint("InflateParams") View view = LayoutInflater.from(context).inflate(R.layout.popup_menu, null);
+        @SuppressLint("InflateParams") View view = LayoutInflater.from(context).inflate(R.layout.symja_prgm_popup_menu, null);
         TextView txtTitle = view.findViewById(R.id.txt_title);
         if (title == null) {
             txtTitle.setVisibility(View.GONE);
@@ -68,14 +68,14 @@ public class AutoCloseablePopupMenu extends AutoCloseablePopupWindow implements 
         // filter visible items
         ListView listView = view.findViewById(R.id.list_item_view);
 
-        adapter = new ArrayAdapter<MenuItem>(context, R.layout.list_item_popup_menu) {
+        adapter = new ArrayAdapter<MenuItem>(context, R.layout.symja_prgm_list_item_popup_menu) {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
                 LayoutInflater inflater = LayoutInflater.from(parent.getContext());
                 View view;
                 if (convertView == null) {
-                    view = inflater.inflate(R.layout.list_item_popup_menu, parent, false);
+                    view = inflater.inflate(R.layout.symja_prgm_list_item_popup_menu, parent, false);
                 } else {
                     view = convertView;
                 }

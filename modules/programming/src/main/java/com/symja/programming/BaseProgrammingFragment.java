@@ -241,7 +241,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 for (int i = 0; i < Math.min(count, directionTextMaps.size()); i++) {
                     HashMap<DragDirection, String> directionTextMap = directionTextMaps.get(i);
                     @SuppressLint("InflateParams")
-                    DragButton button = (DragButton) LayoutInflater.from(getContext()).inflate(R.layout.direction_button, null);
+                    DragButton button = (DragButton) LayoutInflater.from(getContext()).inflate(R.layout.symja_prgm_direction_button, null);
                     button.setDirectionTextMap(directionTextMap);
                     button.setOnDragListener(BaseProgrammingFragment.this);
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);

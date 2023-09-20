@@ -7,7 +7,6 @@ import android.webkit.WebView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 
@@ -46,7 +45,7 @@ public class InternalWebViewActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_internal_webview);
+        setContentView(R.layout.symja_prgm_activity_internal_webview);
 
         WebView webView = findViewById(R.id.web_view);
         Intent intent = getIntent();

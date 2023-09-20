@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <include layout="@layout/programming_list_item_result_header" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_header" />
 
         <com.duy.ide.editor.view.CodeEditor
             android:id="@+id/input_text"
@@ -78,7 +78,7 @@
                 tools:latex="Sin(x)+Cos(x)+Tan(x)" />
         </HorizontalScrollView>
 
-        <include layout="@layout/programming_list_item_result_footer" />
+        <include layout="@layout/symja_prgm_programming_list_item_result_footer" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

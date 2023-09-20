@@ -60,7 +60,7 @@ public class DragButton extends FrameLayout implements DragView {
     }
 
     private void setupView() {
-        LayoutInflater.from(getContext()).inflate(R.layout.direction_button_content, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.symja_prgm_direction_button_content, this);
         disableAllChildren(this);
 
         viewMap.put(DragDirection.CENTER, (TextView) findViewById(R.id.txt_center));

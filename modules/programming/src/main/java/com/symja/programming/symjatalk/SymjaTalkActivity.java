@@ -27,7 +27,7 @@ public class SymjaTalkActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_with_fragment_content);
+        setContentView(R.layout.symja_prgm_activity_with_fragment_content);
         setupToolbar();
         setTitle(R.string.symja_prgm_title_expression_details);
 
