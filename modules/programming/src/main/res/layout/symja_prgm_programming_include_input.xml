@@ -176,7 +176,36 @@
                     android:visibility="gone"
                     tools:visibility="visible" />
 
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/error_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?colorSurface"
+                    android:clickable="true"
+                    android:focusable="true">
 
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txt_error_message"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:singleLine="false"
+                        android:textColor="?colorError"
+                        tools:text="Error in factor at character: ' ' (Token:0 \u0020) Error in factor at character: ' ' (Token:0 \u0020)" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_close_error_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackground"
+                        android:padding="8dp"
+                        app:srcCompat="@drawable/round_close_24"
+                        app:tint="?colorOnSurface" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
             </FrameLayout>
 
             <com.google.android.material.divider.MaterialDivider

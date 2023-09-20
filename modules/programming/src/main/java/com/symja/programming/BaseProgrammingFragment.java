@@ -82,6 +82,10 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     protected View progressBar;
 
     protected SymjaEditor inputView;
+    protected TextView txtErrorLabel;
+    protected View errorContainer;
+    protected View btnCloseError;
+
     protected RecyclerView listResultView;
 
     protected IProgrammingSettings settings;
@@ -178,7 +182,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         inputView.subscribeEvent(ContentChangeEvent.class, (event, unsubscribe) -> {
             btnRedo.setEnabled(inputView.canRedo());
             btnUndo.setEnabled(inputView.canUndo());
-            btnCopy.setEnabled(inputView.getText().length() > 0);
+            boolean textNotEmpty = inputView.getText().length() > 0;
+            btnCopy.setEnabled(textNotEmpty);
+            btnRun.setEnabled(textNotEmpty);
         });
 
     }
@@ -193,23 +199,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     protected void clickClearAll() {
         // reset position
     }
-
-//   // TODO: replace with symja editor  private void changeTheme(EditorTheme editorTheme, View view) {
-//        if (editorTheme != null && view != null) {
-//            inputView.setTheme(editorTheme);
-//            containerInput.setCardBackgroundColor(editorTheme.getBgColor());
-//
-//            // btnRun.setTextColor(editorTheme.getCaretColor());
-//            // btnRun.setIconTint(ColorStateList.valueOf(editorTheme.getCaretColor()));
-//            // ((TextView) view.findViewById(R.id.btn_clear)).setTextColor(editorTheme.getFgColor());
-//            // ((TextView) view.findViewById(R.id.btn_paste)).setTextColor(editorTheme.getFgColor());
-//            // ((TextView) view.findViewById(R.id.btn_copy)).setTextColor(editorTheme.getFgColor());
-//
-//            View divider = view.findViewById(R.id.divider);
-//            //noinspection deprecation
-//            divider.setBackgroundDrawable(new ColorDrawable(editorTheme.getGutterStyle().getFoldColor()));
-//        }
-//    }
 
     private void setupSymbolViews(final LinearLayout containerSymbol, final View rootView) {
         if (containerSymbol == null) {
@@ -393,6 +382,14 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             }
         });
 
+        txtErrorLabel = view.findViewById(R.id.txt_error_message);
+        errorContainer = view.findViewById(R.id.error_container);
+        btnCloseError = view.findViewById(R.id.btn_close_error_message);
+        errorContainer.setVisibility(View.GONE);
+        btnCloseError.setOnClickListener(v -> {
+            errorContainer.setVisibility(View.GONE);
+        });
+
         listResultView = view.findViewById(R.id.calculation_result_recycler_view);
         listResultView.setLayoutManager(new LinearLayoutManager(context));
 
@@ -505,4 +502,11 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         return false;
     }
 
+    protected void displayErrorMessage(String errorMessage) {
+        if (errorContainer == null) {
+            return;
+        }
+        txtErrorLabel.setText(errorMessage);
+        ViewUtils.showView(errorContainer);
+    }
 }

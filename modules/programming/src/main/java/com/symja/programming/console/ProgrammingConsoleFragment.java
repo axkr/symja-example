@@ -6,9 +6,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.TypefaceSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +13,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-
 
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
@@ -39,9 +35,12 @@ import com.symja.programming.document.model.DocumentItem;
 import com.symja.programming.utils.ViewUtils;
 
 import org.apache.commons.io.IOUtils;
+import org.matheclipse.parser.client.SyntaxError;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+
+import io.github.rosemoe.sora.text.ContentLine;
 
 
 public class ProgrammingConsoleFragment extends BaseProgrammingFragment implements FunctionSuggestionAdapter.OnSuggestionClickListener,
@@ -236,7 +235,7 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
 
     private void performCalculate(@NonNull final String input) {
         if (presenter != null) {
-            EvaluationConfig config=  EvaluationConfig.newInstance();
+            EvaluationConfig config = EvaluationConfig.newInstance();
             // TODO: load config form settings config = EvaluationConfig.loadFromSetting(getContext());
             config.setEvalMode(EvaluationConfig.CalculationMode.SYMBOLIC);
             AsyncTask<Void, Void, SymjaResult> task = presenter.createCalculateTask(
@@ -256,21 +255,32 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
 
     @Override
     public void onError(@Nullable Throwable error, String expression) {
+        DLog.e(TAG, error);
+
         if (getContext() == null) {
             return;
         }
-        if (error != null && error.getMessage() != null) {
-            String message = error.getMessage();
-            SpannableStringBuilder textContent = new SpannableStringBuilder(message);
-            textContent.setSpan(new TypefaceSpan("monospace"),
-                    0, textContent.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            inputView.requestFocus();
-            // TODO: handle error inputView.setError(textContent);
+        inputView.requestFocus();
 
-            if (BuildConfig.DEBUG) {
-                error.printStackTrace();
+        if (error != null) {
+            try {
+                if (error instanceof SyntaxError) {
+                    SyntaxError syntaxError = (SyntaxError) error;
+                    int rowIndex = syntaxError.getRowIndex();
+                    int columnIndex = syntaxError.getColumnIndex();
+                    ContentLine row = inputView.getText().getLine(rowIndex);
+                    columnIndex = Math.min(columnIndex, row.length());
+                    inputView.setSelection(rowIndex, columnIndex);
+                    displayErrorMessage(syntaxError.getError());
+                } else {
+                    displayErrorMessage(error.getMessage());
+                }
+            } catch (Exception e) {
+                ViewUtils.showMessageDialog(requireContext(), e.getMessage() != null
+                        ? e.getMessage() : e.getClass().getName());
             }
         }
+
         finishCalculating();
     }
 

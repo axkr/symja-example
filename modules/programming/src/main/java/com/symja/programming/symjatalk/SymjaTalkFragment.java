@@ -34,8 +34,12 @@ import com.symja.programming.symjatalk.api.SymjaTalkRequest;
 import com.symja.programming.symjatalk.api.SymjaTalkResult;
 import com.symja.programming.utils.ViewUtils;
 
+import org.matheclipse.parser.client.SyntaxError;
+
 import java.io.IOException;
 import java.util.ArrayList;
+
+import io.github.rosemoe.sora.text.ContentLine;
 
 public class SymjaTalkFragment extends BaseProgrammingFragment implements
         SymjaTalkContract.ResultCallback,
@@ -294,18 +298,22 @@ public class SymjaTalkFragment extends BaseProgrammingFragment implements
 
     @Override
     public void onError(@Nullable Throwable error, SymjaTalkRequest request) {
+        DLog.e(error);
         if (getContext() == null) {
             return;
         }
-        if (error != null && error.getMessage() != null) {
-            String message = error.getMessage();
-            SpannableStringBuilder textContent = new SpannableStringBuilder(message);
-            textContent.setSpan(new TypefaceSpan("monospace"),
-                    0, textContent.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            inputView.requestFocus();
-            // TODO: display error message inputView.setError(textContent);
-
-            DLog.e(error);
+        if (error != null) {
+            if (error instanceof SyntaxError) {
+                SyntaxError syntaxError = (SyntaxError) error;
+                int rowIndex = syntaxError.getRowIndex();
+                int columnIndex = syntaxError.getColumnIndex();
+                ContentLine row = inputView.getText().getLine(rowIndex);
+                columnIndex = Math.min(columnIndex, row.length());
+                inputView.setSelection(rowIndex, columnIndex);
+                displayErrorMessage(syntaxError.getError());
+            } else {
+                displayErrorMessage(error.getMessage());
+            }
         }
         finishCalculating();
     }
