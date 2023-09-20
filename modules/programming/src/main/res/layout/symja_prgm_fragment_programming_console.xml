@@ -22,10 +22,10 @@
             android:fadeScrollbars="false"
             android:paddingBottom="100dp"
             app:fastScrollEnabled="true"
-            app:fastScrollHorizontalThumbDrawable="@drawable/thumb_drawable"
-            app:fastScrollHorizontalTrackDrawable="@drawable/track_drawable"
-            app:fastScrollVerticalThumbDrawable="@drawable/thumb_drawable"
-            app:fastScrollVerticalTrackDrawable="@drawable/track_drawable">
+            app:fastScrollHorizontalThumbDrawable="@drawable/symja_prgm_thumb_drawable"
+            app:fastScrollHorizontalTrackDrawable="@drawable/symja_prgm_track_drawable"
+            app:fastScrollVerticalThumbDrawable="@drawable/symja_prgm_thumb_drawable"
+            app:fastScrollVerticalTrackDrawable="@drawable/symja_prgm_track_drawable">
 
         </androidx.recyclerview.widget.RecyclerView>
 

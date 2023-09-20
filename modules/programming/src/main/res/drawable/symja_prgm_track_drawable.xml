@@ -2,8 +2,8 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:state_pressed="true"
-        android:drawable="@drawable/track"/>
+        android:drawable="@drawable/symja_prgm_track"/>
 
     <item
-        android:drawable="@drawable/track"/>
+        android:drawable="@drawable/symja_prgm_track"/>
 </selector>
