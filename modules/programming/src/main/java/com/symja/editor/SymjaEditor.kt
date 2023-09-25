@@ -82,7 +82,6 @@ class SymjaEditor : CodeEditor {
     }
 
     private fun setupSymjaLanguage() {
-        AST2Expr.initialize()
         val symjaLanguageProxy = SymjaLanguageProxy(
             context,
             TextMateLanguage.create(

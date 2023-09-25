@@ -5,5 +5,7 @@
 
     <application>
         <activity android:name=".InternalWebViewActivity" />
+        <activity android:name=".document.MarkdownDocumentActivity" />
+        <activity android:name=".ProgrammingDocumentActivity" />
     </application>
 </manifest>
