@@ -41,7 +41,7 @@ android {
 
 
     resourcePrefix 'symja_prgm'
-    lintOptions{
+    lint {
         disable 'MissingTranslation'
     }
 
