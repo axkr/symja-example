@@ -127,12 +127,12 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
                     }
                     if (expandCollapseButton.getTag().equals(expanded)) {
                         expandCollapseButton.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                                ContextCompat.getDrawable(context, R.drawable.baseline_keyboard_arrow_down_24),
+                                ContextCompat.getDrawable(context, R.drawable.symja_prgm_baseline_keyboard_arrow_down_24),
                                 null, null, null
                         );
                     } else {
                         expandCollapseButton.setCompoundDrawablesRelativeWithIntrinsicBounds(
-                                ContextCompat.getDrawable(context, R.drawable.baseline_keyboard_arrow_right_24),
+                                ContextCompat.getDrawable(context, R.drawable.symja_prgm_baseline_keyboard_arrow_right_24),
                                 null, null, null
                         );
                     }
@@ -172,7 +172,7 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
             MenuItem item = new MenuItem(itemId,
                     context.getString(R.string.symja_prgm_menu_copy_input_as, data.getFormat().getName()),
                     data.getValue());
-            item.setIcon(R.drawable.baseline_content_copy_24);
+            item.setIcon(R.drawable.symja_prgm_baseline_content_copy_24);
             popupMenu.addItem(item);
         }
 
@@ -180,12 +180,12 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
             int itemId = View.generateViewId();
             itemIds.add(new Pair<>(itemId, data));
             MenuItem item = new MenuItem(itemId, context.getString(R.string.symja_prgm_menu_copy_result_as, data.getFormat().getName()), data.getValue());
-            item.setIcon(R.drawable.baseline_content_copy_24);
+            item.setIcon(R.drawable.symja_prgm_baseline_content_copy_24);
             popupMenu.addItem(item);
         }
 
         MenuItem removeItem = new MenuItem(R.id.symja_prgm_action_remove, context.getString(R.string.symja_prgm_button_remove));
-        removeItem.setIcon(R.drawable.baseline_clear_24);
+        removeItem.setIcon(R.drawable.symja_prgm_baseline_clear_24);
         popupMenu.addItem(removeItem);
 
         popupMenu.setOnMenuItemClickListener(item -> {

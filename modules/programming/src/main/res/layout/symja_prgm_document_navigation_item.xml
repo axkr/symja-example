@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="?selectableItemBackground"
     android:clickable="true"
-    android:drawableStart="@drawable/baseline_keyboard_arrow_right_24"
+    android:drawableStart="@drawable/symja_prgm_baseline_keyboard_arrow_right_24"
     android:drawableTint="?android:textColorSecondary"
     android:focusable="true"
     android:gravity="center"

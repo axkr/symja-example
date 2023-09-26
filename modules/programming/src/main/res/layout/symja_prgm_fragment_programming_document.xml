@@ -40,7 +40,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@null"
-                android:drawableStart="@drawable/round_search_24"
+                android:drawableStart="@drawable/symja_prgm_round_search_24"
                 android:drawablePadding="12dp"
                 android:drawableTint="?android:textColorSecondary"
                 android:hint="@string/symja_prgm_label_search"

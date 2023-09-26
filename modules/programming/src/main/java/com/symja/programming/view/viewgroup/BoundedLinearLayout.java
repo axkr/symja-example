@@ -23,9 +23,9 @@ public class BoundedLinearLayout extends LinearLayout {
 
     private void setup(Context context, AttributeSet attrs) {
         if (attrs != null) {
-            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.BoundedLinearLayout);
-            mMaxWidth = a.getDimensionPixelSize(R.styleable.BoundedLinearLayout_boundedWidth, -1);
-            mMaxHeight = a.getDimensionPixelSize(R.styleable.BoundedLinearLayout_boundedHeight, -1);
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.symja_prgm_BoundedLinearLayout);
+            mMaxWidth = a.getDimensionPixelSize(R.styleable.symja_prgm_BoundedLinearLayout_boundedWidth, -1);
+            mMaxHeight = a.getDimensionPixelSize(R.styleable.symja_prgm_BoundedLinearLayout_boundedHeight, -1);
             a.recycle();
         }
     }

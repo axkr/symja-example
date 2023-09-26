@@ -69,7 +69,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/round_expand_less_24"
+                        app:srcCompat="@drawable/symja_prgm_round_expand_less_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -82,7 +82,7 @@
                         android:minWidth="48dp"
                         android:padding="10dp"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/baseline_more_vert_24"
+                        app:srcCompat="@drawable/symja_prgm_baseline_more_vert_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -98,7 +98,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/baseline_content_copy_24"
+                        app:srcCompat="@drawable/symja_prgm_baseline_content_copy_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -114,7 +114,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/baseline_content_paste_24"
+                        app:srcCompat="@drawable/symja_prgm_baseline_content_paste_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -130,7 +130,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/round_undo_24"
+                        app:srcCompat="@drawable/symja_prgm_round_undo_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -146,7 +146,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/round_redo_24"
+                        app:srcCompat="@drawable/symja_prgm_round_redo_24"
                         app:tint="?android:textColorPrimary" />
 
                 </LinearLayout>
@@ -165,7 +165,7 @@
                     android:paddingRight="12dp"
                     android:text="@string/symja_prgm_button_submit"
                     android:textColor="?colorOnPrimary"
-                    app:icon="@drawable/round_play_circle_outline_24"
+                    app:icon="@drawable/symja_prgm_round_play_circle_outline_24"
                     app:iconSize="24dp" />
 
                 <ProgressBar
@@ -203,7 +203,7 @@
                         android:layout_height="match_parent"
                         android:background="?selectableItemBackground"
                         android:padding="8dp"
-                        app:srcCompat="@drawable/round_close_24"
+                        app:srcCompat="@drawable/symja_prgm_round_close_24"
                         app:tint="?colorOnSurface" />
 
                 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -78,7 +78,7 @@ class SymjaAutoCompleteProvider(val context: Context) {
                 completionItem.icon(
                     ContextCompat.getDrawable(
                         context,
-                        R.drawable.baseline_help_outline_24
+                        R.drawable.symja_prgm_baseline_help_outline_24
                     )
                 );
                 result.add(completionItem)

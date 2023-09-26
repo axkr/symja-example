@@ -28,7 +28,7 @@
             android:paddingRight="4dp"
             android:paddingBottom="8dp"
             android:text="@string/symja_prgm_label_view_output_error"
-            app:drawableStartCompat="@drawable/baseline_keyboard_arrow_down_24"
+            app:drawableStartCompat="@drawable/symja_prgm_baseline_keyboard_arrow_down_24"
             app:drawableTint="?android:textColorSecondary" />
 
         <View

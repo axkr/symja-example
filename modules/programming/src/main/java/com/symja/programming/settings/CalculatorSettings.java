@@ -61,78 +61,78 @@ public class CalculatorSettings implements IProgrammingSettings{
 
     @Override
     public boolean isUseRelaxedSyntax() {
-        return getBoolean(getStringRes(R.string.pref_key_programming_relaxed_syntax), true);
+        return getBoolean(getStringRes(R.string.symja_prgm_pref_key_programming_relaxed_syntax), true);
     }
 
     @Override
     public boolean isDominantImplicitTimes() {
 //        Config.DOMINANT_IMPLICIT_TIMES = false
-        return getBoolean(context.getString(R.string.pref_key_dominant_implicit_times), false);
+        return getBoolean(context.getString(R.string.symja_prgm_pref_key_dominant_implicit_times), false);
     }
 
     @Override
     public boolean isExplicitTimesOperator() {
 //        Config.EXPLICIT_TIMES_OPERATOR = false
-        return getBoolean(context.getString(R.string.pref_key_explicit_times_operator), false);
+        return getBoolean(context.getString(R.string.symja_prgm_pref_key_explicit_times_operator), false);
     }
 
     @Override
     public int getRecursionLimit() {
-        return getInt(getStringRes(R.string.pref_key_recursion_limit), 256);
+        return getInt(getStringRes(R.string.symja_prgm_pref_key_recursion_limit), 256);
     }
 
     @Override
     public int getIterationLimit() {
-        return getInt(getStringRes(R.string.pref_key_iteration_limit), 100000);
+        return getInt(getStringRes(R.string.symja_prgm_pref_key_iteration_limit), 100000);
     }
 
     @Override
     public int getIntegrateRecursionLimit() {
-        return getInt(getStringRes(R.string.pref_key_integrate_recursion_limit), 10);
+        return getInt(getStringRes(R.string.symja_prgm_pref_key_integrate_recursion_limit), 10);
     }
 
     @Override
     public int getLHospitalLimit() {
 //        Config.LIMIT_LHOSPITAL_RECURSION_LIMIT = 128
-        return getInt(getStringRes(R.string.pref_key_lhospital_limit), 128);
+        return getInt(getStringRes(R.string.symja_prgm_pref_key_lhospital_limit), 128);
     }
 
     @Override
     public int getMaxAstSize() {
         //  Config.MAX_AST_SIZE = ((int) Short.MAX_VALUE) * 8
-        return getInt(getStringRes(R.string.pref_key_max_ast_size), Short.MAX_VALUE * 8);
+        return getInt(getStringRes(R.string.symja_prgm_pref_key_max_ast_size), Short.MAX_VALUE * 8);
     }
 
     @Override
     public int getMaxOutputSize() {
         //  Config.MAX_OUTPUT_SIZE = Short.MAX_VALUE;
-        return getInt(getStringRes(R.string.pref_key_max_output_size), Short.MAX_VALUE);
+        return getInt(getStringRes(R.string.symja_prgm_pref_key_max_output_size), Short.MAX_VALUE);
     }
 
     @Override
     public String getLastEditedDocumentName() {
-        return getString(getStringRes(R.string.pref_key_last_edited_document), "");
+        return getString(getStringRes(R.string.symja_prgm_pref_key_last_edited_document), "");
     }
 
     @Override
     public void setLastEditedDocument(String lastEditedDocument) {
-        putString(getStringRes(R.string.pref_key_last_edited_document), lastEditedDocument);
+        putString(getStringRes(R.string.symja_prgm_pref_key_last_edited_document), lastEditedDocument);
     }
 
     @Override
     public boolean isShowSymbolBar() {
-        return getBoolean(getStringRes(R.string.pref_key_show_symbol_bar), true);
+        return getBoolean(getStringRes(R.string.symja_prgm_pref_key_show_symbol_bar), true);
     }
 
     @Nullable
     @Override
     public String getSymjaServer() {
-        return getString(getStringRes(R.string.pref_key_symjatalk_server), null);
+        return getString(getStringRes(R.string.symja_prgm_pref_key_symjatalk_server), null);
     }
 
     @Override
     public boolean isUseSymjaTalkOffline() {
-        return getBoolean(getStringRes(R.string.pref_key_symjatalk_offline_mode), false);
+        return getBoolean(getStringRes(R.string.symja_prgm_pref_key_symjatalk_offline_mode), false);
     }
 
     @Override

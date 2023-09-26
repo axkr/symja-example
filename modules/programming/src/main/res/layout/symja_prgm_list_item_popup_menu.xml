@@ -14,7 +14,7 @@
         android:layout_height="36dp"
         android:padding="8dp"
         android:tint="?android:textColorSecondary"
-        app:srcCompat="@drawable/baseline_content_copy_24" />
+        app:srcCompat="@drawable/symja_prgm_baseline_content_copy_24" />
 
     <LinearLayout
         android:layout_width="match_parent"

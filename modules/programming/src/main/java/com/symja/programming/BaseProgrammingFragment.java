@@ -420,9 +420,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             }
             containerInput.requestLayout();
             if (expanded) {
-                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.round_expand_less_24));
+                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.symja_prgm_round_expand_less_24));
             } else {
-                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.round_expand_more_24));
+                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.symja_prgm_round_expand_more_24));
             }
 
             // Disable auto complete in collapsed mode
