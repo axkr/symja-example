@@ -95,7 +95,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="8dp" />
 
                 <com.duy.ide.editor.view.CodeEditor
                     android:id="@+id/result_plaintext_view"
@@ -103,7 +109,6 @@
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:enabled="false"
-                    android:gravity="end"
                     android:inputType="textImeMultiLine|textMultiLine"
                     app:language="java"
                     app:lineNumberVisible="false"
