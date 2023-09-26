@@ -362,7 +362,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         //noinspection ConstantConditions
         @NonNull Context context = getActivity() != null ? getActivity() : getContext();
 
-        inputView = view.findViewById(R.id.edit_input);
+        inputView = view.findViewById(R.id.symja_prgm_edit_input);
         inputView.setTextSize(15);
         inputView.setDelegate((position, completionItem) -> {
             if (presenter != null) {

@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
             <com.symja.editor.SymjaEditor
-                android:id="@+id/edit_input"
+                android:id="@id/symja_prgm_edit_input"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

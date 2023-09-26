@@ -4,4 +4,5 @@
     <item name="symja_prgm_action_copy_data" type="id" />
     <item name="symja_prgm_action_copy_result" type="id" />
     <item name="symja_prgm_action_remove" type="id" />
+    <item name="symja_prgm_edit_input" type="id" />
 </resources>
