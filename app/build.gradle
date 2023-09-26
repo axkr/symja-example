@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.symja.app"
-        minSdk 28
+        minSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -23,19 +23,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        // https://developer.android.com/studio/write/java8-support
+        // For AGP 4.1+
+        coreLibraryDesugaringEnabled = true
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
-    // sourceSets {
-    //     androidTest {
-    //         java {
-    //             srcDir '../symja_android_library/symja_android_library/matheclipse-core/src/test/java'
-    //         }
-    //     }
-    // }
 
     packagingOptions {
         resources {
@@ -63,6 +61,8 @@ dependencies {
             select("com.google.guava:guava:0")
         }
     }
+
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
 
     testImplementation 'junit:junit:4.13.2'
 
