@@ -11,7 +11,7 @@ import com.symja.programming.console.models.CalculationItem;
 import com.symja.programming.view.FactorDiagramView;
 
 public class FactorDiagramViewHolder extends BaseViewHolder {
-    private FactorDiagramView factorDiagramView;
+    private final FactorDiagramView factorDiagramView;
 
     public FactorDiagramViewHolder(@NonNull View itemView) {
         super(itemView);

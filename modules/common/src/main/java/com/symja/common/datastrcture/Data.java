@@ -116,7 +116,7 @@ public class Data implements Serializable, JsonIO, Cloneable {
         TEXT_APPLICATION_SYMJA("Symja"),
         FACTOR_DIAGRAM("Factor Diagram"),
 
-        // Display markdown in WebView
+        // Display markdown
         MARKDOWN("Markdown"),
 
         // Display iframe inside WebView

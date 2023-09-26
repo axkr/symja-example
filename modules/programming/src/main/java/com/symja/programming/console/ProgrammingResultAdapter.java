@@ -126,7 +126,7 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public void onRemoveClicked(@NotNull RecyclerView.ViewHolder holder) {
-        int adapterPosition = holder.getAdapterPosition();
+        int adapterPosition = holder.getBindingAdapterPosition();
         if (adapterPosition >= 0) {
             int dataPosition = adapterPosition - (useSpace ? 1 : 0);
             document.remove(dataPosition);
