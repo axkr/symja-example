@@ -21,7 +21,7 @@ import android.content.Context;
 import android.text.GetChars;
 import android.text.SpannableStringBuilder;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 
 import org.gjt.sp.jedit.LineManager;
 import org.gjt.sp.jedit.Mode;

@@ -21,7 +21,7 @@ import android.graphics.Color;
 
 import androidx.annotation.NonNull;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 import com.duy.ide.editor.theme.SyntaxUtilities;
 
 import java.util.Arrays;

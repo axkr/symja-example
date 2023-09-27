@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.duy.common.utils;
+package com.duy.ide.common.utils;
 
 import java.io.File;
 import java.io.FileFilter;

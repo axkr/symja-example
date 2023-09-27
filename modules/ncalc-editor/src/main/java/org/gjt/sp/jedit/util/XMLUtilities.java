@@ -17,7 +17,7 @@
 package org.gjt.sp.jedit.util;
 
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;

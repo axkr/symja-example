@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresPermission;
 import androidx.annotation.WorkerThread;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.symja.common.datastrcture.Data;
 import com.symja.evaluator.Symja;

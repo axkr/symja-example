@@ -20,7 +20,7 @@ package com.duy.ide.editor.theme;
 
 import android.graphics.Color;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 import com.duy.ide.editor.theme.model.SyntaxStyle;
 
 import org.gjt.sp.jedit.awt.Font;

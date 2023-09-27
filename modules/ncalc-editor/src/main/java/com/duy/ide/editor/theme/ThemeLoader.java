@@ -23,8 +23,8 @@ import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.util.TypedValue;
 
-import com.duy.common.utils.DLog;
-import com.duy.common.utils.IOUtils;
+import com.duy.ide.common.utils.DLog;
+import com.duy.ide.common.utils.IOUtils;
 import com.duy.ide.editor.theme.model.EditorTheme;
 
 import java.io.IOException;

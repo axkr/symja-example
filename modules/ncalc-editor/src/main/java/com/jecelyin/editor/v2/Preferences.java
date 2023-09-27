@@ -25,7 +25,7 @@ import androidx.annotation.IntDef;
 import androidx.annotation.NonNull;
 import androidx.preference.PreferenceManager;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 import com.duy.editor.R;
 import com.duy.ide.editor.theme.ThemeLoader;
 import com.duy.ide.editor.theme.model.EditorTheme;

@@ -26,7 +26,7 @@ package org.gjt.sp.jedit.syntax;
 import android.content.Context;
 import android.util.Log;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 
 import org.gjt.sp.jedit.Mode;
 import org.xml.sax.Attributes;

@@ -29,6 +29,7 @@ public class ResultDetector {
 
     private static final String TAG = "ResultDetector";
 
+    @NonNull
     public static CalculationItem resolve(IExpr res, String inputExpression) {
         SymjaResult simpleResult = new SymjaResult(res, null, null);
         return resolve(simpleResult, inputExpression);
@@ -55,7 +56,7 @@ public class ResultDetector {
     }
 
     @NonNull
-    private static CalculationItem resolveInternal(String inputExpression, SymjaResult res) throws IOException {
+    private static CalculationItem resolveInternal(String inputExpression, @NonNull SymjaResult res) throws IOException {
         IExpr result = res.getResult();
         Symja mathEvaluator = Symja.getInstance();
         EvalEngine engine = mathEvaluator.getExprEvaluator().getEvalEngine();
