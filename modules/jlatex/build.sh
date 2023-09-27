@@ -10,6 +10,6 @@ cd jlatex || exit 2
 chmod +x gradlew
 ./gradlew assembleDebug
 
-cp ./jlatexmath/build/outputs/aar/jlatexmath-debug.aar ../../jlatexmath-debug.aar
-cp ./jlatexmath-font-cyrillic/build/outputs/aar/jlatexmath-font-cyrillic-debug.aar ../../jlatexmath-font-cyrillic-debug.aar
-cp ./jlatexmath-font-greek/build/outputs/aar/jlatexmath-font-greek-debug.aar ../../jlatexmath-font-greek-debug.aar
+cp ./jlatexmath/build/outputs/aar/jlatexmath-debug.aar ../../jlatexmath/jlatexmath-debug.aar
+cp ./jlatexmath-font-cyrillic/build/outputs/aar/jlatexmath-font-cyrillic-debug.aar ../../jlatexmath-font-cyrillic/jlatexmath-font-cyrillic-debug.aar
+cp ./jlatexmath-font-greek/build/outputs/aar/jlatexmath-font-greek-debug.aar ../../jlatexmath-font-greek/jlatexmath-font-greek-debug.aar

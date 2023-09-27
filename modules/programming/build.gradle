@@ -63,9 +63,9 @@ dependencies {
     api("io.github.Rosemoe.sora-editor:editor")
     api("io.github.Rosemoe.sora-editor:language-textmate")
 
-    api files('../jlatex/jlatexmath-debug.aar')
-    api files('../jlatex/jlatexmath-font-cyrillic-debug.aar')
-    api files('../jlatex/jlatexmath-font-greek-debug.aar')
+    api project(':modules:jlatex:jlatexmath')
+    api project(':modules:jlatex:jlatexmath-font-cyrillic')
+    api project(':modules:jlatex:jlatexmath-font-greek')
 
     api 'com.squareup.okhttp3:okhttp:5.0.0-alpha.11'
 
