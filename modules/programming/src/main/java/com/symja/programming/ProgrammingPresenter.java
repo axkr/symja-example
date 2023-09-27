@@ -11,7 +11,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.symja.common.logging.DLog;
 import com.symja.evaluator.Symja;
 import com.symja.evaluator.SymjaResult;
-import com.symja.evaluator.config.EvaluationConfig;
+import com.symja.evaluator.config.SymjaEvaluationConfig;
 import com.symja.programming.document.model.DocumentItem;
 import com.symja.programming.symjatalk.SymjaTalkContract;
 
@@ -70,7 +70,7 @@ public class ProgrammingPresenter implements ProgrammingContract.IPresenter {
 
     @NonNull
     @Override
-    public AsyncTask<Void, Void, SymjaResult> createCalculateTask(@Nullable ResultCallback callback, @NonNull String input, EvaluationConfig config) {
+    public AsyncTask<Void, Void, SymjaResult> createCalculateTask(@Nullable ResultCallback callback, @NonNull String input, SymjaEvaluationConfig config) {
         return new CalculateTask(callback, input, config);
     }
 
@@ -128,11 +128,11 @@ public class ProgrammingPresenter implements ProgrammingContract.IPresenter {
 
         private final String expression;
         private final WeakReference<ResultCallback> resultCallback;
-        private final EvaluationConfig config;
+        private final SymjaEvaluationConfig config;
         private Throwable error;
 
         @SuppressWarnings("deprecation")
-        CalculateTask(@Nullable ResultCallback resultCallback, String expression, EvaluationConfig config) {
+        CalculateTask(@Nullable ResultCallback resultCallback, String expression, SymjaEvaluationConfig config) {
             this.expression = expression;
             this.resultCallback = new WeakReference<>(resultCallback);
             this.config = config;

@@ -5,7 +5,7 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
-import com.symja.evaluator.config.EvaluationConfig;
+import com.symja.evaluator.config.SymjaEvaluationConfig;
 
 import org.matheclipse.core.basic.Config;
 import org.matheclipse.core.basic.OperationSystem;
@@ -125,7 +125,7 @@ public class Symja {
         return eval(exprEvaluator.parse(input));
     }
 
-    public SymjaResult evaluate(String expression, EvaluationConfig config) throws Exception {
+    public SymjaResult evaluate(String expression, SymjaEvaluationConfig config) throws Exception {
         // TODO: evaluate with config
         return eval(expression);
     }

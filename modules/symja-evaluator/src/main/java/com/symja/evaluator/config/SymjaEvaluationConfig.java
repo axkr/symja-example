@@ -28,31 +28,31 @@ import java.util.Arrays;
 /**
  * Created by Duy on 26-Jun-17.
  */
-public class EvaluationConfig implements Serializable {
+public class SymjaEvaluationConfig implements Serializable {
 
     private CalculationMode evalMode = CalculationMode.SYMBOLIC;
     private boolean outputMultiline = false;
-    private ArrayList<EvalConfigOption> options = new ArrayList<>();
+    private ArrayList<SymjaEvalConfigOption> options = new ArrayList<>();
 
     @SuppressWarnings("unused")
-    private EvaluationConfig(@NonNull EvaluationConfig other) {
+    private SymjaEvaluationConfig(@NonNull SymjaEvaluationConfig other) {
         this.evalMode = other.evalMode;
         this.outputMultiline = other.outputMultiline;
         this.options = new ArrayList<>(other.options);
     }
 
-    private EvaluationConfig() {
+    private SymjaEvaluationConfig() {
     }
 
-    public static EvaluationConfig newInstance() {
-        return new EvaluationConfig();
+    public static SymjaEvaluationConfig newInstance() {
+        return new SymjaEvaluationConfig();
     }
 
     public CalculationMode getEvaluateMode() {
         return evalMode;
     }
 
-    public EvaluationConfig setEvalMode(CalculationMode evalMode) {
+    public SymjaEvaluationConfig setEvalMode(CalculationMode evalMode) {
         this.evalMode = evalMode;
         return this;
     }
@@ -61,17 +61,17 @@ public class EvaluationConfig implements Serializable {
         return this.outputMultiline;
     }
 
-    public EvaluationConfig setOutputMultiline(boolean outputMultiline) {
+    public SymjaEvaluationConfig setOutputMultiline(boolean outputMultiline) {
         this.outputMultiline = outputMultiline;
         return this;
     }
 
-    public EvaluationConfig addOptions(EvalConfigOption... options) {
+    public SymjaEvaluationConfig addOptions(SymjaEvalConfigOption... options) {
         this.options.addAll(Arrays.asList(options));
         return this;
     }
 
-    public boolean hasOption(EvalConfigOption option) {
+    public boolean hasOption(SymjaEvalConfigOption option) {
         return this.options.contains(option);
     }
 

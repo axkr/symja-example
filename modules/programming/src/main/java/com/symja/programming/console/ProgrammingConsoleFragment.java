@@ -20,7 +20,7 @@ import com.symja.common.datastrcture.json.JSONException;
 import com.symja.common.datastrcture.json.JSONObject;
 import com.symja.common.logging.DLog;
 import com.symja.evaluator.SymjaResult;
-import com.symja.evaluator.config.EvaluationConfig;
+import com.symja.evaluator.config.SymjaEvaluationConfig;
 import com.symja.programming.BaseProgrammingFragment;
 import com.symja.programming.BuildConfig;
 import com.symja.programming.ProgrammingContract;
@@ -235,9 +235,9 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
 
     private void performCalculate(@NonNull final String input) {
         if (presenter != null) {
-            EvaluationConfig config = EvaluationConfig.newInstance();
-            // TODO: load config form settings config = EvaluationConfig.loadFromSetting(getContext());
-            config.setEvalMode(EvaluationConfig.CalculationMode.SYMBOLIC);
+            SymjaEvaluationConfig config = SymjaEvaluationConfig.newInstance();
+            // TODO: load config form settings config = SymjaEvaluationConfig.loadFromSetting(getContext());
+            config.setEvalMode(SymjaEvaluationConfig.CalculationMode.SYMBOLIC);
             AsyncTask<Void, Void, SymjaResult> task = presenter.createCalculateTask(
                     this, input, config);
             task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
