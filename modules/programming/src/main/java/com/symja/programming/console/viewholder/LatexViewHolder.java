@@ -63,18 +63,24 @@ public class LatexViewHolder extends BaseViewHolder {
         inputTextView.setVisibility(View.GONE);
 
         resultPlainTextView.setText("");
+        resultTabLayout.selectTab(resultTabLayout.getTabAt(0));
+        resultViewFlipper.setDisplayedChild(0);
 
-        Data input = item.getInput();
-        if (input.getFormat() == Data.Format.TEXT_APPLICATION_SYMJA
-                || input.getFormat() == Data.Format.TEXT_PLAIN) {
-            inputTextView.setVisibility(View.VISIBLE);
-            inputTextView.setText(input.getValue());
-        }
-        if (input.getFormat() == Data.Format.LATEX) {
-            inputLatexView.setVisibility(View.VISIBLE);
-            inputLatexView.setLatex(input.getValue());
+        // Display input
+        {
+            Data input = item.getInput();
+            if (input.getFormat() == Data.Format.TEXT_APPLICATION_SYMJA
+                    || input.getFormat() == Data.Format.TEXT_PLAIN) {
+                inputTextView.setVisibility(View.VISIBLE);
+                inputTextView.setText(input.getValue());
+            }
+            if (input.getFormat() == Data.Format.LATEX) {
+                inputLatexView.setVisibility(View.VISIBLE);
+                inputLatexView.setLatex(input.getValue());
+            }
         }
 
+        // display result
         List<Data> results = item.getDataList();
         for (Data result : results) {
             if (result.getFormat() == Data.Format.LATEX) {
@@ -82,9 +88,9 @@ public class LatexViewHolder extends BaseViewHolder {
                     resultLatexView.setVisibility(View.GONE);
 
                 } else {
-                    resultLatexView.setVisibility(View.VISIBLE);
                     String latex = result.getValue();
                     resultLatexView.setLatex(latex);
+                    resultLatexView.setVisibility(View.VISIBLE);
                 }
             }
 

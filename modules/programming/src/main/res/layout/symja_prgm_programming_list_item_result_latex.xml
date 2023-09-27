@@ -128,6 +128,7 @@
             style="@style/Widget.Material3.TabLayout.OnSurface"
             android:layout_width="wrap_content"
             android:layout_height="32dp"
+            android:layout_gravity="end"
             android:background="?colorSurface"
             android:clipChildren="false"
             android:elevation="0dp"
