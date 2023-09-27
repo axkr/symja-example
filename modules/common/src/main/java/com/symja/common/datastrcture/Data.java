@@ -113,6 +113,7 @@ public class Data implements Serializable, JsonIO, Cloneable {
         TEXT_LATEX("Latex"),
         TEXT_APPLICATION_JAVA("Java"),
         TEXT_APPLICATION_JAVASCRIPT("Javascript"),
+        TEXT_APPLICATION_JSON("JSON"),
         TEXT_APPLICATION_SYMJA("Symja"),
         FACTOR_DIAGRAM("Factor Diagram"),
 
