@@ -8,6 +8,7 @@
     <color name="colorPrimary">#2196F3</color>
     <color name="colorPrimaryDark">#1D7DCC</color>
     <color name="colorSurface">#FFFFFF</color>
+    <color name="colorSurfaceVariant">#FAFAFA</color>
 
     <color name="colorNightSecondary">#EF5350</color>
     <color name="colorNightOnSecondary">#FFF</color>
@@ -15,5 +16,6 @@
     <color name="colorNightPrimaryDark">#155E99</color>
     <color name="colorNightOnPrimary">#FFF</color>
     <color name="colorNightSurface">#000000</color>
+    <color name="colorNightSurfaceVariant">#0D0D0D</color>
 
 </resources>

@@ -30,7 +30,8 @@
             android:background="@null"
             android:enabled="false"
             android:inputType="textImeMultiLine|textMultiLine"
-            app:language="java"
+            app:language="symja"
+            app:lineNumberVisible="false"
             tools:text="Sin(x)+Cos(x)">
 
         </com.duy.ide.editor.view.CodeEditor>
