@@ -426,7 +426,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             }
 
             // Disable auto complete in collapsed mode
-            inputView.getComponent(EditorAutoCompletion.class).setEnabled(expanded);
+            // inputView.getComponent(EditorAutoCompletion.class).setEnabled(expanded);
 
 
             PreferenceManager.getDefaultSharedPreferences(requireContext())

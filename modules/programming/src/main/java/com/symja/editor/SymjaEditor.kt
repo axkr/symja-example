@@ -2,9 +2,12 @@ package com.symja.editor
 
 import android.content.Context
 import android.content.res.Configuration
+import android.content.res.TypedArray
 import android.graphics.Typeface
 import android.util.AttributeSet
+import com.symja.common.logging.DLog
 import com.symja.editor.SymjaCompletionAdapter.OnItemClickListener
+import com.symja.programming.R
 import io.github.rosemoe.sora.lang.completion.CompletionItem
 import io.github.rosemoe.sora.langs.textmate.TextMateColorScheme
 import io.github.rosemoe.sora.langs.textmate.TextMateLanguage
@@ -18,18 +21,21 @@ import io.github.rosemoe.sora.widget.component.EditorAutoCompletion
 import io.github.rosemoe.sora.widget.schemes.EditorColorScheme
 import io.github.rosemoe.sora.widget.schemes.SchemeDarcula
 import org.eclipse.tm4e.core.registry.IThemeSource
-import org.matheclipse.core.convert.AST2Expr
+import kotlin.math.max
 
 class SymjaEditor : CodeEditor {
 
+
     var delegate: SymjaEditorDelegate? = null
 
+    private var maxCompletionPopupHeight: Int? = null
+
     constructor(context: Context) : super(context) {
-        init(context)
+        init(context, null)
     }
 
     constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
-        init(context)
+        init(context, attrs)
     }
 
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
@@ -37,46 +43,77 @@ class SymjaEditor : CodeEditor {
         attrs,
         defStyleAttr
     ) {
-        init(context)
+        init(context, attrs)
     }
 
-    private fun init(context: Context) {
-
-        if (!isInEditMode) {
-            loadThemes(context)
-
-            loadGrammar()
-            setupSymjaLanguage()
-            setupAutoComplete();
-            ensureTextmateTheme()
-            switchThemeIfRequired(context, this)
+    private fun init(context: Context, attrs: AttributeSet?) {
+        if (isInEditMode) return
 
 
-            val font = Typeface.createFromAsset(context.assets, "fonts/JetBrainsMono-Regular.ttf")
-            val editor = this;
-            editor.typefaceText = font
-            editor.typefaceLineNumber = font
-            editor.isWordwrap = true
+        if (attrs != null) {
+            var typedArray: TypedArray? = null
+            try {
+                typedArray = context.obtainStyledAttributes(attrs, R.styleable.SymjaEditor);
+                if (typedArray.hasValue(R.styleable.SymjaEditor_lineNumberVisible)) {
+                    val lineNumberVisible =
+                        typedArray.getBoolean(R.styleable.SymjaEditor_lineNumberVisible, false)
+                    isLineNumberEnabled = lineNumberVisible;
+                }
+
+                if (typedArray.hasValue(R.styleable.SymjaEditor_maxCompletionPopupHeight)) {
+                    maxCompletionPopupHeight = typedArray.getDimensionPixelSize(
+                        R.styleable.SymjaEditor_maxCompletionPopupHeight,
+                        0
+                    );
+                }
+            } catch (e: Exception) {
+                DLog.e(Companion.TAG, e);
+            } finally {
+                typedArray?.recycle()
+            }
         }
+
+        loadThemes(context)
+
+        loadGrammar()
+        setupSymjaLanguage()
+        setupAutoComplete();
+        ensureTextmateTheme()
+        switchThemeIfRequired(context, this)
+
+
+        val font = Typeface.createFromAsset(context.assets, "fonts/JetBrainsMono-Regular.ttf")
+        val editor = this;
+        editor.typefaceText = font
+        editor.typefaceLineNumber = font
+        editor.isWordwrap = true
+
+
     }
 
     private fun setupAutoComplete() {
-        val symjaEditorAutoCompletion = SymjaEditorAutoCompletion(this)
-        symjaEditorAutoCompletion.setLayout(SymjaCompletionLayout())
-        val symjaCompletionAdapter = SymjaCompletionAdapter()
-        symjaEditorAutoCompletion.setAdapter(symjaCompletionAdapter)
+        val symjaEditorAutoCompletionPopup: SymjaEditorAutoCompletionPopup =
+            SymjaEditorAutoCompletionPopup(this)
+
+        symjaEditorAutoCompletionPopup.setLayout(SymjaCompletionLayout())
+
+        maxCompletionPopupHeight?.let {
+            symjaEditorAutoCompletionPopup.setOverrideMaxHeight(it)
+        }
+
         replaceComponent(
             EditorAutoCompletion::class.java,
-            symjaEditorAutoCompletion
+            symjaEditorAutoCompletionPopup
         )
 
-        symjaCompletionAdapter.setOnItemClickListener(object : OnItemClickListener {
+        symjaEditorAutoCompletionPopup.symjaCompletionAdapter.setOnItemClickListener(object :
+            OnItemClickListener {
             override fun onIconClick(position: Int, completionItem: CompletionItem?) {
                 delegate?.onSuggestionIconClicked(position, completionItem)
             }
 
             override fun onItemClick(position: Int, completionItem: CompletionItem?) {
-                symjaEditorAutoCompletion.select(position)
+                symjaEditorAutoCompletionPopup.select(position)
             }
         })
     }
@@ -165,5 +202,9 @@ class SymjaEditor : CodeEditor {
 
     fun setSelection(index: Int) {
         //TODO Implement
+    }
+
+    companion object {
+        private const val TAG = "SymjaEditor"
     }
 }

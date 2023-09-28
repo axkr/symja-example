@@ -18,13 +18,6 @@ public class SymjaCompletionLayout extends DefaultCompletionLayout {
 
         ListView listView = this.getCompletionList();
         listView.setItemsCanFocus(true);
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                System.out.println("view = " + view);
-//            }
-//        });
-
         return view;
     }
 }
