@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.symja.common.logging.DLog;
 import com.symja.programming.R;
 
 import io.github.rosemoe.sora.lang.completion.CompletionItem;
@@ -16,6 +17,8 @@ import io.github.rosemoe.sora.widget.component.EditorCompletionAdapter;
 import io.github.rosemoe.sora.widget.schemes.EditorColorScheme;
 
 public class SymjaCompletionAdapter extends EditorCompletionAdapter {
+    private static final String TAG = "SymjaCompletionAdapter";
+
     @Nullable
     private OnItemClickListener onItemClickListener;
 
@@ -52,12 +55,20 @@ public class SymjaCompletionAdapter extends EditorCompletionAdapter {
         iv.setFocusable(true);
         iv.setOnClickListener(v -> {
             if (onItemClickListener != null) {
-                onItemClickListener.onIconClick(pos, item);
+                try {
+                    onItemClickListener.onIconClick(pos, item);
+                } catch (Exception e) {
+                    DLog.w(TAG, e);
+                }
             }
         });
         view.setOnClickListener(v -> {
-            if (onItemClickListener != null) {
-                onItemClickListener.onItemClick(pos, item);
+            try {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(pos, item);
+                }
+            } catch (Exception e) {
+                DLog.w(TAG, e);
             }
         });
         return view;
