@@ -75,7 +75,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         ProgrammingContract.IConsoleView {
     private static final int RC_OPEN_FILE = 1232;
     private static final int RC_REQUEST_PERMISSION = 4444;
-    private static final int RC_CHANGE_EDITOR_THEME = 101;
 
     protected TextView btnRun;
     protected View progressBar;
@@ -323,6 +322,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         }
     }
 
+    /** @noinspection deprecation*/
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
