@@ -230,15 +230,17 @@
             <com.symja.programming.view.dragbutton.DragButton
                 android:id="@+id/big_drag_button"
                 style="@style/Widget.AppCompat.Button"
-                android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="0dp"
                 android:layout_marginRight="0dp"
                 android:clickable="true"
                 android:focusable="true"
+                app:textSize="20dp"
                 tools:alpha="0.3"
-                tools:showIn="@layout/symja_prgm_fragment_programming_console">
+                tools:showIn="@layout/symja_prgm_fragment_programming_console"
+                tools:ignore="SpUsage">
 
             </com.symja.programming.view.dragbutton.DragButton>
 

@@ -20,8 +20,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:clipToPadding="false"
-            android:fadeScrollbars="false"
             android:contentDescription="ResultListView"
+            android:fadeScrollbars="false"
             android:paddingBottom="100dp"
             app:fastScrollEnabled="true"
             app:fastScrollHorizontalThumbDrawable="@drawable/symja_prgm_thumb_drawable"
@@ -38,7 +38,9 @@
         android:id="@+id/container_symbol"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp">
 
         <include
             layout="@layout/symja_prgm_direction_button"

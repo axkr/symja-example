@@ -8,8 +8,10 @@ import static com.symja.programming.view.dragbutton.DragButtonUtils.subtract;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.PointF;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -46,20 +48,20 @@ public class DragButton extends FrameLayout implements DragView {
 
     public DragButton(Context context) {
         super(context);
-        setupView();
+        setupView(context, null);
     }
 
     public DragButton(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setupView();
+        setupView(context, attrs);
     }
 
     public DragButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setupView();
+        setupView(context, attrs);
     }
 
-    private void setupView() {
+    private void setupView(Context context, AttributeSet attrs) {
         LayoutInflater.from(getContext()).inflate(R.layout.symja_prgm_direction_button_content, this);
         disableAllChildren(this);
 
@@ -68,6 +70,21 @@ public class DragButton extends FrameLayout implements DragView {
         viewMap.put(DragDirection.TOP_RIGHT, (TextView) findViewById(R.id.txt_top_right));
         viewMap.put(DragDirection.RIGHT_BOTTOM, (TextView) findViewById(R.id.txt_right_bottom));
         viewMap.put(DragDirection.LEFT_BOTTOM, (TextView) findViewById(R.id.txt_left_bottom));
+
+        try {
+            @SuppressLint("CustomViewStyleable")
+            TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.symja_prgm_DragButton);
+            if (typedArray.hasValue(R.styleable.symja_prgm_DragButton_textSize)) {
+                int textSize = typedArray.getDimensionPixelSize(R.styleable.symja_prgm_DragButton_textSize, 14);
+                for (TextView textView : viewMap.values()) {
+                    textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
+                }
+            }
+            typedArray.recycle();
+        } catch (Exception e){
+            DLog.w(TAG, e);
+        }
+
     }
 
     private void disableAllChildren(ViewGroup viewGroup) {

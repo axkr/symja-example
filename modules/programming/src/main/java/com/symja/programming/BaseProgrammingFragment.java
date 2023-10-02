@@ -257,8 +257,8 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             }
             if (getActivity() != null) {
                 View currentFocus = getActivity().getWindow().getCurrentFocus();
-                if (currentFocus instanceof CodeEditor) {
-                    ((CodeEditor) currentFocus).insert(text);
+                if (currentFocus instanceof SymjaEditor) {
+                    ((SymjaEditor) currentFocus).insert(text);
                 }
             }
 
