@@ -126,7 +126,7 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
     }
 
     @Override
-    public void clickOpenDocument(SuggestionItem item) {
+    public void clickOpenDocument(@NonNull SuggestionItem item) {
         if (item.getAssetPath() == null) {
             return;
         }

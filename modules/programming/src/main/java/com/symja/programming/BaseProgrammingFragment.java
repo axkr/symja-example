@@ -67,7 +67,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import io.github.rosemoe.sora.event.ContentChangeEvent;
-import io.github.rosemoe.sora.widget.component.EditorAutoCompletion;
 
 
 public abstract class BaseProgrammingFragment extends Fragment implements DragListener,
@@ -121,30 +120,11 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
         FunctionSuggestionAdapter suggestAdapter = new FunctionSuggestionAdapter(context, android.R.layout.simple_list_item_1, suggestionItems);
         suggestAdapter.setOnSuggestionListener(this);
-        // TODO: replace with symja editor inputView.setAdapter(suggestAdapter);
-        // TODO: replace with symja editor inputView.setThreshold(2);
-        // TODO: replace with symja editor inputView.getDocument().setMode("symja");
-
-        // apply theme
-        // TODO: replace with symja editor  changeTheme(Preferences.getInstance(getContext()).getEditorTheme(), view);
     }
 
     private void addViewEvents(@NotNull View view) {
         btnRun.setOnClickListener(v -> clickRun());
-//        view.findViewById(R.id.btn_clear).setOnClickListener(v -> {
-//            final Context context = requireContext();
-//            if (inputView.getText().length() == 0) {
-//                return;
-//            }
-//            ViewUtils.showConfirmationDialog(context, getString(R.string.clear_all),
-//                    aBoolean -> {
-//                        if (aBoolean) {
-//                            inputView.setText("");
-//                            inputView.requestFocus();
-//                            ViewUtils.showKeyboard(context, inputView);
-//                        }
-//                    });
-//        });
+
         View btnCopy = view.findViewById(R.id.btn_copy);
         btnCopy.setOnClickListener(v -> {
             final Context context = getContext();
@@ -299,13 +279,16 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     }
 
     @Override
-    public void clickOpenDocument(SuggestionItem item) {
+    public void clickOpenDocument(@NonNull SuggestionItem item) {
         if (item.getAssetPath() != null) {
             MarkdownDocumentActivity.open(
                     this, new DocumentItem(item.getAssetPath(), item.getName(), item.getDescription()));
         }
     }
 
+    /**
+     * @noinspection deprecation
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -453,7 +436,17 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 return true;
             }
             if (itemId == R.id.action_clear_input) {
-                inputView.setText("");
+                final Context context = requireContext();
+                if (inputView.getText().length() > 0) {
+                    ViewUtils.showConfirmationDialog(context, getString(R.string.symja_prgm_menu_clear_all_input),
+                            aBoolean -> {
+                                if (aBoolean) {
+                                    inputView.setText("");
+                                    inputView.requestFocus();
+                                    ViewUtils.showKeyboard(context, inputView);
+                                }
+                            });
+                }
                 return true;
             } else if (itemId == R.id.action_import_text_file) {
                 importTextFile();
@@ -473,6 +466,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         Intent intent = new Intent();
         intent.setType("*/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
+        //noinspection deprecation
         startActivityForResult(intent, RC_OPEN_FILE);
     }
 
