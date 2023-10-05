@@ -32,21 +32,6 @@ public class ProgrammingActivity extends BaseActivity {
     private TabLayout tabLayout;
     private ProgrammingPresenter presenter;
 
-    /**
-     * Open programming editor with given input
-     */
-    public static void edit(String input, Context context) {
-        AppAnalytics.getInstance(context)
-                .logEvent(AppAnalyticsEvents.OPEN_PROGRAMMING, new Bundle());
-        Intent intent = new Intent(context, ProgrammingActivity.class);
-        intent.putExtra(EXTRA_INPUT, input);
-        if (context instanceof Activity) {
-            ((Activity) context).startActivityForResult(intent, 0);
-        } else {
-            context.startActivity(intent);
-        }
-    }
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
