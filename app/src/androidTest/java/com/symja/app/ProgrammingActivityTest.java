@@ -14,8 +14,6 @@ import androidx.test.espresso.ViewInteraction;
 import androidx.test.ext.junit.rules.ActivityScenarioRule;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
-import com.symja.programming.ProgrammingActivity;
-
 import org.hamcrest.Matcher;
 import org.junit.Rule;
 import org.junit.Test;

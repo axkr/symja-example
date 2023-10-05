@@ -1,4 +1,4 @@
-package com.symja.programming;
+package com.symja.app;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,6 +12,8 @@ import androidx.annotation.Nullable;
 import com.google.android.material.tabs.TabLayout;
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
+import com.symja.programming.BaseActivity;
+import com.symja.programming.ProgrammingPresenter;
 import com.symja.programming.console.ProgrammingConsoleFragment;
 import com.symja.programming.document.MarkdownListDocumentFragment;
 import com.symja.programming.document.model.DocumentItem;
@@ -50,7 +52,7 @@ public class ProgrammingActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.symja_prgm_activity_programming);
         setSupportActionBar(findViewById(R.id.toolbar));
-        setTitle(R.string.symja_prgm_title_programming);
+        setTitle(com.symja.programming.R.string.symja_prgm_title_programming);
         changeSystemBarColor();
 
         viewFlipper = findViewById(R.id.view_flipper);
@@ -110,7 +112,7 @@ public class ProgrammingActivity extends BaseActivity {
                 switch (position) {
                     case 0:
                         viewFlipper.setDisplayedChild(0);
-                        setTitle(R.string.symja_prgm_tab_title_console);
+                        setTitle(com.symja.programming.R.string.symja_prgm_tab_title_console);
                         //noinspection ConstantConditions
                         getSupportActionBar().setSubtitle(null);
                         break;
@@ -118,7 +120,7 @@ public class ProgrammingActivity extends BaseActivity {
                         AppAnalytics.getInstance(ProgrammingActivity.this)
                                 .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_DOCUMENT, new Bundle());
                         viewFlipper.setDisplayedChild(1);
-                        setTitle(R.string.symja_prgm_tab_title_document);
+                        setTitle(com.symja.programming.R.string.symja_prgm_tab_title_document);
                         //noinspection ConstantConditions
                         getSupportActionBar().setSubtitle(null);
                         break;
@@ -126,7 +128,7 @@ public class ProgrammingActivity extends BaseActivity {
                         AppAnalytics.getInstance(ProgrammingActivity.this)
                                 .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_CATALOG, new Bundle());
                         viewFlipper.setDisplayedChild(2);
-                        setTitle(R.string.symja_prgm_tab_title_catalog);
+                        setTitle(com.symja.programming.R.string.symja_prgm_tab_title_catalog);
                         //noinspection ConstantConditions
                         getSupportActionBar().setSubtitle(null);
                         break;
