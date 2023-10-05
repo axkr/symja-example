@@ -1,7 +1,5 @@
 package com.symja.app;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ViewFlipper;
@@ -41,39 +39,12 @@ public class ProgrammingActivity extends BaseActivity {
         changeSystemBarColor();
 
         viewFlipper = findViewById(R.id.view_flipper);
-
-        ProgrammingConsoleFragment programmingConsoleFragment = (ProgrammingConsoleFragment) getSupportFragmentManager().findFragmentByTag(ProgrammingConsoleFragment.TAG);
-        if (programmingConsoleFragment == null) {
-            programmingConsoleFragment = ProgrammingConsoleFragment.newInstance(getInput());
-        }
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_programming_console, programmingConsoleFragment, ProgrammingConsoleFragment.TAG)
-                .commitAllowingStateLoss();
-
-
-        SymjaTalkFragment symjaTalkFragment = (SymjaTalkFragment) getSupportFragmentManager().findFragmentByTag("SymjaTalkFragment");
-        if (symjaTalkFragment == null) {
-            symjaTalkFragment = SymjaTalkFragment.newInstance(null);
-        }
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_programming_pods, symjaTalkFragment, "SymjaTalkFragment")
-                .commitAllowingStateLoss();
-
-
-        MarkdownListDocumentFragment documentFragment = (MarkdownListDocumentFragment) getSupportFragmentManager().findFragmentByTag("DocumentFragment");
-        if (documentFragment == null) {
-            ArrayList<DocumentItem> tutorialItems = DocumentStructureLoader.getTutorialItems(this);
-            ArrayList<DocumentItem> functionCatalog = DocumentStructureLoader.getFunctionCatalog(this);
-            ArrayList<DocumentItem> combined = new ArrayList<>(tutorialItems.size() + functionCatalog.size());
-            combined.addAll(tutorialItems);
-            combined.addAll(functionCatalog);
-            documentFragment = MarkdownListDocumentFragment.Companion.newInstance(combined);
-        }
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_programming_document, documentFragment, "DocumentFragment")
-                .commitAllowingStateLoss();
-
         tabLayout = findViewById(R.id.tab_layout);
+
+        ProgrammingConsoleFragment programmingConsoleFragment = setupProgrammingTab();
+        SymjaTalkFragment symjaTalkFragment = setupSymjaTalkTab();
+        MarkdownListDocumentFragment documentFragment = setupDocumentTab();
+
         presenter = new ProgrammingPresenter(viewFlipper, tabLayout);
         presenter.setConsoleView(programmingConsoleFragment);
         presenter.setSymjaTalkView(symjaTalkFragment);
@@ -96,26 +67,19 @@ public class ProgrammingActivity extends BaseActivity {
                 int position = tab.getPosition();
                 switch (position) {
                     case 0:
+                        AppAnalytics.getInstance(ProgrammingActivity.this)
+                                .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_CONSOLE, new Bundle());
                         viewFlipper.setDisplayedChild(0);
-                        setTitle(com.symja.programming.R.string.symja_prgm_tab_title_console);
-                        //noinspection ConstantConditions
-                        getSupportActionBar().setSubtitle(null);
                         break;
                     case 1:
                         AppAnalytics.getInstance(ProgrammingActivity.this)
-                                .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_DOCUMENT, new Bundle());
+                                .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_SYMJATALK, new Bundle());
                         viewFlipper.setDisplayedChild(1);
-                        setTitle(com.symja.programming.R.string.symja_prgm_tab_title_document);
-                        //noinspection ConstantConditions
-                        getSupportActionBar().setSubtitle(null);
                         break;
                     case 2:
                         AppAnalytics.getInstance(ProgrammingActivity.this)
-                                .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_CATALOG, new Bundle());
+                                .logEvent(AppAnalyticsEvents.PROGRAMMING_OPEN_DOCUMENT, new Bundle());
                         viewFlipper.setDisplayedChild(2);
-                        setTitle(com.symja.programming.R.string.symja_prgm_tab_title_catalog);
-                        //noinspection ConstantConditions
-                        getSupportActionBar().setSubtitle(null);
                         break;
                 }
             }
@@ -131,6 +95,51 @@ public class ProgrammingActivity extends BaseActivity {
             }
         });
     }
+
+    @NonNull
+    private SymjaTalkFragment setupSymjaTalkTab() {
+        SymjaTalkFragment symjaTalkFragment = (SymjaTalkFragment) getSupportFragmentManager().findFragmentByTag("SymjaTalkFragment");
+        if (symjaTalkFragment == null) {
+            symjaTalkFragment = SymjaTalkFragment.newInstance(null);
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_programming_pods, symjaTalkFragment, "SymjaTalkFragment")
+                .commitAllowingStateLoss();
+        return symjaTalkFragment;
+    }
+
+    @NonNull
+    private ProgrammingConsoleFragment setupProgrammingTab() {
+
+
+        ProgrammingConsoleFragment programmingConsoleFragment = (ProgrammingConsoleFragment) getSupportFragmentManager().findFragmentByTag(ProgrammingConsoleFragment.TAG);
+        if (programmingConsoleFragment == null) {
+            programmingConsoleFragment = ProgrammingConsoleFragment.newInstance(getInput());
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_programming_console, programmingConsoleFragment, ProgrammingConsoleFragment.TAG)
+                .commitAllowingStateLoss();
+        return programmingConsoleFragment;
+    }
+
+    @NonNull
+    private MarkdownListDocumentFragment setupDocumentTab() {
+        MarkdownListDocumentFragment documentFragment = (MarkdownListDocumentFragment) getSupportFragmentManager().findFragmentByTag("DocumentFragment");
+        if (documentFragment == null) {
+            ArrayList<DocumentItem> tutorialItems = DocumentStructureLoader.getTutorialItems(this);
+            ArrayList<DocumentItem> functionCatalog = DocumentStructureLoader.getFunctionCatalog(this);
+            ArrayList<DocumentItem> combined = new ArrayList<>(tutorialItems.size() + functionCatalog.size());
+            combined.addAll(tutorialItems);
+            combined.addAll(functionCatalog);
+            documentFragment = MarkdownListDocumentFragment.Companion.newInstance(combined);
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_programming_document, documentFragment, "DocumentFragment")
+                .commitAllowingStateLoss();
+
+        return documentFragment;
+    }
+
 
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
