@@ -6,6 +6,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,7 +30,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.duy.ide.common.utils.DLog;
-import com.duy.ide.editor.view.CodeEditor;
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.common.android.ClipboardCompat;
@@ -322,7 +322,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         }
     }
 
-    /** @noinspection deprecation*/
+    /**
+     * @noinspection deprecation
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -349,10 +351,10 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         inputView.setTextSize(15);
         inputView.setDelegate((position, completionItem) -> {
             if (presenter != null) {
-                try {
+                try (AssetManager manager = requireContext().getAssets()) {
                     // TODO remove hard coded path
                     String assetPath = "doc/functions/" + completionItem.label + ".md";
-                    requireContext().getAssets().open(assetPath);
+                    manager.open(assetPath);
                     {
                         presenter.openDocument(new DocumentItem(
                                 assetPath,
@@ -369,9 +371,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         errorContainer = view.findViewById(R.id.error_container);
         btnCloseError = view.findViewById(R.id.btn_close_error_message);
         errorContainer.setVisibility(View.GONE);
-        btnCloseError.setOnClickListener(v -> {
-            errorContainer.setVisibility(View.GONE);
-        });
+        btnCloseError.setOnClickListener(v -> errorContainer.setVisibility(View.GONE));
 
         listResultView = view.findViewById(R.id.calculation_result_recycler_view);
         listResultView.setLayoutManager(new LinearLayoutManager(context));
@@ -390,9 +390,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         setupSymbolViews(view.findViewById(R.id.container_symbol), view);
 
         ImageView resizeInputButton = view.findViewById(R.id.btn_resize_input);
-        resizeInputButton.setOnClickListener(v -> {
-            inputExpanded.postValue(Boolean.FALSE.equals(inputExpanded.getValue()));
-        });
+        resizeInputButton.setOnClickListener(v -> inputExpanded.postValue(Boolean.FALSE.equals(inputExpanded.getValue())));
 
         inputExpanded.observe(this.getViewLifecycleOwner(), expanded -> {
             ViewGroup.LayoutParams layoutParams = containerInput.getLayoutParams();
@@ -437,16 +435,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             }
             if (itemId == R.id.action_clear_input) {
                 final Context context = requireContext();
-                if (inputView.getText().length() > 0) {
-                    ViewUtils.showConfirmationDialog(context, getString(R.string.symja_prgm_menu_clear_all_input),
-                            aBoolean -> {
-                                if (aBoolean) {
-                                    inputView.setText("");
-                                    inputView.requestFocus();
-                                    ViewUtils.showKeyboard(context, inputView);
-                                }
-                            });
-                }
+                inputView.setText("");
+                inputView.requestFocus();
+                ViewUtils.showKeyboard(context, inputView);
                 return true;
             } else if (itemId == R.id.action_import_text_file) {
                 importTextFile();
