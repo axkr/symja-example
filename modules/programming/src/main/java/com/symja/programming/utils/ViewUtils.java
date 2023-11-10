@@ -56,26 +56,14 @@ public class ViewUtils {
      * @see Toast#setDuration
      */
     public static final int LENGTH_LONG = Toast.LENGTH_LONG;
-    public static float oneDpInPx = 1;
-
-    public static void init(Context context) {
-        oneDpInPx = ViewUtils.dpToPx(context, 1);
-    }
 
     public static int dpToPx(Context context, int dp) {
-        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-        return Math.round(dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT));
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+                context.getResources().getDisplayMetrics());
     }
 
     public static int spToPx(Context context, int sp) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, context.getResources().getDisplayMetrics());
-    }
-
-    public static float pxToDp(Context context, int px) {
-        Resources resources = context.getResources();
-        DisplayMetrics metrics = resources.getDisplayMetrics();
-        float dp = px / ((float) metrics.densityDpi / DisplayMetrics.DENSITY_DEFAULT);
-        return dp;
     }
 
     public static int getAccentColor(Context context) {
