@@ -116,7 +116,7 @@ public class MarkdownVisitor extends AbstractVisitor {
         SpannableStringBuilder text = stack.pop();
         if (text.length() != 0) {
 
-            View view = LayoutInflater.from(getContext()).inflate(R.layout.list_item_markdown_quote,
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.symja_prgm_list_item_markdown_quote,
                     container, false);
             container.addView(view);
             TextView textView = view.findViewById(R.id.text_view);
@@ -191,7 +191,7 @@ public class MarkdownVisitor extends AbstractVisitor {
         }
 
         View view = LayoutInflater.from(getContext())
-                .inflate(R.layout.list_item_markdown_codeblock, container, false);
+                .inflate(R.layout.symja_prgm_list_item_markdown_codeblock, container, false);
         container.addView(view);
         CodeEditor codeEditor = view.findViewById(R.id.code_editor);
         final String code = fencedCodeBlock.getLiteral().trim();
@@ -354,7 +354,7 @@ public class MarkdownVisitor extends AbstractVisitor {
         final SpannableStringBuilder text = stack.pop();
 
         View container = LayoutInflater.from(getContext())
-                .inflate(R.layout.list_item_markdown_item, this.container, false);
+                .inflate(R.layout.symja_prgm_list_item_markdown_item, this.container, false);
         this.container.addView(container);
 
         TextView textView = container.findViewById(R.id.text_view);
@@ -544,7 +544,7 @@ public class MarkdownVisitor extends AbstractVisitor {
         visitChildren(teXNode);
         stack.pop();
 
-        View view = LayoutInflater.from(getContext()).inflate(R.layout.list_item_markdown_mathview, container, false);
+        View view = LayoutInflater.from(getContext()).inflate(R.layout.symja_prgm_list_item_markdown_mathview, container, false);
         this.container.addView(view);
 
         NativeLatexView mathJaxView = view.findViewById(R.id.output_view);

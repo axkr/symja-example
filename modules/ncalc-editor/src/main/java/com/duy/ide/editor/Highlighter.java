@@ -27,7 +27,7 @@ import android.text.style.CharacterStyle;
 import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 import com.duy.ide.editor.text.style.ErrorSpan;
 import com.duy.ide.editor.theme.model.EditorTheme;
 import com.duy.ide.editor.theme.model.SyntaxStyle;

@@ -19,7 +19,7 @@ package com.duy.ide.editor.theme.model;
 
 import android.graphics.Color;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 
 import java.util.Properties;
 

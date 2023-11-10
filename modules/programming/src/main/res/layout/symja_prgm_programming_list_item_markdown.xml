@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/symja_prgm_result_margin_left"
+    android:layout_marginLeft="@dimen/symja_prgm_result_margin_left"
+    android:layout_marginEnd="@dimen/symja_prgm_result_margin_right"
+    android:layout_marginRight="@dimen/symja_prgm_result_margin_right"
+    app:cardElevation="0dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="1dp"
+    app:strokeColor="@color/symja_prgm_color_list_item_result_stroke"
+    app:strokeWidth="0.75dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/symja_prgm_programming_list_item_result_header" />
+
+        <com.symja.programming.document.view.NativeMarkdownView
+            android:id="@+id/markdown_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp">
+
+        </com.symja.programming.document.view.NativeMarkdownView>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -3,6 +3,7 @@
     <style name="Theme.Symja" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:windowBackground">@color/colorNightSurface</item>
         <item name="colorSurface">@color/colorNightSurface</item>
+        <item name="colorSurfaceVariant">@color/colorNightSurfaceVariant</item>
 
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/colorNightPrimary</item>

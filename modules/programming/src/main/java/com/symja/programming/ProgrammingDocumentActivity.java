@@ -15,7 +15,7 @@ public class ProgrammingDocumentActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_programming_document);
+        setContentView(R.layout.symja_prgm_activity_programming_document);
         setupToolbar();
         //changeSystemBarColor();
         if (getIntent().hasExtra(EXTRA_OPEN_TUTORIALS)

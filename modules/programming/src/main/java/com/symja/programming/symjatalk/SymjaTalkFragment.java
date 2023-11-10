@@ -4,9 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.SpannableStringBuilder;
-import android.text.Spanned;
-import android.text.style.TypefaceSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,13 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 import com.google.common.collect.Lists;
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.common.datastrcture.Data;
 import com.symja.programming.BaseProgrammingFragment;
-import com.symja.programming.ProgrammingContract;
 import com.symja.programming.R;
 import com.symja.programming.console.ProgrammingConsoleDocument;
 import com.symja.programming.console.ProgrammingDocumentManager;
@@ -34,8 +30,12 @@ import com.symja.programming.symjatalk.api.SymjaTalkRequest;
 import com.symja.programming.symjatalk.api.SymjaTalkResult;
 import com.symja.programming.utils.ViewUtils;
 
+import org.matheclipse.parser.client.SyntaxError;
+
 import java.io.IOException;
 import java.util.ArrayList;
+
+import io.github.rosemoe.sora.text.ContentLine;
 
 public class SymjaTalkFragment extends BaseProgrammingFragment implements
         SymjaTalkContract.ResultCallback,
@@ -294,18 +294,22 @@ public class SymjaTalkFragment extends BaseProgrammingFragment implements
 
     @Override
     public void onError(@Nullable Throwable error, SymjaTalkRequest request) {
+        DLog.e(error);
         if (getContext() == null) {
             return;
         }
-        if (error != null && error.getMessage() != null) {
-            String message = error.getMessage();
-            SpannableStringBuilder textContent = new SpannableStringBuilder(message);
-            textContent.setSpan(new TypefaceSpan("monospace"),
-                    0, textContent.length(), Spanned.SPAN_EXCLUSIVE_INCLUSIVE);
-            inputView.requestFocus();
-            // TODO: display error message inputView.setError(textContent);
-
-            DLog.e(error);
+        if (error != null) {
+            if (error instanceof SyntaxError) {
+                SyntaxError syntaxError = (SyntaxError) error;
+                int rowIndex = syntaxError.getRowIndex();
+                int columnIndex = syntaxError.getColumnIndex();
+                ContentLine row = inputView.getText().getLine(rowIndex);
+                columnIndex = Math.min(columnIndex, row.length());
+                inputView.setSelection(rowIndex, columnIndex);
+                displayErrorMessage(syntaxError.getError());
+            } else {
+                displayErrorMessage(error.getMessage());
+            }
         }
         finishCalculating();
     }

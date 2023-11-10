@@ -41,7 +41,7 @@ android {
 
 
     resourcePrefix 'symja_prgm'
-    lintOptions{
+    lint {
         disable 'MissingTranslation'
     }
 
@@ -63,9 +63,9 @@ dependencies {
     api("io.github.Rosemoe.sora-editor:editor")
     api("io.github.Rosemoe.sora-editor:language-textmate")
 
-    api 'ru.noties:jlatexmath-android:0.2.0'
-    api 'ru.noties:jlatexmath-android-font-cyrillic:0.2.0'
-    api 'ru.noties:jlatexmath-android-font-greek:0.2.0'
+    api project(':modules:jlatex:jlatexmath')
+    api project(':modules:jlatex:jlatexmath-font-cyrillic')
+    api project(':modules:jlatex:jlatexmath-font-greek')
 
     api 'com.squareup.okhttp3:okhttp:5.0.0-alpha.11'
 

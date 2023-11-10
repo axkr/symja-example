@@ -309,7 +309,7 @@ public class NativeLatexView extends View implements IExportable {
     }
 
     @IntDef({ALIGN_START, ALIGN_CENTER, ALIGN_END})
-    @Retention(RetentionPolicy.CLASS)
+    @Retention(RetentionPolicy.SOURCE)
     public @interface Align {
     }
 }

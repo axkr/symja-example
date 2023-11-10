@@ -36,7 +36,7 @@ public class MarkdownDocumentActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.programming_markdown_document_activity);
+        setContentView(R.layout.symja_prgm_programming_markdown_document_activity);
         setupToolbar();
         changeSystemBarColor();
 

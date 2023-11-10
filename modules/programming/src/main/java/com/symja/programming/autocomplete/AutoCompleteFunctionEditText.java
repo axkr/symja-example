@@ -105,7 +105,7 @@ public class AutoCompleteFunctionEditText extends androidx.appcompat.widget.AppC
                     Pattern.CASE_INSENSITIVE | Pattern.MULTILINE);
         }
 
-        adapter = new FunctionSuggestionAdapter(context, R.layout.list_item_suggest,
+        adapter = new FunctionSuggestionAdapter(context, R.layout.symja_prgm_list_item_suggest,
                 DocumentStructureLoader.getFunctionCatalog(context)
                         .stream()
                         .map(x -> new SuggestionItem(x.getAssetPath(), x.getName(), x.getDescription()))

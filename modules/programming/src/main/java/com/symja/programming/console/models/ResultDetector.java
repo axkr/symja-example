@@ -29,6 +29,7 @@ public class ResultDetector {
 
     private static final String TAG = "ResultDetector";
 
+    @NonNull
     public static CalculationItem resolve(IExpr res, String inputExpression) {
         SymjaResult simpleResult = new SymjaResult(res, null, null);
         return resolve(simpleResult, inputExpression);
@@ -40,37 +41,7 @@ public class ResultDetector {
             Log.d(TAG, "resolve: result = " + res);
         }
         try {
-            IExpr result = res.getResult();
-            Symja mathEvaluator = Symja.getInstance();
-            EvalEngine engine = mathEvaluator.getExprEvaluator().getEvalEngine();
-
-            String symjaExpr = OutputForm.toString(result);
-
-            CalculationItem item;
-            if (result.head().equals(F.Graph) && result instanceof GraphExpr) {
-
-                item = makeGraphResult(inputExpression, symjaExpr, (GraphExpr<?>) result);
-
-            } else if (result.head().equals(F.Graphics)) {
-
-                item = makeGraphicsResult(inputExpression, symjaExpr, (IExpr) result);
-
-            } else if (result.isAST(F.JSFormData, 3)) {
-
-                item = makeJsFormResult(inputExpression, symjaExpr, result);
-
-            } else if (result.isString()) {
-                item = makeStringResult(inputExpression, symjaExpr, (StringX) result);
-
-            } else {
-
-                item = makeTeXResult(engine, inputExpression, symjaExpr, result);
-            }
-
-            item.setStdOut(res.getStdout());
-            item.setStdErr(res.getStderr());
-
-            return item;
+            return resolveInternal(inputExpression, res);
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -85,6 +56,41 @@ public class ResultDetector {
     }
 
     @NonNull
+    private static CalculationItem resolveInternal(String inputExpression, @NonNull SymjaResult res) throws IOException {
+        IExpr result = res.getResult();
+        Symja mathEvaluator = Symja.getInstance();
+        EvalEngine engine = mathEvaluator.getExprEvaluator().getEvalEngine();
+
+        String symjaExpr = OutputForm.toString(result);
+
+        CalculationItem item;
+        if (result.head().equals(F.Graph) && result instanceof GraphExpr) {
+
+            item = makeGraphResult(inputExpression, symjaExpr, (GraphExpr<?>) result);
+
+        } else if (result.head().equals(F.Graphics)) {
+
+            item = makeGraphicsResult(inputExpression, symjaExpr, (IExpr) result);
+
+        } else if (result.isAST(F.JSFormData, 3)) {
+
+            item = makeJsFormResult(inputExpression, symjaExpr, result);
+
+        } else if (result.isString()) {
+            item = makeStringResult(inputExpression, symjaExpr, (StringX) result);
+
+        } else {
+
+            item = makeTeXResult(engine, inputExpression, symjaExpr, result);
+        }
+
+        item.setStdOut(res.getStdout());
+        item.setStdErr(res.getStderr());
+
+        return item;
+    }
+
+    @NonNull
     private static CalculationItem makeGraphicsResult(String inputExpression, String symjaExpr, IExpr result) throws IOException {
         String html = createGraphicsHtml(result);
         return new CalculationItem(inputExpression, symjaExpr, Data.Format.HTML, html != null ? html : "");
@@ -96,7 +102,7 @@ public class ResultDetector {
      */
     @NonNull
     private static CalculationItem makeStringResult(String inputExpression,
-                                                    String symjaExpr, StringX result) {
+                                                    String symjaExpr, @NonNull StringX result) {
         Data.Format type;
         switch (result.getMimeType()) {
             case IStringX.TEXT_HTML:
@@ -117,6 +123,10 @@ public class ResultDetector {
             case IStringX.APPLICATION_SYMJA:
                 type = Data.Format.TEXT_APPLICATION_SYMJA;
                 break;
+            case IStringX.TEXT_JSON:
+                type = Data.Format.TEXT_APPLICATION_JSON;
+                break;
+            case IStringX.TEXT_PLAIN:
             default:
                 type = Data.Format.TEXT_PLAIN;
         }
@@ -167,7 +177,7 @@ public class ResultDetector {
                 content = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            DLog.w(e);
         }
         return content;
     }

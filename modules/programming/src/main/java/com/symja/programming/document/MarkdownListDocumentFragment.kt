@@ -171,13 +171,13 @@ class MarkdownListDocumentFragment : Fragment(), OnDocumentClickListener, IDocum
     }
 
     private fun setPushAnimation(viewFlipper: ViewFlipper) {
-        viewFlipper.setInAnimation(context, R.anim.slide_in_right)
-        viewFlipper.setOutAnimation(context, R.anim.slide_out_left)
+        viewFlipper.setInAnimation(context, R.anim.symja_prgm_slide_in_right)
+        viewFlipper.setOutAnimation(context, R.anim.symja_prgm_slide_out_left)
     }
 
     private fun setPopAnimation(viewFlipper: ViewFlipper) {
-        viewFlipper.setInAnimation(context, R.anim.slide_in_left)
-        viewFlipper.setOutAnimation(context, R.anim.slide_out_right)
+        viewFlipper.setInAnimation(context, R.anim.symja_prgm_slide_in_left)
+        viewFlipper.setOutAnimation(context, R.anim.symja_prgm_slide_out_right)
     }
 
     private fun onQueryTextChange(newText: String) {

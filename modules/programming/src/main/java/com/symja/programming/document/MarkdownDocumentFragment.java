@@ -34,7 +34,7 @@ public class MarkdownDocumentFragment extends Fragment implements MarkdownViewDe
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_markdown, container, false);
+        return inflater.inflate(R.layout.symja_prgm_fragment_markdown, container, false);
     }
 
     @Override

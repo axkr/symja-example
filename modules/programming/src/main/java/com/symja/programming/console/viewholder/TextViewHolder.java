@@ -25,6 +25,7 @@ public class TextViewHolder extends BaseViewHolder {
                 txtResult.getDocument().setMode("javascript");
                 break;
             case TEXT_APPLICATION_SYMJA:
+            case TEXT_PLAIN:
                 txtResult.getDocument().setMode("symja");
                 break;
             case TEXT_APPLICATION_JAVA:
@@ -39,8 +40,8 @@ public class TextViewHolder extends BaseViewHolder {
             case TEXT_LATEX:
                 txtResult.getDocument().setMode("latex");
                 break;
-            case TEXT_PLAIN:
-                txtResult.getDocument().setMode("symja");
+            case TEXT_APPLICATION_JSON:
+                txtResult.getDocument().setMode("json");
                 break;
         }
         txtResult.setText(item.getData());

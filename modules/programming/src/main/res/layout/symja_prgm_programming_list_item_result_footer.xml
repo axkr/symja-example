@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/symja_prgm_programming_list_item_result_mathcell">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/container_output_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/symja_prgm_color_list_item_result_stroke" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/expand_collapse_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:paddingLeft="4dp"
+            android:paddingTop="8dp"
+            android:paddingRight="4dp"
+            android:paddingBottom="8dp"
+            android:text="@string/symja_prgm_label_view_output_error"
+            app:drawableStartCompat="@drawable/symja_prgm_baseline_keyboard_arrow_down_24"
+            app:drawableTint="?android:textColorSecondary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/symja_prgm_color_list_item_result_stroke" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_error_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:scrollHorizontally="true"
+            android:textColor="?colorError"
+            android:textIsSelectable="true"
+            android:typeface="monospace"
+            tools:text="Inverse: the matrix is singular" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/txt_standard_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:scrollHorizontally="true"
+            android:textIsSelectable="true"
+            android:typeface="monospace"
+            tools:text="1; 2; 3; 4; 5; 6\n7\n8\n9\n10" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</merge>
+

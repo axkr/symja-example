@@ -20,7 +20,9 @@ class SymjaAutoCompleteProvider(val context: Context) {
     private var keywordMap: Map<String, Any>? = null
 
     init {
-        AST2Expr.initialize()
+        if (AST2Expr.PREDEFINED_SYMBOLS_MAP == null || AST2Expr.PREDEFINED_SYMBOLS_MAP.isEmpty()) {
+            AST2Expr.initialize()
+        }
         keywords = AST2Expr.PREDEFINED_SYMBOLS_MAP.values.toSet().toTypedArray()
         val map = HashMap<String, Any>()
         for (keyword in keywords) {
@@ -76,7 +78,7 @@ class SymjaAutoCompleteProvider(val context: Context) {
                 completionItem.icon(
                     ContextCompat.getDrawable(
                         context,
-                        R.drawable.baseline_help_outline_24
+                        R.drawable.symja_prgm_baseline_help_outline_24
                     )
                 );
                 result.add(completionItem)

@@ -10,9 +10,11 @@
     <string name="symja_prgm_button_undo">Undo</string>
 
     <string name="symja_prgm_label_calculation_result">Calculation result</string>
-    <string name="symja_prgm_label_need_more_help_contact_us">Need more help? Contact us.</string>
+    <string name="symja_prgm_label_format_latex">LaTeX</string>
+    <string name="symja_prgm_label_format_text">Text</string>
     <string name="symja_prgm_label_search">Search</string>
     <string name="symja_prgm_label_view_output_error">Output | Error Message</string>
+    <string name="symja_prgm_label_need_more_help_contact_us">Need more help? Contact us.</string>
 
     <string name="symja_prgm_menu_clear_all_items">Clear all items</string>
     <string name="symja_prgm_menu_clear_all_input">Clear input</string>

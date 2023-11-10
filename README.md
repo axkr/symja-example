@@ -1,3 +1,7 @@
+<p align="left">
+<a href="https://discord.gg/tYknzr2qam" target="blank"><img src="https://img.shields.io/discord/869895703718166529.svg?color=7289da&label=Join Symja @ Discord&logo=discord&style=for-the-badge" alt="Join Symja @ Discord" />
+</p>
+  
 # Overview
 
 This is an Android application for [Symja computer algebra language](https://github.com/axkr/symja_android_library)

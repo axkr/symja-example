@@ -19,7 +19,7 @@ package org.gjt.sp.jedit;
 
 import android.content.Context;
 
-import com.duy.common.utils.DLog;
+import com.duy.ide.common.utils.DLog;
 
 import org.gjt.sp.jedit.syntax.ModeProvider;
 import org.gjt.sp.jedit.syntax.TokenMarker;

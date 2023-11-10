@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.symja.evaluator.SymjaResult;
-import com.symja.evaluator.config.EvaluationConfig;
+import com.symja.evaluator.config.SymjaEvaluationConfig;
 import com.symja.programming.document.model.DocumentItem;
 
 public class ProgrammingContract {
@@ -19,7 +19,7 @@ public class ProgrammingContract {
 
         @NonNull
         AsyncTask<Void, Void, SymjaResult> createCalculateTask(ProgrammingPresenter.ResultCallback callback,
-                                                               String input, EvaluationConfig config);
+                                                               String input, SymjaEvaluationConfig config);
 
         /**
          * @return true if the presenter can display document for documentItem

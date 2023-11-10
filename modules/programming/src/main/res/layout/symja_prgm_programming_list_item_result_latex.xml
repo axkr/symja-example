@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/symja_prgm_result_margin_left"
+    android:layout_marginEnd="@dimen/symja_prgm_result_margin_right"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="0dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPadding="1dp"
+    app:strokeColor="@color/symja_prgm_color_list_item_result_stroke"
+    app:strokeWidth="0.75dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical">
+
+        <include layout="@layout/symja_prgm_programming_list_item_result_header" />
+
+        <com.duy.ide.editor.view.CodeEditor
+            android:id="@+id/input_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:enabled="false"
+            android:inputType="textImeMultiLine|textMultiLine"
+            app:language="symja"
+            app:lineNumberVisible="false"
+            tools:text="Sin(x)+Cos(x)">
+
+        </com.duy.ide.editor.view.CodeEditor>
+
+        <ViewFlipper
+            android:id="@+id/result_view_flipper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:measureAllChildren="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:id="@+id/container_input_latex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:scrollbarStyle="outsideInset">
+
+                    <com.symja.programming.view.NativeLatexView
+                        android:id="@+id/input_latex_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/symja_prgm_result_margin_left"
+                        android:paddingLeft="@dimen/symja_prgm_result_margin_left"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="@dimen/symja_prgm_result_margin_right"
+                        android:paddingRight="@dimen/symja_prgm_result_margin_right"
+                        android:paddingBottom="8dp"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="18sp"
+                        app:alignHorizontal="start"
+                        tools:latex="Sin(x)+Cos(x)+Tan(x)" />
+                </HorizontalScrollView>
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:scrollbarStyle="outsideInset">
+
+                    <com.symja.programming.view.NativeLatexView
+                        android:id="@+id/result_latex_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingStart="@dimen/symja_prgm_result_margin_left"
+                        android:paddingLeft="@dimen/symja_prgm_result_margin_left"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="@dimen/symja_prgm_result_margin_right"
+                        android:paddingRight="@dimen/symja_prgm_result_margin_right"
+                        android:paddingBottom="8dp"
+                        android:textColor="?android:textColorPrimary"
+                        android:textSize="18sp"
+                        app:alignHorizontal="end"
+                        tools:latex="Sin(x)+Cos(x)+Tan(x)" />
+                </HorizontalScrollView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="4dp" />
+
+                <com.duy.ide.editor.view.CodeEditor
+                    android:id="@+id/result_plaintext_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:enabled="false"
+                    android:inputType="textImeMultiLine|textMultiLine"
+                    app:language="java"
+                    app:lineNumberVisible="false"
+                    tools:text="Sin(x)+Cos(x)">
+
+                </com.duy.ide.editor.view.CodeEditor>
+            </LinearLayout>
+        </ViewFlipper>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/result_tab_layout"
+            style="@style/Widget.Material3.TabLayout.OnSurface"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="end"
+            android:background="?colorSurface"
+            android:clipChildren="false"
+            android:elevation="0dp"
+            android:minWidth="200dp"
+            app:tabIndicatorColor="?colorPrimary"
+            app:tabSelectedTextColor="?colorOnSurface">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/symja_prgm_label_format_latex" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/symja_prgm_label_format_text" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <include layout="@layout/symja_prgm_programming_list_item_result_footer" />
+
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

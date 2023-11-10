@@ -18,7 +18,7 @@
         android:focusable="true"
         android:padding="12dp"
         android:tint="?android:textColorSecondary"
-        app:srcCompat="@drawable/baseline_help_outline_24" />
+        app:srcCompat="@drawable/symja_prgm_baseline_help_outline_24" />
 
     <LinearLayout
         android:layout_width="match_parent"

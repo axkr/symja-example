@@ -8,6 +8,8 @@ public class AppAnalyticsEvents {
     public static final String PROGRAMMING_IMPORT_TEXT_FILE = "programming_import_text_file";
     public static final String PROGRAMMING_OPEN_DOCUMENT = "programming_open_document";
     public static final String PROGRAMMING_OPEN_CATALOG = "programming_open_catalog";
+    public static final String PROGRAMMING_OPEN_CONSOLE = "programming_open_console";
+    public static final String PROGRAMMING_OPEN_SYMJATALK = "programming_open_symjatalk";
     public static final String PROGRAMMING_OPEN_SETTINGS = "programming_open_settings";
     public static final String PROGRAMMING_CLICK_RUN = "programming_click_run";
 

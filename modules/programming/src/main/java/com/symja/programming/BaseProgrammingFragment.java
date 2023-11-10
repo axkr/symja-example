@@ -6,6 +6,7 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.AssetManager;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,8 +29,7 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.duy.common.utils.DLog;
-import com.duy.ide.editor.view.CodeEditor;
+import com.duy.ide.common.utils.DLog;
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
 import com.symja.common.android.ClipboardCompat;
@@ -67,7 +67,6 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import io.github.rosemoe.sora.event.ContentChangeEvent;
-import io.github.rosemoe.sora.widget.component.EditorAutoCompletion;
 
 
 public abstract class BaseProgrammingFragment extends Fragment implements DragListener,
@@ -76,12 +75,15 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         ProgrammingContract.IConsoleView {
     private static final int RC_OPEN_FILE = 1232;
     private static final int RC_REQUEST_PERMISSION = 4444;
-    private static final int RC_CHANGE_EDITOR_THEME = 101;
 
     protected TextView btnRun;
     protected View progressBar;
 
     protected SymjaEditor inputView;
+    protected TextView txtErrorLabel;
+    protected View errorContainer;
+    protected View btnCloseError;
+
     protected RecyclerView listResultView;
 
     protected IProgrammingSettings settings;
@@ -117,30 +119,11 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
 
         FunctionSuggestionAdapter suggestAdapter = new FunctionSuggestionAdapter(context, android.R.layout.simple_list_item_1, suggestionItems);
         suggestAdapter.setOnSuggestionListener(this);
-        // TODO: replace with symja editor inputView.setAdapter(suggestAdapter);
-        // TODO: replace with symja editor inputView.setThreshold(2);
-        // TODO: replace with symja editor inputView.getDocument().setMode("symja");
-
-        // apply theme
-        // TODO: replace with symja editor  changeTheme(Preferences.getInstance(getContext()).getEditorTheme(), view);
     }
 
     private void addViewEvents(@NotNull View view) {
         btnRun.setOnClickListener(v -> clickRun());
-//        view.findViewById(R.id.btn_clear).setOnClickListener(v -> {
-//            final Context context = requireContext();
-//            if (inputView.getText().length() == 0) {
-//                return;
-//            }
-//            ViewUtils.showConfirmationDialog(context, getString(R.string.clear_all),
-//                    aBoolean -> {
-//                        if (aBoolean) {
-//                            inputView.setText("");
-//                            inputView.requestFocus();
-//                            ViewUtils.showKeyboard(context, inputView);
-//                        }
-//                    });
-//        });
+
         View btnCopy = view.findViewById(R.id.btn_copy);
         btnCopy.setOnClickListener(v -> {
             final Context context = getContext();
@@ -178,7 +161,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         inputView.subscribeEvent(ContentChangeEvent.class, (event, unsubscribe) -> {
             btnRedo.setEnabled(inputView.canRedo());
             btnUndo.setEnabled(inputView.canUndo());
-            btnCopy.setEnabled(inputView.getText().length() > 0);
+            boolean textNotEmpty = inputView.getText().length() > 0;
+            btnCopy.setEnabled(textNotEmpty);
+            btnRun.setEnabled(textNotEmpty);
         });
 
     }
@@ -193,23 +178,6 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     protected void clickClearAll() {
         // reset position
     }
-
-//   // TODO: replace with symja editor  private void changeTheme(EditorTheme editorTheme, View view) {
-//        if (editorTheme != null && view != null) {
-//            inputView.setTheme(editorTheme);
-//            containerInput.setCardBackgroundColor(editorTheme.getBgColor());
-//
-//            // btnRun.setTextColor(editorTheme.getCaretColor());
-//            // btnRun.setIconTint(ColorStateList.valueOf(editorTheme.getCaretColor()));
-//            // ((TextView) view.findViewById(R.id.btn_clear)).setTextColor(editorTheme.getFgColor());
-//            // ((TextView) view.findViewById(R.id.btn_paste)).setTextColor(editorTheme.getFgColor());
-//            // ((TextView) view.findViewById(R.id.btn_copy)).setTextColor(editorTheme.getFgColor());
-//
-//            View divider = view.findViewById(R.id.divider);
-//            //noinspection deprecation
-//            divider.setBackgroundDrawable(new ColorDrawable(editorTheme.getGutterStyle().getFoldColor()));
-//        }
-//    }
 
     private void setupSymbolViews(final LinearLayout containerSymbol, final View rootView) {
         if (containerSymbol == null) {
@@ -252,7 +220,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 for (int i = 0; i < Math.min(count, directionTextMaps.size()); i++) {
                     HashMap<DragDirection, String> directionTextMap = directionTextMaps.get(i);
                     @SuppressLint("InflateParams")
-                    DragButton button = (DragButton) LayoutInflater.from(getContext()).inflate(R.layout.direction_button, null);
+                    DragButton button = (DragButton) LayoutInflater.from(getContext()).inflate(R.layout.symja_prgm_direction_button, null);
                     button.setDirectionTextMap(directionTextMap);
                     button.setOnDragListener(BaseProgrammingFragment.this);
                     LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.MATCH_PARENT);
@@ -289,8 +257,8 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             }
             if (getActivity() != null) {
                 View currentFocus = getActivity().getWindow().getCurrentFocus();
-                if (currentFocus instanceof CodeEditor) {
-                    ((CodeEditor) currentFocus).insert(text);
+                if (currentFocus instanceof SymjaEditor) {
+                    ((SymjaEditor) currentFocus).insert(text);
                 }
             }
 
@@ -310,13 +278,16 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     }
 
     @Override
-    public void clickOpenDocument(SuggestionItem item) {
+    public void clickOpenDocument(@NonNull SuggestionItem item) {
         if (item.getAssetPath() != null) {
             MarkdownDocumentActivity.open(
                     this, new DocumentItem(item.getAssetPath(), item.getName(), item.getDescription()));
         }
     }
 
+    /**
+     * @noinspection deprecation
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -351,6 +322,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         }
     }
 
+    /**
+     * @noinspection deprecation
+     */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -373,14 +347,14 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         //noinspection ConstantConditions
         @NonNull Context context = getActivity() != null ? getActivity() : getContext();
 
-        inputView = view.findViewById(R.id.edit_input);
+        inputView = view.findViewById(R.id.symja_prgm_edit_input);
         inputView.setTextSize(15);
         inputView.setDelegate((position, completionItem) -> {
             if (presenter != null) {
-                try {
+                try (AssetManager manager = requireContext().getAssets()) {
                     // TODO remove hard coded path
                     String assetPath = "doc/functions/" + completionItem.label + ".md";
-                    requireContext().getAssets().open(assetPath);
+                    manager.open(assetPath);
                     {
                         presenter.openDocument(new DocumentItem(
                                 assetPath,
@@ -392,6 +366,12 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 }
             }
         });
+
+        txtErrorLabel = view.findViewById(R.id.txt_error_message);
+        errorContainer = view.findViewById(R.id.error_container);
+        btnCloseError = view.findViewById(R.id.btn_close_error_message);
+        errorContainer.setVisibility(View.GONE);
+        btnCloseError.setOnClickListener(v -> errorContainer.setVisibility(View.GONE));
 
         listResultView = view.findViewById(R.id.calculation_result_recycler_view);
         listResultView.setLayoutManager(new LinearLayoutManager(context));
@@ -410,9 +390,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         setupSymbolViews(view.findViewById(R.id.container_symbol), view);
 
         ImageView resizeInputButton = view.findViewById(R.id.btn_resize_input);
-        resizeInputButton.setOnClickListener(v -> {
-            inputExpanded.postValue(Boolean.FALSE.equals(inputExpanded.getValue()));
-        });
+        resizeInputButton.setOnClickListener(v -> inputExpanded.postValue(Boolean.FALSE.equals(inputExpanded.getValue())));
 
         inputExpanded.observe(this.getViewLifecycleOwner(), expanded -> {
             ViewGroup.LayoutParams layoutParams = containerInput.getLayoutParams();
@@ -423,13 +401,13 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             }
             containerInput.requestLayout();
             if (expanded) {
-                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.round_expand_less_24));
+                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.symja_prgm_round_expand_less_24));
             } else {
-                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.round_expand_more_24));
+                resizeInputButton.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.symja_prgm_round_expand_more_24));
             }
 
             // Disable auto complete in collapsed mode
-            inputView.getComponent(EditorAutoCompletion.class).setEnabled(expanded);
+            // inputView.getComponent(EditorAutoCompletion.class).setEnabled(expanded);
 
 
             PreferenceManager.getDefaultSharedPreferences(requireContext())
@@ -456,7 +434,10 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 return true;
             }
             if (itemId == R.id.action_clear_input) {
+                final Context context = requireContext();
                 inputView.setText("");
+                inputView.requestFocus();
+                ViewUtils.showKeyboard(context, inputView);
                 return true;
             } else if (itemId == R.id.action_import_text_file) {
                 importTextFile();
@@ -476,6 +457,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         Intent intent = new Intent();
         intent.setType("*/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
+        //noinspection deprecation
         startActivityForResult(intent, RC_OPEN_FILE);
     }
 
@@ -505,4 +487,11 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         return false;
     }
 
+    protected void displayErrorMessage(String errorMessage) {
+        if (errorContainer == null) {
+            return;
+        }
+        txtErrorLabel.setText(errorMessage);
+        ViewUtils.showView(errorContainer);
+    }
 }

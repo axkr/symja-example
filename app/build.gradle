@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.symja.app"
-        minSdk 28
+        minSdk 31
         versionCode 1
         versionName "1.0"
 
@@ -23,19 +23,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+        // https://developer.android.com/studio/write/java8-support
+        // For AGP 4.1+
+        coreLibraryDesugaringEnabled = true
+
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "1.8"
     }
-    // sourceSets {
-    //     androidTest {
-    //         java {
-    //             srcDir '../symja_android_library/symja_android_library/matheclipse-core/src/test/java'
-    //         }
-    //     }
-    // }
 
     packagingOptions {
         resources {
@@ -64,17 +62,21 @@ dependencies {
         }
     }
 
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
+
     testImplementation 'junit:junit:4.13.2'
 
     androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.1'
     androidTestImplementation 'androidx.test:runner:1.5.2'
     androidTestImplementation 'androidx.test:rules:1.5.0'
 
     implementation 'com.google.android.material:material:1.9.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation "androidx.browser:browser:1.6.0"
 
 //    implementation 'com.google.guava:guava:32.1.2-android'
 //    implementation('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {

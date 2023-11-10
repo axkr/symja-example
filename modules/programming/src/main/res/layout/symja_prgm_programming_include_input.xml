@@ -26,7 +26,7 @@
             android:orientation="vertical">
 
             <com.symja.editor.SymjaEditor
-                android:id="@+id/edit_input"
+                android:id="@id/symja_prgm_edit_input"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -35,6 +35,8 @@
                 android:inputType="textMultiLine"
                 android:scrollbars="vertical"
                 android:typeface="monospace"
+                app:lineNumberVisible="true"
+                app:maxCompletionPopupHeight="300dp"
                 app:textSize="14sp"
                 tools:ignore="HardcodedText,ClassNameCheck"
                 tools:text="a:=2;\nb:=\nc:=4\nd:=5\ne:=6\n"
@@ -69,7 +71,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/round_expand_less_24"
+                        app:srcCompat="@drawable/symja_prgm_round_expand_less_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -82,7 +84,7 @@
                         android:minWidth="48dp"
                         android:padding="10dp"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/baseline_more_vert_24"
+                        app:srcCompat="@drawable/symja_prgm_baseline_more_vert_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -98,7 +100,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/baseline_content_copy_24"
+                        app:srcCompat="@drawable/symja_prgm_baseline_content_copy_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -114,7 +116,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/baseline_content_paste_24"
+                        app:srcCompat="@drawable/symja_prgm_baseline_content_paste_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -130,7 +132,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/round_undo_24"
+                        app:srcCompat="@drawable/symja_prgm_round_undo_24"
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
@@ -146,7 +148,7 @@
                         android:textAllCaps="false"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="12sp"
-                        app:srcCompat="@drawable/round_redo_24"
+                        app:srcCompat="@drawable/symja_prgm_round_redo_24"
                         app:tint="?android:textColorPrimary" />
 
                 </LinearLayout>
@@ -158,13 +160,14 @@
                     android:layout_height="48dp"
                     android:layout_gravity="end|center_vertical"
                     android:clickable="true"
+                    android:contentDescription="@string/symja_prgm_button_submit"
                     android:focusable="true"
                     android:minWidth="48dp"
                     android:paddingLeft="12dp"
                     android:paddingRight="12dp"
                     android:text="@string/symja_prgm_button_submit"
                     android:textColor="?colorOnPrimary"
-                    app:icon="@drawable/round_play_circle_outline_24"
+                    app:icon="@drawable/symja_prgm_round_play_circle_outline_24"
                     app:iconSize="24dp" />
 
                 <ProgressBar
@@ -176,7 +179,36 @@
                     android:visibility="gone"
                     tools:visibility="visible" />
 
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/error_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="?colorSurface"
+                    android:clickable="true"
+                    android:focusable="true">
 
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/txt_error_message"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:singleLine="false"
+                        android:textColor="?colorError"
+                        tools:text="Error in factor at character: ' ' (Token:0 \u0020) Error in factor at character: ' ' (Token:0 \u0020)" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/btn_close_error_message"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="?selectableItemBackground"
+                        android:padding="8dp"
+                        app:srcCompat="@drawable/symja_prgm_round_close_24"
+                        app:tint="?colorOnSurface" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
             </FrameLayout>
 
             <com.google.android.material.divider.MaterialDivider
@@ -198,15 +230,17 @@
             <com.symja.programming.view.dragbutton.DragButton
                 android:id="@+id/big_drag_button"
                 style="@style/Widget.AppCompat.Button"
-                android:layout_width="100dp"
-                android:layout_height="70dp"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="0dp"
                 android:layout_marginRight="0dp"
                 android:clickable="true"
                 android:focusable="true"
+                app:textSize="20dp"
                 tools:alpha="0.3"
-                tools:showIn="@layout/symja_prgm_fragment_programming_console">
+                tools:showIn="@layout/symja_prgm_fragment_programming_console"
+                tools:ignore="SpUsage">
 
             </com.symja.programming.view.dragbutton.DragButton>
 

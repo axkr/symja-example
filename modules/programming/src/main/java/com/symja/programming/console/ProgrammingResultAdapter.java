@@ -32,7 +32,6 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
     private List<CalculationItem> document;
     @NonNull
     private final LayoutInflater inflater;
-    private boolean useSpace = false;
     @Nullable
     private OnProgrammingItemClickListener programmingItemClickListener;
 
@@ -46,19 +45,29 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
         switch (viewType) {
             case ViewType.SPACE:
-                return new SpaceViewHolder(inflater.inflate(R.layout.programming_list_item_space, viewGroup, false));
+                return new SpaceViewHolder(inflater.inflate(
+                        R.layout.symja_prgm_programming_list_item_space, viewGroup, false));
+
             case ViewType.LATEX:
-                return new LatexViewHolder(inflater.inflate(R.layout.programming_list_item_result_latex, viewGroup, false));
+                return new LatexViewHolder(inflater.inflate(
+                        R.layout.symja_prgm_programming_list_item_result_latex, viewGroup, false));
 
             case ViewType.WEB:
-                return new WebViewHolder(inflater.inflate(R.layout.symja_prgm_programming_list_item_result_web, viewGroup, false));
+                return new WebViewHolder(inflater.inflate(
+                        R.layout.symja_prgm_programming_list_item_result_web, viewGroup, false));
 
             case ViewType.TEXT:
-                return new TextViewHolder(inflater.inflate(R.layout.programming_list_item_result_text, viewGroup, false));
+                return new TextViewHolder(inflater.inflate(
+                        R.layout.symja_prgm_programming_list_item_result_text, viewGroup, false));
+
             case ViewType.FACTOR_DIAGRAM:
-                return new FactorDiagramViewHolder(inflater.inflate(R.layout.programming_list_item_result_factor_diagram, viewGroup, false));
+                return new FactorDiagramViewHolder(inflater.inflate(
+                        R.layout.symja_prgm_programming_list_item_result_factor_diagram, viewGroup, false));
+
             case ViewType.MARKDOWN:
-                return new MarkdownViewHolder(inflater.inflate(R.layout.programming_list_item_markdown, viewGroup, false));
+                return new MarkdownViewHolder(inflater.inflate(
+                        R.layout.symja_prgm_programming_list_item_markdown, viewGroup, false));
+
             default:
                 throw new UnsupportedOperationException();
         }
@@ -70,7 +79,7 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
             return;
         }
 
-        final CalculationItem calculationItem = document.get(position - (useSpace ? 1 : 0));
+        final CalculationItem calculationItem = document.get(position);
         if (h instanceof BaseViewHolder) {
             ((BaseViewHolder) h).bindData(calculationItem, this);
         }
@@ -79,13 +88,6 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
     @Override
     public int getItemViewType(int position) {
         // header
-        if (position == 0 && useSpace) {
-            return ViewType.SPACE;
-        }
-        if (useSpace) {
-            position = position - 1;
-        }
-
         CalculationItem calculationItem = document.get(position);
 
         if (calculationItem.hasFormat(Data.Format.LATEX)) {
@@ -111,11 +113,7 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public int getItemCount() {
-        return document.size() + (useSpace ? 1 : 0);
-    }
-
-    public void setUseSpace(boolean useSpace) {
-        this.useSpace = useSpace;
+        return document.size();
     }
 
     @SuppressLint("NotifyDataSetChanged")
@@ -126,10 +124,9 @@ public class ProgrammingResultAdapter extends RecyclerView.Adapter<RecyclerView.
 
     @Override
     public void onRemoveClicked(@NotNull RecyclerView.ViewHolder holder) {
-        int adapterPosition = holder.getAdapterPosition();
+        int adapterPosition = holder.getBindingAdapterPosition();
         if (adapterPosition >= 0) {
-            int dataPosition = adapterPosition - (useSpace ? 1 : 0);
-            document.remove(dataPosition);
+            document.remove(adapterPosition);
             notifyItemRemoved(adapterPosition);
         }
     }

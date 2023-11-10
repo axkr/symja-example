@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/symja_prgm_programming_list_item_result_mathcell">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?colorSurfaceVariant"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txt_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="0dp"
+            android:layout_weight="1"
+            android:padding="8dp"
+            android:textSize="14sp"
+            android:textIsSelectable="true"
+            android:textStyle="bold"
+            tools:text="@string/symja_prgm_label_calculation_result" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_expand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:contentDescription="Remove"
+            android:focusable="true"
+            android:padding="8dp"
+            android:tint="?android:textColorPrimary"
+            android:visibility="gone"
+            app:srcCompat="@drawable/symja_prgm_baseline_zoom_out_map_24"
+            tools:ignore="HardcodedText"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/btn_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="?android:selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:padding="8dp"
+            android:textColor="?android:textColorSecondary"
+            android:tint="?android:textColorPrimary"
+            android:visibility="gone"
+            app:srcCompat="@drawable/symja_prgm_baseline_more_vert_24"
+            tools:ignore="HardcodedText"
+            tools:visibility="visible" />
+
+    </LinearLayout>
+
+</merge>
+

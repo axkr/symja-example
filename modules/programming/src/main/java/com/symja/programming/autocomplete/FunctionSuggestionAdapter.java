@@ -102,7 +102,7 @@ public class FunctionSuggestionAdapter extends ArrayAdapter<SuggestionItem> {
     @Override
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.list_item_suggest, parent, false);
+            convertView = inflater.inflate(R.layout.symja_prgm_list_item_suggest, parent, false);
         }
         final SuggestionItem documentItem = displayItems.get(position);
 

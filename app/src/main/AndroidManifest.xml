@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Symja"
         tools:targetApi="tiramisu">
         <activity
-            android:name="com.symja.programming.ProgrammingActivity"
+            android:name=".ProgrammingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
