@@ -35,14 +35,11 @@ dependencies {
 
     api project(':modules:common')
 
-    api 'com.google.guava:guava:32.1.2-android'
-//    api('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
-//        exclude group: 'com.google.guava', module: 'guava'
-//    }
-    api('org.matheclipse:matheclipse-core:3.0.0-SNAPSHOT') {
+    api 'com.google.guava:guava:32.1.3-android'
+    api('org.matheclipse:matheclipse-core:3.0.0') {
         exclude group: 'com.google.guava', module: 'guava'
     }
-    api('org.matheclipse:matheclipse-api:3.0.0-SNAPSHOT') {
+    api('org.matheclipse:matheclipse-api:3.0.0') {
         exclude group: 'org.matheclipse', module: 'matheclipse-core'
         exclude group: 'org.matheclipse', module: 'matheclipse-gpl'
         exclude group: 'org.matheclipse', module: 'matheclipse-io'

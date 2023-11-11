@@ -78,13 +78,5 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation "androidx.browser:browser:1.6.0"
 
-//    implementation 'com.google.guava:guava:32.1.2-android'
-//    implementation('org.matheclipse:matheclipse-gpl:3.0.0-SNAPSHOT') {
-//        exclude group: 'com.google.guava', module: 'guava'
-//    }
-//    implementation('org.matheclipse:matheclipse-core:3.0.0-SNAPSHOT') {
-//        exclude group: 'com.google.guava', module: 'guava'
-//    }
-
     implementation project(':modules:programming')
 }
