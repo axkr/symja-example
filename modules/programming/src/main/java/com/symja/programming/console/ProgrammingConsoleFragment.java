@@ -22,7 +22,6 @@ import com.symja.common.logging.DLog;
 import com.symja.evaluator.SymjaResult;
 import com.symja.evaluator.config.SymjaEvaluationConfig;
 import com.symja.programming.BaseProgrammingFragment;
-import com.symja.programming.BuildConfig;
 import com.symja.programming.ProgrammingContract;
 import com.symja.programming.ProgrammingPresenter;
 import com.symja.programming.R;
@@ -221,12 +220,13 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         boolean firstLaunch = preferences.getBoolean("console_first_launch", true);
-        if (firstLaunch && (BuildConfig.DEBUG && editingDocument.isEmpty())) {
+        if (firstLaunch && (editingDocument.isEmpty())) {
             try {
                 String content = IOUtils.toString(getContext().getAssets().open("console/Document0.json"), StandardCharsets.UTF_8);
                 JSONObject jsonObject = new JSONObject(content);
                 ProgrammingConsoleDocument examples = new ProgrammingConsoleDocument(jsonObject.toMap());
                 this.editingDocument.addAll(examples);
+                preferences.edit().putBoolean("console_first_launch", false).apply();
             } catch (IOException e) {
                 DLog.i(TAG, e.getMessage());
             } catch (Exception e) {
