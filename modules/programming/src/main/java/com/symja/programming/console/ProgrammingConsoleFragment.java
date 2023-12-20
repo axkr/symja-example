@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 import com.symja.common.analyst.AppAnalytics;
 import com.symja.common.analyst.AppAnalyticsEvents;
@@ -227,8 +227,10 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
                 JSONObject jsonObject = new JSONObject(content);
                 ProgrammingConsoleDocument examples = new ProgrammingConsoleDocument(jsonObject.toMap());
                 this.editingDocument.addAll(examples);
+            } catch (IOException e) {
+                DLog.i(TAG, e.getMessage());
             } catch (Exception e) {
-                e.printStackTrace();
+                DLog.w(TAG, e.getMessage());
             }
         }
     }
