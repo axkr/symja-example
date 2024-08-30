@@ -21,7 +21,11 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            
+        }
     }
+
     compileOptions {
         // https://developer.android.com/studio/write/java8-support
         // For AGP 4.1+
