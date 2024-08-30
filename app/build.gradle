@@ -53,7 +53,7 @@ android {
 
 
 // https://github.com/Celeral/log4j2-android
-configurations.all { config ->
+configurations.configureEach { config ->
     {
         if (config.name.startsWith("test") || config.name.contains("Test") && !config.name.contains("Android")) {
             exclude group: "com.celeral", module: "log4j2-android"
