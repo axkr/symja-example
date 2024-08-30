@@ -129,7 +129,7 @@ public class SyntaxUtilities {
                 styles[i] = parseStyle(property);
                 prev = styles[i];
             } catch (Exception e) {
-                if (DLog.DEBUG) DLog.w(TAG, "loadStyles: failed " + styleName);
+                if (DLog.DEBUG) DLog.i(TAG, "loadStyles: failed " + styleName);
                 styles[i] = prev;
             }
         }

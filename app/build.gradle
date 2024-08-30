@@ -51,6 +51,22 @@ android {
     }
 }
 
+
+// https://github.com/Celeral/log4j2-android
+configurations.all { config ->
+    {
+        if (config.name.startsWith("test") || config.name.contains("Test") && !config.name.contains("Android")) {
+            exclude group: "com.celeral", module: "log4j2-android"
+        } else {
+            exclude group: "org.apache.logging.log4j", module: "log4j-core"
+        }
+    }
+    resolutionStrategy {
+        force "org.apache.logging.log4j:log4j-api:2.17.2"
+    }
+}
+
+
 dependencies {
     configurations.configureEach {
         resolutionStrategy.capabilitiesResolution.withCapability("com.google.collections:google-collections") {
@@ -79,4 +95,8 @@ dependencies {
     implementation "androidx.browser:browser:1.8.0"
 
     implementation project(':modules:programming')
+
+    // https://github.com/Celeral/log4j2-android
+    runtimeOnly "com.celeral:log4j2-android:1.0.0"
+
 }

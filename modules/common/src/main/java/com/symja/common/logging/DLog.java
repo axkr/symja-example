@@ -19,6 +19,8 @@ package com.symja.common.logging;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import com.symja.common.BuildConfig;
 
 /**
@@ -26,13 +28,13 @@ import com.symja.common.BuildConfig;
  * Setup Crashlytics https://firebase.google.com/docs/crashlytics/get-started?authuser=0
  */
 public class DLog {
-    private static final String TAG = "DLog";
-    public static boolean TEST_MODE = false;
-    public static int UITestmode = 0;
     /**
      * Show log
      */
     public static final boolean DEBUG = BuildConfig.DEBUG;
+    private static final String TAG = "DLog";
+    public static boolean TEST_MODE = false;
+    public static int UITestmode = 0;
     /**
      * Android environment
      */
@@ -92,13 +94,11 @@ public class DLog {
     /**
      * warning log
      */
-    public static void w(String TAG, Object msg) {
+    public static void w(String tag, Object obj) {
         if (DEBUG) {
-            if (ANDROID) {
-                Log.w(TAG, msg.toString());
-            } else {
-                System.err.println(TAG + ": " + msg.toString());
-            }
+           if (obj instanceof Throwable) {
+               w(tag, ((Throwable) obj).getMessage(), (Throwable) obj);
+           }
         }
     }
 
@@ -213,10 +213,10 @@ public class DLog {
     /**
      * info log
      */
-    public static void i(String tag, @NonNull Object msg) {
+    public static void i(String tag, @Nullable Object msg) {
         if (DEBUG) {
             if (ANDROID) {
-                Log.i(tag, msg.toString());
+                Log.i(tag, String.valueOf(msg));
             } else {
                 System.err.println(tag + ": " + msg);
             }

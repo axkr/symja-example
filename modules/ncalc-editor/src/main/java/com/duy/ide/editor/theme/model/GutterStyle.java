@@ -78,7 +78,7 @@ public class GutterStyle extends ColorScheme {
                 String color = properties.getProperty(attr.getKey());
                 put(attr.getKey(), Color.parseColor(color));
             } catch (Exception ignored) {
-                if (DLog.DEBUG) DLog.w(TAG, "load: can not find attr " + attr.getKey());
+                if (DLog.DEBUG) DLog.i(TAG, "load: can not find attr " + attr.getKey());
             }
         }
     }

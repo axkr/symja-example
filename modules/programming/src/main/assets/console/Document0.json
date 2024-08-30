@@ -1,0 +1,266 @@
+{
+  "name": "Document0.json",
+  "data": [
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "FactorInteger(2^15-5)"
+      },
+      "infix": "{{3,1},{67,1},{163,1}}",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": "\\left(\n\\begin{array}{cc}\n3 & 1 \\\\\n67 & 1 \\\\\n163 & 1 \\\\\n\\end{array}\n\\right) "
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "{{3,1},{67,1},{163,1}}"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Factor(-1+x^16)"
+      },
+      "infix": "(-1+x)*(1+x)*(1+x^2)*(1+x^4)*(1+x^8)",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": "\\left( -1 + x\\right)  \\cdot \\left( 1 + x\\right)  \\cdot \\left( 1 + {x}^{2}\\right)  \\cdot \\left( 1 + {x}^{4}\\right)  \\cdot \\left( 1 + {x}^{8}\\right) "
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "(-1+x)*(1+x)*(1+x^2)*(1+x^4)*(1+x^8)"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Expand((x+a)*(-x+a)*(-2*x*y+3*a^2))"
+      },
+      "infix": "3*a^4-3*a^2*x^2-2*a^2*x*y+2*x^3*y",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": "3 \\cdot {a}^{4}-3 \\cdot {a}^{2} \\cdot {x}^{2}-2 \\cdot {a}^{2} \\cdot x \\cdot y+2 \\cdot {x}^{3} \\cdot y"
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "3*a^4-3*a^2*x^2-2*a^2*x*y+2*x^3*y"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "D(Sin(x^3), x)"
+      },
+      "infix": "3*x^2*Cos(x^3)",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": "3 \\cdot {x}^{2} \\cdot \\cos ({x}^{3})"
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "3*x^2*Cos(x^3)"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Integrate(Cos(x)^5, x)"
+      },
+      "infix": "Sin(x)-2\/3*Sin(x)^3+Sin(x)^5\/5",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": "\\sin (x)-\\frac{2}{3} \\cdot {\\sin (x)}^{3} + \\frac{{\\sin (x)}^{5}}{5}"
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "Sin(x)-2\/3*Sin(x)^3+Sin(x)^5\/5"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Refine(Abs(n*Abs(m)),n<0)"
+      },
+      "infix": "-n*Abs(m)",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": " - n \\cdot |m|"
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "-n*Abs(m)"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Manipulate(Plot3D(Sin(a * x * y), {x, -1.5, 1.5}, {y, -1.5, 1.5}), {a,1,5})"
+      },
+      "infix": "JSFormData(var parent = document.currentScript.parentNode;\nvar id = generateId();\nparent.id = id;\nMathCell( id, [ { type: 'slider', min: 1, max: 5, name: 'a', label: 'a' }\n ] );\n\nparent.update = function( id ) {\n\nvar a = getVariable(id, 'a');\n\nfunction z1(x,y) { return [ x, y, sin(mul(mul(a,x),y)) ]; }\n\nvar p1 = parametric( z1, [-1.5, 1.5], [-1.5, 1.5], { colormap: 'hot' } );\n\n  var config = { type: 'threejs' };\n  var data = [p1];\nevaluate( id, data, config );\n\n}\nparent.update( id );\n,mathcell)",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "HTML",
+          "value": "<html>\n<head>\n<meta charset=\"utf-8\">\n<title>MathCell<\/title>\n<\/head>\n\n<body>\n<script src=\"https:\/\/cdn.jsdelivr.net\/gh\/paulmasson\/math@1.4.10\/build\/math.js\"><\/script>\n<script src=\"https:\/\/cdn.jsdelivr.net\/gh\/paulmasson\/mathcell@1.10.1\/build\/mathcell.js\"><\/script>\n<script src=\"https:\/\/cdn.jsdelivr.net\/gh\/mathjax\/MathJax@2.7.5\/MathJax.js?config=TeX-AMS_HTML\"><\/script>\n\n<div class=\"mathcell\" style=\"width: 100%; height: 100%; padding: .25in .5in .5in .5in;\">\n<script>\nvar parent = document.currentScript.parentNode;\nvar id = generateId();\nparent.id = id;\nMathCell( id, [ { type: 'slider', min: 1, max: 5, name: 'a', label: 'a' }\n ] );\n\nparent.update = function( id ) {\n\nvar a = getVariable(id, 'a');\n\nfunction z1(x,y) { return [ x, y, sin(mul(mul(a,x),y)) ]; }\n\nvar p1 = parametric( z1, [-1.5, 1.5], [-1.5, 1.5], { colormap: 'hot' } );\n\n  var config = { type: 'threejs' };\n  var data = [p1];\nevaluate( id, data, config );\n\n}\nparent.update( id );\n\n<\/script>\n\n<\/div>\n<\/body>\n<\/html>"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Plot(Piecewise({{x^2, x < 0}, {x, x >= 0&&x<1},{Cos(x-1), x >= 1}}), {x, -2, 12})"
+      },
+      "infix": "Graphics({RGBColor(0.36841699481010437,0.5067790150642395,0.7097979784011841),Line({{-2.0,4.0},{-1.8974918948490562,3.600475491017862},{-1.8109536309286316,3.2795530533735944},{-1.7254961437478986,2.977336942088869},{-1.6409027855972946,2.692561951780961},{-1.5529277775312118,2.4115846822280287},{-1.46915009876681,2.1584020127065275},{-1.3735053470750773,1.8865169384438285},{-1.2765330704104338,1.6295366798514896},{-1.1843848513663087,1.4027674761459932},{-1.0918189073667293,1.1920685264834785},{-1.0106122635080332,1.0213371471528303},{-0.921444167903057,0.8490593545625572},{-0.7803443329079855,0.608937277901609},{-0.6243589006785664,0.3898240368565479},{-0.5427188429453675,0.2945437424879585},{-0.4595353822137287,0.21117276750631772},{-0.3803366490448563,0.1446559666066702},{-0.2846706637912923,0.08103738682337498},{-0.2054086900572923,0.04219272995105277},{-0.11304920844866936,0.012780123530870697},{-0.025359560550835505,6.431073113314925E-4},{0.019771093709005934,0.019771093709005934},{0.05857350851522802,0.05857350851522802},{0.2579427907686139,0.2579427907686139},{0.45544941277693785,0.45544941277693785},{0.6427876962604697,0.6427876962604697},{0.8568260618445369,0.8568260618445369},{0.9422927212295911,0.9422927212295911},{0.9859580127271191,0.9859580127271191},{1.0347416788180093,0.9993965685744682},{1.2337678400905754,0.9728005028076697},{1.3418434664396641,0.9421382917006949},{1.4395526907480976,0.904942099363211},{1.637540141465071,0.8035623460052737},{1.8207719924569805,0.6816565649856974},{1.9907205424101677,0.5480873260253599},{2.2170799273702992,0.34638651564352274},{2.420017420525567,0.1502082470555803},{2.663426281653681,-0.09249754607821638},{2.8823612431814327,-0.30654858470548957},{3.066099313801755,-0.47529824854817376},{3.2753913764673834,-0.6477253615628747},{3.3958984415079647,-0.7346170690665861},{3.5047990643842053,-0.8040064853148704},{3.62888807671781,-0.8714210044181128},{3.741675057705125,-0.9210930805496368},{3.8590120921468047,-0.9603390863958537},{3.9963907744170424,-0.9894767156966585},{4.153526743328041,-0.9999287895962293},{4.303753997455436,-0.9868806363456949},{4.435506105659987,-0.957117480247375},{4.556280776248055,-0.9152420217907703},{4.655381583155023,-0.8708885783205811},{4.766250968232928,-0.8111629913323146},{4.869081807598066,-0.7468464586175926},{4.988972187967846,-0.6619495821079047},{5.099200113646802,-0.5754782912663519},{5.233310861656099,-0.46096127542517706},{5.442078102088064,-0.2670310392494333},{5.6204190925415265,-0.09184028872536561},{5.828296569785218,0.11564823558718777},{5.999774414341124,0.2834458586831217},{6.148361961928726,0.4222925695682823},{6.277060675589814,0.5351385046743088},{6.425877189061904,0.6544751245110946},{6.55340616359191,0.7453216666048547},{6.685281826291144,0.8265175839428751},{6.794248472107272,0.8828327127951832},{6.902046552456175,0.928241646102657},{7.0137439055027,0.96391974172768},{7.131790865129924,0.9885617338708145},{7.243841436175182,0.9992261297403272},{7.439321328405233,0.9878355142061309},{7.626352330018859,0.9416937781299237},{7.743255876732939,0.8960211660747325},{7.84483139740224,0.8463795831350007},{7.955574857536865,0.7823355522152527},{8.080018929098484,0.6989746335837603},{8.274670664134705,0.5474474587531687},{8.533488220873624,0.3150348874965608},{8.775987003995034,0.07791557836194883},{9.03453547506642,-0.17957443900531544},{9.254932144314392,-0.39029364426144536},{9.382267103798629,-0.5040532901350832},{9.514537689627401,-0.6135560368096661},{9.637934987503746,-0.7060844086527359},{9.76108103627312,-0.7877201914465666},{9.877149411157038,-0.8537616505266231},{9.996997608153347,-0.9098888159401523},{10.144305050978998,-0.9609246395568285},{10.265411985532992,-0.987328096630689},{10.391411629928971,-0.9994433956255279},{10.526740184581557,-0.9948063543535974},{10.68154333445485,-0.9672164806308472},{10.81205270647405,-0.9259417340333858},{10.954770779317963,-0.8628107009556415},{11.10747237013878,-0.7758756724597923},{11.255136048163623,-0.6746114728865978},{11.401999331510986,-0.559328037766377},{11.530516964082565,-0.4484740376730208},{11.678629917861663,-0.3116645840934682},{12.0,0.004425697988050785}})},Axes->True,PlotRange->{{-3.166666666666667,13.166666666666666},{-1.4165895220625817,4.416660732466353}})",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "HTML",
+          "value": "<html>\n<head>\n<meta charset=\"utf-8\">\n<title>Graphics 2D<\/title>\n<link rel=\"stylesheet\" type=\"text\/css\" href=\"https:\/\/cdn.jsdelivr.net\/npm\/jsxgraph@1.6.2\/distrib\/jsxgraph.css\"\/>\n<script src=\"https:\/\/cdn.jsdelivr.net\/gh\/paulmasson\/math@1.4.10\/build\/math.js\"><\/script>\n<script src=\"https:\/\/cdn.jsdelivr.net\/npm\/jsxgraph@1.6.2\/distrib\/jsxgraphcore.js\"><\/script>\n<script src=\"https:\/\/cdn.jsdelivr.net\/npm\/json2d_jsxgraph@1.0.1\/drawGraphics2d.js\"><\/script>\n\n<\/head>\n<body>\n<div id=\"graphics2d\" class=\"jxgbox\" style=\"max-width:400px; aspect-ratio: 1\/1;\"><\/div>\n<script>\ndrawGraphics2d(\"graphics2d\",\n{\"axes\":{\"hasaxes\":[true,true]},\"elements\":[{\"option\":\"opacity\",\"value\":1.0},{\"option\":\"pointSize\",\"value\":0.0013},{\"option\":\"fontSize\",\"value\":12},{\"option\":\"color\",\"value\":[0.0,0.0,0.0]},{\"option\":\"opacity\",\"value\":1.0},{\"aspectRatio\":{\"symbol\":\"automatic\"}},{\"option\":\"color\",\"value\":[0.36841699481010437,0.5067790150642395,0.7097979784011841]},{\"option\":\"opacity\",\"value\":1.0},{\"type\":\"line\",\"coords\":[[[-2.0,4.0]],[[-1.8974918948490562,3.600475491017862]],[[-1.8109536309286316,3.2795530533735944]],[[-1.7254961437478986,2.977336942088869]],[[-1.6409027855972946,2.692561951780961]],[[-1.5529277775312118,2.4115846822280287]],[[-1.46915009876681,2.1584020127065275]],[[-1.3735053470750773,1.8865169384438285]],[[-1.2765330704104338,1.6295366798514896]],[[-1.1843848513663087,1.4027674761459932]],[[-1.0918189073667293,1.1920685264834785]],[[-1.0106122635080332,1.0213371471528303]],[[-0.921444167903057,0.8490593545625572]],[[-0.7803443329079855,0.608937277901609]],[[-0.6243589006785664,0.3898240368565479]],[[-0.5427188429453675,0.2945437424879585]],[[-0.4595353822137287,0.21117276750631772]],[[-0.3803366490448563,0.1446559666066702]],[[-0.2846706637912923,0.08103738682337498]],[[-0.2054086900572923,0.04219272995105277]],[[-0.11304920844866936,0.012780123530870697]],[[-0.025359560550835505,6.431073113314925E-4]],[[0.019771093709005934,0.019771093709005934]],[[0.05857350851522802,0.05857350851522802]],[[0.2579427907686139,0.2579427907686139]],[[0.45544941277693785,0.45544941277693785]],[[0.6427876962604697,0.6427876962604697]],[[0.8568260618445369,0.8568260618445369]],[[0.9422927212295911,0.9422927212295911]],[[0.9859580127271191,0.9859580127271191]],[[1.0347416788180093,0.9993965685744682]],[[1.2337678400905754,0.9728005028076697]],[[1.3418434664396641,0.9421382917006949]],[[1.4395526907480976,0.904942099363211]],[[1.637540141465071,0.8035623460052737]],[[1.8207719924569805,0.6816565649856974]],[[1.9907205424101677,0.5480873260253599]],[[2.2170799273702992,0.34638651564352274]],[[2.420017420525567,0.1502082470555803]],[[2.663426281653681,-0.09249754607821638]],[[2.8823612431814327,-0.30654858470548957]],[[3.066099313801755,-0.47529824854817376]],[[3.2753913764673834,-0.6477253615628747]],[[3.3958984415079647,-0.7346170690665861]],[[3.5047990643842053,-0.8040064853148704]],[[3.62888807671781,-0.8714210044181128]],[[3.741675057705125,-0.9210930805496368]],[[3.8590120921468047,-0.9603390863958537]],[[3.9963907744170424,-0.9894767156966585]],[[4.153526743328041,-0.9999287895962293]],[[4.303753997455436,-0.9868806363456949]],[[4.435506105659987,-0.957117480247375]],[[4.556280776248055,-0.9152420217907703]],[[4.655381583155023,-0.8708885783205811]],[[4.766250968232928,-0.8111629913323146]],[[4.869081807598066,-0.7468464586175926]],[[4.988972187967846,-0.6619495821079047]],[[5.099200113646802,-0.5754782912663519]],[[5.233310861656099,-0.46096127542517706]],[[5.442078102088064,-0.2670310392494333]],[[5.6204190925415265,-0.09184028872536561]],[[5.828296569785218,0.11564823558718777]],[[5.999774414341124,0.2834458586831217]],[[6.148361961928726,0.4222925695682823]],[[6.277060675589814,0.5351385046743088]],[[6.425877189061904,0.6544751245110946]],[[6.55340616359191,0.7453216666048547]],[[6.685281826291144,0.8265175839428751]],[[6.794248472107272,0.8828327127951832]],[[6.902046552456175,0.928241646102657]],[[7.0137439055027,0.96391974172768]],[[7.131790865129924,0.9885617338708145]],[[7.243841436175182,0.9992261297403272]],[[7.439321328405233,0.9878355142061309]],[[7.626352330018859,0.9416937781299237]],[[7.743255876732939,0.8960211660747325]],[[7.84483139740224,0.8463795831350007]],[[7.955574857536865,0.7823355522152527]],[[8.080018929098484,0.6989746335837603]],[[8.274670664134705,0.5474474587531687]],[[8.533488220873624,0.3150348874965608]],[[8.775987003995034,0.07791557836194883]],[[9.03453547506642,-0.17957443900531544]],[[9.254932144314392,-0.39029364426144536]],[[9.382267103798629,-0.5040532901350832]],[[9.514537689627401,-0.6135560368096661]],[[9.637934987503746,-0.7060844086527359]],[[9.76108103627312,-0.7877201914465666]],[[9.877149411157038,-0.8537616505266231]],[[9.996997608153347,-0.9098888159401523]],[[10.144305050978998,-0.9609246395568285]],[[10.265411985532992,-0.987328096630689]],[[10.391411629928971,-0.9994433956255279]],[[10.526740184581557,-0.9948063543535974]],[[10.68154333445485,-0.9672164806308472]],[[10.81205270647405,-0.9259417340333858]],[[10.954770779317963,-0.8628107009556415]],[[11.10747237013878,-0.7758756724597923]],[[11.255136048163623,-0.6746114728865978]],[[11.401999331510986,-0.559328037766377]],[[11.530516964082565,-0.4484740376730208]],[[11.678629917861663,-0.3116645840934682]],[[12.0,0.004425697988050785]]]}],\"extent\":{\"xmin\":-3.166666666666667,\"xmax\":13.166666666666666,\"ymin\":-1.4165895220625817,\"ymax\":4.416660732466353}}\n);\n<\/script>\n\n<\/div>\n<\/body>\n<\/html>"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Graph({1,2,3},{1<->2,2<->3,3<->1},{EdgeWeight->{2.0,3.0,4.0}})"
+      },
+      "infix": "Graph({1,2,3},{1<->2,2<->3,3<->1},{EdgeWeight->{2.0,3.0,4.0}})",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "HTML",
+          "value": "<html>\n<head>\n<meta charset=\"utf-8\">\n<head>\n  <title>Graph network<\/title>\n\n  <script type=\"text\/javascript\" src=\"https:\/\/cdn.jsdelivr.net\/npm\/vis-network@6.0.0\/dist\/vis-network.min.js\"><\/script>\n  <style type=\"text\/css\">\n    #mynetwork {\n      width: 600px;\n      height: 400px;\n      border: 1px solid lightgray;\n    }\n  <\/style>\n<\/head>\n<body>\n<div id=\"vis\"><\/div>\n\n<script type=\"text\/javascript\">\nvar nodes = new vis.DataSet([\n  {id: 1, label: '1'}\n, {id: 2, label: '2'}\n, {id: 3, label: '3'}\n]);\nvar edges = new vis.DataSet([\n  {from: 1, to: 2, label: '2.0'}\n, {from: 2, to: 3, label: '3.0'}\n, {from: 3, to: 1, label: '4.0'}\n]);\n\n  \/\/ create a network\n  var container = document.getElementById('vis');\n  var data = {\n    nodes: nodes,\n    edges: edges\n  };\nvar options = {};\n  var network = new vis.Network(container, data, options);\n<\/script>\n\n\n<\/body>\n<\/html>"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "HamiltonianGraphQ(Graph({1,2,3},{1<->2,2<->3,3<->1}))"
+      },
+      "infix": "True",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": "True"
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "True"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "FindSpanningTree(Graph({a,b,c,d,e,f},{a<->b,a<->d,b<->c,b<->d,b<->e,c<->e,c<->f,d<->e,e<->f}, {EdgeWeight->{1.0,3.0,6.0,5.0,1.0,5.0,2.0,1.0,4.0}}))"
+      },
+      "infix": "Graph({a,b,d,e,c,f},{a->b,d->e,c->f,b->e,e->f},{EdgeWeight->{1.0,1.0,2.0,1.0,4.0}})",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "HTML",
+          "value": "<html>\n<head>\n<meta charset=\"utf-8\">\n<head>\n  <title>Graph network<\/title>\n\n  <script type=\"text\/javascript\" src=\"https:\/\/cdn.jsdelivr.net\/npm\/vis-network@6.0.0\/dist\/vis-network.min.js\"><\/script>\n  <style type=\"text\/css\">\n    #mynetwork {\n      width: 600px;\n      height: 400px;\n      border: 1px solid lightgray;\n    }\n  <\/style>\n<\/head>\n<body>\n<div id=\"vis\"><\/div>\n\n<script type=\"text\/javascript\">\nvar nodes = new vis.DataSet([\n  {id: 1, label: 'a'}\n, {id: 2, label: 'b'}\n, {id: 3, label: 'd'}\n, {id: 4, label: 'e'}\n, {id: 5, label: 'c'}\n, {id: 6, label: 'f'}\n]);\nvar edges = new vis.DataSet([\n  {from: 1, to: 2, label: '1.0' , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 3, to: 4, label: '1.0' , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 5, to: 6, label: '2.0' , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 2, to: 4, label: '1.0' , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 4, to: 6, label: '4.0' , arrows: { to: { enabled: true, type: 'arrow'}}}\n]);\n\n  \/\/ create a network\n  var container = document.getElementById('vis');\n  var data = {\n    nodes: nodes,\n    edges: edges\n  };\nvar options = {};\n  var network = new vis.Network(container, data, options);\n<\/script>\n\n\n<\/body>\n<\/html>"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "TreeForm(a+(b*q*s)^(2*y)+Sin(c)^(3-z))"
+      },
+      "infix": "JSFormData(var nodes = new vis.DataSet([\n  {id: 1, label: 'Plus', level: 0}\n, {id: 2, label: 'a', level: 1}\n, {id: 3, label: 'Power', level: 1}\n, {id: 4, label: 'Times', level: 2}\n, {id: 5, label: 'b', level: 3}\n, {id: 6, label: 'q', level: 3}\n, {id: 7, label: 's', level: 3}\n, {id: 8, label: 'Times', level: 2}\n, {id: 9, label: '2', level: 3}\n, {id: 10, label: 'y', level: 3}\n, {id: 11, label: 'Power', level: 1}\n, {id: 12, label: 'Sin', level: 2}\n, {id: 13, label: 'c', level: 3}\n, {id: 14, label: 'Plus', level: 2}\n, {id: 15, label: '3', level: 3}\n, {id: 16, label: 'Times', level: 3}\n, {id: 17, label: '-1', level: 4}\n, {id: 18, label: 'z', level: 4}\n]);\nvar edges = new vis.DataSet([\n  {from: 1, to: 2 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 1, to: 3 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 3, to: 4 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 4, to: 5 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 4, to: 6 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 4, to: 7 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 3, to: 8 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 8, to: 9 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 8, to: 10 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 1, to: 11 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 11, to: 12 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 12, to: 13 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 11, to: 14 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 14, to: 15 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 14, to: 16 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 16, to: 17 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 16, to: 18 , arrows: { to: { enabled: true, type: 'arrow'}}}\n]);\n,treeform)",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "HTML",
+          "value": "<html>\n<head>\n<meta charset=\"utf-8\">\n<head>\n  <title>Graph network<\/title>\n\n  <script type=\"text\/javascript\" src=\"https:\/\/cdn.jsdelivr.net\/npm\/vis-network@6.0.0\/dist\/vis-network.min.js\"><\/script>\n  <style type=\"text\/css\">\n    #mynetwork {\n      width: 600px;\n      height: 400px;\n      border: 1px solid lightgray;\n    }\n  <\/style>\n<\/head>\n<body>\n<div id=\"vis\"><\/div>\n\n<script type=\"text\/javascript\">\nvar nodes = new vis.DataSet([\n  {id: 1, label: 'Plus', level: 0}\n, {id: 2, label: 'a', level: 1}\n, {id: 3, label: 'Power', level: 1}\n, {id: 4, label: 'Times', level: 2}\n, {id: 5, label: 'b', level: 3}\n, {id: 6, label: 'q', level: 3}\n, {id: 7, label: 's', level: 3}\n, {id: 8, label: 'Times', level: 2}\n, {id: 9, label: '2', level: 3}\n, {id: 10, label: 'y', level: 3}\n, {id: 11, label: 'Power', level: 1}\n, {id: 12, label: 'Sin', level: 2}\n, {id: 13, label: 'c', level: 3}\n, {id: 14, label: 'Plus', level: 2}\n, {id: 15, label: '3', level: 3}\n, {id: 16, label: 'Times', level: 3}\n, {id: 17, label: '-1', level: 4}\n, {id: 18, label: 'z', level: 4}\n]);\nvar edges = new vis.DataSet([\n  {from: 1, to: 2 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 1, to: 3 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 3, to: 4 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 4, to: 5 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 4, to: 6 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 4, to: 7 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 3, to: 8 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 8, to: 9 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 8, to: 10 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 1, to: 11 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 11, to: 12 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 12, to: 13 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 11, to: 14 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 14, to: 15 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 14, to: 16 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 16, to: 17 , arrows: { to: { enabled: true, type: 'arrow'}}}\n, {from: 16, to: 18 , arrows: { to: { enabled: true, type: 'arrow'}}}\n]);\n\n  \/\/ create a network\n  var container = document.getElementById('vis');\n  var data = {\n    nodes: nodes,\n    edges: edges\n  };\n  var options = {\n          edges: {\n              smooth: {\n                  type: 'cubicBezier',\n                  forceDirection:  'vertical',\n                  roundness: 0.4\n              }\n          },\n          layout: {\n              hierarchical: {\n                  direction: \"UD\"\n              }\n          },\n          nodes: {\n            shape: 'box'\n          },\n          physics:false\n      }; \n  var network = new vis.Network(container, data, options);\n<\/script>\n\n\n<\/body>\n<\/html>"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Inverse({{1,2},{3,4}})"
+      },
+      "infix": "{{-2,1},\n {3\/2,-1\/2}}",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": "\\left(\n\\begin{array}{cc}\n-2 & 1 \\\\\n\\frac{3}{2} & -\\frac{1}{2} \\\\\n\\end{array}\n\\right) "
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "{{-2,1},\n {3\/2,-1\/2}}"
+        }
+      ],
+      "version": "1.6"
+    },
+    {
+      "input": {
+        "format": "TEXT_PLAIN",
+        "value": "Det({{1,2},{3,4}})"
+      },
+      "infix": "-2",
+      "stderr": "",
+      "stdout": "",
+      "data": [
+        {
+          "format": "LATEX",
+          "value": "-2"
+        },
+        {
+          "format": "TEXT_PLAIN",
+          "value": "-2"
+        }
+      ],
+      "version": "1.6"
+    }
+  ],
+  "version": "1.0"
+}
