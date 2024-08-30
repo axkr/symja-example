@@ -49,6 +49,10 @@ android {
     testOptions {
         animationsDisabled = true
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 
