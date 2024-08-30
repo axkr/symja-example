@@ -4,3 +4,6 @@
 androidTestResultsUserPreferences.xml
 deploymentTargetDropDown.xml
 *.iml
+deploymentTargetSelector.xml
+migrations.xml
+runConfigurations.xml
