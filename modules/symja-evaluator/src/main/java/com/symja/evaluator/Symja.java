@@ -5,8 +5,10 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.WorkerThread;
 
+import com.symja.common.logging.DLog;
 import com.symja.evaluator.config.SymjaEvaluationConfig;
 
+import org.apfloat.FixedPrecisionApfloatHelper;
 import org.matheclipse.core.basic.Config;
 import org.matheclipse.core.basic.OperationSystem;
 import org.matheclipse.core.eval.EvalEngine;
@@ -88,7 +90,10 @@ public class Symja {
         try {
             long precision = finalExpr.determinePrecision();
             EvalEngine evalEngine = exprEvaluator.getEvalEngine();
-            evalEngine.setNumericPrecision(precision);
+            FixedPrecisionApfloatHelper fixedPrecisionApfloatHelper = evalEngine.setNumericPrecision(precision);
+            if (DLog.DEBUG) {
+                DLog.d(TAG, "fixedPrecisionApfloatHelper = " + fixedPrecisionApfloatHelper);
+            }
 
             final StringWriter outWriter = new StringWriter();
             WriterOutputStream stdOut = new WriterOutputStream(outWriter);
