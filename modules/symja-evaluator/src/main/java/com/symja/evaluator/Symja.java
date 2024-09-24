@@ -66,11 +66,10 @@ public class Symja {
                 ExprEvaluator exprEvaluator = new ExprEvaluator();
                 Log.d(TAG, String.valueOf(exprEvaluator.eval("Sin(x)+Cos(x)")));
 
-
-                semaphore.release();
                 systemInited.set(true);
             } catch (Exception e) { // Should not throw error
                 e.printStackTrace();
+            } finally {
                 semaphore.release();
             }
         }
@@ -88,7 +87,7 @@ public class Symja {
         final IExpr finalExpr = expr;
 
         try {
-            long precision = finalExpr.determinePrecision();
+            long precision = finalExpr.determinePrecision(true);
             EvalEngine evalEngine = exprEvaluator.getEvalEngine();
             FixedPrecisionApfloatHelper fixedPrecisionApfloatHelper = evalEngine.setNumericPrecision(precision);
             if (DLog.DEBUG) {
