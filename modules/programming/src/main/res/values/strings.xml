@@ -40,4 +40,6 @@
     <string name="symja_prgm_title_menu_copy_code">Select an item to copy</string>
     <string name="symja_prgm_title_programming">Programming</string>
     <string name="symja_prgm_title_symjatalk">SymjaTalk</string>
+
+    <string name="symja_prgm_error_unknown">Unknown error</string>
 </resources>

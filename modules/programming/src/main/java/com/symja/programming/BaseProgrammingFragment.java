@@ -491,6 +491,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         if (errorContainer == null) {
             return;
         }
+        if (errorMessage == null || errorMessage.trim().isEmpty()) {
+            errorMessage = getString(R.string.symja_prgm_error_unknown);
+        }
         txtErrorLabel.setText(errorMessage);
         ViewUtils.showView(errorContainer);
     }

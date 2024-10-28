@@ -28,6 +28,7 @@ import com.symja.programming.console.models.CalculationItem;
 import com.symja.programming.symjatalk.api.SymjaFormat;
 import com.symja.programming.symjatalk.api.SymjaTalkRequest;
 import com.symja.programming.symjatalk.api.SymjaTalkResult;
+import com.symja.programming.utils.ErrorHandler;
 import com.symja.programming.utils.ViewUtils;
 
 import org.matheclipse.parser.client.SyntaxError;
@@ -308,7 +309,7 @@ public class SymjaTalkFragment extends BaseProgrammingFragment implements
                 inputView.setSelection(rowIndex, columnIndex);
                 displayErrorMessage(syntaxError.getError());
             } else {
-                displayErrorMessage(error.getMessage());
+                displayErrorMessage(ErrorHandler.getErrorMessage(getContext(), error));
             }
         }
         finishCalculating();

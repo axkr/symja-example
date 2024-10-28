@@ -31,6 +31,7 @@ import com.symja.programming.console.models.CalculationItem;
 import com.symja.programming.console.models.ResultDetector;
 import com.symja.programming.document.MarkdownDocumentActivity;
 import com.symja.programming.document.model.DocumentItem;
+import com.symja.programming.utils.ErrorHandler;
 import com.symja.programming.utils.ViewUtils;
 
 import org.apache.commons.io.IOUtils;
@@ -275,7 +276,7 @@ public class ProgrammingConsoleFragment extends BaseProgrammingFragment implemen
                     inputView.setSelection(rowIndex, columnIndex);
                     displayErrorMessage(syntaxError.getError());
                 } else {
-                    displayErrorMessage(error.getMessage());
+                    displayErrorMessage(ErrorHandler.getErrorMessage(getContext(),error));
                 }
             } catch (Exception e) {
                 ViewUtils.showMessageDialog(requireContext(), e.getMessage() != null
