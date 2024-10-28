@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.symja.programming.R;
 import com.symja.programming.document.model.DocumentItem;
 
-public class DocumentNavigationAdapter extends ListAdapter<DocumentItem, DocumentNavigationAdapter.ViewHolder> {
+public class DocumentNavigationAdapter extends ListAdapter<DocumentItem, DocumentNavigationAdapter.ItemViewHolder> {
 
     private OnItemClick onItemClickListener;
 
@@ -34,13 +34,14 @@ public class DocumentNavigationAdapter extends ListAdapter<DocumentItem, Documen
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.symja_prgm_document_navigation_item, parent, false));
+    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.symja_prgm_document_navigation_item, parent, false);
+        return new ItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         DocumentItem item = getItem(position);
         holder.name.setText(item.getName());
         holder.name.setOnClickListener(v -> {
@@ -58,10 +59,10 @@ public class DocumentNavigationAdapter extends ListAdapter<DocumentItem, Documen
         void onItemClick(int position, DocumentItem documentItem);
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ItemViewHolder extends RecyclerView.ViewHolder {
         final TextView name;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.txt_name);
         }

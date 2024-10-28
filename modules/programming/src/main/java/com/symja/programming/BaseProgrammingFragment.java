@@ -351,10 +351,12 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         inputView.setTextSize(15);
         inputView.setDelegate((position, completionItem) -> {
             if (presenter != null) {
-                try (AssetManager manager = requireContext().getAssets()) {
+                AssetManager assetManager = requireContext().getAssets();
+                // "try (AssetManager manager = requireContext().getAssets()) {" will lead to bug because of AutoCloseable implementation
+                try {
                     // TODO remove hard coded path
                     String assetPath = "doc/functions/" + completionItem.label + ".md";
-                    manager.open(assetPath);
+                    assetManager.open(assetPath);
                     {
                         presenter.openDocument(new DocumentItem(
                                 assetPath,
