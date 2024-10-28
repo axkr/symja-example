@@ -38,8 +38,7 @@ public class Symja {
     private final ThreadGroup threadGroup = new ThreadGroup("CalculateThread");
     private final ExprEvaluator exprEvaluator;
 
-    public Symja() {
-        init();
+    private Symja() {
         this.exprEvaluator = new ExprEvaluator();
     }
 
@@ -47,6 +46,7 @@ public class Symja {
     public static Symja getInstance() {
         synchronized (lock) {
             if (instance == null) {
+                initSymja();
                 instance = new Symja();
             }
         }
@@ -54,21 +54,26 @@ public class Symja {
     }
 
     @WorkerThread
-    public static void init() {
+    private static void initSymja() {
         if (!systemInited.get()) {
             try {
+                if (DLog.DEBUG) {
+                    Log.d(TAG, "init called");
+                }
                 semaphore.acquire();
 
                 Config.DISPLAY_JSFIDDLE_BUTTON = false;
                 Config.JAVA_AWT_DESKTOP_AVAILABLE = false;
 
                 F.initSymbols();
-                ExprEvaluator exprEvaluator = new ExprEvaluator();
-                Log.d(TAG, String.valueOf(exprEvaluator.eval("Sin(x)+Cos(x)")));
 
                 systemInited.set(true);
+
+                if (DLog.DEBUG) {
+                    Log.d(TAG, "init done");
+                }
             } catch (Exception e) { // Should not throw error
-                e.printStackTrace();
+                Log.e(TAG, e.getMessage(), e);
             } finally {
                 semaphore.release();
             }
