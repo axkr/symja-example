@@ -12,7 +12,7 @@
     app:cardUseCompatPadding="true"
     app:contentPadding="1dp"
     app:strokeColor="@color/symja_prgm_color_list_item_result_stroke"
-    app:strokeWidth="0.75dp">
+    app:strokeWidth="1dp">
 
     <com.symja.programming.view.viewgroup.BoundedLinearLayout
         android:layout_width="match_parent"
