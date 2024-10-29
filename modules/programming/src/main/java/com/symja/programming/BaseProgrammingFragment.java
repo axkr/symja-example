@@ -10,6 +10,7 @@ import android.content.res.AssetManager;
 import android.graphics.Rect;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,6 +68,8 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import io.github.rosemoe.sora.event.ContentChangeEvent;
+import io.github.rosemoe.sora.event.EditorKeyEvent;
+import io.github.rosemoe.sora.event.KeyBindingEvent;
 
 
 public abstract class BaseProgrammingFragment extends Fragment implements DragListener,
@@ -368,6 +371,15 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 }
             }
         });
+        inputView.subscribeEvent(KeyBindingEvent.class, (keyBindingEvent, unsubscribe) -> {
+            if (keyBindingEvent.isShiftPressed() && keyBindingEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+                keyBindingEvent.intercept();
+                if (btnRun.isEnabled()) {
+                    clickRun();
+                }
+            }
+        });
+
 
         txtErrorLabel = view.findViewById(R.id.symja_prgm_txt_error_message);
         errorContainer = view.findViewById(R.id.symja_prgm_error_container);
