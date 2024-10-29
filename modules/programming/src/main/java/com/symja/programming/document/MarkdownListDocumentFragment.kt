@@ -61,12 +61,12 @@ class MarkdownListDocumentFragment : Fragment(), OnDocumentClickListener, IDocum
         listDocumentAdapter = MarkdownListDocumentAdapter(context, documentItems)
         listDocumentAdapter?.setOnDocumentClickListener(this)
 
-        val documentListView = view.findViewById<RecyclerView>(R.id.document_list_view)
+        val documentListView = view.findViewById<RecyclerView>(R.id.symja_prgm_document_list_view)
         documentListView.setHasFixedSize(false)
         documentListView.isNestedScrollingEnabled = false
         documentListView.layoutManager = LinearLayoutManager(context)
         documentListView.adapter = listDocumentAdapter
-        searchView = view.findViewById(R.id.edit_search_view)
+        searchView = view.findViewById(R.id.symja_prgm_search_view)
         searchView?.addTextChangedListener(object : SimpleTextWatcher() {
             override fun afterTextChanged(s: Editable) {
                 onQueryTextChange(s.toString())
@@ -83,10 +83,10 @@ class MarkdownListDocumentFragment : Fragment(), OnDocumentClickListener, IDocum
         viewFlipper?.setInAnimation(getContext(), android.R.anim.slide_in_left)
         viewFlipper?.setOutAnimation(getContext(), android.R.anim.slide_out_right)
 
-        documentNavigationContainer = view.findViewById(R.id.document_navigation_container)
+        documentNavigationContainer = view.findViewById(R.id.symja_prgm_document_navigation_container)
         documentNavigationContainer?.isVisible = false;
 
-        documentNavigationView = view.findViewById(R.id.document_navigation_view)
+        documentNavigationView = view.findViewById(R.id.symja_prgm_document_navigation_view)
         documentNavigationAdapter.setOnItemClickListener { position: Int, documentItem: DocumentItem ->
             switchToPosition(
                 position,
