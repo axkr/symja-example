@@ -87,6 +87,8 @@ public class MarkdownVisitor extends AbstractVisitor {
     private TableRow tableRow;
     private boolean inHeader = false;
 
+    private int copyButtonCounter = 0;
+
     MarkdownVisitor(@NonNull NativeMarkdownView container, @Nullable MarkdownViewDelegate delegate) {
         this.container = container;
         this.delegate = delegate;
@@ -211,16 +213,17 @@ public class MarkdownVisitor extends AbstractVisitor {
                 btnCopy.setTextColor(editorTheme.getFgColor());
                 btnCopy.setIconTint(ColorStateList.valueOf(editorTheme.getFgColor()));
                 divider.setVisibility(View.VISIBLE);
-                divider.setBackgroundDrawable(new ColorDrawable(editorTheme.getGutterStyle().getFoldColor()));
+                divider.setBackground(new ColorDrawable(editorTheme.getGutterStyle().getFoldColor()));
 
-                btnCopy.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (delegate != null) {
-                            delegate.onCopyCodeButtonClicked(v, code);
-                        }
+                btnCopy.setOnClickListener(v -> {
+                    if (delegate != null) {
+                        delegate.onCopyCodeButtonClicked(v, code);
                     }
                 });
+
+                // for testing
+                btnCopy.setTag("Copy button " + copyButtonCounter);
+                copyButtonCounter++;
 
             } else {
                 btnCopy.setVisibility(View.GONE);
