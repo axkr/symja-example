@@ -124,7 +124,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
     private void addViewEvents(@NotNull View view) {
         btnRun.setOnClickListener(v -> clickRun());
 
-        View btnCopy = view.findViewById(R.id.btn_copy);
+        View btnCopy = view.findViewById(R.id.symja_prgm_btn_copy);
         btnCopy.setOnClickListener(v -> {
             final Context context = getContext();
             String content = inputView.getText().toString();
@@ -133,7 +133,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 ViewUtils.showToast(context, R.string.symja_prgm_message_copied, ViewUtils.LENGTH_SHORT);
             }
         });
-        view.findViewById(R.id.btn_paste).setOnClickListener(v -> {
+        view.findViewById(R.id.symja_prgm_btn_paste).setOnClickListener(v -> {
             final Context context = getContext();
             CharSequence clipboard = ClipboardCompat.getClipboard(context);
             if (clipboard != null) {
@@ -144,13 +144,13 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
                 ViewUtils.showKeyboard(context, inputView);
             }
         });
-        View btnUndo = view.findViewById(R.id.btn_undo);
+        View btnUndo = view.findViewById(R.id.symja_prgm_btn_undo);
         btnUndo.setOnClickListener(v -> {
             if (inputView.canUndo()) {
                 inputView.undo();
             }
         });
-        View btnRedo = view.findViewById(R.id.btn_redo);
+        View btnRedo = view.findViewById(R.id.symja_prgm_btn_redo);
         btnRedo.setOnClickListener(v -> {
             if (inputView.canRedo()) {
                 inputView.redo();
@@ -369,9 +369,9 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
             }
         });
 
-        txtErrorLabel = view.findViewById(R.id.txt_error_message);
-        errorContainer = view.findViewById(R.id.error_container);
-        btnCloseError = view.findViewById(R.id.btn_close_error_message);
+        txtErrorLabel = view.findViewById(R.id.symja_prgm_txt_error_message);
+        errorContainer = view.findViewById(R.id.symja_prgm_error_container);
+        btnCloseError = view.findViewById(R.id.symja_prgm_btn_close_error_message);
         errorContainer.setVisibility(View.GONE);
         btnCloseError.setOnClickListener(v -> errorContainer.setVisibility(View.GONE));
 
@@ -383,7 +383,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         listResultView.setAdapter(adapter);
         listResultView.setHasFixedSize(true);
 
-        btnRun = view.findViewById(R.id.btn_run);
+        btnRun = view.findViewById(R.id.symja_prgm_btn_run);
         progressBar = view.findViewById(R.id.progress_bar);
         progressBar.setVisibility(View.GONE);
 
@@ -391,7 +391,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         addViewEvents(view);
         setupSymbolViews(view.findViewById(R.id.container_symbol), view);
 
-        ImageView resizeInputButton = view.findViewById(R.id.btn_resize_input);
+        ImageView resizeInputButton = view.findViewById(R.id.symja_prgm_btn_resize_input);
         resizeInputButton.setOnClickListener(v -> inputExpanded.postValue(Boolean.FALSE.equals(inputExpanded.getValue())));
 
         inputExpanded.observe(this.getViewLifecycleOwner(), expanded -> {
@@ -420,7 +420,7 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         inputExpanded.postValue(PreferenceManager.getDefaultSharedPreferences(requireContext())
                 .getBoolean(this.getTag() + ".inputExpanded", true));
 
-        view.findViewById(R.id.btn_open_menu).setOnClickListener(this::openMenu);
+        view.findViewById(R.id.symja_prgm_btn_open_menu).setOnClickListener(this::openMenu);
     }
 
     private void openMenu(View v) {
@@ -431,17 +431,19 @@ public abstract class BaseProgrammingFragment extends Fragment implements DragLi
         popupMenu.inflate(R.menu.symja_prgm_menu_programming_console, v);
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
-            if (itemId == R.id.action_clear_all_items) {
+            if (itemId == R.id.symja_prgm_action_clear_all_items) {
                 clickClearAll();
                 return true;
             }
-            if (itemId == R.id.action_clear_input) {
+            if (itemId == R.id.symja_prgm_action_clear_input) {
                 final Context context = requireContext();
                 inputView.setText("");
                 inputView.requestFocus();
-                ViewUtils.showKeyboard(context, inputView);
+                inputView.postDelayed(() -> {
+                    ViewUtils.showKeyboard(context, inputView);
+                }, 500);
                 return true;
-            } else if (itemId == R.id.action_import_text_file) {
+            } else if (itemId == R.id.symja_prgm_action_import_text_file) {
                 importTextFile();
                 return true;
             }

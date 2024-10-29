@@ -37,7 +37,7 @@
             android:background="@color/symja_prgm_color_list_item_result_stroke" />
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/txt_error_message"
+            android:id="@+id/symja_prgm_txt_error_message"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="8dp"

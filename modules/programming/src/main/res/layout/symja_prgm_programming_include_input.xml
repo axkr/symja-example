@@ -60,7 +60,7 @@
                     android:orientation="horizontal">
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btn_resize_input"
+                        android:id="@+id/symja_prgm_btn_resize_input"
                         android:layout_width="40dp"
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
@@ -75,7 +75,7 @@
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btn_open_menu"
+                        android:id="@+id/symja_prgm_btn_open_menu"
                         android:layout_width="40dp"
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
@@ -88,7 +88,7 @@
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btn_copy"
+                        android:id="@+id/symja_prgm_btn_copy"
                         android:layout_width="40dp"
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
@@ -104,7 +104,7 @@
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btn_paste"
+                        android:id="@+id/symja_prgm_btn_paste"
                         android:layout_width="40dp"
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
@@ -120,7 +120,7 @@
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btn_undo"
+                        android:id="@+id/symja_prgm_btn_undo"
                         android:layout_width="40dp"
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
@@ -136,7 +136,7 @@
                         app:tint="?android:textColorPrimary" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btn_redo"
+                        android:id="@+id/symja_prgm_btn_redo"
                         android:layout_width="40dp"
                         android:layout_height="48dp"
                         android:background="?selectableItemBackground"
@@ -154,7 +154,7 @@
                 </LinearLayout>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_run"
+                    android:id="@+id/symja_prgm_btn_run"
                     style="@style/Widget.Material3.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="48dp"
@@ -180,7 +180,7 @@
                     tools:visibility="visible" />
 
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:id="@+id/error_container"
+                    android:id="@+id/symja_prgm_error_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="?colorSurface"
@@ -194,7 +194,7 @@
                         android:fillViewport="true">
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/txt_error_message"
+                            android:id="@+id/symja_prgm_txt_error_message"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center_vertical"
@@ -207,7 +207,7 @@
                     </ScrollView>
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/btn_close_error_message"
+                        android:id="@+id/symja_prgm_btn_close_error_message"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:background="?selectableItemBackground"

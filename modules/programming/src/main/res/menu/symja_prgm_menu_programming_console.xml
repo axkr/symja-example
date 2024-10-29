@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_import_text_file"
+        android:id="@+id/symja_prgm_action_import_text_file"
         android:icon="@drawable/symja_prgm_round_create_new_folder_24"
         android:title="@string/symja_prgm_menu_import_text_file"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_clear_input"
+        android:id="@+id/symja_prgm_action_clear_input"
         android:icon="@drawable/symja_prgm_baseline_clear_24"
         android:title="@string/symja_prgm_menu_clear_all_input" />
 
     <item
-        android:id="@+id/action_clear_all_items"
+        android:id="@+id/symja_prgm_action_clear_all_items"
         android:icon="@drawable/symja_prgm_round_playlist_remove_24"
         android:title="@string/symja_prgm_menu_clear_all_items" />
 

@@ -205,7 +205,7 @@ public class MarkdownVisitor extends AbstractVisitor {
             CardView cardView = (CardView) view;
             cardView.setCardBackgroundColor(editorTheme.getBgColor());
             View divider = view.findViewById(R.id.divider);
-            MaterialButton btnCopy = view.findViewById(R.id.btn_copy);
+            MaterialButton btnCopy = view.findViewById(R.id.symja_prgm_btn_copy);
             if (code.contains(">> ")) {
                 btnCopy.setVisibility(View.VISIBLE);
                 btnCopy.setTextColor(editorTheme.getFgColor());

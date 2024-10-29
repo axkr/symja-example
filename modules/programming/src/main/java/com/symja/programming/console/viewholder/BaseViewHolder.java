@@ -46,7 +46,7 @@ public abstract class BaseViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         txtTitle = itemView.findViewById(R.id.txt_title);
 
-        txtErrorMessage = itemView.findViewById(R.id.txt_error_message);
+        txtErrorMessage = itemView.findViewById(R.id.symja_prgm_txt_error_message);
         txtStandardMessage = itemView.findViewById(R.id.txt_standard_message);
         containerMessage = itemView.findViewById(R.id.container_output_message);
         expandCollapseButton = itemView.findViewById(R.id.expand_collapse_button);
