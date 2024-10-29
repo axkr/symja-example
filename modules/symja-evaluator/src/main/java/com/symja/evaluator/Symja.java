@@ -64,6 +64,7 @@ public class Symja {
 
                 Config.DISPLAY_JSFIDDLE_BUTTON = false;
                 Config.JAVA_AWT_DESKTOP_AVAILABLE = false;
+                Config.MAX_OUTPUT_SIZE = 10000;
 
                 F.initSymbols();
 
