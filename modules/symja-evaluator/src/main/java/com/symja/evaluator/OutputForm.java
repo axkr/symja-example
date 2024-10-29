@@ -17,7 +17,7 @@ public class OutputForm {
             String string = outputFormFactory.toString(result);
 
             if (string.length() > Config.MAX_OUTPUT_SIZE) {
-                return "Max output size " + Config.MAX_OUTPUT_SIZE + " characters exceeded";
+                return "Error: Max output size " + Config.MAX_OUTPUT_SIZE + " characters exceeded";
             }
 
             return string;
@@ -26,24 +26,24 @@ public class OutputForm {
         }
     }
 
-    public static String toLatex(IExpr expr) {
+    public static String toLatex(IExpr expr, int exponentFigures, int significantFigures) {
         if (expr == null) {
             return "";
         }
         try {
-            TeXFormFactory teXFormFactory = new TeXFormFactory();
+            TeXFormFactory teXFormFactory = new TeXFormFactory(exponentFigures, significantFigures, " \\cdot ");
             StringBuilder buffer = new StringBuilder();
             if (teXFormFactory.convert(buffer, expr)) {
                 return buffer.toString();
             }
 
             if (buffer.length() > Config.MAX_OUTPUT_SIZE) {
-                return "Max output size " + Config.MAX_OUTPUT_SIZE + " characters exceeded";
+                return "\\text{Error: Max output size " + Config.MAX_OUTPUT_SIZE + " characters exceeded}";
             }
 
-            return "Error";
+            return "\\text{Error}";
         } catch (Exception e) {
-            return "Error: " + e.getMessage();
+            return "\\text{Error: " + e.getMessage() + "}";
         }
     }
 }

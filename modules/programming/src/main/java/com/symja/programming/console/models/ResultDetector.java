@@ -135,20 +135,17 @@ public class ResultDetector {
     }
 
     @NonNull
-    public static CalculationItem makeTeXResult(EvalEngine engine, String inputExpression,
+    public static CalculationItem makeTeXResult(@NonNull EvalEngine engine, String inputExpression,
                                                 String symjaExpr, IExpr result) {
-        TeXUtilities teXUtilities = new TeXUtilities(engine,
-                engine.isRelaxedSyntax());
-        StringWriter latex = new StringWriter();
-        if (teXUtilities.toTeX(result, latex)) {
-            CalculationItem calculationItem = new CalculationItem(inputExpression, symjaExpr,
-                    Data.Format.LATEX, latex.toString());
-            calculationItem.addData(Data.text(symjaExpr));
-            return calculationItem;
-        } else {
-            return new CalculationItem(inputExpression, symjaExpr,
-                    Data.Format.TEXT_PLAIN, symjaExpr);
-        }
+
+        int exponentFigures = engine.getSignificantFigures() - 1;
+        int significantFigures = engine.getSignificantFigures() + 1;
+
+
+        String latex = OutputForm.toLatex(result, exponentFigures, significantFigures);
+        CalculationItem calculationItem = new CalculationItem(inputExpression, symjaExpr, Data.Format.LATEX, latex);
+        calculationItem.addData(Data.text(symjaExpr));
+        return calculationItem;
     }
 
     @NonNull
