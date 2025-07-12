@@ -2,10 +2,15 @@ package com.symja.app;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.ViewFlipper;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.tabs.TabLayout;
 import com.symja.common.analyst.AppAnalytics;
@@ -32,8 +37,11 @@ public class ProgrammingActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.symja_prgm_activity_programming);
+        setupEdgeToEdge();
+
         setSupportActionBar(findViewById(R.id.toolbar));
         setTitle(com.symja.programming.R.string.symja_prgm_title_programming);
         changeSystemBarColor();
@@ -58,6 +66,17 @@ public class ProgrammingActivity extends BaseActivity {
                 tabLayout.selectTab(tabLayout.getTabAt(selectedTabPosition));
             }
         }
+    }
+
+    private void setupEdgeToEdge() {
+        ViewGroup rootView = findViewById(R.id.root_view);
+        ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
+            Insets bars = insets.getInsets(WindowInsetsCompat.Type.systemBars()
+                    | WindowInsetsCompat.Type.displayCutout()
+                    | WindowInsetsCompat.Type.ime());
+            rootView.setPadding(bars.left, bars.top, bars.right, bars.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
     }
 
     private void setupTabView() {
