@@ -7,13 +7,12 @@ import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.test.espresso.matcher.BoundedMatcher;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
 public class RecyclerViewMatcher {
     @androidx.annotation.NonNull
-    public static Matcher<View> atPosition(final int position, @NonNull final Matcher<View> itemMatcher) {
+    public static Matcher<View> atPosition(final int position, final Matcher<View> itemMatcher) {
         checkNotNull(itemMatcher);
         return new BoundedMatcher<View, RecyclerView>(RecyclerView.class) {
             @Override
