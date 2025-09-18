@@ -12,17 +12,11 @@ dependencyResolutionManagement {
         mavenCentral()
         mavenLocal()
         maven {
-            url 'https://oss.sonatype.org/content/repositories/snapshots/'
+            url 'https://central.sonatype.com/repository/maven-snapshots'
         }
-        // maven {
-        //     url 'https://repository.apache.org/snapshots'
-        // }
         maven {
             url 'https://packages.orekit.org/repository/maven-public/'
         }
-        //maven {
-        //    url "https://s01.oss.sonatype.org/content/repositories/snapshots"
-        //}
     }
 }
 rootProject.name = "Symja"
