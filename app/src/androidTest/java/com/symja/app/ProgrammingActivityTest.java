@@ -41,6 +41,13 @@ public class ProgrammingActivityTest {
                 "(1+x)^2");
     }
 
+    @Test
+    public void testIntegrate() {
+        switchConsoleTab();
+        check("Integrate(Sin(x^2, x)",
+                "Sqrt(Pi/2)*FresnelS(Sqrt(2/Pi)*x)");
+    }
+
     private void switchConsoleTab() {
         onView(withText("Console")).perform(click());
     }
